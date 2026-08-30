@@ -1191,7 +1191,7 @@
   "location": "Kuwait",
   "keywords": "",
   "country": "KW",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1201,7 +1201,7 @@
   "location": "Kuwait",
   "keywords": "محاسب",
   "country": "KW",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1211,7 +1211,7 @@
   "location": "Kuwait",
   "keywords": "مبيعات",
   "country": "KW",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1221,7 +1221,7 @@
   "location": "Kuwait",
   "keywords": "خدمة عملاء",
   "country": "KW",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1231,7 +1231,7 @@
   "location": "Kuwait",
   "keywords": "سائق",
   "country": "KW",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1241,7 +1241,7 @@
   "location": "Kuwait",
   "keywords": "مهندس",
   "country": "KW",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1251,7 +1251,7 @@
   "location": "Egypt",
   "keywords": "",
   "country": "EG",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1261,7 +1261,7 @@
   "location": "Egypt",
   "keywords": "محاسب",
   "country": "EG",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1271,7 +1271,7 @@
   "location": "Egypt",
   "keywords": "مبيعات",
   "country": "EG",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1281,7 +1281,7 @@
   "location": "Egypt",
   "keywords": "خدمة عملاء",
   "country": "EG",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1291,7 +1291,7 @@
   "location": "Egypt",
   "keywords": "سائق",
   "country": "EG",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1301,7 +1301,7 @@
   "location": "Egypt",
   "keywords": "مهندس",
   "country": "EG",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1311,7 +1311,7 @@
   "location": "Saudi Arabia",
   "keywords": "",
   "country": "SA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1321,7 +1321,7 @@
   "location": "Saudi Arabia",
   "keywords": "محاسب",
   "country": "SA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1331,7 +1331,7 @@
   "location": "Saudi Arabia",
   "keywords": "مبيعات",
   "country": "SA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1341,7 +1341,7 @@
   "location": "Saudi Arabia",
   "keywords": "خدمة عملاء",
   "country": "SA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1351,7 +1351,7 @@
   "location": "Saudi Arabia",
   "keywords": "سائق",
   "country": "SA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1361,7 +1361,7 @@
   "location": "Saudi Arabia",
   "keywords": "مهندس",
   "country": "SA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1371,7 +1371,7 @@
   "location": "UAE",
   "keywords": "",
   "country": "AE",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1381,7 +1381,7 @@
   "location": "UAE",
   "keywords": "محاسب",
   "country": "AE",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1391,7 +1391,7 @@
   "location": "UAE",
   "keywords": "مبيعات",
   "country": "AE",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1401,7 +1401,7 @@
   "location": "UAE",
   "keywords": "خدمة عملاء",
   "country": "AE",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1411,7 +1411,7 @@
   "location": "UAE",
   "keywords": "سائق",
   "country": "AE",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1421,7 +1421,7 @@
   "location": "UAE",
   "keywords": "مهندس",
   "country": "AE",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1431,7 +1431,7 @@
   "location": "Qatar",
   "keywords": "",
   "country": "QA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1441,7 +1441,7 @@
   "location": "Qatar",
   "keywords": "محاسب",
   "country": "QA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1451,7 +1451,7 @@
   "location": "Qatar",
   "keywords": "مبيعات",
   "country": "QA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1461,7 +1461,7 @@
   "location": "Qatar",
   "keywords": "خدمة عملاء",
   "country": "QA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1471,7 +1471,7 @@
   "location": "Qatar",
   "keywords": "سائق",
   "country": "QA",
-  "is_active": false
+  "is_active": true
  },
  {
   "kind": "jooble",
@@ -1481,6 +1481,6 @@
   "location": "Qatar",
   "keywords": "مهندس",
   "country": "QA",
-  "is_active": false
+  "is_active": true
  }
 ]
