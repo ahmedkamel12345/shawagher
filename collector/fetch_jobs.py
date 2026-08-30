@@ -67,9 +67,16 @@ CATEGORY_RULES = [
 ]
 
 SENIORITY_RULES = [
-    ("manager", ["manager", "head of", "director", "chief", "مدير", "رئيس"]),
-    ("senior",  ["senior", "sr.", "lead", "principal", "أول", "خبير"]),
-    ("entry",   ["junior", "jr.", "intern", "trainee", "graduate", "fresh", "مبتدئ", "متدرب", "حديث"]),
+    ("executive", ["chief", "ceo", "cto", "cfo", "coo", "vp ", "vice president", "president",
+                   "managing director", "general manager", "مدير عام", "رئيس تنفيذي", "نائب الرئيس"]),
+    ("manager",   ["manager", "head of", "director", "مدير", "رئيس قسم", "رئيس وحدة"]),
+    ("supervisor",["supervisor", "team lead", "lead ", "foreman", "مشرف", "قائد فريق", "ملاحظ"]),
+    ("senior",    ["senior", "sr.", "principal", "expert", "consultant", "أول", "خبير", "استشاري", "أخصائي أول"]),
+    ("entry",     ["junior", "jr.", "intern", "trainee", "graduate", "fresh", "entry",
+                   "مبتدئ", "متدرب", "حديث التخرج", "خريج"]),
+    ("worker",    ["worker", "labour", "labor", "helper", "cleaner", "driver", "security guard",
+                   "waiter", "cashier", "operator", "عامل", "عمال", "سائق", "حارس", "نظافة",
+                   "مساعد", "فني", "حرفي", "كاشير", "مضيف", "بائع", "مندوب توصيل"]),
 ]
 
 TAG_RE = re.compile(r"<[^>]+>")
