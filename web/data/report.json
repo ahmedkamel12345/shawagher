@@ -1,5 +1,5 @@
 {
- "started_at": "2026-08-30T16:15:10.853743+00:00",
+ "started_at": "2026-08-30T17:26:18.988659+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -424,186 +424,186 @@
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://kw.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 4,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://kw.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 4,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://kw.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 4,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://kw.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 4,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://kw.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 4,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://kw.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 4,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-all",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://eg.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-محاسب",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://eg.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-مبيعات",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://eg.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-خدمة عملاء",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://eg.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-سائق",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://eg.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-مهندس",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://eg.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://sa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://sa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://sa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://sa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://sa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://sa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-all",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://ae.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-محاسب",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://ae.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مبيعات",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://ae.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-خدمة عملاء",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://ae.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-سائق",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://ae.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مهندس",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://ae.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-all",
    "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://qa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-محاسب",
    "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://qa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-مبيعات",
    "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://qa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-خدمة عملاء",
    "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://qa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-سائق",
    "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://qa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-مهندس",
    "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://qa.jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   }
  ],
- "raw": 1212,
- "after_geo": 355,
- "after_dedupe": 353,
- "finished_at": "2026-08-30T16:16:58.755361+00:00"
+ "raw": 1776,
+ "after_geo": 921,
+ "after_dedupe": 444,
+ "finished_at": "2026-08-30T17:27:53.723286+00:00"
 }
