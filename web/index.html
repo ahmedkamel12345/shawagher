@@ -211,6 +211,7 @@ footer p{margin:.25rem 0}
     <button data-tab="jobs" aria-current="true">الشواغر <span class="n" id="navJobs">0</span></button>
     <button data-tab="groups">جروبات واتساب <span class="n" id="navGroups">0</span></button>
     <button data-tab="saved">المحفوظة <span class="n" id="navSaved">0</span></button>
+    <button data-tab="services">الخدمات المحاسبية والمالية</button>
   </nav>
   <button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
 
@@ -337,6 +338,19 @@ footer p{margin:.25rem 0}
     <div class="list" id="savedList"></div>
   </section>
 
+  <!-- ============ الخدمات المحاسبية والمالية ============ -->
+  <section id="viewServices" hidden>
+    <div class="panel" style="border-inline-start:3px solid var(--amber)">
+      <h2>الخدمات المحاسبية والمالية</h2>
+      <p>مكتب المحترف للاستشارات المالية يقدّم خدمات محاسبية ومالية متكاملة للشركات الصغيرة والمتوسطة
+        في الكويت والخليج — من مسك الدفاتر إلى الاستشارات الضريبية وتطبيق أودو.</p>
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
+        <a class="btn amber" id="svcCta" href="#" style="padding:.55rem 1.4rem">اطلب استشارة مجانية</a>
+      </div>
+    </div>
+    <div class="grid" id="services"></div>
+  </section>
+
   <footer>
     <p>شواغر يعرض ملخصاً ورابط المصدر الأصلي لكل وظيفة، والتقديم يتم على موقع الجهة. مجاني للباحث عن العمل — لا نحصّل أي رسوم من المتقدمين.</p>
     <div class="credit">
@@ -409,6 +423,15 @@ const ADS_DATA    = {
  ]
 };
 
+const SERVICES_DATA = [
+  {title:"مسك الدفاتر والحسابات الشهرية", desc:"تسجيل القيود اليومية ومطابقة الحسابات البنكية وتقارير شهرية جاهزة."},
+  {title:"إعداد القوائم المالية", desc:"قوائم دخل وميزانية وتقارير تدفقات نقدية معتمدة وفق المعايير المحاسبية."},
+  {title:"التسجيل والإقرارات الضريبية", desc:"تسجيل ضريبة القيمة المضافة وتقديم الإقرارات في مواعيدها بدون غرامات."},
+  {title:"الرواتب والأجور", desc:"احتساب الرواتب والبدلات ومستحقات نهاية الخدمة وإصدار كشوف شهرية."},
+  {title:"تطبيق وتهيئة أودو ERP", desc:"ربط دورة المحاسبة والمخزون والفوترة على نظام أودو لشركتك."},
+  {title:"الدعم في مراجعة الحسابات", desc:"تجهيز الملفات والمستندات لمراجعي الحسابات الخارجيين وتسهيل عملية التدقيق."},
+  {title:"استشارات مالية للشركات الناشئة", desc:"إعداد الموازنات والتوقعات المالية ودعم القرارات الاستثمارية."},
+];
 const COUNTRIES = {EG:"مصر",KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",RM:"عن بُعد"};
 const CATEGORIES = {accounting:"محاسبة ومالية",it:"تقنية وبرمجة",sales:"مبيعات وتسويق",hr:"موارد بشرية",
   ops:"تشغيل ولوجستيات",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"أخرى"};
@@ -600,8 +623,18 @@ function drawGroups(){
   });
 }
 
-/* ══════════ الدخول ══════════ */
-async function initAuth(){
+/* ══════════ الخدمات المحاسبية والمالية ══════════ */
+function drawServices(){
+  const wrap = $("#services"); wrap.textContent = "";
+  SERVICES_DATA.forEach(s => {
+    const el = document.createElement("div");
+    el.className = "gcard";
+    el.innerHTML = `<h3>${esc(s.title)}</h3><p class="note">${esc(s.desc)}</p>`;
+    wrap.appendChild(el);
+  });
+}
+
+/* ══════════ الدخول ══════════ */async function initAuth(){
   if(!(CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)) return renderWho();
   await new Promise(res => {
     const s = document.createElement("script");
@@ -750,7 +783,8 @@ function setTab(tab){
   $("#viewGroups").hidden = tab !== "groups";
   $("#viewPost").hidden   = tab !== "post";
   $("#viewSaved").hidden  = tab !== "saved";
-  $("#tabs").hidden = tab === "post";
+  $("#viewServices").hidden = tab !== "services";
+  $("#tabs").hidden = tab === "post" || tab === "services";
   document.body.classList.remove("open");
   window.scrollTo({top:0, behavior:"instant"});
   paint();
@@ -783,6 +817,10 @@ async function boot(){
 
   const num = CONFIG.adminNumber;
   $("#adCta").href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : "#";
+  $("#svcCta").href = num
+    ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالخدمات المحاسبية والمالية من المحترف للاستشارات المالية")}`
+    : "#";
+  drawServices();
   $("#addGroup").onclick = () => window.open(num
     ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
     : "#", "_blank");
