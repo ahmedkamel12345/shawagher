@@ -1,0 +1,429 @@
+{
+ "started_at": "2026-08-30T16:05:13.953065+00:00",
+ "sources": [
+  {
+   "kind": "greenhouse",
+   "slug": "careem",
+   "count": 20,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "Talabat",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "DeliveryHero",
+   "count": 600,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "Alshaya",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "halan",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "trella",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "MajidAlFuttaim",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "ChalhoubGroup",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "Aramex",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "AlghanimIndustries",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "Agility",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "Landmarkgroup",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "smartrecruiters",
+   "slug": "Americana",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "tabby",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/tabby/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "tamara",
+   "count": 38,
+   "status": "ok"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "foodics",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/foodics/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "unifonic",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/unifonic/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "salla",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/salla/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "zid",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/zid/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "nana",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/nana/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "jahez",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/jahez/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "sary",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/sary/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "rain",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/rain/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "trukker",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/trukker/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "kitopi",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/kitopi/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "bayut",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/bayut/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "dubizzle",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/dubizzle/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "huspy",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/huspy/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "alef",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/alef/jobs?content=true"
+  },
+  {
+   "kind": "lever",
+   "slug": "propertyfinder",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/propertyfinder?mode=json"
+  },
+  {
+   "kind": "lever",
+   "slug": "bayzat",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/bayzat?mode=json"
+  },
+  {
+   "kind": "lever",
+   "slug": "yallacompare",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/yallacompare?mode=json"
+  },
+  {
+   "kind": "ashby",
+   "slug": "tabby",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.ashbyhq.com/posting-api/job-board/tabby"
+  },
+  {
+   "kind": "ashby",
+   "slug": "tamara",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.ashbyhq.com/posting-api/job-board/tamara"
+  },
+  {
+   "kind": "ashby",
+   "slug": "huspy",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.ashbyhq.com/posting-api/job-board/huspy"
+  },
+  {
+   "kind": "workable",
+   "slug": "bayzat",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "kitopi",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "bamboohr",
+   "slug": "gomycode",
+   "count": 0,
+   "status": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "instabug",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/instabug/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "paymob",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/paymob/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "valu",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/valu/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "maxab",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/maxab/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "breadfast",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/breadfast/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "bosta",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/bosta/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "khazna",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/khazna/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "rabbitmart",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/rabbitmart/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "elmenus",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/elmenus/jobs?content=true"
+  },
+  {
+   "kind": "greenhouse",
+   "slug": "almentor",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/almentor/jobs?content=true"
+  },
+  {
+   "kind": "lever",
+   "slug": "swvl",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/swvl?mode=json"
+  },
+  {
+   "kind": "lever",
+   "slug": "vezeeta",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/vezeeta?mode=json"
+  },
+  {
+   "kind": "workable",
+   "slug": "paymob",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "breadfast",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "bosta",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "instabug",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "elmenus",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "fawry",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "robusta",
+   "count": 100,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "sylndr",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://apply.workable.com/api/v1/widget/accounts/sylndr"
+  },
+  {
+   "kind": "workable",
+   "slug": "nawy",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "dsquares",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "moneyfellows",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "workable",
+   "slug": "aqarmap",
+   "count": 0,
+   "status": "ok"
+  },
+  {
+   "kind": "recruitee",
+   "slug": "wuzzuf",
+   "count": 0,
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://wuzzuf.recruitee.com/api/offers/"
+  },
+  {
+   "kind": "personio",
+   "slug": "sylndr",
+   "count": 0,
+   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://personio.com"
+  },
+  {
+   "kind": "arbeitnow",
+   "slug": "arbeitnow",
+   "count": 175,
+   "status": "ok"
+  },
+  {
+   "kind": "remotive",
+   "slug": "remotive",
+   "count": 19,
+   "status": "ok"
+  },
+  {
+   "kind": "jobicy",
+   "slug": "jobicy",
+   "count": 50,
+   "status": "ok"
+  },
+  {
+   "kind": "himalayas",
+   "slug": "himalayas",
+   "count": 20,
+   "status": "ok"
+  },
+  {
+   "kind": "remoteok",
+   "slug": "remoteok",
+   "count": 100,
+   "status": "ok"
+  },
+  {
+   "kind": "weworkremotely",
+   "slug": "wwr",
+   "count": 90,
+   "status": "ok"
+  }
+ ],
+ "raw": 1212,
+ "after_geo": 355,
+ "after_dedupe": 353,
+ "finished_at": "2026-08-30T16:06:21.044290+00:00"
+}
