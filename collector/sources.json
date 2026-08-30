@@ -1,0 +1,1486 @@
+[
+ {
+  "kind": "greenhouse",
+  "slug": "careem",
+  "company_name": "Careem",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "Talabat",
+  "company_name": "Talabat",
+  "is_active": true,
+  "country_hint": "KW"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "DeliveryHero",
+  "company_name": "Delivery Hero",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "Alshaya",
+  "company_name": "Alshaya Group",
+  "is_active": true,
+  "country_hint": "KW"
+ },
+ {
+  "kind": "workable",
+  "slug": "halan",
+  "company_name": "MNT-Halan",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "trella",
+  "company_name": "Trella",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "MajidAlFuttaim",
+  "company_name": "Majid Al Futtaim",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "ChalhoubGroup",
+  "company_name": "Chalhoub Group",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "Aramex",
+  "company_name": "Aramex",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "AlghanimIndustries",
+  "company_name": "Alghanim Industries",
+  "is_active": true,
+  "country_hint": "KW"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "Agility",
+  "company_name": "Agility",
+  "is_active": true,
+  "country_hint": "KW"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "Landmarkgroup",
+  "company_name": "Landmark Group",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "smartrecruiters",
+  "slug": "Americana",
+  "company_name": "Americana Restaurants",
+  "is_active": true,
+  "country_hint": "KW"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "tabby",
+  "company_name": "Tabby",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "tamara",
+  "company_name": "Tamara",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "foodics",
+  "company_name": "Foodics",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "unifonic",
+  "company_name": "Unifonic",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "salla",
+  "company_name": "Salla",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "zid",
+  "company_name": "Zid",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "nana",
+  "company_name": "Nana",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "jahez",
+  "company_name": "Jahez",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "sary",
+  "company_name": "Sary",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "rain",
+  "company_name": "Rain",
+  "is_active": true,
+  "country_hint": "BH"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "trukker",
+  "company_name": "TruKKer",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "kitopi",
+  "company_name": "Kitopi",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "bayut",
+  "company_name": "Bayut",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "dubizzle",
+  "company_name": "Dubizzle",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "huspy",
+  "company_name": "Huspy",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "alef",
+  "company_name": "Alef Education",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "lever",
+  "slug": "propertyfinder",
+  "company_name": "Property Finder",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "lever",
+  "slug": "bayzat",
+  "company_name": "Bayzat",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "lever",
+  "slug": "yallacompare",
+  "company_name": "Yallacompare",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "ashby",
+  "slug": "tabby",
+  "company_name": "Tabby",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "ashby",
+  "slug": "tamara",
+  "company_name": "Tamara",
+  "is_active": true,
+  "country_hint": "SA"
+ },
+ {
+  "kind": "ashby",
+  "slug": "huspy",
+  "company_name": "Huspy",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "workable",
+  "slug": "bayzat",
+  "company_name": "Bayzat",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "workable",
+  "slug": "kitopi",
+  "company_name": "Kitopi",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "bamboohr",
+  "slug": "gomycode",
+  "company_name": "GoMyCode",
+  "is_active": true,
+  "country_hint": "AE"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "instabug",
+  "company_name": "Instabug",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "paymob",
+  "company_name": "Paymob",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "valu",
+  "company_name": "Valu",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "maxab",
+  "company_name": "MaxAB",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "breadfast",
+  "company_name": "Breadfast",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "bosta",
+  "company_name": "Bosta",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "khazna",
+  "company_name": "Khazna",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "rabbitmart",
+  "company_name": "Rabbit",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "elmenus",
+  "company_name": "elmenus",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "greenhouse",
+  "slug": "almentor",
+  "company_name": "Almentor",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "lever",
+  "slug": "swvl",
+  "company_name": "Swvl",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "lever",
+  "slug": "vezeeta",
+  "company_name": "Vezeeta",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "paymob",
+  "company_name": "Paymob",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "breadfast",
+  "company_name": "Breadfast",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "bosta",
+  "company_name": "Bosta",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "instabug",
+  "company_name": "Instabug",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "elmenus",
+  "company_name": "elmenus",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "fawry",
+  "company_name": "Fawry",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "robusta",
+  "company_name": "Robusta Studio",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "sylndr",
+  "company_name": "Sylndr",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "nawy",
+  "company_name": "Nawy",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "dsquares",
+  "company_name": "Dsquares",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "moneyfellows",
+  "company_name": "MoneyFellows",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "workable",
+  "slug": "aqarmap",
+  "company_name": "Aqarmap",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "recruitee",
+  "slug": "wuzzuf",
+  "company_name": "Wuzzuf",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "personio",
+  "slug": "sylndr",
+  "company_name": "Sylndr",
+  "is_active": true,
+  "country_hint": "EG"
+ },
+ {
+  "kind": "arbeitnow",
+  "slug": "arbeitnow",
+  "company_name": "Arbeitnow",
+  "is_active": true
+ },
+ {
+  "kind": "remotive",
+  "slug": "remotive",
+  "company_name": "Remotive",
+  "is_active": true
+ },
+ {
+  "kind": "jobicy",
+  "slug": "jobicy",
+  "company_name": "Jobicy",
+  "is_active": true
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "محاسب",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "مبيعات",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "خدمة عملاء",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "سائق",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "مهندس",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "سكرتير",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "فني",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "مندوب",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-kw-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_KW",
+  "location": "Kuwait",
+  "keywords": "مشرف",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "محاسب",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "مبيعات",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "خدمة عملاء",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "سائق",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "مهندس",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "سكرتير",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "فني",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "مندوب",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-eg-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_EG",
+  "location": "Egypt",
+  "keywords": "مشرف",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "محاسب",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "مبيعات",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "خدمة عملاء",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "سائق",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "مهندس",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "سكرتير",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "فني",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "مندوب",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-sa-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_SA",
+  "location": "Saudi Arabia",
+  "keywords": "مشرف",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "محاسب",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "مبيعات",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "خدمة عملاء",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "سائق",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "مهندس",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "سكرتير",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "فني",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "مندوب",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-ae-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_AE",
+  "location": "United Arab Emirates",
+  "keywords": "مشرف",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "محاسب",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "مبيعات",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "خدمة عملاء",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "سائق",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "مهندس",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "سكرتير",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "فني",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "مندوب",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-qa-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_QA",
+  "location": "Qatar",
+  "keywords": "مشرف",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "محاسب",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "مبيعات",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "خدمة عملاء",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "سائق",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "مهندس",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "سكرتير",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "فني",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "مندوب",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-bh-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_BH",
+  "location": "Bahrain",
+  "keywords": "مشرف",
+  "country": "BH",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-all",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-محاسب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "محاسب",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-مبيعات",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "مبيعات",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-خدمة عملاء",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "خدمة عملاء",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-سائق",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "سائق",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-مهندس",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "مهندس",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-سكرتير",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "سكرتير",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-فني",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "فني",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-مندوب",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "مندوب",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "careerjet",
+  "slug": "cj-om-مشرف",
+  "company_name": "Careerjet",
+  "locale_code": "ar_OM",
+  "location": "Oman",
+  "keywords": "مشرف",
+  "country": "OM",
+  "is_active": false
+ },
+ {
+  "kind": "himalayas",
+  "slug": "himalayas",
+  "company_name": "Himalayas",
+  "is_active": true
+ },
+ {
+  "kind": "remoteok",
+  "slug": "remoteok",
+  "company_name": "RemoteOK",
+  "is_active": true
+ },
+ {
+  "kind": "weworkremotely",
+  "slug": "wwr",
+  "company_name": "We Work Remotely",
+  "is_active": true
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-kw-all",
+  "company_name": "Jooble",
+  "host": "kw.jooble.org",
+  "location": "Kuwait",
+  "keywords": "",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-kw-محاسب",
+  "company_name": "Jooble",
+  "host": "kw.jooble.org",
+  "location": "Kuwait",
+  "keywords": "محاسب",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-kw-مبيعات",
+  "company_name": "Jooble",
+  "host": "kw.jooble.org",
+  "location": "Kuwait",
+  "keywords": "مبيعات",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-kw-خدمة عملاء",
+  "company_name": "Jooble",
+  "host": "kw.jooble.org",
+  "location": "Kuwait",
+  "keywords": "خدمة عملاء",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-kw-سائق",
+  "company_name": "Jooble",
+  "host": "kw.jooble.org",
+  "location": "Kuwait",
+  "keywords": "سائق",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-kw-مهندس",
+  "company_name": "Jooble",
+  "host": "kw.jooble.org",
+  "location": "Kuwait",
+  "keywords": "مهندس",
+  "country": "KW",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-eg-all",
+  "company_name": "Jooble",
+  "host": "eg.jooble.org",
+  "location": "Egypt",
+  "keywords": "",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-eg-محاسب",
+  "company_name": "Jooble",
+  "host": "eg.jooble.org",
+  "location": "Egypt",
+  "keywords": "محاسب",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-eg-مبيعات",
+  "company_name": "Jooble",
+  "host": "eg.jooble.org",
+  "location": "Egypt",
+  "keywords": "مبيعات",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-eg-خدمة عملاء",
+  "company_name": "Jooble",
+  "host": "eg.jooble.org",
+  "location": "Egypt",
+  "keywords": "خدمة عملاء",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-eg-سائق",
+  "company_name": "Jooble",
+  "host": "eg.jooble.org",
+  "location": "Egypt",
+  "keywords": "سائق",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-eg-مهندس",
+  "company_name": "Jooble",
+  "host": "eg.jooble.org",
+  "location": "Egypt",
+  "keywords": "مهندس",
+  "country": "EG",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-sa-all",
+  "company_name": "Jooble",
+  "host": "sa.jooble.org",
+  "location": "Saudi Arabia",
+  "keywords": "",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-sa-محاسب",
+  "company_name": "Jooble",
+  "host": "sa.jooble.org",
+  "location": "Saudi Arabia",
+  "keywords": "محاسب",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-sa-مبيعات",
+  "company_name": "Jooble",
+  "host": "sa.jooble.org",
+  "location": "Saudi Arabia",
+  "keywords": "مبيعات",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-sa-خدمة عملاء",
+  "company_name": "Jooble",
+  "host": "sa.jooble.org",
+  "location": "Saudi Arabia",
+  "keywords": "خدمة عملاء",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-sa-سائق",
+  "company_name": "Jooble",
+  "host": "sa.jooble.org",
+  "location": "Saudi Arabia",
+  "keywords": "سائق",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-sa-مهندس",
+  "company_name": "Jooble",
+  "host": "sa.jooble.org",
+  "location": "Saudi Arabia",
+  "keywords": "مهندس",
+  "country": "SA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-ae-all",
+  "company_name": "Jooble",
+  "host": "ae.jooble.org",
+  "location": "UAE",
+  "keywords": "",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-ae-محاسب",
+  "company_name": "Jooble",
+  "host": "ae.jooble.org",
+  "location": "UAE",
+  "keywords": "محاسب",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-ae-مبيعات",
+  "company_name": "Jooble",
+  "host": "ae.jooble.org",
+  "location": "UAE",
+  "keywords": "مبيعات",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-ae-خدمة عملاء",
+  "company_name": "Jooble",
+  "host": "ae.jooble.org",
+  "location": "UAE",
+  "keywords": "خدمة عملاء",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-ae-سائق",
+  "company_name": "Jooble",
+  "host": "ae.jooble.org",
+  "location": "UAE",
+  "keywords": "سائق",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-ae-مهندس",
+  "company_name": "Jooble",
+  "host": "ae.jooble.org",
+  "location": "UAE",
+  "keywords": "مهندس",
+  "country": "AE",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-qa-all",
+  "company_name": "Jooble",
+  "host": "qa.jooble.org",
+  "location": "Qatar",
+  "keywords": "",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-qa-محاسب",
+  "company_name": "Jooble",
+  "host": "qa.jooble.org",
+  "location": "Qatar",
+  "keywords": "محاسب",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-qa-مبيعات",
+  "company_name": "Jooble",
+  "host": "qa.jooble.org",
+  "location": "Qatar",
+  "keywords": "مبيعات",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-qa-خدمة عملاء",
+  "company_name": "Jooble",
+  "host": "qa.jooble.org",
+  "location": "Qatar",
+  "keywords": "خدمة عملاء",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-qa-سائق",
+  "company_name": "Jooble",
+  "host": "qa.jooble.org",
+  "location": "Qatar",
+  "keywords": "سائق",
+  "country": "QA",
+  "is_active": false
+ },
+ {
+  "kind": "jooble",
+  "slug": "jb-qa-مهندس",
+  "company_name": "Jooble",
+  "host": "qa.jooble.org",
+  "location": "Qatar",
+  "keywords": "مهندس",
+  "country": "QA",
+  "is_active": false
+ }
+]

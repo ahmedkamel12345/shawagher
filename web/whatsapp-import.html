@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شواغر — استيراد وظائف واتساب</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--board:#193C58;--amber:#E7962D;--paper:#EFF2F4;--card:#fff;--ink:#12293C;
+ --muted:#5A6E7F;--line:#D5DEE4;--wa:#1FA855;--bad:#B4433A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic",sans-serif;font-size:15px}
+h1,h2{font-family:"Noto Kufi Arabic";margin:0}
+header{background:var(--board);color:#fff;padding:1rem 1.4rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+header h1{font-size:1.15rem;color:var(--amber)}
+header span{font-size:.82rem;color:#A8BCCB}
+main{max-width:1100px;margin:auto;padding:1.2rem}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1rem;margin-bottom:.8rem}
+textarea{width:100%;min-height:190px;border:1px solid var(--line);border-radius:3px;padding:.8rem;
+ font:inherit;font-size:.9rem;resize:vertical}
+.row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem}
+button{font:inherit;cursor:pointer;border:0;border-radius:3px;padding:.55rem 1.1rem;font-weight:600}
+.pri{background:var(--board);color:#fff}
+.wa{background:var(--wa);color:#fff}
+.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:400}
+.hint{font-size:.82rem;color:var(--muted);margin:.5rem 0 0;line-height:1.8}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{border-bottom:1px solid var(--line);padding:.5rem .4rem;text-align:start;vertical-align:top}
+th{font-size:.72rem;color:var(--muted);font-family:"IBM Plex Mono";font-weight:400}
+input,select{font:inherit;font-size:.85rem;width:100%;border:1px solid var(--line);border-radius:2px;padding:.35rem .4rem;background:#fff}
+tr.off{opacity:.4}
+td.act{white-space:nowrap;width:1%}
+.tiny{background:transparent;border:1px solid var(--line);padding:.25rem .5rem;font-size:.78rem;font-weight:400;color:var(--muted)}
+.count{font-family:"IBM Plex Mono";color:var(--board);font-weight:600}
+.warn{border-inline-start:3px solid var(--amber);background:#FCEFDC;padding:.8rem 1rem;font-size:.86rem;line-height:1.8}
+code{background:#E4EDF4;padding:.1rem .35rem;border-radius:2px;font-size:.85em}
+</style>
+</head>
+<body>
+<header>
+  <h1>استيراد وظائف واتساب</h1>
+  <span>الصق الرسائل → راجع → نزّل الملف → ضمّه للموقع</span>
+</header>
+
+<main>
+  <div class="panel warn">
+    واتساب مايسمحش لأي برنامج يقرأ رسائل الجروبات تلقائياً. الأداة دي بتاخد الرسائل اللي إنت ناسخها بنفسك
+    وتحوّلها لوظائف جاهزة للموقع. تقدر تنسخ رسالة واحدة، أو تصدّر الشات كله من واتساب
+    (⋮ ← المزيد ← تصدير الدردشة ← بدون وسائط) وتلصق محتوى الملف هنا.
+  </div>
+
+  <div class="panel">
+    <h2 style="font-size:1rem;margin-bottom:.5rem">١) الصق النص</h2>
+    <textarea id="raw" placeholder="مثال:&#10;مطلوب محاسب أول لشركة مقاولات بالكويت — حولي&#10;خبرة 3 سنوات، إجادة الإكسل&#10;الراتب حسب الخبرة&#10;للتواصل: 96599112233 أو hr@company.com"></textarea>
+    <div class="row">
+      <button class="pri" id="parse">حلّل النص</button>
+      <button class="ghost" id="sample">جرّب بمثال</button>
+      <button class="ghost" id="clear">مسح</button>
+      <span class="hint" id="stat"></span>
+    </div>
+  </div>
+
+  <div class="panel" id="resultPanel" hidden>
+    <h2 style="font-size:1rem;margin-bottom:.5rem">٢) راجع وعدّل — <span class="count" id="okCount">0</span> وظيفة</h2>
+    <div style="overflow-x:auto"><table id="tbl">
+      <thead><tr>
+        <th>المسمى</th><th>الجهة</th><th>الدولة</th><th>المدينة</th><th>المجال</th><th>وسيلة التقديم</th><th></th>
+      </tr></thead><tbody></tbody>
+    </table></div>
+    <div class="row">
+      <button class="pri" id="download">نزّل manual.json</button>
+      <button class="ghost" id="copy">انسخ JSON</button>
+      <span class="hint">بعد التنزيل: حط الملف في مجلد collector وشغّل <code>python merge_manual.py</code></span>
+    </div>
+  </div>
+</main>
+
+<script>
+const CITIES = {
+  KW:["الكويت","حولي","السالمية","الفروانية","الجهراء","الأحمدي","مبارك الكبير","الفحيحيل","الشويخ","العاصمة","صباح السالم","خيطان","الرقة","المهبولة"],
+  SA:["الرياض","جدة","الدمام","الخبر","مكة","المدينة","الطائف","تبوك","أبها","القصيم","الجبيل","ينبع"],
+  AE:["دبي","أبوظبي","الشارقة","عجمان","العين","رأس الخيمة","الفجيرة"],
+  QA:["الدوحة","الوكرة","الريان"],
+  BH:["المنامة","المحرق","الرفاع"],
+  OM:["مسقط","صلالة","صحار","نزوى"],
+  EG:["القاهرة","الجيزة","الإسكندرية","المعادي","مدينة نصر","التجمع","6 أكتوبر","الشيخ زايد","المنصورة","طنطا","أسيوط","الزقازيق","بورسعيد","السويس","الغردقة"]
+};
+const COUNTRY_WORDS = {KW:["الكويت","kuwait"],SA:["السعودية","الرياض","saudi","ksa"],AE:["الإمارات","دبي","أبوظبي","uae","dubai"],
+  QA:["قطر","الدوحة","qatar"],BH:["البحرين","bahrain"],OM:["عمان","سلطنة عمان","muscat"],EG:["مصر","القاهرة","egypt","cairo"]};
+const CATS = [
+  ["accounting",["محاسب","محاسبة","مالي","مراجع","مدقق","accountant","finance","audit","ضريب"]],
+  ["it",["مبرمج","مطور","برمج","شبكات","دعم فني","بيانات","developer","engineer","it ","odoo","أودو","سيستم"]],
+  ["sales",["مبيعات","مندوب","تسويق","سيلز","تجاري","sales","marketing"]],
+  ["hr",["موارد بشرية","توظيف","شؤون موظفين","hr","recruit"]],
+  ["ops",["مخازن","مخزن","لوجستي","سائق","تشغيل","إنتاج","مشرف عمال","driver","warehouse"]],
+  ["service",["خدمة عملاء","كول سنتر","كاشير","استقبال","مضيف","ويتر","بائع","customer service","cashier"]],
+  ["health",["طبيب","ممرض","صيدل","أخصائي علاج","مختبر","nurse","pharmac"]],
+  ["education",["معلم","مدرس","مدرسة","أكاديمي","teacher","tutor"]],
+];
+const LEVELS = [["manager",["مدير","رئيس","head","manager"]],["senior",["أول","سينيور","خبير","senior"]],
+  ["entry",["حديث","مبتدئ","تحت التدريب","خريج","junior","fresh"]]];
+
+const TITLE_HINTS = /(مطلوب|نبحث عن|فرصة عمل|وظيفة|شاغر|تعلن|hiring|we are looking|vacancy|job)/i;
+const CHAT_LINE = /^\[?\d{1,2}[\/.]\d{1,2}[\/.]\d{2,4}[,،]?\s+\d{1,2}:\d{2}(:\d{2})?\s*(ص|م|[AaPp]\.?[Mm]\.?)?\]?\s*[-–]?\s*[^:]{1,40}:\s*/;
+const NOISE = /(انضم|رابط الجروب|chat\.whatsapp\.com|تم حذف الرسالة|<Media omitted|الوسائط مستبعدة|تمت إضافة|غيّر رقم)/i;
+
+let rows = [];
+
+const pick = (text, rules, dflt) => {
+  const t = text.toLowerCase();
+  for(const [val, keys] of rules) if(keys.some(k => t.includes(k.toLowerCase()))) return val;
+  return dflt;
+};
+function detectCountry(text){
+  for(const [code, cities] of Object.entries(CITIES))
+    if(cities.some(c => text.includes(c))) return code;
+  const t = text.toLowerCase();
+  for(const [code, words] of Object.entries(COUNTRY_WORDS))
+    if(words.some(w => t.includes(w.toLowerCase()))) return code;
+  return "";
+}
+function detectCity(text, country){
+  for(const c of (CITIES[country] || [])) if(text.includes(c)) return c;
+  return "";
+}
+function detectTitle(block){
+  const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+  let line = lines.find(l => TITLE_HINTS.test(l)) || lines[0] || "";
+  line = line.replace(/^[\-–•*#\s]+/, "")
+             .replace(/(مطلوب للعمل|مطلوب فورا|مطلوب فوراً|مطلوب|نبحث عن|فرصة عمل|وظيفة شاغرة|شاغر|وظيفة)\s*[:\-–]?\s*/i, "")
+             .replace(/[.،!]+$/, "").trim();
+  return line.slice(0, 90);
+}
+function detectCompany(block){
+  const m = block.match(/(?:لدى|لشركة|شركة|مؤسسة|مكتب|مجموعة|مطعم|مستشفى|صيدلية)\s+([^\n،.,:؛]{2,40})/);
+  if(m) return m[1].trim().slice(0, 50);
+  return "";
+}
+function detectContact(block){
+  const url = block.match(/https?:\/\/[^\s]+/);
+  if(url) return url[0];
+  const mail = block.match(/[\w.+-]+@[\w-]+\.[\w.]+/);
+  if(mail) return "mailto:" + mail[0];
+  const wa = block.match(/(?:00|\+)?(?:965|966|971|974|973|968|20)\d{7,10}/);
+  if(wa) return "https://wa.me/" + wa[0].replace(/^(00|\+)/, "");
+  return "";
+}
+
+function splitBlocks(raw){
+  const lines = raw.split(/\r?\n/);
+  const blocks = [];
+  let cur = [];
+  const push = () => { if(cur.join("\n").trim()) blocks.push(cur.join("\n").trim()); cur = []; };
+  for(let line of lines){
+    if(CHAT_LINE.test(line)){                       // شات مُصدَّر: كل رسالة بلوك
+      push();
+      line = line.replace(CHAT_LINE, "");
+    } else if(!line.trim()){                        // سطر فاضي = فاصل
+      push(); continue;
+    }
+    cur.push(line);
+  }
+  push();
+  return blocks.filter(b => b.length > 25 && !NOISE.test(b));
+}
+
+function parse(){
+  const raw = document.getElementById("raw").value;
+  rows = splitBlocks(raw).map(block => {
+    const country = detectCountry(block);
+    return {
+      keep: true,
+      title: detectTitle(block) || "وظيفة",
+      company_name: detectCompany(block) || "إعلان واتساب",
+      country, city: detectCity(block, country),
+      category: pick(block, CATS, "other"),
+      seniority: pick(block, LEVELS, "mid"),
+      apply_url: detectContact(block),
+      summary: block.replace(/\s+/g, " ").slice(0, 240),
+    };
+  });
+  render();
+}
+
+function render(){
+  const tb = document.querySelector("#tbl tbody");
+  tb.textContent = "";
+  rows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    if(!r.keep) tr.className = "off";
+    tr.innerHTML = `
+      <td><input value="${esc(r.title)}" data-f="title"></td>
+      <td><input value="${esc(r.company_name)}" data-f="company_name"></td>
+      <td><select data-f="country">${opts({"":"—",KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",EG:"مصر"}, r.country)}</select></td>
+      <td><input value="${esc(r.city)}" data-f="city"></td>
+      <td><select data-f="category">${opts({accounting:"محاسبة",it:"تقنية",sales:"مبيعات",hr:"موارد بشرية",ops:"تشغيل",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"أخرى"}, r.category)}</select></td>
+      <td><input value="${esc(r.apply_url)}" data-f="apply_url" placeholder="رابط أو واتساب أو إيميل"></td>
+      <td class="act"><button class="tiny">${r.keep ? "استبعد" : "رجّع"}</button></td>`;
+    tr.querySelectorAll("[data-f]").forEach(el =>
+      el.addEventListener("input", () => { rows[i][el.dataset.f] = el.value; count(); }));
+    tr.querySelector("button").onclick = () => { rows[i].keep = !rows[i].keep; render(); };
+    tb.appendChild(tr);
+  });
+  document.getElementById("resultPanel").hidden = !rows.length;
+  document.getElementById("stat").textContent = rows.length
+    ? `اتقرا ${rows.length} إعلان` : "مفيش إعلانات اتعرفت — جرّب تسيب سطر فاضي بين كل إعلان والتاني.";
+  count();
+}
+const esc = s => String(s ?? "").replace(/"/g, "&quot;");
+const opts = (map, sel) => Object.entries(map)
+  .map(([v,l]) => `<option value="${v}"${v===sel?" selected":""}>${l}</option>`).join("");
+function count(){
+  const ok = rows.filter(r => r.keep && r.title && r.apply_url).length;
+  document.getElementById("okCount").textContent = ok;
+}
+
+function payload(){
+  const now = new Date().toISOString();
+  return {
+    generated_at: now,
+    jobs: rows.filter(r => r.keep && r.title && r.apply_url).map(r => ({
+      title: r.title, company_name: r.company_name, city: r.city || null,
+      country: r.country || null, category: r.category, seniority: r.seniority,
+      employment_type: "full_time", is_remote: false,
+      summary: r.summary, apply_url: r.apply_url,
+      source_kind: "whatsapp", is_direct: true, posted_at: now,
+    })),
+  };
+}
+document.getElementById("parse").onclick = parse;
+document.getElementById("clear").onclick = () => { document.getElementById("raw").value = ""; rows = []; render(); };
+document.getElementById("sample").onclick = () => {
+  document.getElementById("raw").value =
+`مطلوب محاسب أول لشركة مقاولات بالكويت - حولي
+خبرة لا تقل عن 3 سنوات وإجادة الإكسل
+الراتب حسب الخبرة
+للتواصل واتساب: 96599112233
+
+مطلوب مندوب مبيعات لمؤسسة الفنار - الفروانية
+رخصة قيادة كويتية شرط
+hr@alfanar-example.com
+
+We are hiring a Customer Service Agent in Cairo, Egypt
+Arabic + English required
+https://example.com/apply/cs-cairo`;
+  parse();
+};
+document.getElementById("download").onclick = () => {
+  const blob = new Blob([JSON.stringify(payload(), null, 1)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "manual.json"; a.click();
+};
+document.getElementById("copy").onclick = async () => {
+  await navigator.clipboard.writeText(JSON.stringify(payload(), null, 1));
+  document.getElementById("copy").textContent = "اتنسخ ✓";
+  setTimeout(() => document.getElementById("copy").textContent = "انسخ JSON", 1500);
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شواغر — لوحة الوظائف اليومية في الخليج ومصر</title>
+<meta name="description" content="شواغر تجمع الوظائف المفتوحة يومياً من صفحات التوظيف الرسمية للشركات في الخليج ومصر، في لوحة واحدة وبالعربي.">
+<meta property="og:title" content="شواغر — كل شاغر مفتوح في الخليج ومصر">
+<meta property="og:description" content="وظائف محدّثة يومياً من المصادر الرسمية. مجاني للباحث عن العمل.">
+<meta name="author" content="المحترف للاستشارات المالية — أحمد أبو كامل">
+<link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
+<meta name="theme-color" content="#193C58">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#193C58; --board-2:#1E4668; --board-3:#2C5878;
+  --amber:#E7962D; --amber-dim:#A96A1B; --amber-soft:#FCEFDC;
+  --paper:#EFF2F4; --card:#FFFFFF;
+  --ink:#12293C; --muted:#5A6E7F; --faint:#93A3AF;
+  --line:#D5DEE4; --green:#1E4668; --green-soft:#E4EDF4;
+  --wa:#1FA855;
+  --rail:288px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700;line-height:1.35;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+a{color:inherit}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:#BCCAD4;border-radius:9px}
+
+/* ================= الهيكل ================= */
+.app{display:grid;grid-template-columns:var(--rail) 1fr;min-height:100vh}
+
+/* ---------- الشريط الجانبي ---------- */
+.rail{background:var(--board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
+  display:flex;flex-direction:column;gap:.2rem;padding:1.1rem 1rem 1.5rem}
+.logo{display:flex;align-items:center;gap:.6rem;padding-bottom:.9rem;border-bottom:1px solid var(--board-3)}
+.logo img{flex:none}
+.logo b{display:block;font-family:"Noto Kufi Arabic";font-size:1.35rem;color:var(--amber);line-height:1.1}
+.logo span{font-size:.62rem;color:#8FA3B4;letter-spacing:.14em}
+
+.nav{display:flex;flex-direction:column;gap:2px;margin:.9rem 0 .4rem}
+.nav button{display:flex;justify-content:space-between;align-items:center;gap:.5rem;
+  padding:.55rem .7rem;border-radius:3px;font-size:.92rem;color:#AFC1CE;text-align:start;width:100%}
+.nav button:hover{background:var(--board-2);color:#fff}
+.nav button[aria-current="true"]{background:var(--amber);color:var(--board);font-weight:600}
+.nav .n{font-family:"IBM Plex Mono";font-size:.75rem;opacity:.75}
+
+.railsec{margin-top:1.1rem;border-top:1px solid var(--board-3);padding-top:.9rem}
+.railsec h4{font-size:.68rem;letter-spacing:.1em;color:#7E96A8;font-weight:500;margin-bottom:.55rem;font-family:"IBM Plex Mono"}
+.opts{display:flex;flex-wrap:wrap;gap:.3rem}
+.opt{border:1px solid var(--board-3);border-radius:3px;padding:.24rem .55rem;font-size:.8rem;color:#AFC1CE;
+  transition:background .14s,color .14s,border-color .14s}
+.opt:hover{border-color:#4E7899;color:#fff}
+.opt[aria-pressed="true"]{background:#fff;border-color:#fff;color:var(--board);font-weight:600}
+
+.bars{display:flex;flex-direction:column;gap:.42rem}
+.bar{display:grid;grid-template-columns:1fr auto;gap:.4rem;align-items:center;width:100%;text-align:start;
+  font-size:.82rem;color:#AFC1CE;padding:.1rem 0}
+.bar:hover{color:#fff}
+.bar .track{grid-column:1/-1;height:4px;background:var(--board-3);border-radius:9px;overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(--amber-dim)}
+.bar[aria-pressed="true"]{color:#fff}
+.bar[aria-pressed="true"] .fill{background:var(--amber)}
+.bar .n{font-family:"IBM Plex Mono";font-size:.75rem;color:#7E96A8}
+
+.railfoot{margin-top:auto;padding-top:1rem;font-size:.7rem;color:#7E96A8;line-height:1.7}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;
+  margin-inline-end:.35rem;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ---------- المنطقة الرئيسية ---------- */
+.main{min-width:0;padding:1.4rem clamp(1rem,2.6vw,2rem) 3rem}
+.topbar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:1.1rem}
+.searchbox{flex:1;min-width:240px;display:flex;background:var(--card);border:1px solid var(--line);border-radius:3px}
+.searchbox input{flex:1;border:0;background:transparent;padding:.7rem .9rem;font:inherit;min-width:0}
+.searchbox input::placeholder{color:var(--faint)}
+.searchbox span{display:grid;place-content:center;padding-inline:.8rem;color:var(--faint)}
+select{font:inherit;font-size:.86rem;border:1px solid var(--line);background:var(--card);
+  padding:.62rem .7rem;border-radius:3px;color:var(--ink)}
+.menu-btn{display:none}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-bottom:1.1rem}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.75rem .9rem;
+  border-top:2px solid var(--amber)}
+.kpi b{display:block;font-family:"IBM Plex Mono";font-size:1.6rem;font-weight:500;line-height:1.15}
+.kpi span{font-size:.72rem;color:var(--muted)}
+.kpi.alt{border-top-color:var(--green)}
+
+.crumbs{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding-bottom:.6rem;margin-bottom:.8rem}
+.crumbs p{margin:0;font-size:.86rem;color:var(--muted)}
+.crumbs b{font-family:"IBM Plex Mono";color:var(--ink)}
+.clear{font-size:.8rem;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- بطاقات الوظائف ---------- */
+.list{display:grid;gap:.55rem}
+.job{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem 1rem;
+  display:grid;grid-template-columns:46px 1fr auto;gap:.9rem;align-items:start;transition:border-color .14s}
+.job:hover{border-color:#A9BECD}
+.slot{width:46px;height:46px;border:1.5px dashed #B4C6D3;border-radius:3px;display:grid;place-content:center;
+  font-family:"IBM Plex Mono";font-size:.75rem;color:var(--muted);transition:.16s}
+.job:hover .slot{background:var(--amber);border-color:var(--amber);border-style:solid;color:var(--board)}
+.job h3{font-size:1.02rem;margin-bottom:.12rem}
+.meta{font-size:.85rem;color:var(--muted);margin:0}
+.meta b{color:var(--ink);font-weight:600}
+.snippet{font-size:.83rem;color:var(--muted);margin:.4rem 0 0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.55rem}
+.tag{font-family:"IBM Plex Mono";font-size:.67rem;border:1px solid var(--line);padding:.1rem .42rem;
+  border-radius:2px;color:var(--muted)}
+.tag.new{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
+.tag.on{border-color:#C8D6D1;background:var(--green-soft);color:var(--green)}
+.actions{display:flex;flex-direction:column;gap:.35rem;min-width:112px}
+.btn{display:block;text-align:center;padding:.45rem .8rem;border-radius:3px;font-size:.83rem;
+  font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--green)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.wa:hover{filter:brightness(.93)}
+.btn.ghost{border-color:var(--line);color:var(--muted);font-weight:400}
+.btn.ghost[aria-pressed="true"]{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
+
+.empty{border:1px dashed var(--line);background:var(--card);padding:3rem 1.5rem;text-align:center;color:var(--muted)}
+.empty b{display:block;font-family:"Noto Kufi Arabic";color:var(--ink);margin-bottom:.3rem}
+
+/* ---------- واتساب ---------- */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.2rem;margin-bottom:.8rem}
+.panel h2{font-size:1.12rem;margin-bottom:.4rem}
+.panel p{margin:.3rem 0;font-size:.9rem;color:var(--muted)}
+.wa-hero{border-inline-start:3px solid var(--wa)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.55rem}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem;
+  display:flex;flex-direction:column;gap:.5rem}
+.gcard h3{font-size:.96rem}
+.gcard .row{display:flex;gap:.3rem;flex-wrap:wrap}
+.note{font-size:.78rem;color:var(--faint)}
+.dim{opacity:.55}
+
+footer{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.78rem;color:var(--muted)}
+footer p{margin:.25rem 0}
+.credit{display:flex;align-items:center;gap:.7rem;color:var(--ink);margin-top:.6rem}
+.credit img{border-radius:4px;flex:none}
+.credit b{font-family:"Noto Kufi Arabic";font-weight:700}
+.by{margin-top:.75rem;padding-top:.7rem;border-top:1px solid var(--board-3);
+  font-family:"Noto Kufi Arabic";font-size:.72rem;color:#9FB3C1;line-height:1.8}
+.by span{font-family:"IBM Plex Sans Arabic";color:#7E96A8}
+
+/* ---------- الموبايل ---------- */
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .rail{position:fixed;inset-inline-start:0;top:0;width:min(300px,86vw);z-index:40;
+    transform:translateX(100%);transition:transform .22s ease}
+  html[dir="rtl"] .rail{transform:translateX(100%)}
+  body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.6)}
+  body.open::after{content:"";position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
+  .menu-btn{display:flex;align-items:center;gap:.4rem;background:var(--board);color:#fff;
+    padding:.62rem .9rem;border-radius:3px;font-size:.86rem;font-weight:600}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .job{grid-template-columns:40px 1fr}
+  .slot{width:40px;height:40px}
+  .actions{grid-column:1/-1;flex-direction:row}
+  .actions .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ================= الشريط الجانبي ================= -->
+<aside class="rail" id="rail">
+  <div class="logo">
+    <img src="assets/shawagher-mark.svg" alt="" width="34" height="34">
+    <div><b>شواغر</b><span class="mono">SHAWAGHER</span></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <button data-tab="jobs" aria-current="true">الشواغر <span class="n" id="navJobs">0</span></button>
+    <button data-tab="whatsapp">جروبات واتساب <span class="n" id="navGroups">0</span></button>
+    <button data-tab="saved">المحفوظة <span class="n" id="navSaved">0</span></button>
+  </nav>
+
+  <div class="railsec" id="secFilters">
+    <h4>الدولة</h4>
+    <div class="bars" id="fCountry"></div>
+  </div>
+
+  <div class="railsec">
+    <h4>المجال</h4>
+    <div class="bars" id="fCategory"></div>
+  </div>
+
+  <div class="railsec">
+    <h4>المستوى</h4>
+    <div class="opts" id="fLevel"></div>
+  </div>
+
+  <div class="railfoot">
+    <span class="pulse"></span><span id="stamp">—</span><br>
+    <span id="srcline" class="mono"></span>
+    <div class="by">المحترف للاستشارات المالية<br><span>أحمد أبو كامل</span></div>
+  </div>
+</aside>
+
+<!-- ================= المحتوى ================= -->
+<main class="main">
+  <div class="topbar">
+    <button class="menu-btn" id="menu">☰ الفلاتر</button>
+    <div class="searchbox">
+      <span>⌕</span>
+      <input id="q" type="search" placeholder="ابحث بالمسمى أو الشركة — محاسب، Odoo، خدمة عملاء" aria-label="بحث">
+    </div>
+    <select id="sort" aria-label="ترتيب">
+      <option value="new">الأحدث أولاً</option>
+      <option value="company">الشركة</option>
+      <option value="title">المسمى</option>
+    </select>
+  </div>
+
+  <section id="viewJobs">
+    <div class="kpis">
+      <div class="kpi"><b id="kTotal">0</b><span>شاغر مفتوح</span></div>
+      <div class="kpi"><b id="kToday">0</b><span>جديد هذا الأسبوع</span></div>
+      <div class="kpi alt"><b id="kCo">0</b><span>جهة توظيف</span></div>
+      <div class="kpi alt"><b id="kRemote">0</b><span>عن بُعد</span></div>
+    </div>
+
+    <div class="crumbs">
+      <p><b id="shown">0</b> نتيجة <span id="crumbTxt"></span></p>
+      <button class="clear" id="clear" hidden>مسح الفلاتر</button>
+    </div>
+
+    <div class="list" id="list" aria-live="polite"></div>
+  </section>
+
+  <section id="viewWhatsapp" hidden>
+    <div class="panel wa-hero">
+      <h2>وظائف الخليج ومصر على واتساب</h2>
+      <p>اشترك في قناة شواغر عشان يوصلك الجديد أول بأول، أو ادخل جروب متخصص في مجالك.</p>
+      <div class="row" style="margin-top:.7rem;display:flex;gap:.4rem;flex-wrap:wrap">
+        <a class="btn wa" id="chanBtn" href="#">اشترك في القناة</a>
+        <a class="btn ghost" id="submitBtn" href="#">أضف جروبك للدليل</a>
+      </div>
+      <p class="note" id="waNote"></p>
+    </div>
+    <div class="grid" id="groups"></div>
+  </section>
+
+  <footer>
+    <p>شواغر يعرض ملخصاً ورابط المصدر الأصلي لكل وظيفة، والتقديم يتم على موقع الجهة. مجاني للباحث عن العمل.</p>
+    <div class="credit">
+      <img src="assets/almohtaref.png" alt="المحترف للاستشارات المالية" width="64" height="64">
+      <div>من إعداد وتطوير<br><b>المحترف للاستشارات المالية</b> — أحمد أبو كامل</div>
+    </div>
+  </footer>
+</main>
+</div>
+
+<script>
+/* ===== إعدادات تعدّلها إنت ===== */
+const CONFIG = {
+  site: location.origin,
+  whatsappChannel: "",     // لينك قناة واتساب بتاعتك
+  submitNumber: ""         // رقمك بصيغة دولية بدون + مثال 96599112233
+};
+
+const JOBS_DATA   = {
+ "generated_at": "2026-08-29T06:00:00+00:00",
+ "demo": true,
+ "count": 16,
+ "jobs": [
+  {"fingerprint":"d1","title":"محاسب أول","company_name":"مجموعة الشايع","city":"الكويت","country":"KW","category":"accounting","seniority":"senior","employment_type":"full_time","is_remote":false,"summary":"إعداد القوائم المالية الشهرية ومطابقة الحسابات البنكية والإشراف على دورة الذمم الدائنة.","apply_url":"https://example.com/jobs/1","source_kind":"smartrecruiters","posted_at":"2026-08-29T05:10:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d2","title":"Senior Accountant","company_name":"Talabat","city":"Kuwait City","country":"KW","category":"accounting","seniority":"senior","employment_type":"full_time","is_remote":false,"summary":"Own the monthly close for the Kuwait entity, manage reconciliations and support external audit.","apply_url":"https://example.com/jobs/2","source_kind":"smartrecruiters","posted_at":"2026-08-29T04:40:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d3","title":"مندوب مبيعات ميداني","company_name":"شركة الفنار","city":"حولي","country":"KW","category":"sales","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"زيارة العملاء في المنطقة المخصصة وتحقيق مستهدفات الشهر ومتابعة التحصيل.","apply_url":"https://example.com/jobs/3","source_kind":"careerjet","posted_at":"2026-08-29T03:20:00+00:00","requires_test":false,"requires_video":true},
+  {"fingerprint":"d4","title":"Backend Engineer (Node.js)","company_name":"Tabby","city":"Dubai","country":"AE","category":"it","seniority":"mid","employment_type":"full_time","is_remote":true,"summary":"Build and scale payment services used by millions of shoppers across the GCC.","apply_url":"https://example.com/jobs/4","source_kind":"lever","posted_at":"2026-08-28T18:05:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d5","title":"أخصائي موارد بشرية","company_name":"دار الضيافة","city":"الفروانية","country":"KW","category":"hr","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"إدارة ملفات الموظفين ومتابعة الإقامات والرواتب وفق قانون العمل الكويتي.","apply_url":"https://example.com/jobs/5","source_kind":"direct","posted_at":"2026-08-28T14:00:00+00:00","requires_test":false,"requires_video":true},
+  {"fingerprint":"d6","title":"Financial Analyst","company_name":"Careem","city":"Cairo","country":"EG","category":"accounting","seniority":"mid","employment_type":"full_time","is_remote":true,"summary":"Support budgeting, forecasting and unit-economics reporting for the Egypt market.","apply_url":"https://example.com/jobs/6","source_kind":"greenhouse","posted_at":"2026-08-28T11:30:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d7","title":"كاشير","company_name":"أسواق المنتزه","city":"السالمية","country":"KW","category":"service","seniority":"entry","employment_type":"full_time","is_remote":false,"summary":"استقبال العملاء وتشغيل نقطة البيع وإقفال الوردية بدقة.","apply_url":"https://example.com/jobs/7","source_kind":"direct","posted_at":"2026-08-28T09:15:00+00:00","requires_test":false,"requires_video":false},
+  {"fingerprint":"d8","title":"Odoo ERP Consultant","company_name":"Gulf Palms","city":"الكويت","country":"KW","category":"it","seniority":"senior","employment_type":"contract","is_remote":false,"summary":"تنفيذ وحدات المحاسبة والمخزون على أودو وربطها بأنظمة الفوترة الحكومية.","apply_url":"https://example.com/jobs/8","source_kind":"direct","posted_at":"2026-08-27T16:45:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d9","title":"Customer Support Agent — Arabic/English","company_name":"MNT-Halan","city":"Giza","country":"EG","category":"service","seniority":"entry","employment_type":"full_time","is_remote":false,"summary":"Handle inbound customer calls and chats in Arabic and English with clear resolution notes.","apply_url":"https://example.com/jobs/9","source_kind":"workable","posted_at":"2026-08-27T13:20:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d10","title":"مدير فرع مطعم","company_name":"ضربة معلم","city":"الجهراء","country":"KW","category":"ops","seniority":"manager","employment_type":"full_time","is_remote":false,"summary":"إدارة تشغيل الفرع والجرد اليومي وجدولة الورديات ومتابعة تكلفة الطعام.","apply_url":"https://example.com/jobs/10","source_kind":"direct","posted_at":"2026-08-27T08:00:00+00:00","requires_test":false,"requires_video":true},
+  {"fingerprint":"d11","title":"Data Analyst","company_name":"Property Finder","city":"Dubai","country":"AE","category":"it","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"Turn product and marketing data into dashboards the commercial teams actually use.","apply_url":"https://example.com/jobs/11","source_kind":"lever","posted_at":"2026-08-26T19:10:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d12","title":"محاسب حديث التخرج","company_name":"مكتب المحترف للاستشارات المالية","city":"الرياض","country":"SA","category":"accounting","seniority":"entry","employment_type":"full_time","is_remote":false,"summary":"مساعدة الفريق في إدخال القيود وتجهيز إقرارات ضريبة القيمة المضافة.","apply_url":"https://example.com/jobs/12","source_kind":"careerjet","posted_at":"2026-08-26T12:35:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d13","title":"Warehouse Supervisor","company_name":"Kitopi","city":"Abu Dhabi","country":"AE","category":"ops","seniority":"senior","employment_type":"full_time","is_remote":false,"summary":"Lead a shift team, own stock accuracy and keep dispatch SLAs on target.","apply_url":"https://example.com/jobs/13","source_kind":"greenhouse","posted_at":"2026-08-26T07:50:00+00:00","requires_test":false,"requires_video":false},
+  {"fingerprint":"d14","title":"معلم رياضيات — ثانوي","company_name":"مدارس النخبة الأهلية","city":"الدوحة","country":"QA","category":"education","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"تدريس منهج الرياضيات للمرحلة الثانوية وإعداد خطط الدروس والتقييمات.","apply_url":"https://example.com/jobs/14","source_kind":"careerjet","posted_at":"2026-08-25T15:05:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d15","title":"ممرض/ممرضة عناية مركزة","company_name":"مستشفى الخليج التخصصي","city":"المنامة","country":"BH","category":"health","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"العمل ضمن فريق العناية المركزة بنظام ورديات مع رخصة مزاولة سارية.","apply_url":"https://example.com/jobs/15","source_kind":"careerjet","posted_at":"2026-08-25T10:25:00+00:00","requires_test":false,"requires_video":false},
+  {"fingerprint":"d16","title":"Marketing Specialist","company_name":"Paymob","city":"Cairo","country":"EG","category":"sales","seniority":"mid","employment_type":"full_time","is_remote":true,"summary":"Run performance campaigns for merchant acquisition and report on CAC weekly.","apply_url":"https://example.com/jobs/16","source_kind":"greenhouse","posted_at":"2026-08-24T17:40:00+00:00","requires_test":true,"requires_video":true}
+ ]
+};
+const GROUPS_DATA = {
+ "channel": {
+  "name": "قناة شواغر على واتساب",
+  "url": "",
+  "note": "حط لينك القناة هنا بعد ما تعملها — الشواغر الجديدة تتنشر فيها يومياً"
+ },
+ "submit_number": "",
+ "groups": [
+  {
+   "name": "Odoo Learning — تعلّم أودو",
+   "country": "",
+   "category": "it",
+   "type": "group",
+   "url": "https://chat.whatsapp.com/JZGdAb0GnfRDvMnvZqqtkY",
+   "note": "نقاش وتعلّم أودو ERP — مفيد لوظائف التطبيق والدعم الفني"
+  },
+  {
+   "name": "مال وأعمال",
+   "country": "",
+   "category": "accounting",
+   "type": "group",
+   "url": "https://chat.whatsapp.com/FHpIszAJi21BOjIje7hnfI",
+   "note": "محاسبة ومالية وأعمال — فرص ونقاش مهني"
+  }
+ ]
+};
+
+const COUNTRIES = {KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",EG:"مصر",RM:"عن بُعد"};
+const CATEGORIES = {accounting:"محاسبة ومالية",it:"تقنية وبرمجة",sales:"مبيعات وتسويق",hr:"موارد بشرية",ops:"تشغيل ولوجستيات",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"أخرى"};
+const LEVELS = {entry:"مبتدئ",mid:"متوسط",senior:"خبير",manager:"إداري"};
+const SOURCES = {greenhouse:"Greenhouse",lever:"Lever",workable:"Workable",smartrecruiters:"SmartRecruiters",recruitee:"Recruitee",careerjet:"Careerjet",ashby:"Ashby",bamboohr:"BambooHR",personio:"Personio",arbeitnow:"Arbeitnow",remotive:"Remotive",jobicy:"Jobicy",direct:"إعلان مباشر"};
+
+let JOBS = [], GROUPS = {groups:[]};
+const saved = new Set();
+const state = {tab:"jobs", q:"", country:"", category:"", level:"", sort:"new"};
+
+const $ = s => document.querySelector(s);
+const ar = n => Number(n).toLocaleString("ar-EG");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const dayDiff = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : null;
+function ago(iso){
+  const d = dayDiff(iso);
+  if(d === null) return "غير محدد";
+  if(d <= 0) return "اليوم";
+  if(d === 1) return "أمس";
+  if(d < 7) return `منذ ${ar(d)} أيام`;
+  if(d < 30) return `منذ ${ar(Math.floor(d/7))} أسابيع`;
+  return `منذ ${ar(Math.floor(d/30))} شهور`;
+}
+
+/* ===== الفلترة ===== */
+function base(){                       // كل شيء ما عدا الفلتر نفسه
+  const q = state.q.trim().toLowerCase();
+  return JOBS.filter(j => !q || [j.title,j.company_name,j.city,j.summary].join(" ").toLowerCase().includes(q));
+}
+function filtered(){
+  let out = base().filter(j =>
+    (!state.country  || j.country   === state.country) &&
+    (!state.category || j.category  === state.category) &&
+    (!state.level    || j.seniority === state.level));
+  if(state.tab === "saved") out = out.filter(j => saved.has(j.fingerprint));
+  const by = {
+    new:(a,b)=>(b.posted_at||"").localeCompare(a.posted_at||""),
+    company:(a,b)=>(a.company_name||"").localeCompare(b.company_name||"","ar"),
+    title:(a,b)=>(a.title||"").localeCompare(b.title||"","ar"),
+  }[state.sort];
+  return out.sort(by);
+}
+const countBy = (rows, key) => rows.reduce((m,j)=>(m[j[key]]=(m[j[key]]||0)+1, m), {});
+
+/* ===== الشريط الجانبي ===== */
+function drawBars(host, map, key){
+  const rows = base().filter(j =>
+    (key==="country"  || !state.country  || j.country===state.country) &&
+    (key==="category" || !state.category || j.category===state.category) &&
+    (!state.level || j.seniority===state.level));
+  const counts = countBy(rows, key === "country" ? "country" : "category");
+  const max = Math.max(1, ...Object.values(counts));
+  const el = $(host); el.textContent = "";
+  Object.entries(map)
+    .map(([v,l]) => [v, l, counts[v] || 0])
+    .sort((a,b) => b[2] - a[2])
+    .forEach(([v,l,n]) => {
+      const b = document.createElement("button");
+      b.className = "bar"; b.type = "button";
+      b.setAttribute("aria-pressed", String(state[key] === v));
+      b.innerHTML = `<span>${l}</span><span class="n">${ar(n)}</span>
+        <span class="track"><i class="fill" style="width:${(n/max*100).toFixed(0)}%"></i></span>`;
+      if(!n) b.classList.add("dim");
+      b.onclick = () => { state[key] = state[key] === v ? "" : v; paint(); };
+      el.appendChild(b);
+    });
+}
+function drawLevels(){
+  const el = $("#fLevel"); el.textContent = "";
+  Object.entries(LEVELS).forEach(([v,l]) => {
+    const b = document.createElement("button");
+    b.className = "opt"; b.type = "button"; b.textContent = l;
+    b.setAttribute("aria-pressed", String(state.level === v));
+    b.onclick = () => { state.level = state.level === v ? "" : v; paint(); };
+    el.appendChild(b);
+  });
+}
+
+/* ===== بطاقة وظيفة ===== */
+function shareText(j){
+  return encodeURIComponent(
+    `${j.title}\n${j.company_name}${j.city ? " — " + j.city : ""}\n${j.apply_url}\n\nمن شواغر: ${CONFIG.site}`);
+}
+function card(j){
+  const el = document.createElement("article");
+  el.className = "job";
+  const fresh = dayDiff(j.posted_at) !== null && dayDiff(j.posted_at) <= 2;
+  el.innerHTML = `
+    <div class="slot" aria-hidden="true">${esc(j.country || "—")}</div>
+    <div>
+      <h3>${esc(j.title)}</h3>
+      <p class="meta"><b>${esc(j.company_name)}</b>${j.city ? " · " + esc(j.city) : ""}${j.is_remote ? " · عن بُعد" : ""}</p>
+      ${j.summary ? `<p class="snippet">${esc(j.summary)}</p>` : ""}
+      <div class="tags">
+        ${fresh ? `<span class="tag new">جديد</span>` : ""}
+        <span class="tag">${CATEGORIES[j.category] || "أخرى"}</span>
+        <span class="tag">${LEVELS[j.seniority] || ""}</span>
+        ${j.requires_test ? `<span class="tag on">اختبار مهارة</span>` : ""}
+        ${j.requires_video ? `<span class="tag on">فيديو تعريفي</span>` : ""}
+        <span class="tag">${SOURCES[j.source_kind] || esc(j.source_kind)} · ${ago(j.posted_at)}</span>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">قدّم على المصدر</a>
+      <a class="btn wa" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">شارك على واتساب</a>
+      <button class="btn ghost" type="button" aria-pressed="${saved.has(j.fingerprint)}">${saved.has(j.fingerprint) ? "محفوظ" : "احفظ"}</button>
+    </div>`;
+  const b = el.querySelector(".btn.ghost");
+  b.onclick = () => {
+    saved.has(j.fingerprint) ? saved.delete(j.fingerprint) : saved.add(j.fingerprint);
+    paint();
+  };
+  return el;
+}
+
+/* ===== واتساب ===== */
+function drawGroups(){
+  const wrap = $("#groups"); wrap.textContent = "";
+  const chan = GROUPS.channel || {};
+  const chanBtn = $("#chanBtn"), subBtn = $("#submitBtn");
+  const chanUrl = CONFIG.whatsappChannel || chan.url;
+  if(chanUrl){ chanBtn.href = chanUrl; chanBtn.removeAttribute("hidden"); }
+  else { chanBtn.href = "#"; chanBtn.classList.add("dim"); }
+
+  const num = CONFIG.submitNumber || GROUPS.submit_number;
+  subBtn.href = num
+    ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب وظائف لدليل شواغر:")}`
+    : "#";
+  if(!num) subBtn.classList.add("dim");
+
+  $("#waNote").textContent = (chanUrl && num) ? ""
+    : "لسه محتاج تحط لينك القناة ورقم الاستقبال في CONFIG أعلى ملف index.html أو في data/groups.json.";
+
+  const list = (GROUPS.groups || []).filter(g =>
+    (!state.country || g.country === state.country) &&
+    (!state.category || g.category === state.category));
+
+  if(!list.length){
+    wrap.innerHTML = `<div class="empty"><b>مفيش جروبات في الدليل بعد</b>ضيف أول جروب من الزر فوق، أو غيّر الفلتر.</div>`;
+    return;
+  }
+  list.forEach(g => {
+    const el = document.createElement("div");
+    el.className = "gcard";
+    const live = !!g.url;
+    el.innerHTML = `
+      <h3>${esc(g.name)}</h3>
+      <div class="row">
+        <span class="tag">${COUNTRIES[g.country] || "عام"}</span>
+        <span class="tag">${CATEGORIES[g.category] || "متنوع"}</span>
+        <span class="tag">${g.type === "channel" ? "قناة" : "جروب"}</span>
+      </div>
+      ${g.note ? `<p class="note">${esc(g.note)}</p>` : ""}
+      <a class="btn wa ${live ? "" : "dim"}" href="${live ? esc(g.url) : "#"}" target="_blank" rel="noopener">
+        ${g.type === "channel" ? "اشترك" : "انضم للجروب"}</a>`;
+    wrap.appendChild(el);
+  });
+}
+
+/* ===== الرسم ===== */
+function paint(){
+  const rows = filtered();
+  const all = base();
+
+  $("#kTotal").textContent  = ar(JOBS.length);
+  $("#kToday").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
+  $("#kCo").textContent     = ar(new Set(JOBS.map(j => j.company_name)).size);
+  $("#kRemote").textContent = ar(JOBS.filter(j => j.is_remote).length);
+
+  $("#navJobs").textContent   = ar(all.length);
+  $("#navGroups").textContent = ar((GROUPS.groups || []).length);
+  $("#navSaved").textContent  = ar(saved.size);
+
+  drawBars("#fCountry", COUNTRIES, "country");
+  drawBars("#fCategory", CATEGORIES, "category");
+  drawLevels();
+
+  const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
+                state.level && LEVELS[state.level]].filter(Boolean);
+  $("#crumbTxt").textContent = bits.length ? "— " + bits.join(" · ") : "";
+  $("#clear").hidden = !bits.length && !state.q;
+
+  $("#shown").textContent = ar(rows.length);
+  const list = $("#list"); list.textContent = "";
+  if(!rows.length){
+    list.innerHTML = state.tab === "saved"
+      ? `<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر يعجبك ويظهر هنا.</div>`
+      : `<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`;
+  } else {
+    const frag = document.createDocumentFragment();
+    rows.slice(0, 300).forEach(j => frag.appendChild(card(j)));
+    list.appendChild(frag);
+  }
+  drawGroups();
+}
+
+function setTab(tab){
+  state.tab = tab;
+  document.querySelectorAll("#nav button").forEach(b =>
+    b.setAttribute("aria-current", String(b.dataset.tab === tab)));
+  $("#viewJobs").hidden = tab === "whatsapp";
+  $("#viewWhatsapp").hidden = tab !== "whatsapp";
+  document.body.classList.remove("open");
+  paint();
+}
+
+/* ===== الإقلاع ===== */
+async function load(path, fallback){
+  try{
+    const r = await fetch(path, {cache:"no-store"});
+    if(r.ok) return await r.json();
+  }catch(e){}
+  return fallback;
+}
+async function boot(){
+  const [jp, gp] = await Promise.all([
+    load("data/jobs.json", JOBS_DATA),
+    load("data/groups.json", GROUPS_DATA),
+  ]);
+  JOBS = jp.jobs || [];
+  GROUPS = gp || {groups:[]};
+
+  const when = new Date(jp.generated_at || Date.now());
+  $("#stamp").textContent = "آخر تحديث " +
+    when.toLocaleString("ar-EG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+  $("#srcline").textContent = (jp.demo ? "بيانات تجريبية · " : "") +
+    ar(new Set(JOBS.map(j => j.source_kind)).size) + " مصادر رسمية";
+
+  $("#q").addEventListener("input", e => { state.q = e.target.value; paint(); });
+  $("#sort").onchange = e => { state.sort = e.target.value; paint(); };
+  $("#menu").onclick = () => document.body.classList.toggle("open");
+  $("#clear").onclick = () => { Object.assign(state,{q:"",country:"",category:"",level:""}); $("#q").value=""; paint(); };
+  document.querySelectorAll("#nav button").forEach(b => b.onclick = () => setTab(b.dataset.tab));
+  document.addEventListener("keydown", e => { if(e.key === "Escape") document.body.classList.remove("open"); });
+
+  paint();
+}
+boot();
+</script>
+</body>
+</html>
