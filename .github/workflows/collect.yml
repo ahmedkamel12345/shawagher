@@ -1,1 +1,42 @@
+name: collect
 
+on:
+  schedule:
+    - cron: "0 3,9,15,21 * * *"
+  push:
+    paths: ["web/data/manual.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: fetch jobs
+        working-directory: collector
+        env:
+          CAREERJET_API_KEY: ${{ secrets.CAREERJET_API_KEY }}
+          JOOBLE_KEY: ${{ secrets.JOOBLE_KEY }}
+        run: python fetch_jobs.py --sources sources.json --out ../web/data
+
+      - name: merge whatsapp jobs
+        working-directory: collector
+        run: python merge_manual.py --manual ../web/data/manual.json --jobs ../web/data/jobs.json --store manual_store.json
+
+      - name: commit
+        run: |
+          git config user.name "shawagher-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add web/data/jobs.json web/data/report.json collector/manual_store.json
+          git diff --staged --quiet || git commit -m "update jobs $(date -u '+%Y-%m-%d %H:%M')"
+          git push
