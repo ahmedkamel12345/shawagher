@@ -516,7 +516,8 @@ def from_jooble(src):
         raise RuntimeError("محتاج JOOBLE_KEY")
     body = {"keywords": src.get("keywords", ""), "location": src.get("location", ""),
             "page": str(src.get("page", 1))}
-    r = requests.post(f"https://{src.get('host','jooble.org')}/api/{key}",
+    # الـ API على jooble.org فقط — النطاقات الفرعية للموقع مش للواجهة
+    r = requests.post(f"https://jooble.org/api/{key}",
                       json=body, headers={"Content-Type": "application/json", "User-Agent": UA},
                       timeout=TIMEOUT)
     r.raise_for_status()
