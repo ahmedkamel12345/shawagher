@@ -345,10 +345,49 @@ footer p{margin:.25rem 0}
       <p>مكتب المحترف للاستشارات المالية يقدّم خدمات محاسبية ومالية متكاملة للشركات الصغيرة والمتوسطة
         في الكويت والخليج — من مسك الدفاتر إلى الاستشارات الضريبية وتطبيق أودو.</p>
       <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
-        <a class="btn amber" id="svcCta" href="#" style="padding:.55rem 1.4rem">اطلب استشارة مجانية</a>
+        <a class="btn wa" href="https://wa.me/96556643047" target="_blank" rel="noopener">واتساب <span class="mono" dir="ltr">+965 5664 3047</span></a>
+        <a class="btn wa" href="https://wa.me/96550076194" target="_blank" rel="noopener">واتساب <span class="mono" dir="ltr">+965 5007 6194</span></a>
+        <a class="btn amber" href="https://almotaref.odoo.com/" target="_blank" rel="noopener" style="padding:.55rem 1.4rem">زيارة موقعنا</a>
       </div>
     </div>
+
     <div class="grid" id="services"></div>
+
+    <div class="panel">
+      <h2>حاسبة مكافأة نهاية الخدمة — الكويت</h2>
+      <p>حساب تقديري لمكافأة نهاية الخدمة بالقطاع الخاص وفق قانون العمل الكويتي رقم ٦ لسنة ٢٠١٠.</p>
+      <div class="form">
+        <div><label>الراتب الشهري الأساسي (د.ك)</label>
+          <input id="gSalary" type="number" min="0" step="0.001" placeholder="450"></div>
+        <div><label>عدد سنوات الخدمة</label>
+          <input id="gYears" type="number" min="0" step="0.1" placeholder="6.5"></div>
+        <div class="wide"><label>سبب انتهاء الخدمة</label>
+          <select id="gReason">
+            <option value="terminated">إنهاء الخدمة من صاحب العمل / نهاية العقد</option>
+            <option value="resign">استقالة</option>
+          </select>
+        </div>
+        <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+          <button class="btn amber" id="gCalc" type="button" style="padding:.6rem 1.6rem">احسب المكافأة</button>
+          <span class="note">حساب تقديري وليس استشارة قانونية نهائية — راسلنا على واتساب للتأكد من حالتك.</span>
+        </div>
+      </div>
+      <div id="gResult" style="margin-top:.8rem"></div>
+    </div>
+
+    <div class="panel">
+      <h2>موقعنا</h2>
+      <p>تقدر تستكشف موقعنا الرسمي مباشرة من هنا، أو تفتحه في صفحة جديدة.</p>
+      <div style="border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff">
+        <iframe src="https://almotaref.odoo.com/" title="المحترف للاستشارات المالية"
+          style="width:100%;height:520px;border:0;display:block" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="note" style="margin-top:.5rem">لو المعاينة ما ظهرتش (بعض المواقع بتمنع التضمين لأسباب أمنية)،
+        افتح الموقع مباشرة من الزر تحت.</p>
+      <a class="btn primary" href="https://almotaref.odoo.com/" target="_blank" rel="noopener"
+        style="display:inline-block;margin-top:.4rem;padding:.5rem 1.3rem">فتح الموقع في صفحة جديدة</a>
+    </div>
   </section>
 
   <footer>
@@ -633,8 +672,32 @@ function drawServices(){
     wrap.appendChild(el);
   });
 }
+function calcGratuity(){
+  const box = $("#gResult");
+  const salary = parseFloat($("#gSalary").value);
+  const years = parseFloat($("#gYears").value);
+  const reason = $("#gReason").value;
+  if(!(salary > 0) || !(years > 0)){
+    box.innerHTML = `<div class="err">من فضلك أدخل الراتب الشهري وعدد سنوات الخدمة.</div>`;
+    return;
+  }
+  let base = years <= 5 ? years * salary / 2 : (5 * salary / 2) + (years - 5) * salary;
+  base = Math.min(base, salary * 18);
+  let factor = 1, note = "";
+  if(reason === "resign"){
+    if(years < 3){ factor = 0; note = "الاستقالة قبل إكمال ٣ سنوات خدمة لا تستحق مكافأة نهاية خدمة."; }
+    else if(years < 5){ factor = 1/3; note = "الاستقالة بعد ٣ إلى أقل من ٥ سنوات تستحق ثلث المكافأة."; }
+    else if(years < 10){ factor = 2/3; note = "الاستقالة بعد ٥ إلى أقل من ١٠ سنوات تستحق ثلثي المكافأة."; }
+    else note = "الاستقالة بعد ١٠ سنوات فأكثر تستحق المكافأة كاملة.";
+  }
+  const amount = base * factor;
+  box.innerHTML = `<div class="ok"><b>المكافأة التقديرية: ${amount.toFixed(3)} د.ك</b>
+    ${note ? `<div class="note" style="margin-top:.3rem">${esc(note)}</div>` : ""}
+    <div class="note" style="margin-top:.3rem">الحد الأقصى القانوني للمكافأة هو راتب ١٨ شهراً.</div></div>`;
+}
 
-/* ══════════ الدخول ══════════ */async function initAuth(){
+/* ══════════ الدخول ══════════ */
+async function initAuth(){
   if(!(CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)) return renderWho();
   await new Promise(res => {
     const s = document.createElement("script");
@@ -817,10 +880,8 @@ async function boot(){
 
   const num = CONFIG.adminNumber;
   $("#adCta").href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : "#";
-  $("#svcCta").href = num
-    ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالخدمات المحاسبية والمالية من المحترف للاستشارات المالية")}`
-    : "#";
   drawServices();
+  $("#gCalc").onclick = calcGratuity;
   $("#addGroup").onclick = () => window.open(num
     ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
     : "#", "_blank");
