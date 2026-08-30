@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>شواغر — لوحة الوظائف اليومية في الخليج ومصر</title>
-<meta name="description" content="شواغر تجمع الوظائف المفتوحة يومياً من صفحات التوظيف الرسمية للشركات في الخليج ومصر، في لوحة واحدة وبالعربي.">
+<title>شواغر — وظائف الخليج ومصر، محدّثة يومياً</title>
+<meta name="description" content="شواغر تجمع الوظائف المفتوحة يومياً من صفحات التوظيف الرسمية في مصر والكويت والسعودية والإمارات. مجاني للباحث عن العمل، وأي حد يقدر ينشر وظيفة.">
+<meta name="author" content="المحترف للاستشارات المالية — أحمد أبو كامل">
 <meta property="og:title" content="شواغر — كل شاغر مفتوح في الخليج ومصر">
 <meta property="og:description" content="وظائف محدّثة يومياً من المصادر الرسمية. مجاني للباحث عن العمل.">
-<meta name="author" content="المحترف للاستشارات المالية — أحمد أبو كامل">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
 <meta name="theme-color" content="#193C58">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,155 +20,180 @@
   --amber:#E7962D; --amber-dim:#A96A1B; --amber-soft:#FCEFDC;
   --paper:#EFF2F4; --card:#FFFFFF;
   --ink:#12293C; --muted:#5A6E7F; --faint:#93A3AF;
-  --line:#D5DEE4; --green:#1E4668; --green-soft:#E4EDF4;
-  --wa:#1FA855;
-  --rail:288px;
+  --line:#D5DEE4; --deep:#1E4668; --soft:#E4EDF4;
+  --wa:#1FA855; --ok:#1B7A5A;
+  --rail:280px;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
-  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+ font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4,.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700;line-height:1.35;margin:0}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
 a{color:inherit}
 button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+input,select,textarea{font:inherit;width:100%;border:1px solid var(--line);border-radius:3px;
+ padding:.55rem .65rem;background:#fff;color:var(--ink)}
+textarea{resize:vertical;min-height:80px}
 :focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-::-webkit-scrollbar{width:9px;height:9px}
-::-webkit-scrollbar-thumb{background:#BCCAD4;border-radius:9px}
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#BCCAD4;border-radius:9px}
+[hidden]{display:none!important}
 
-/* ================= الهيكل ================= */
+/* ===== التخطيط ===== */
 .app{display:grid;grid-template-columns:var(--rail) 1fr;min-height:100vh}
-
-/* ---------- الشريط الجانبي ---------- */
 .rail{background:var(--board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
-  display:flex;flex-direction:column;gap:.2rem;padding:1.1rem 1rem 1.5rem}
-.logo{display:flex;align-items:center;gap:.6rem;padding-bottom:.9rem;border-bottom:1px solid var(--board-3)}
+ padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
+.logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(--board-3)}
 .logo img{flex:none}
-.logo b{display:block;font-family:"Noto Kufi Arabic";font-size:1.35rem;color:var(--amber);line-height:1.1}
-.logo span{font-size:.62rem;color:#8FA3B4;letter-spacing:.14em}
-
-.nav{display:flex;flex-direction:column;gap:2px;margin:.9rem 0 .4rem}
-.nav button{display:flex;justify-content:space-between;align-items:center;gap:.5rem;
-  padding:.55rem .7rem;border-radius:3px;font-size:.92rem;color:#AFC1CE;text-align:start;width:100%}
+.logo b{display:block;font-family:"Noto Kufi Arabic";font-size:1.3rem;color:var(--amber);line-height:1.1}
+.logo span{font-size:.6rem;color:#8FA3B4;letter-spacing:.14em}
+.nav{display:flex;flex-direction:column;gap:2px;margin:.85rem 0 .3rem}
+.nav button{display:flex;justify-content:space-between;align-items:center;padding:.5rem .65rem;
+ border-radius:3px;font-size:.9rem;color:#AFC1CE;width:100%;text-align:start}
 .nav button:hover{background:var(--board-2);color:#fff}
 .nav button[aria-current="true"]{background:var(--amber);color:var(--board);font-weight:600}
-.nav .n{font-family:"IBM Plex Mono";font-size:.75rem;opacity:.75}
-
-.railsec{margin-top:1.1rem;border-top:1px solid var(--board-3);padding-top:.9rem}
-.railsec h4{font-size:.68rem;letter-spacing:.1em;color:#7E96A8;font-weight:500;margin-bottom:.55rem;font-family:"IBM Plex Mono"}
-.opts{display:flex;flex-wrap:wrap;gap:.3rem}
-.opt{border:1px solid var(--board-3);border-radius:3px;padding:.24rem .55rem;font-size:.8rem;color:#AFC1CE;
-  transition:background .14s,color .14s,border-color .14s}
-.opt:hover{border-color:#4E7899;color:#fff}
-.opt[aria-pressed="true"]{background:#fff;border-color:#fff;color:var(--board);font-weight:600}
-
-.bars{display:flex;flex-direction:column;gap:.42rem}
-.bar{display:grid;grid-template-columns:1fr auto;gap:.4rem;align-items:center;width:100%;text-align:start;
-  font-size:.82rem;color:#AFC1CE;padding:.1rem 0}
+.nav .n{font-family:"IBM Plex Mono";font-size:.72rem;opacity:.8}
+.postbtn{background:#fff;color:var(--board);font-weight:700;border-radius:3px;padding:.6rem;
+ margin:.6rem 0 .2rem;text-align:center;font-family:"Noto Kufi Arabic";font-size:.88rem}
+.postbtn:hover{background:var(--amber)}
+.railsec{margin-top:1rem;border-top:1px solid var(--board-3);padding-top:.8rem}
+.railsec h4{font-size:.66rem;letter-spacing:.1em;color:#7E96A8;font-weight:500;
+ margin-bottom:.5rem;font-family:"IBM Plex Mono"}
+.bars{display:flex;flex-direction:column;gap:.38rem}
+.bar{display:grid;grid-template-columns:1fr auto;gap:.35rem;align-items:center;width:100%;
+ text-align:start;font-size:.81rem;color:#AFC1CE}
 .bar:hover{color:#fff}
-.bar .track{grid-column:1/-1;height:4px;background:var(--board-3);border-radius:9px;overflow:hidden}
+.bar .track{grid-column:1/-1;height:3px;background:var(--board-3);border-radius:9px;overflow:hidden}
 .bar .fill{display:block;height:100%;background:var(--amber-dim)}
 .bar[aria-pressed="true"]{color:#fff}
 .bar[aria-pressed="true"] .fill{background:var(--amber)}
-.bar .n{font-family:"IBM Plex Mono";font-size:.75rem;color:#7E96A8}
-
-.railfoot{margin-top:auto;padding-top:1rem;font-size:.7rem;color:#7E96A8;line-height:1.7}
+.bar .n{font-family:"IBM Plex Mono";font-size:.72rem;color:#7E96A8}
+.bar.dim{opacity:.45}
+.railfoot{margin-top:auto;padding-top:.9rem;font-size:.68rem;color:#7E96A8;line-height:1.75}
+.by{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--board-3);
+ font-family:"Noto Kufi Arabic";font-size:.7rem;color:#9FB3C1;line-height:1.8}
+.by span{font-family:"IBM Plex Sans Arabic";color:#7E96A8}
 .pulse{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;
-  margin-inline-end:.35rem;animation:pulse 2.6s ease-in-out infinite}
+ margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* ---------- المنطقة الرئيسية ---------- */
-.main{min-width:0;padding:1.4rem clamp(1rem,2.6vw,2rem) 3rem}
-.topbar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:1.1rem}
-.searchbox{flex:1;min-width:240px;display:flex;background:var(--card);border:1px solid var(--line);border-radius:3px}
-.searchbox input{flex:1;border:0;background:transparent;padding:.7rem .9rem;font:inherit;min-width:0}
-.searchbox input::placeholder{color:var(--faint)}
-.searchbox span{display:grid;place-content:center;padding-inline:.8rem;color:var(--faint)}
-select{font:inherit;font-size:.86rem;border:1px solid var(--line);background:var(--card);
-  padding:.62rem .7rem;border-radius:3px;color:var(--ink)}
+.main{min-width:0;padding:1.1rem clamp(.9rem,2.4vw,1.9rem) 3rem}
+.topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem}
+.searchbox{flex:1;min-width:220px;display:flex;background:var(--card);border:1px solid var(--line);border-radius:3px}
+.searchbox input{border:0;background:transparent}
+.searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(--faint)}
+.topbar select{width:auto}
 .menu-btn{display:none}
+.who{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(--muted);
+ background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.45rem .7rem}
+.who b{color:var(--ink);font-weight:600}
 
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-bottom:1.1rem}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.75rem .9rem;
-  border-top:2px solid var(--amber)}
-.kpi b{display:block;font-family:"IBM Plex Mono";font-size:1.6rem;font-weight:500;line-height:1.15}
-.kpi span{font-size:.72rem;color:var(--muted)}
-.kpi.alt{border-top-color:var(--green)}
+/* تبويبات الدول */
+.tabs{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:.7rem;
+ border-bottom:1px solid var(--line);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;padding:.45rem .85rem;border-radius:3px;font-size:.9rem;color:var(--muted);
+ font-family:"Noto Kufi Arabic";font-weight:500;border:1px solid transparent}
+.tab:hover{background:var(--soft);color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--board);color:#fff}
+.tab i{font-style:normal;font-family:"IBM Plex Mono";font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
 
-.crumbs{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  border-bottom:1px solid var(--line);padding-bottom:.6rem;margin-bottom:.8rem}
-.crumbs p{margin:0;font-size:.86rem;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.9rem}
+.kpi{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--amber);
+ border-radius:3px;padding:.6rem .8rem}
+.kpi b{display:block;font-family:"IBM Plex Mono";font-size:1.45rem;font-weight:500;line-height:1.2}
+.kpi span{font-size:.7rem;color:var(--muted)}
+.kpi.alt{border-top-color:var(--deep)}
+.crumbs{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;
+ border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.7rem;font-size:.85rem;color:var(--muted)}
 .crumbs b{font-family:"IBM Plex Mono";color:var(--ink)}
-.clear{font-size:.8rem;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.clear{color:var(--deep);text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
 
-/* ---------- بطاقات الوظائف ---------- */
-.list{display:grid;gap:.55rem}
-.job{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem 1rem;
-  display:grid;grid-template-columns:46px 1fr auto;gap:.9rem;align-items:start;transition:border-color .14s}
+/* بطاقات */
+.list{display:grid;gap:.5rem}
+.job{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem .95rem;
+ display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
 .job:hover{border-color:#A9BECD}
-.slot{width:46px;height:46px;border:1.5px dashed #B4C6D3;border-radius:3px;display:grid;place-content:center;
-  font-family:"IBM Plex Mono";font-size:.75rem;color:var(--muted);transition:.16s}
+.job.user{border-inline-start:3px solid var(--amber)}
+.slot{width:44px;height:44px;border:1.5px dashed #B4C6D3;border-radius:3px;display:grid;place-content:center;
+ font-family:"IBM Plex Mono";font-size:.72rem;color:var(--muted);transition:.15s}
 .job:hover .slot{background:var(--amber);border-color:var(--amber);border-style:solid;color:var(--board)}
-.job h3{font-size:1.02rem;margin-bottom:.12rem}
-.meta{font-size:.85rem;color:var(--muted);margin:0}
+.job h3{font-size:1rem;margin-bottom:.1rem}
+.meta{font-size:.84rem;color:var(--muted);margin:0}
 .meta b{color:var(--ink);font-weight:600}
-.snippet{font-size:.83rem;color:var(--muted);margin:.4rem 0 0;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.55rem}
-.tag{font-family:"IBM Plex Mono";font-size:.67rem;border:1px solid var(--line);padding:.1rem .42rem;
-  border-radius:2px;color:var(--muted)}
+.snippet{font-size:.82rem;color:var(--muted);margin:.35rem 0 0;
+ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.5rem}
+.tag{font-family:"IBM Plex Mono";font-size:.66rem;border:1px solid var(--line);padding:.08rem .4rem;
+ border-radius:2px;color:var(--muted)}
 .tag.new{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
-.tag.on{border-color:#C8D6D1;background:var(--green-soft);color:var(--green)}
-.actions{display:flex;flex-direction:column;gap:.35rem;min-width:112px}
-.btn{display:block;text-align:center;padding:.45rem .8rem;border-radius:3px;font-size:.83rem;
-  font-weight:600;text-decoration:none;border:1px solid transparent}
+.tag.on{border-color:#C3D5E2;background:var(--soft);color:var(--deep)}
+.actions{display:flex;flex-direction:column;gap:.3rem;min-width:108px}
+.btn{display:block;text-align:center;padding:.42rem .8rem;border-radius:3px;font-size:.82rem;
+ font-weight:600;text-decoration:none;border:1px solid transparent}
 .btn.primary{background:var(--ink);color:#fff}
-.btn.primary:hover{background:var(--green)}
+.btn.primary:hover{background:var(--deep)}
 .btn.wa{background:var(--wa);color:#fff}
-.btn.wa:hover{filter:brightness(.93)}
 .btn.ghost{border-color:var(--line);color:var(--muted);font-weight:400}
 .btn.ghost[aria-pressed="true"]{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
+.btn.amber{background:var(--amber);color:var(--board)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.more{margin:.8rem auto 0;display:block;border:1px solid var(--line);background:var(--card);
+ padding:.6rem 1.6rem;border-radius:3px;color:var(--deep);font-weight:600}
 
-.empty{border:1px dashed var(--line);background:var(--card);padding:3rem 1.5rem;text-align:center;color:var(--muted)}
-.empty b{display:block;font-family:"Noto Kufi Arabic";color:var(--ink);margin-bottom:.3rem}
+/* إعلانات */
+.ad{background:linear-gradient(180deg,#fff,#FAFCFD);border:1px solid var(--line);
+ border-inline-start:3px solid var(--amber);border-radius:3px;padding:.85rem 1rem;position:relative}
+.ad .lbl{position:absolute;inset-inline-end:.6rem;top:.5rem;font-family:"IBM Plex Mono";
+ font-size:.6rem;color:var(--faint);border:1px solid var(--line);padding:0 .3rem;border-radius:2px}
+.ad h3{font-size:.98rem;margin-bottom:.2rem}
+.ad p{margin:.2rem 0 .6rem;font-size:.85rem;color:var(--muted)}
+.ad .adv{font-size:.72rem;color:var(--faint)}
+.ad.rail{background:var(--board-2);border-color:var(--board-3);border-inline-start-color:var(--amber);color:#DCE6ED}
+.ad.rail h3{color:#fff;font-size:.9rem}
+.ad.rail p{color:#AFC1CE;font-size:.8rem}
+.adslot{border:1px dashed var(--line);background:var(--card);padding:1rem;text-align:center;
+ font-size:.84rem;color:var(--faint);border-radius:3px}
 
-/* ---------- واتساب ---------- */
-.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.2rem;margin-bottom:.8rem}
-.panel h2{font-size:1.12rem;margin-bottom:.4rem}
-.panel p{margin:.3rem 0;font-size:.9rem;color:var(--muted)}
-.wa-hero{border-inline-start:3px solid var(--wa)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.55rem}
-.gcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem;
-  display:flex;flex-direction:column;gap:.5rem}
-.gcard h3{font-size:.96rem}
-.gcard .row{display:flex;gap:.3rem;flex-wrap:wrap}
+/* لوحات ونماذج */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
+.panel h2{font-size:1.1rem;margin-bottom:.35rem}
+.panel p{margin:.25rem 0;font-size:.88rem;color:var(--muted)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
+.form label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.22rem}
+.form .wide{grid-column:1/-1}
 .note{font-size:.78rem;color:var(--faint)}
-.dim{opacity:.55}
-
+.ok{background:#E7F4EE;border:1px solid #B8DCCB;color:var(--ok);padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
+.err{background:#FBECEA;border:1px solid #E8C4BF;color:#A3392F;padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:.55rem}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem;
+ display:flex;flex-direction:column;gap:.45rem}
+.gcard h3{font-size:.94rem}
+.subtabs{display:flex;gap:.3rem;margin-bottom:.7rem}
+.subtab{padding:.4rem .9rem;border:1px solid var(--line);border-radius:3px;font-size:.86rem;color:var(--muted)}
+.subtab[aria-pressed="true"]{background:var(--board);border-color:var(--board);color:#fff}
+.empty{border:1px dashed var(--line);background:var(--card);padding:2.6rem 1.4rem;text-align:center;color:var(--muted)}
+.empty b{display:block;font-family:"Noto Kufi Arabic";color:var(--ink);margin-bottom:.25rem}
+.dim{opacity:.5}
 footer{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.78rem;color:var(--muted)}
 footer p{margin:.25rem 0}
 .credit{display:flex;align-items:center;gap:.7rem;color:var(--ink);margin-top:.6rem}
 .credit img{border-radius:4px;flex:none}
-.credit b{font-family:"Noto Kufi Arabic";font-weight:700}
-.by{margin-top:.75rem;padding-top:.7rem;border-top:1px solid var(--board-3);
-  font-family:"Noto Kufi Arabic";font-size:.72rem;color:#9FB3C1;line-height:1.8}
-.by span{font-family:"IBM Plex Sans Arabic";color:#7E96A8}
+.credit b{font-family:"Noto Kufi Arabic"}
 
-/* ---------- الموبايل ---------- */
 @media (max-width:900px){
   .app{grid-template-columns:1fr}
-  .rail{position:fixed;inset-inline-start:0;top:0;width:min(300px,86vw);z-index:40;
-    transform:translateX(100%);transition:transform .22s ease}
-  html[dir="rtl"] .rail{transform:translateX(100%)}
-  body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.6)}
+  .rail{position:fixed;inset-inline-start:0;top:0;width:min(290px,86vw);z-index:40;transform:translateX(100%)}
+  body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.55)}
   body.open::after{content:"";position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
-  .menu-btn{display:flex;align-items:center;gap:.4rem;background:var(--board);color:#fff;
-    padding:.62rem .9rem;border-radius:3px;font-size:.86rem;font-weight:600}
+  .menu-btn{display:block;background:var(--board);color:#fff;padding:.55rem .85rem;border-radius:3px;
+   font-size:.84rem;font-weight:600}
   .kpis{grid-template-columns:repeat(2,1fr)}
-  .job{grid-template-columns:40px 1fr}
-  .slot{width:40px;height:40px}
+  .job{grid-template-columns:38px 1fr}
+  .slot{width:38px;height:38px}
   .actions{grid-column:1/-1;flex-direction:row}
   .actions .btn{flex:1}
+  .form{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -175,32 +201,30 @@ footer p{margin:.25rem 0}
 <body>
 <div class="app">
 
-<!-- ================= الشريط الجانبي ================= -->
 <aside class="rail" id="rail">
   <div class="logo">
-    <img src="assets/shawagher-mark.svg" alt="" width="34" height="34">
+    <img src="assets/shawagher-mark.svg" alt="" width="32" height="32">
     <div><b>شواغر</b><span class="mono">SHAWAGHER</span></div>
   </div>
 
   <nav class="nav" id="nav">
     <button data-tab="jobs" aria-current="true">الشواغر <span class="n" id="navJobs">0</span></button>
-    <button data-tab="whatsapp">جروبات واتساب <span class="n" id="navGroups">0</span></button>
+    <button data-tab="groups">جروبات واتساب <span class="n" id="navGroups">0</span></button>
     <button data-tab="saved">المحفوظة <span class="n" id="navSaved">0</span></button>
   </nav>
-
-  <div class="railsec" id="secFilters">
-    <h4>الدولة</h4>
-    <div class="bars" id="fCountry"></div>
-  </div>
+  <button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
 
   <div class="railsec">
     <h4>المجال</h4>
     <div class="bars" id="fCategory"></div>
   </div>
-
   <div class="railsec">
-    <h4>المستوى</h4>
-    <div class="opts" id="fLevel"></div>
+    <h4>المستوى الوظيفي</h4>
+    <div class="bars" id="fLevel"></div>
+  </div>
+  <div class="railsec" id="railAdBox" hidden>
+    <h4>إعلان</h4>
+    <div id="railAd"></div>
   </div>
 
   <div class="railfoot">
@@ -210,54 +234,113 @@ footer p{margin:.25rem 0}
   </div>
 </aside>
 
-<!-- ================= المحتوى ================= -->
 <main class="main">
   <div class="topbar">
-    <button class="menu-btn" id="menu">☰ الفلاتر</button>
+    <button class="menu-btn" id="menu">☰</button>
     <div class="searchbox">
       <span>⌕</span>
       <input id="q" type="search" placeholder="ابحث بالمسمى أو الشركة — محاسب، Odoo، خدمة عملاء" aria-label="بحث">
     </div>
     <select id="sort" aria-label="ترتيب">
-      <option value="new">الأحدث أولاً</option>
+      <option value="new">الأحدث</option>
       <option value="company">الشركة</option>
       <option value="title">المسمى</option>
     </select>
+    <div class="who" id="who">
+      <button id="login">دخول بجوجل</button>
+    </div>
   </div>
 
+  <div class="tabs" id="tabs"></div>
+  <div id="heroAd"></div>
+
+  <!-- ============ الشواغر ============ -->
   <section id="viewJobs">
     <div class="kpis">
       <div class="kpi"><b id="kTotal">0</b><span>شاغر مفتوح</span></div>
-      <div class="kpi"><b id="kToday">0</b><span>جديد هذا الأسبوع</span></div>
+      <div class="kpi"><b id="kWeek">0</b><span>جديد هذا الأسبوع</span></div>
       <div class="kpi alt"><b id="kCo">0</b><span>جهة توظيف</span></div>
-      <div class="kpi alt"><b id="kRemote">0</b><span>عن بُعد</span></div>
+      <div class="kpi alt"><b id="kUser">0</b><span>إعلان مباشر</span></div>
     </div>
-
     <div class="crumbs">
       <p><b id="shown">0</b> نتيجة <span id="crumbTxt"></span></p>
       <button class="clear" id="clear" hidden>مسح الفلاتر</button>
     </div>
-
     <div class="list" id="list" aria-live="polite"></div>
+    <button class="more" id="more" hidden>عرض المزيد</button>
   </section>
 
-  <section id="viewWhatsapp" hidden>
-    <div class="panel wa-hero">
-      <h2>وظائف الخليج ومصر على واتساب</h2>
-      <p>اشترك في قناة شواغر عشان يوصلك الجديد أول بأول، أو ادخل جروب متخصص في مجالك.</p>
-      <div class="row" style="margin-top:.7rem;display:flex;gap:.4rem;flex-wrap:wrap">
-        <a class="btn wa" id="chanBtn" href="#">اشترك في القناة</a>
-        <a class="btn ghost" id="submitBtn" href="#">أضف جروبك للدليل</a>
+  <!-- ============ الجروبات ============ -->
+  <section id="viewGroups" hidden>
+    <div class="panel" style="border-inline-start:3px solid var(--wa)">
+      <h2>جروبات وقنوات واتساب</h2>
+      <p>جروبات وظائف وجروبات كورسات وتدريب، مقسّمة حسب المجال. الانضمام مجاني.</p>
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
+        <a class="btn wa" id="chanBtn" href="#">اشترك في قناة شواغر</a>
+        <button class="btn ghost" id="addGroup">أضف جروبك للدليل</button>
       </div>
       <p class="note" id="waNote"></p>
+    </div>
+    <div class="subtabs">
+      <button class="subtab" data-kind="jobs" aria-pressed="true">جروبات وظائف</button>
+      <button class="subtab" data-kind="courses" aria-pressed="false">جروبات كورسات وتدريب</button>
     </div>
     <div class="grid" id="groups"></div>
   </section>
 
+  <!-- ============ نشر وظيفة ============ -->
+  <section id="viewPost" hidden>
+    <div class="panel">
+      <h2>انشر وظيفة</h2>
+      <p>مجاني بالكامل. الإعلان بيتراجع قبل النشر عشان نمنع الإعلانات الوهمية، وبيظهر خلال ساعات.</p>
+      <p class="note" id="postMode"></p>
+
+      <div id="postMsg"></div>
+
+      <div class="form" id="postForm">
+        <div><label>المسمى الوظيفي *</label><input id="pTitle" placeholder="محاسب أول"></div>
+        <div><label>الجهة / الشركة *</label><input id="pCompany" placeholder="شركة ..."></div>
+        <div><label>الدولة *</label><select id="pCountry"></select></div>
+        <div><label>المدينة / المنطقة</label><input id="pCity" placeholder="حولي"></div>
+        <div><label>المجال</label><select id="pCat"></select></div>
+        <div><label>المستوى</label><select id="pLevel"></select></div>
+        <div><label>نوع الدوام</label><select id="pType">
+          <option value="full_time">دوام كامل</option><option value="part_time">دوام جزئي</option>
+          <option value="contract">عقد / مشروع</option><option value="internship">تدريب</option>
+        </select></div>
+        <div><label>الراتب (اختياري)</label><input id="pSalary" placeholder="حسب الخبرة"></div>
+        <div class="wide"><label>وسيلة التقديم * — رقم واتساب أو إيميل أو رابط</label>
+          <input id="pApply" placeholder="96599112233 أو hr@company.com أو رابط"></div>
+        <div class="wide"><label>تفاصيل مختصرة</label>
+          <textarea id="pSummary" placeholder="المهام المطلوبة، الخبرة، أي شروط..."></textarea></div>
+        <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+          <button class="btn amber" id="pSend" style="padding:.6rem 1.6rem">انشر الوظيفة</button>
+          <span class="note">بالنشر أنت تقرّ إن الإعلان حقيقي وإنك مسؤول عن بياناته.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="mineBox" hidden>
+      <h2>إعلاناتي</h2>
+      <div class="list" id="mine"></div>
+    </div>
+
+    <div class="panel">
+      <h2>للشركات — إعلانات مدفوعة</h2>
+      <p>عايز إعلانك يظهر في أعلى الصفحة أو بين الوظائف لجمهور الباحثين عن عمل في الخليج ومصر؟</p>
+      <a class="btn primary" id="adCta" href="#" style="display:inline-block;margin-top:.5rem;padding:.5rem 1.3rem">تواصل معنا</a>
+    </div>
+  </section>
+
+  <!-- ============ المحفوظة ============ -->
+  <section id="viewSaved" hidden>
+    <div class="list" id="savedList"></div>
+  </section>
+
   <footer>
-    <p>شواغر يعرض ملخصاً ورابط المصدر الأصلي لكل وظيفة، والتقديم يتم على موقع الجهة. مجاني للباحث عن العمل.</p>
+    <p>شواغر يعرض ملخصاً ورابط المصدر الأصلي لكل وظيفة، والتقديم يتم على موقع الجهة. مجاني للباحث عن العمل — لا نحصّل أي رسوم من المتقدمين.</p>
     <div class="credit">
-      <img src="assets/almohtaref.png" alt="المحترف للاستشارات المالية" width="64" height="64">
+      <img src="assets/almohtaref.png" alt="المحترف للاستشارات المالية" width="56" height="56">
       <div>من إعداد وتطوير<br><b>المحترف للاستشارات المالية</b> — أحمد أبو كامل</div>
     </div>
   </footer>
@@ -265,11 +348,13 @@ footer p{margin:.25rem 0}
 </div>
 
 <script>
-/* ===== إعدادات تعدّلها إنت ===== */
+/* ══════════ إعدادات — عدّلها إنت ══════════ */
 const CONFIG = {
   site: location.origin,
-  whatsappChannel: "",     // لينك قناة واتساب بتاعتك
-  submitNumber: ""         // رقمك بصيغة دولية بدون + مثال 96599112233
+  supabaseUrl: "",          // https://xxxx.supabase.co   (اختياري)
+  supabaseAnonKey: "",      // مفتاح anon / publishable   (اختياري)
+  whatsappChannel: "",      // لينك قناة واتساب
+  adminNumber: ""           // رقمك الدولي بدون + مثال 96599112233
 };
 
 const JOBS_DATA   = {
@@ -296,45 +381,54 @@ const JOBS_DATA   = {
  ]
 };
 const GROUPS_DATA = {
- "channel": {
-  "name": "قناة شواغر على واتساب",
-  "url": "",
-  "note": "حط لينك القناة هنا بعد ما تعملها — الشواغر الجديدة تتنشر فيها يومياً"
- },
+ "channel": {"name": "قناة شواغر على واتساب", "url": "", "note": "لينك القناة بعد ما تعملها"},
  "submit_number": "",
  "groups": [
-  {
-   "name": "Odoo Learning — تعلّم أودو",
-   "country": "",
-   "category": "it",
-   "type": "group",
+  {"name": "Odoo Learning — تعلّم أودو", "kind": "courses", "type": "group", "country": "", "category": "it",
    "url": "https://chat.whatsapp.com/JZGdAb0GnfRDvMnvZqqtkY",
-   "note": "نقاش وتعلّم أودو ERP — مفيد لوظائف التطبيق والدعم الفني"
-  },
-  {
-   "name": "مال وأعمال",
-   "country": "",
-   "category": "accounting",
-   "type": "group",
+   "note": "تعلّم ونقاش أودو ERP — مفيد لوظائف التطبيق والدعم الفني"},
+  {"name": "مال وأعمال", "kind": "jobs", "type": "group", "country": "", "category": "accounting",
    "url": "https://chat.whatsapp.com/FHpIszAJi21BOjIje7hnfI",
-   "note": "محاسبة ومالية وأعمال — فرص ونقاش مهني"
+   "note": "محاسبة ومالية وأعمال — فرص ونقاش مهني"}
+ ]
+};
+const ADS_DATA    = {
+ "note": "الإعلانات المدفوعة. placement: hero (بانر أعلى الصفحة) | inline (بين الوظائف) | rail (الشريط الجانبي). country و category فاضيين = يظهر للكل.",
+ "ads": [
+  {
+   "id": "demo-1",
+   "advertiser": "المحترف للاستشارات المالية",
+   "title": "محتاج محاسب لشركتك؟",
+   "body": "خدمات محاسبة وإعداد قوائم مالية وربط أنظمة أودو للشركات الصغيرة في الكويت.",
+   "target_url": "https://wa.me/",
+   "placement": "rail",
+   "country": "",
+   "category": "",
+   "is_active": false
   }
  ]
 };
 
-const COUNTRIES = {KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",EG:"مصر",RM:"عن بُعد"};
-const CATEGORIES = {accounting:"محاسبة ومالية",it:"تقنية وبرمجة",sales:"مبيعات وتسويق",hr:"موارد بشرية",ops:"تشغيل ولوجستيات",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"أخرى"};
-const LEVELS = {entry:"مبتدئ",mid:"متوسط",senior:"خبير",manager:"إداري"};
-const SOURCES = {greenhouse:"Greenhouse",lever:"Lever",workable:"Workable",smartrecruiters:"SmartRecruiters",recruitee:"Recruitee",careerjet:"Careerjet",ashby:"Ashby",bamboohr:"BambooHR",personio:"Personio",arbeitnow:"Arbeitnow",remotive:"Remotive",jobicy:"Jobicy",direct:"إعلان مباشر"};
+const COUNTRIES = {EG:"مصر",KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",RM:"عن بُعد"};
+const CATEGORIES = {accounting:"محاسبة ومالية",it:"تقنية وبرمجة",sales:"مبيعات وتسويق",hr:"موارد بشرية",
+  ops:"تشغيل ولوجستيات",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"أخرى"};
+const LEVELS = {executive:"إدارة عليا",manager:"مدير",supervisor:"مشرف",senior:"خبير",
+  mid:"متوسط الخبرة",entry:"مبتدئ / حديث تخرج",worker:"عامل وفني"};
+const SOURCES = {greenhouse:"Greenhouse",lever:"Lever",workable:"Workable",smartrecruiters:"SmartRecruiters",
+  recruitee:"Recruitee",careerjet:"Careerjet",ashby:"Ashby",bamboohr:"BambooHR",personio:"Personio",
+  arbeitnow:"Arbeitnow",remotive:"Remotive",jobicy:"Jobicy",himalayas:"Himalayas",remoteok:"RemoteOK",
+  weworkremotely:"WeWorkRemotely",jooble:"Jooble",whatsapp:"واتساب",user:"إعلان مباشر",direct:"إعلان مباشر"};
+const PAGE = 40;
 
-let JOBS = [], GROUPS = {groups:[]};
+let JOBS = [], GROUPS = {groups:[]}, ADS = [], sb = null, user = null;
 const saved = new Set();
-const state = {tab:"jobs", q:"", country:"", category:"", level:"", sort:"new"};
+const state = {tab:"jobs", q:"", country:"", category:"", level:"", sort:"new", kind:"jobs", limit:PAGE};
 
 const $ = s => document.querySelector(s);
 const ar = n => Number(n).toLocaleString("ar-EG");
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
+const opts = (map, sel) => Object.entries(map).map(([v,l]) =>
+  `<option value="${v}"${v===sel?" selected":""}>${l}</option>`).join("");
 const dayDiff = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : null;
 function ago(iso){
   const d = dayDiff(iso);
@@ -346,19 +440,16 @@ function ago(iso){
   return `منذ ${ar(Math.floor(d/30))} شهور`;
 }
 
-/* ===== الفلترة ===== */
-function base(){                       // كل شيء ما عدا الفلتر نفسه
-  const q = state.q.trim().toLowerCase();
-  return JOBS.filter(j => !q || [j.title,j.company_name,j.city,j.summary].join(" ").toLowerCase().includes(q));
-}
+/* ══════════ الفلترة ══════════ */
+const matchQ = j => { const q = state.q.trim().toLowerCase();
+  return !q || [j.title,j.company_name,j.city,j.summary].join(" ").toLowerCase().includes(q); };
+const inCountry = j => !state.country || j.country === state.country;
 function filtered(){
-  let out = base().filter(j =>
-    (!state.country  || j.country   === state.country) &&
-    (!state.category || j.category  === state.category) &&
-    (!state.level    || j.seniority === state.level));
-  if(state.tab === "saved") out = out.filter(j => saved.has(j.fingerprint));
+  let out = JOBS.filter(j => matchQ(j) && inCountry(j)
+    && (!state.category || j.category === state.category)
+    && (!state.level || j.seniority === state.level));
   const by = {
-    new:(a,b)=>(b.posted_at||"").localeCompare(a.posted_at||""),
+    new:(a,b)=>(b.is_direct?1:0)-(a.is_direct?1:0) || (b.posted_at||"").localeCompare(a.posted_at||""),
     company:(a,b)=>(a.company_name||"").localeCompare(b.company_name||"","ar"),
     title:(a,b)=>(a.title||"").localeCompare(b.title||"","ar"),
   }[state.sort];
@@ -366,49 +457,79 @@ function filtered(){
 }
 const countBy = (rows, key) => rows.reduce((m,j)=>(m[j[key]]=(m[j[key]]||0)+1, m), {});
 
-/* ===== الشريط الجانبي ===== */
+/* ══════════ الواجهة ══════════ */
+function drawTabs(){
+  const rows = JOBS.filter(matchQ);
+  const c = countBy(rows, "country");
+  const el = $("#tabs"); el.textContent = "";
+  const add = (v, label, n) => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.type = "button";
+    b.setAttribute("aria-pressed", String(state.country === v));
+    b.innerHTML = `${label}<i>${ar(n)}</i>`;
+    b.onclick = () => { state.country = v; state.limit = PAGE; paint(); };
+    el.appendChild(b);
+  };
+  add("", "الكل", rows.length);
+  Object.entries(COUNTRIES).forEach(([v,l]) => add(v, l, c[v] || 0));
+}
 function drawBars(host, map, key){
-  const rows = base().filter(j =>
-    (key==="country"  || !state.country  || j.country===state.country) &&
-    (key==="category" || !state.category || j.category===state.category) &&
-    (!state.level || j.seniority===state.level));
-  const counts = countBy(rows, key === "country" ? "country" : "category");
+  const rows = JOBS.filter(j => matchQ(j) && inCountry(j)
+    && (key === "category" || !state.category || j.category === state.category)
+    && (key === "seniority" || !state.level || j.seniority === state.level));
+  const counts = countBy(rows, key);
   const max = Math.max(1, ...Object.values(counts));
   const el = $(host); el.textContent = "";
-  Object.entries(map)
-    .map(([v,l]) => [v, l, counts[v] || 0])
-    .sort((a,b) => b[2] - a[2])
-    .forEach(([v,l,n]) => {
-      const b = document.createElement("button");
-      b.className = "bar"; b.type = "button";
-      b.setAttribute("aria-pressed", String(state[key] === v));
-      b.innerHTML = `<span>${l}</span><span class="n">${ar(n)}</span>
-        <span class="track"><i class="fill" style="width:${(n/max*100).toFixed(0)}%"></i></span>`;
-      if(!n) b.classList.add("dim");
-      b.onclick = () => { state[key] = state[key] === v ? "" : v; paint(); };
-      el.appendChild(b);
-    });
-}
-function drawLevels(){
-  const el = $("#fLevel"); el.textContent = "";
-  Object.entries(LEVELS).forEach(([v,l]) => {
+  const entries = key === "seniority"
+    ? Object.entries(map)                                   // الترتيب الهرمي كما هو
+    : Object.entries(map).sort((a,b) => (counts[b[0]]||0) - (counts[a[0]]||0));
+  entries.forEach(([v,l]) => {
+    const n = counts[v] || 0;
     const b = document.createElement("button");
-    b.className = "opt"; b.type = "button"; b.textContent = l;
-    b.setAttribute("aria-pressed", String(state.level === v));
-    b.onclick = () => { state.level = state.level === v ? "" : v; paint(); };
+    b.className = "bar" + (n ? "" : " dim"); b.type = "button";
+    const cur = key === "category" ? state.category : state.level;
+    b.setAttribute("aria-pressed", String(cur === v));
+    b.innerHTML = `<span>${l}</span><span class="n">${ar(n)}</span>
+      <span class="track"><i class="fill" style="width:${(n/max*100).toFixed(0)}%"></i></span>`;
+    b.onclick = () => {
+      if(key === "category") state.category = state.category === v ? "" : v;
+      else state.level = state.level === v ? "" : v;
+      state.limit = PAGE; paint();
+    };
     el.appendChild(b);
   });
 }
 
-/* ===== بطاقة وظيفة ===== */
-function shareText(j){
-  return encodeURIComponent(
-    `${j.title}\n${j.company_name}${j.city ? " — " + j.city : ""}\n${j.apply_url}\n\nمن شواغر: ${CONFIG.site}`);
+/* ══════════ الإعلانات ══════════ */
+const liveAds = place => ADS.filter(a => a.is_active && a.placement === place
+  && (!a.country || a.country === state.country || !state.country)
+  && (!a.category || a.category === state.category));
+function adCard(a, cls){
+  const el = document.createElement("a");
+  el.className = "ad " + (cls || "");
+  el.href = a.target_url || "#"; el.target = "_blank"; el.rel = "noopener sponsored";
+  el.style.textDecoration = "none"; el.style.display = "block";
+  el.innerHTML = `<span class="lbl">إعلان</span>
+    <h3>${esc(a.title)}</h3>${a.body ? `<p>${esc(a.body)}</p>` : ""}
+    <span class="adv">${esc(a.advertiser || "")}</span>`;
+  return el;
 }
+function drawAds(){
+  const hero = $("#heroAd"); hero.textContent = "";
+  const h = liveAds("hero")[0];
+  if(h){ hero.appendChild(adCard(h)); hero.style.marginBottom = ".8rem"; }
+  const rail = liveAds("rail")[0];
+  $("#railAdBox").hidden = !rail;
+  if(rail){ $("#railAd").textContent = ""; $("#railAd").appendChild(adCard(rail, "rail")); }
+}
+
+/* ══════════ بطاقة وظيفة ══════════ */
+const shareText = j => encodeURIComponent(
+  `${j.title}\n${j.company_name}${j.city ? " — " + j.city : ""}\n${j.apply_url}\n\nمن شواغر: ${CONFIG.site}`);
 function card(j){
   const el = document.createElement("article");
-  el.className = "job";
-  const fresh = dayDiff(j.posted_at) !== null && dayDiff(j.posted_at) <= 2;
+  el.className = "job" + (j.is_direct ? " user" : "");
+  const fresh = (dayDiff(j.posted_at) ?? 99) <= 2;
   el.innerHTML = `
     <div class="slot" aria-hidden="true">${esc(j.country || "—")}</div>
     <div>
@@ -416,148 +537,276 @@ function card(j){
       <p class="meta"><b>${esc(j.company_name)}</b>${j.city ? " · " + esc(j.city) : ""}${j.is_remote ? " · عن بُعد" : ""}</p>
       ${j.summary ? `<p class="snippet">${esc(j.summary)}</p>` : ""}
       <div class="tags">
-        ${fresh ? `<span class="tag new">جديد</span>` : ""}
+        ${j.is_direct ? `<span class="tag new">إعلان مباشر</span>` : fresh ? `<span class="tag new">جديد</span>` : ""}
         <span class="tag">${CATEGORIES[j.category] || "أخرى"}</span>
         <span class="tag">${LEVELS[j.seniority] || ""}</span>
-        ${j.requires_test ? `<span class="tag on">اختبار مهارة</span>` : ""}
-        ${j.requires_video ? `<span class="tag on">فيديو تعريفي</span>` : ""}
-        <span class="tag">${SOURCES[j.source_kind] || esc(j.source_kind)} · ${ago(j.posted_at)}</span>
+        <span class="tag">${SOURCES[j.source_kind] || esc(j.source_kind || "")} · ${ago(j.posted_at)}</span>
       </div>
     </div>
     <div class="actions">
-      <a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">قدّم على المصدر</a>
-      <a class="btn wa" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">شارك على واتساب</a>
+      <a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">قدّم</a>
+      <a class="btn wa" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">شارك</a>
       <button class="btn ghost" type="button" aria-pressed="${saved.has(j.fingerprint)}">${saved.has(j.fingerprint) ? "محفوظ" : "احفظ"}</button>
     </div>`;
-  const b = el.querySelector(".btn.ghost");
-  b.onclick = () => {
+  el.querySelector(".btn.ghost").onclick = () => {
     saved.has(j.fingerprint) ? saved.delete(j.fingerprint) : saved.add(j.fingerprint);
     paint();
   };
   return el;
 }
+function fillList(host, rows, emptyHtml){
+  const el = $(host); el.textContent = "";
+  if(!rows.length){ el.innerHTML = emptyHtml; return; }
+  const frag = document.createDocumentFragment();
+  const inline = liveAds("inline");
+  rows.forEach((j, i) => {
+    frag.appendChild(card(j));
+    if(inline.length && i > 0 && (i + 1) % 6 === 0)
+      frag.appendChild(adCard(inline[Math.floor(i / 6) % inline.length]));
+  });
+  el.appendChild(frag);
+}
 
-/* ===== واتساب ===== */
+/* ══════════ الجروبات ══════════ */
 function drawGroups(){
   const wrap = $("#groups"); wrap.textContent = "";
-  const chan = GROUPS.channel || {};
-  const chanBtn = $("#chanBtn"), subBtn = $("#submitBtn");
-  const chanUrl = CONFIG.whatsappChannel || chan.url;
-  if(chanUrl){ chanBtn.href = chanUrl; chanBtn.removeAttribute("hidden"); }
-  else { chanBtn.href = "#"; chanBtn.classList.add("dim"); }
-
-  const num = CONFIG.submitNumber || GROUPS.submit_number;
-  subBtn.href = num
-    ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب وظائف لدليل شواغر:")}`
-    : "#";
-  if(!num) subBtn.classList.add("dim");
-
+  const chanUrl = CONFIG.whatsappChannel || (GROUPS.channel || {}).url;
+  const btn = $("#chanBtn");
+  if(chanUrl){ btn.href = chanUrl; btn.classList.remove("dim"); } else { btn.href = "#"; btn.classList.add("dim"); }
+  const num = CONFIG.adminNumber || GROUPS.submit_number;
   $("#waNote").textContent = (chanUrl && num) ? ""
-    : "لسه محتاج تحط لينك القناة ورقم الاستقبال في CONFIG أعلى ملف index.html أو في data/groups.json.";
+    : "حط لينك القناة ورقم التواصل في CONFIG أعلى ملف index.html.";
 
-  const list = (GROUPS.groups || []).filter(g =>
-    (!state.country || g.country === state.country) &&
-    (!state.category || g.category === state.category));
-
+  const list = (GROUPS.groups || []).filter(g => (g.kind || "jobs") === state.kind
+    && (!state.country || !g.country || g.country === state.country));
   if(!list.length){
-    wrap.innerHTML = `<div class="empty"><b>مفيش جروبات في الدليل بعد</b>ضيف أول جروب من الزر فوق، أو غيّر الفلتر.</div>`;
+    wrap.innerHTML = `<div class="empty"><b>مفيش جروبات في القسم ده لسه</b>ضيف أول جروب من الزر فوق.</div>`;
     return;
   }
   list.forEach(g => {
     const el = document.createElement("div");
     el.className = "gcard";
     const live = !!g.url;
-    el.innerHTML = `
-      <h3>${esc(g.name)}</h3>
-      <div class="row">
+    el.innerHTML = `<h3>${esc(g.name)}</h3>
+      <div style="display:flex;gap:.3rem;flex-wrap:wrap">
         <span class="tag">${COUNTRIES[g.country] || "عام"}</span>
         <span class="tag">${CATEGORIES[g.category] || "متنوع"}</span>
         <span class="tag">${g.type === "channel" ? "قناة" : "جروب"}</span>
       </div>
       ${g.note ? `<p class="note">${esc(g.note)}</p>` : ""}
       <a class="btn wa ${live ? "" : "dim"}" href="${live ? esc(g.url) : "#"}" target="_blank" rel="noopener">
-        ${g.type === "channel" ? "اشترك" : "انضم للجروب"}</a>`;
+        ${g.type === "channel" ? "اشترك" : "انضم"}</a>`;
     wrap.appendChild(el);
   });
 }
 
-/* ===== الرسم ===== */
+/* ══════════ الدخول ══════════ */
+async function initAuth(){
+  if(!(CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)) return renderWho();
+  await new Promise(res => {
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    s.onload = res; s.onerror = res; document.head.appendChild(s);
+  });
+  if(!window.supabase) return renderWho();
+  sb = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseAnonKey);
+  const { data } = await sb.auth.getSession();
+  user = data?.session?.user || null;
+  sb.auth.onAuthStateChange((_e, s) => { user = s?.user || null; renderWho(); loadMine(); });
+  renderWho(); loadMine(); loadLiveJobs();
+}
+function renderWho(){
+  const el = $("#who");
+  if(user){
+    const name = user.user_metadata?.full_name || user.email || "حسابي";
+    el.innerHTML = `<b>${esc(name.split(" ")[0])}</b><button id="logout" class="note">خروج</button>`;
+    $("#logout").onclick = async () => { await sb.auth.signOut(); user = null; renderWho(); };
+  } else if(sb){
+    el.innerHTML = `<button id="login">دخول بجوجل</button>`;
+    $("#login").onclick = () => sb.auth.signInWithOAuth({
+      provider: "google", options: { redirectTo: location.href } });
+  } else {
+    el.innerHTML = `<span class="note">تصفّح كضيف</span>`;
+  }
+}
+async function loadLiveJobs(){
+  if(!sb) return;
+  const { data, error } = await sb.from("job_submissions")
+    .select("title,company_name,country,city,category,seniority,is_remote,summary,apply_url,created_at")
+    .eq("status", "approved").order("created_at", { ascending: false }).limit(300);
+  if(error || !data) return;
+  const extra = data.map(j => ({...j, posted_at: j.created_at, source_kind: "user", is_direct: true,
+    fingerprint: "u" + (j.title + j.company_name).length + j.created_at}));
+  JOBS = extra.concat(JOBS.filter(j => j.source_kind !== "user"));
+  paint();
+}
+async function loadMine(){
+  const box = $("#mineBox");
+  if(!(sb && user)){ box.hidden = true; return; }
+  const { data } = await sb.from("job_submissions")
+    .select("title,company_name,status,created_at,reject_reason")
+    .eq("submitter_id", user.id).order("created_at", { ascending: false }).limit(20);
+  if(!data || !data.length){ box.hidden = true; return; }
+  box.hidden = false;
+  const S = {pending:"تحت المراجعة", approved:"منشور", rejected:"مرفوض"};
+  $("#mine").innerHTML = data.map(j => `<div class="job" style="grid-template-columns:1fr auto">
+    <div><h3>${esc(j.title)}</h3><p class="meta">${esc(j.company_name)} · ${ago(j.created_at)}</p>
+    ${j.reject_reason ? `<p class="note">${esc(j.reject_reason)}</p>` : ""}</div>
+    <span class="tag ${j.status === "approved" ? "on" : ""}">${S[j.status] || j.status}</span></div>`).join("");
+}
+
+/* ══════════ نشر وظيفة ══════════ */
+function applyUrl(raw){
+  const v = (raw || "").trim();
+  if(!v) return "";
+  if(/^https?:\/\//i.test(v)) return v;
+  if(/^[\w.+-]+@[\w-]+\.[\w.]+$/.test(v)) return "mailto:" + v;
+  const digits = v.replace(/[^\d]/g, "");
+  if(digits.length >= 8) return "https://wa.me/" + digits;
+  return v;
+}
+function postPayload(){
+  return {
+    title: $("#pTitle").value.trim(),
+    company_name: $("#pCompany").value.trim(),
+    country: $("#pCountry").value || null,
+    city: $("#pCity").value.trim() || null,
+    category: $("#pCat").value,
+    seniority: $("#pLevel").value,
+    employment_type: $("#pType").value,
+    salary_note: $("#pSalary").value.trim() || null,
+    summary: $("#pSummary").value.trim() || null,
+    apply_url: applyUrl($("#pApply").value),
+  };
+}
+async function submitJob(){
+  const p = postPayload();
+  const msg = $("#postMsg");
+  if(!p.title || !p.company_name || !p.apply_url){
+    msg.innerHTML = `<div class="err">لازم تملأ: المسمى الوظيفي، الجهة، ووسيلة التقديم.</div>`;
+    return;
+  }
+  const btn = $("#pSend"); btn.disabled = true; btn.textContent = "جاري الإرسال...";
+  try{
+    if(sb){
+      const row = {...p, submitter_id: user?.id || null,
+        submitter_name: user?.user_metadata?.full_name || null,
+        submitter_email: user?.email || null};
+      const { error } = await sb.from("job_submissions").insert(row);
+      if(error) throw error;
+      msg.innerHTML = `<div class="ok">تم الإرسال. الإعلان تحت المراجعة وهيظهر خلال ساعات.</div>`;
+      ["pTitle","pCompany","pCity","pSalary","pApply","pSummary"].forEach(id => $("#"+id).value = "");
+      loadMine();
+    } else {
+      const num = CONFIG.adminNumber;
+      const text = `*إعلان وظيفة جديد — شواغر*\n\n` +
+        `المسمى: ${p.title}\nالجهة: ${p.company_name}\n` +
+        `الدولة: ${COUNTRIES[p.country] || "-"}\nالمدينة: ${p.city || "-"}\n` +
+        `المجال: ${CATEGORIES[p.category]}\nالمستوى: ${LEVELS[p.seniority]}\n` +
+        `الراتب: ${p.salary_note || "-"}\nالتقديم: ${p.apply_url}\n\n${p.summary || ""}`;
+      window.open(num ? `https://wa.me/${num}?text=${encodeURIComponent(text)}`
+                      : `https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+      msg.innerHTML = `<div class="ok">اتفتح واتساب بالإعلان جاهز — ابعته وهيتنشر بعد المراجعة.</div>`;
+    }
+  }catch(e){
+    msg.innerHTML = `<div class="err">حصل خطأ في الإرسال. جرّب تاني أو ابعت الإعلان على واتساب.</div>`;
+  }
+  btn.disabled = false; btn.textContent = "انشر الوظيفة";
+}
+
+/* ══════════ الرسم العام ══════════ */
 function paint(){
   const rows = filtered();
-  const all = base();
-
-  $("#kTotal").textContent  = ar(JOBS.length);
-  $("#kToday").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
-  $("#kCo").textContent     = ar(new Set(JOBS.map(j => j.company_name)).size);
-  $("#kRemote").textContent = ar(JOBS.filter(j => j.is_remote).length);
-
-  $("#navJobs").textContent   = ar(all.length);
+  $("#kTotal").textContent = ar(JOBS.length);
+  $("#kWeek").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
+  $("#kCo").textContent    = ar(new Set(JOBS.map(j => j.company_name)).size);
+  $("#kUser").textContent  = ar(JOBS.filter(j => j.is_direct).length);
+  $("#navJobs").textContent   = ar(JOBS.filter(matchQ).length);
   $("#navGroups").textContent = ar((GROUPS.groups || []).length);
   $("#navSaved").textContent  = ar(saved.size);
 
-  drawBars("#fCountry", COUNTRIES, "country");
-  drawBars("#fCategory", CATEGORIES, "category");
-  drawLevels();
+  drawTabs(); drawBars("#fCategory", CATEGORIES, "category");
+  drawBars("#fLevel", LEVELS, "seniority"); drawAds();
 
   const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
                 state.level && LEVELS[state.level]].filter(Boolean);
   $("#crumbTxt").textContent = bits.length ? "— " + bits.join(" · ") : "";
   $("#clear").hidden = !bits.length && !state.q;
-
   $("#shown").textContent = ar(rows.length);
-  const list = $("#list"); list.textContent = "";
-  if(!rows.length){
-    list.innerHTML = state.tab === "saved"
-      ? `<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر يعجبك ويظهر هنا.</div>`
-      : `<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`;
-  } else {
-    const frag = document.createDocumentFragment();
-    rows.slice(0, 300).forEach(j => frag.appendChild(card(j)));
-    list.appendChild(frag);
-  }
+
+  fillList("#list", rows.slice(0, state.limit),
+    `<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`);
+  $("#more").hidden = rows.length <= state.limit;
+
+  fillList("#savedList", JOBS.filter(j => saved.has(j.fingerprint)),
+    `<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر ويظهر هنا.</div>`);
   drawGroups();
 }
-
 function setTab(tab){
   state.tab = tab;
   document.querySelectorAll("#nav button").forEach(b =>
     b.setAttribute("aria-current", String(b.dataset.tab === tab)));
-  $("#viewJobs").hidden = tab === "whatsapp";
-  $("#viewWhatsapp").hidden = tab !== "whatsapp";
+  $("#viewJobs").hidden   = tab !== "jobs";
+  $("#viewGroups").hidden = tab !== "groups";
+  $("#viewPost").hidden   = tab !== "post";
+  $("#viewSaved").hidden  = tab !== "saved";
+  $("#tabs").hidden = tab === "post";
   document.body.classList.remove("open");
+  window.scrollTo({top:0, behavior:"instant"});
   paint();
 }
 
-/* ===== الإقلاع ===== */
+/* ══════════ الإقلاع ══════════ */
 async function load(path, fallback){
-  try{
-    const r = await fetch(path, {cache:"no-store"});
-    if(r.ok) return await r.json();
-  }catch(e){}
+  try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
   return fallback;
 }
 async function boot(){
-  const [jp, gp] = await Promise.all([
+  const [jp, gp, ap] = await Promise.all([
     load("data/jobs.json", JOBS_DATA),
     load("data/groups.json", GROUPS_DATA),
+    load("data/ads.json", ADS_DATA),
   ]);
-  JOBS = jp.jobs || [];
-  GROUPS = gp || {groups:[]};
+  JOBS = jp.jobs || []; GROUPS = gp || {groups:[]}; ADS = (ap && ap.ads) || [];
 
   const when = new Date(jp.generated_at || Date.now());
   $("#stamp").textContent = "آخر تحديث " +
     when.toLocaleString("ar-EG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
   $("#srcline").textContent = (jp.demo ? "بيانات تجريبية · " : "") +
-    ar(new Set(JOBS.map(j => j.source_kind)).size) + " مصادر رسمية";
+    ar(new Set(JOBS.map(j => j.source_kind)).size) + " مصادر";
 
-  $("#q").addEventListener("input", e => { state.q = e.target.value; paint(); });
+  $("#pCountry").innerHTML = `<option value="">— اختر —</option>` + opts(COUNTRIES, "KW");
+  $("#pCat").innerHTML = opts(CATEGORIES, "other");
+  $("#pLevel").innerHTML = opts(LEVELS, "mid");
+  $("#postMode").textContent = (CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)
+    ? "" : "النشر حالياً بيتبعت على واتساب للمراجعة. لتفعيل النشر المباشر، حط بيانات Supabase في CONFIG.";
+
+  const num = CONFIG.adminNumber;
+  $("#adCta").href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : "#";
+  $("#addGroup").onclick = () => window.open(num
+    ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
+    : "#", "_blank");
+
+  $("#q").addEventListener("input", e => { state.q = e.target.value; state.limit = PAGE; paint(); });
   $("#sort").onchange = e => { state.sort = e.target.value; paint(); };
   $("#menu").onclick = () => document.body.classList.toggle("open");
-  $("#clear").onclick = () => { Object.assign(state,{q:"",country:"",category:"",level:""}); $("#q").value=""; paint(); };
-  document.querySelectorAll("#nav button").forEach(b => b.onclick = () => setTab(b.dataset.tab));
+  $("#more").onclick = () => { state.limit += PAGE; paint(); };
+  $("#clear").onclick = () => {
+    Object.assign(state, {q:"", country:"", category:"", level:"", limit:PAGE});
+    $("#q").value = ""; paint();
+  };
+  $("#pSend").onclick = submitJob;
+  document.querySelectorAll("#nav button, .postbtn").forEach(b => b.onclick = () => setTab(b.dataset.tab));
+  document.querySelectorAll(".subtab").forEach(b => b.onclick = () => {
+    state.kind = b.dataset.kind;
+    document.querySelectorAll(".subtab").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.kind === state.kind)));
+    drawGroups();
+  });
   document.addEventListener("keydown", e => { if(e.key === "Escape") document.body.classList.remove("open"); });
 
   paint();
+  initAuth();
 }
 boot();
 </script>
