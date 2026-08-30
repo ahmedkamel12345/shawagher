@@ -1,0 +1,16 @@
+{
+ "note": "الإعلانات المدفوعة. placement: hero (بانر أعلى الصفحة) | inline (بين الوظائف) | rail (الشريط الجانبي). country و category فاضيين = يظهر للكل.",
+ "ads": [
+  {
+   "id": "demo-1",
+   "advertiser": "المحترف للاستشارات المالية",
+   "title": "محتاج محاسب لشركتك؟",
+   "body": "خدمات محاسبة وإعداد قوائم مالية وربط أنظمة أودو للشركات الصغيرة في الكويت.",
+   "target_url": "https://wa.me/",
+   "placement": "rail",
+   "country": "",
+   "category": "",
+   "is_active": false
+  }
+ ]
+}

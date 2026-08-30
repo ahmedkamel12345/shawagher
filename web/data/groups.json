@@ -1,26 +1,12 @@
 {
- "channel": {
-  "name": "قناة شواغر على واتساب",
-  "url": "",
-  "note": "حط لينك القناة هنا بعد ما تعملها — الشواغر الجديدة تتنشر فيها يومياً"
- },
+ "channel": {"name": "قناة شواغر على واتساب", "url": "", "note": "لينك القناة بعد ما تعملها"},
  "submit_number": "",
  "groups": [
-  {
-   "name": "Odoo Learning — تعلّم أودو",
-   "country": "",
-   "category": "it",
-   "type": "group",
+  {"name": "Odoo Learning — تعلّم أودو", "kind": "courses", "type": "group", "country": "", "category": "it",
    "url": "https://chat.whatsapp.com/JZGdAb0GnfRDvMnvZqqtkY",
-   "note": "نقاش وتعلّم أودو ERP — مفيد لوظائف التطبيق والدعم الفني"
-  },
-  {
-   "name": "مال وأعمال",
-   "country": "",
-   "category": "accounting",
-   "type": "group",
+   "note": "تعلّم ونقاش أودو ERP — مفيد لوظائف التطبيق والدعم الفني"},
+  {"name": "مال وأعمال", "kind": "jobs", "type": "group", "country": "", "category": "accounting",
    "url": "https://chat.whatsapp.com/FHpIszAJi21BOjIje7hnfI",
-   "note": "محاسبة ومالية وأعمال — فرص ونقاش مهني"
-  }
+   "note": "محاسبة ومالية وأعمال — فرص ونقاش مهني"}
  ]
 }
