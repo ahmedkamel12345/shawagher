@@ -2,13 +2,17 @@ name: collect
 
 on:
   schedule:
-    - cron: "0 3,9,15,21 * * *"
+    - cron: "0 5,17 * * *"
   push:
-    paths: ["web/data/manual.json"]
+    paths: ["web/**"]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
 
 jobs:
   collect:
@@ -43,10 +47,15 @@ jobs:
         working-directory: collector
         run: python merge_manual.py --manual ../web/data/manual.json --jobs ../web/data/jobs.json --store manual_store.json
 
+      - name: publish to pages root
+        run: |
+          cp -r web/. .
+          rm -f discovered.json
+
       - name: commit
         run: |
           git config user.name "ahmedkamel12345"
           git config user.email "ak9092014@gmail.com"
-          git add web/data/jobs.json web/data/report.json collector/manual_store.json collector/discovered_store.json
+          git add -A
           git diff --staged --quiet || git commit -m "update jobs $(date -u '+%Y-%m-%d %H:%M')"
           git push
