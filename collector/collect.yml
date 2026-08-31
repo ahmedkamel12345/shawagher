@@ -1,0 +1,61 @@
+name: collect
+
+on:
+  schedule:
+    - cron: "0 5,17 * * *"
+  push:
+    paths: ["web/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: fetch jobs
+        working-directory: collector
+        env:
+          CAREERJET_API_KEY: ${{ secrets.CAREERJET_API_KEY }}
+          JOOBLE_KEY: ${{ secrets.JOOBLE_KEY }}
+        run: python fetch_jobs.py --sources sources.json --out ../web/data
+
+      - name: discover individual ads
+        working-directory: collector
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+        continue-on-error: true
+        run: |
+          python discover.py --config discover.json --out .
+          python merge_manual.py --manual discovered.json --jobs ../web/data/jobs.json --store discovered_store.json
+
+      - name: merge whatsapp jobs
+        working-directory: collector
+        run: python merge_manual.py --manual ../web/data/manual.json --jobs ../web/data/jobs.json --store manual_store.json
+
+      - name: publish to pages root
+        run: |
+          cp -r web/. .
+          rm -f discovered.json
+
+      - name: commit
+        run: |
+          git config user.name "ahmedkamel12345"
+          git config user.email "ak9092014@gmail.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "update jobs $(date -u '+%Y-%m-%d %H:%M')"
+          git push
