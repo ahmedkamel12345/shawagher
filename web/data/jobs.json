@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-08-31T17:58:02.057952+00:00",
- "count": 612,
+ "generated_at": "2026-08-31T18:19:43.800515+00:00",
+ "count": 613,
  "jobs": [
   {
    "fingerprint": "eeb318e5139d03740d04f9f129218abf2426a1ed",
@@ -3365,6 +3365,24 @@
    "source_kind": "discover",
    "source_name": "وظائف هندسية الكويت",
    "posted_at": "2026-08-31T17:52:31.036221+00:00",
+   "is_direct": false,
+   "needs_review": true
+  },
+  {
+   "fingerprint": "97f2c024b14ebb20688b6c6c7151167206b2bccd",
+   "title": "🎯 فرص الإدارة والقيادة في الكويت 🔥 التصميم والجرافيك في الكويت 2026 – 9 فرص عمل تشمل فرصًا",
+   "company_name": "إعلان منشور",
+   "city": "الكويت",
+   "country": "KW",
+   "category": "other",
+   "seniority": "manager",
+   "employment_type": "full_time",
+   "is_remote": true,
+   "summary": "🎯 فرص الإدارة والقيادة في الكويت 🔥 وظائف التصميم والجرافيك في الكويت 2026 – 9 فرص عمل تشمل فرصًا عن بعد وتشمل دوامًا جزئيًا 📌 مدير محتوى ومصمم 🔗 https://kuwait.el7far.com/2026/08/2026-9_01215007872.html?utm_source=telegram",
+   "apply_url": "https://t.me/admijobsinKuwait/34596",
+   "source_kind": "discover",
+   "source_name": "وظائف إدارية الكويت",
+   "posted_at": "2026-08-31T18:19:27.540465+00:00",
    "is_direct": false,
    "needs_review": true
   },
