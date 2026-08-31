@@ -1,0 +1,21 @@
+{
+ "_دليل": "google_alerts: اعمل تنبيه على google.com/alerts واختار Deliver to: RSS feed وحط الرابط هنا. google_search: محتاج GOOGLE_API_KEY و GOOGLE_CSE_ID. telegram: اسم القناة العامة بدون @.",
+
+ "google_alerts": [
+  {"name": "وظائف الكويت", "url": "", "is_active": false},
+  {"name": "وظائف مصر",   "url": "", "is_active": false}
+ ],
+
+ "google_search": [
+  {"query": "\"مطلوب محاسب\" الكويت", "country": "KW", "pages": 2, "is_active": true},
+  {"query": "\"مطلوب\" وظيفة الكويت -site:linkedin.com -site:bayt.com", "country": "KW", "pages": 2, "is_active": true},
+  {"query": "\"مطلوب موظف\" مصر", "country": "EG", "pages": 2, "is_active": true},
+  {"query": "\"فرصة عمل\" السعودية", "country": "SA", "pages": 1, "is_active": true},
+  {"query": "\"مطلوب\" وظائف الإمارات", "country": "AE", "pages": 1, "is_active": true}
+ ],
+
+ "telegram": [
+  {"channel": "kuwaitjobs", "name": "وظائف الكويت", "is_active": true},
+  {"channel": "egyptjobs",  "name": "وظائف مصر",   "is_active": true}
+ ]
+}
