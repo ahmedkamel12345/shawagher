@@ -253,7 +253,7 @@ POST_RE = re.compile(
     r'<div class="tgme_widget_message_text[^"]*"[^>]*>(?P<body>.*?)</div>', re.S)
 
 
-def from_telegram(channel, source=None):
+def from_telegram(channel, source=None, country_hint=None, category_hint=None):
     r = requests.get(f"https://t.me/s/{channel}", headers={"User-Agent": UA}, timeout=TIMEOUT)
     r.raise_for_status()
     out = []
@@ -265,7 +265,13 @@ def from_telegram(channel, source=None):
         if not ok:
             continue
         url = f"https://t.me/{m.group('ch')}/{m.group('id')}"
-        out.append(make(body.split("\n")[0][:120], body, url, source or f"telegram:{channel}"))
+        j = make(body.split("\n")[0][:120], body, url, source or f"telegram:{channel}")
+        if category_hint and j["category"] == "other":
+            j["category"] = category_hint
+        if not j["country"] and country_hint:
+            j["country"] = country_hint
+            j["fingerprint"] = fingerprint(source or channel, j["title"], country_hint)
+        out.append(j)
     return out
 
 
@@ -306,7 +312,8 @@ def main():
         if not t.get("is_active", True):
             continue
         try:
-            got = from_telegram(t["channel"], t.get("name"))
+            got = from_telegram(t["channel"], t.get("name"),
+                                t.get("country") or None, t.get("category_hint") or None)
             raw += got
             report.append(("telegram", t["channel"], len(got), "ok"))
         except Exception as e:                                    # noqa: BLE001

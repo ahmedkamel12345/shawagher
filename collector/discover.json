@@ -1,21 +1,174 @@
 {
  "_دليل": "google_alerts: اعمل تنبيه على google.com/alerts واختار Deliver to: RSS feed وحط الرابط هنا. google_search: محتاج GOOGLE_API_KEY و GOOGLE_CSE_ID. telegram: اسم القناة العامة بدون @.",
-
  "google_alerts": [
-  {"name": "وظائف الكويت", "url": "", "is_active": false},
-  {"name": "وظائف مصر",   "url": "", "is_active": false}
+  {
+   "name": "مطلوب موظف الكويت",
+   "url": "https://www.google.com/alerts/feeds/11489541086049870756/12628969534701581282",
+   "is_active": true
+  },
+  {
+   "name": "مطلوب محاسب الكويت",
+   "url": "https://www.google.com/alerts/feeds/11489541086049870756/12628969534701582476",
+   "is_active": true
+  },
+  {
+   "name": "مطلوب محاسب الكويت 2",
+   "url": "https://www.google.com/alerts/feeds/11489541086049870756/7181417006579927133",
+   "is_active": true
+  },
+  {
+   "name": "فرصة عمل الكويت",
+   "url": "https://www.google.com/alerts/feeds/11489541086049870756/2969247778952597680",
+   "is_active": true
+  },
+  {
+   "name": "وظائف خالية مصر",
+   "url": "https://www.google.com/alerts/feeds/11489541086049870756/2969247778952601180",
+   "is_active": true
+  }
  ],
-
  "google_search": [
-  {"query": "\"مطلوب محاسب\" الكويت", "country": "KW", "pages": 2, "is_active": true},
-  {"query": "\"مطلوب\" وظيفة الكويت -site:linkedin.com -site:bayt.com", "country": "KW", "pages": 2, "is_active": true},
-  {"query": "\"مطلوب موظف\" مصر", "country": "EG", "pages": 2, "is_active": true},
-  {"query": "\"فرصة عمل\" السعودية", "country": "SA", "pages": 1, "is_active": true},
-  {"query": "\"مطلوب\" وظائف الإمارات", "country": "AE", "pages": 1, "is_active": true}
+  {
+   "query": "\"مطلوب محاسب\" الكويت",
+   "country": "KW",
+   "pages": 2,
+   "is_active": true
+  },
+  {
+   "query": "\"مطلوب\" وظيفة الكويت -site:linkedin.com -site:bayt.com",
+   "country": "KW",
+   "pages": 2,
+   "is_active": true
+  },
+  {
+   "query": "\"مطلوب موظف\" مصر",
+   "country": "EG",
+   "pages": 2,
+   "is_active": true
+  },
+  {
+   "query": "\"فرصة عمل\" السعودية",
+   "country": "SA",
+   "pages": 1,
+   "is_active": true
+  },
+  {
+   "query": "\"مطلوب\" وظائف الإمارات",
+   "country": "AE",
+   "pages": 1,
+   "is_active": true
+  }
  ],
-
  "telegram": [
-  {"channel": "kuwaitjobs", "name": "وظائف الكويت", "is_active": true},
-  {"channel": "egyptjobs",  "name": "وظائف مصر",   "is_active": true}
+  {
+   "channel": "KuwaitiJobs",
+   "name": "وظائف الكويت",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "wadhefadotcom",
+   "name": "وظيفة دوت كوم",
+   "country": "EG",
+   "is_active": true
+  },
+  {
+   "channel": "Helpwithajob",
+   "name": "Help with a job",
+   "country": "",
+   "is_active": true
+  },
+  {
+   "channel": "alaamekawy600",
+   "name": "علاء مكاوي",
+   "country": "EG",
+   "is_active": true
+  },
+  {
+   "channel": "Engineeringjobsinkuwait",
+   "name": "وظائف هندسية الكويت",
+   "country": "KW",
+   "category_hint": "it",
+   "is_active": true
+  },
+  {
+   "channel": "jobs_kuwait0",
+   "name": "وظائف الكويت 0",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "yousef60",
+   "name": "يوسف — وظائف",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "admijobsinKuwait",
+   "name": "وظائف إدارية الكويت",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "teachingjobsinkuwait",
+   "name": "وظائف تعليمية الكويت",
+   "country": "KW",
+   "category_hint": "education",
+   "is_active": true
+  },
+  {
+   "channel": "kuwait_joborr",
+   "name": "وظائف الكويت",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "kwjob",
+   "name": "KW Job",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "Jobsnkuwaitt",
+   "name": "Jobs in Kuwait",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "Kuwaitjobsiga",
+   "name": "Kuwait Jobs IGA",
+   "country": "KW",
+   "is_active": true
+  },
+  {
+   "channel": "jobseg",
+   "name": "وظائف مصر",
+   "country": "EG",
+   "is_active": true
+  },
+  {
+   "channel": "QenaLuxorJobs",
+   "name": "وظائف قنا والأقصر",
+   "country": "EG",
+   "is_active": true
+  },
+  {
+   "channel": "eg_jobs",
+   "name": "EG Jobs",
+   "country": "EG",
+   "is_active": true
+  },
+  {
+   "channel": "egyptianjobs1",
+   "name": "الوظائف المصرية",
+   "country": "EG",
+   "is_active": true
+  },
+  {
+   "channel": "wafdyjobs",
+   "name": "وظائف وفدي",
+   "country": "EG",
+   "is_active": true
+  }
  ]
 }
