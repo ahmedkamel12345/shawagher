@@ -29,6 +29,16 @@ jobs:
           JOOBLE_KEY: ${{ secrets.JOOBLE_KEY }}
         run: python fetch_jobs.py --sources sources.json --out ../web/data
 
+      - name: discover individual ads
+        working-directory: collector
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+        continue-on-error: true
+        run: |
+          python discover.py --config discover.json --out .
+          python merge_manual.py --manual discovered.json --jobs ../web/data/jobs.json --store discovered_store.json
+
       - name: merge whatsapp jobs
         working-directory: collector
         run: python merge_manual.py --manual ../web/data/manual.json --jobs ../web/data/jobs.json --store manual_store.json
@@ -37,6 +47,6 @@ jobs:
         run: |
           git config user.name "shawagher-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add web/data/jobs.json web/data/report.json collector/manual_store.json
+          git add web/data/jobs.json web/data/report.json collector/manual_store.json collector/discovered_store.json
           git diff --staged --quiet || git commit -m "update jobs $(date -u '+%Y-%m-%d %H:%M')"
           git push
