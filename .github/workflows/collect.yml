@@ -45,8 +45,8 @@ jobs:
 
       - name: commit
         run: |
-          git config user.name "shawagher-bot"
-          git config user.email "bot@users.noreply.github.com"
+          git config user.name "ahmedkamel12345"
+          git config user.email "ak9092014@gmail.com"
           git add web/data/jobs.json web/data/report.json collector/manual_store.json collector/discovered_store.json
           git diff --staged --quiet || git commit -m "update jobs $(date -u '+%Y-%m-%d %H:%M')"
           git push
