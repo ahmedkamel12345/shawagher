@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-08-31T17:15:18.762411+00:00",
- "count": 609,
+ "generated_at": "2026-08-31T17:52:52.972236+00:00",
+ "count": 612,
  "jobs": [
   {
    "fingerprint": "eeb318e5139d03740d04f9f129218abf2426a1ed",
@@ -3331,6 +3331,59 @@
    "posted_at": "2026-08-30T19:55:52Z",
    "is_direct": false,
    "needs_review": true
+  },
+  {
+   "fingerprint": "90150d58e532e4a4f2eb7d41afd084075aad0190",
+   "title": "( 🌐 ) عن بعد | شركة ومضة للتسويق الطبي توفر جديدة بصفة مسؤول مبيعات وخدمة عملاء عن بعد ▪️ ",
+   "company_name": "إعلان منشور",
+   "city": null,
+   "country": "KW",
+   "category": "sales",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": true,
+   "summary": "( 🌐 ) عن بعد | شركة ومضة للتسويق الطبي توفر وظائف جديدة بصفة مسؤول مبيعات وخدمة عملاء عن بعد ▪️ مسؤول مبيعات وخدمة عملاء. 📍 مكان العمل: عمل عن بُعد من أي مكان 💯 🔹 نوع العمل: دوام كامل 🔗 للتقديم: ( bit.ly/4ybnBkI ) ➖",
+   "apply_url": "https://t.me/kuwait_joborr/1855",
+   "source_kind": "discover",
+   "source_name": "وظائف الكويت",
+   "posted_at": "2026-08-31T17:52:38.925763+00:00",
+   "is_direct": false,
+   "needs_review": true
+  },
+  {
+   "fingerprint": "6f071d167b88ba29b207a784aa44ff9da5e12927",
+   "title": "🎯 فرص الهندسة في الكويت 🔥 المشتريات واللوجستيات في الكويت 2026 – مع رواتب معلنة 📌 مهندس عق",
+   "company_name": "إعلان منشور",
+   "city": "الكويت",
+   "country": "KW",
+   "category": "ops",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "🎯 فرص الهندسة في الكويت 🔥 وظائف المشتريات واللوجستيات في الكويت 2026 – مع رواتب معلنة 📌 مهندس عقود • مهندس مواد 🔗 https://kuwait.el7far.com/2026/08/2026_080204713.html?utm_source=telegram",
+   "apply_url": "https://t.me/Engineeringjobsinkuwait/28885",
+   "source_kind": "discover",
+   "source_name": "وظائف هندسية الكويت",
+   "posted_at": "2026-08-31T17:52:31.036221+00:00",
+   "is_direct": false,
+   "needs_review": true
+  },
+  {
+   "fingerprint": "3692c1e9f55a5311a9be8230b9b33bd14ec01cb3",
+   "title": "Customer Experience - Executive Customer Success Manager",
+   "company_name": "Aline",
+   "city": null,
+   "country": "RM",
+   "location_raw": "Worldwide",
+   "category": "other",
+   "seniority": "manager",
+   "employment_type": "full_time",
+   "is_remote": true,
+   "summary": "Aline is the bridge between senior care and technology, built to strengthen connection where it matters most.",
+   "apply_url": "https://himalayas.app/companies/aline/jobs/customer-experience-executive-customer-success-manager",
+   "source_kind": "himalayas",
+   "source_slug": "himalayas",
+   "posted_at": "2026-08-31T17:22:58+00:00"
   },
   {
    "fingerprint": "44c8b2445c6a6a47eff29a37e1c382f482345093",
