@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شواغر — وظائف الخليج ومصر، محدّثة يومياً</title>
+<meta name="description" content="شواغر تجمع الوظائف المفتوحة يومياً من صفحات التوظيف الرسمية في مصر والكويت والسعودية والإمارات. مجاني للباحث عن العمل، وأي حد يقدر ينشر وظيفة.">
+<meta name="author" content="المحترف للاستشارات المالية — أحمد أبو كامل">
+<meta property="og:title" content="شواغر — كل شاغر مفتوح في الخليج ومصر">
+<meta property="og:description" content="وظائف محدّثة يومياً من المصادر الرسمية. مجاني للباحث عن العمل.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
+<meta name="theme-color" content="#193C58">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#193C58; --board-2:#1E4668; --board-3:#2C5878;
+  --amber:#E7962D; --amber-dim:#A96A1B; --amber-soft:#FCEFDC;
+  --paper:#EFF2F4; --card:#FFFFFF;
+  --ink:#12293C; --muted:#5A6E7F; --faint:#93A3AF;
+  --line:#D5DEE4; --deep:#1E4668; --soft:#E4EDF4;
+  --wa:#1FA855; --ok:#1B7A5A;
+  --rail:280px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
+ font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700;line-height:1.35;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+a{color:inherit}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+input,select,textarea{font:inherit;width:100%;border:1px solid var(--line);border-radius:3px;
+ padding:.55rem .65rem;background:#fff;color:var(--ink)}
+textarea{resize:vertical;min-height:80px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#BCCAD4;border-radius:9px}
+[hidden]{display:none!important}
+
+/* ===== التخطيط ===== */
+.app{display:grid;grid-template-columns:var(--rail) 1fr;min-height:100vh}
+.rail{background:var(--board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
+ padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
+.logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(--board-3)}
+.logo img{flex:none}
+.logo b{display:block;font-family:"Noto Kufi Arabic";font-size:1.3rem;color:var(--amber);line-height:1.1}
+.logo span{font-size:.6rem;color:#8FA3B4;letter-spacing:.14em}
+.nav{display:flex;flex-direction:column;gap:2px;margin:.85rem 0 .3rem}
+.nav button{display:flex;justify-content:space-between;align-items:center;padding:.5rem .65rem;
+ border-radius:3px;font-size:.9rem;color:#AFC1CE;width:100%;text-align:start}
+.nav button:hover{background:var(--board-2);color:#fff}
+.nav button[aria-current="true"]{background:var(--amber);color:var(--board);font-weight:600}
+.nav .n{font-family:"IBM Plex Mono";font-size:.72rem;opacity:.8}
+.postbtn{background:#fff;color:var(--board);font-weight:700;border-radius:3px;padding:.6rem;
+ margin:.6rem 0 .2rem;text-align:center;font-family:"Noto Kufi Arabic";font-size:.88rem}
+.postbtn:hover{background:var(--amber)}
+.railsec{margin-top:1rem;border-top:1px solid var(--board-3);padding-top:.8rem}
+.railsec h4{font-size:.66rem;letter-spacing:.1em;color:#7E96A8;font-weight:500;
+ margin-bottom:.5rem;font-family:"IBM Plex Mono"}
+.bars{display:flex;flex-direction:column;gap:.38rem}
+.bar{display:grid;grid-template-columns:1fr auto;gap:.35rem;align-items:center;width:100%;
+ text-align:start;font-size:.81rem;color:#AFC1CE}
+.bar:hover{color:#fff}
+.bar .track{grid-column:1/-1;height:3px;background:var(--board-3);border-radius:9px;overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(--amber-dim)}
+.bar[aria-pressed="true"]{color:#fff}
+.bar[aria-pressed="true"] .fill{background:var(--amber)}
+.bar .n{font-family:"IBM Plex Mono";font-size:.72rem;color:#7E96A8}
+.bar.dim{opacity:.45}
+.railfoot{margin-top:auto;padding-top:.9rem;font-size:.68rem;color:#7E96A8;line-height:1.75}
+.by{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--board-3);
+ font-family:"Noto Kufi Arabic";font-size:.7rem;color:#9FB3C1;line-height:1.8}
+.by span{font-family:"IBM Plex Sans Arabic";color:#7E96A8}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;
+ margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+
+.main{min-width:0;padding:1.1rem clamp(.9rem,2.4vw,1.9rem) 3rem}
+.topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem}
+.searchbox{flex:1;min-width:220px;display:flex;background:var(--card);border:1px solid var(--line);border-radius:3px}
+.searchbox input{border:0;background:transparent}
+.searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(--faint)}
+.topbar select{width:auto}
+.menu-btn{display:none}
+.who{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(--muted);
+ background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.45rem .7rem}
+.who b{color:var(--ink);font-weight:600}
+
+/* تبويبات الدول */
+.tabs{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:.7rem;
+ border-bottom:1px solid var(--line);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;padding:.45rem .85rem;border-radius:3px;font-size:.9rem;color:var(--muted);
+ font-family:"Noto Kufi Arabic";font-weight:500;border:1px solid transparent}
+.tab:hover{background:var(--soft);color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--board);color:#fff}
+.tab i{font-style:normal;font-family:"IBM Plex Mono";font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.9rem}
+.kpi{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--amber);
+ border-radius:3px;padding:.6rem .8rem}
+.kpi b{display:block;font-family:"IBM Plex Mono";font-size:1.45rem;font-weight:500;line-height:1.2}
+.kpi span{font-size:.7rem;color:var(--muted)}
+.kpi.alt{border-top-color:var(--deep)}
+.crumbs{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;
+ border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.7rem;font-size:.85rem;color:var(--muted)}
+.crumbs b{font-family:"IBM Plex Mono";color:var(--ink)}
+.clear{color:var(--deep);text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
+
+/* بطاقات */
+.list{display:grid;gap:.5rem}
+.job{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem .95rem;
+ display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
+.job:hover{border-color:#A9BECD}
+.job.user{border-inline-start:3px solid var(--amber)}
+.slot{width:44px;height:44px;border:1.5px dashed #B4C6D3;border-radius:3px;display:grid;place-content:center;
+ font-family:"IBM Plex Mono";font-size:.72rem;color:var(--muted);transition:.15s}
+.job:hover .slot{background:var(--amber);border-color:var(--amber);border-style:solid;color:var(--board)}
+.job h3{font-size:1rem;margin-bottom:.1rem}
+.meta{font-size:.84rem;color:var(--muted);margin:0}
+.meta b{color:var(--ink);font-weight:600}
+.snippet{font-size:.82rem;color:var(--muted);margin:.35rem 0 0;
+ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.5rem}
+.tag{font-family:"IBM Plex Mono";font-size:.66rem;border:1px solid var(--line);padding:.08rem .4rem;
+ border-radius:2px;color:var(--muted)}
+.tag.new{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
+.tag.on{border-color:#C3D5E2;background:var(--soft);color:var(--deep)}
+.tag.warn{border-color:#E0BE86;background:#FBF0DC;color:#8A5A12}
+.job.unv{border-inline-start:3px solid #E0BE86}
+.toggle{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#AFC1CE;
+ padding:.45rem .1rem;cursor:pointer;width:100%}
+.toggle .sw{width:32px;height:18px;border-radius:9px;background:var(--board-3);position:relative;flex:none;transition:background .16s}
+.toggle .sw i{position:absolute;top:2px;inset-inline-start:2px;width:14px;height:14px;border-radius:50%;
+ background:#8FA3B4;transition:transform .16s,background .16s}
+.toggle[aria-pressed="true"] .sw{background:var(--amber)}
+.toggle[aria-pressed="true"] .sw i{background:#fff;transform:translateX(-14px)}
+.toggle[aria-pressed="true"]{color:#fff}
+.actions{display:flex;flex-direction:column;gap:.3rem;min-width:108px}
+.btn{display:block;text-align:center;padding:.42rem .8rem;border-radius:3px;font-size:.82rem;
+ font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--deep)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.ghost{border-color:var(--line);color:var(--muted);font-weight:400}
+.btn.ghost[aria-pressed="true"]{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
+.btn.amber{background:var(--amber);color:var(--board)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.more{margin:.8rem auto 0;display:block;border:1px solid var(--line);background:var(--card);
+ padding:.6rem 1.6rem;border-radius:3px;color:var(--deep);font-weight:600}
+
+/* إعلانات */
+.ad{background:linear-gradient(180deg,#fff,#FAFCFD);border:1px solid var(--line);
+ border-inline-start:3px solid var(--amber);border-radius:3px;padding:.85rem 1rem;position:relative}
+.ad .lbl{position:absolute;inset-inline-end:.6rem;top:.5rem;font-family:"IBM Plex Mono";
+ font-size:.6rem;color:var(--faint);border:1px solid var(--line);padding:0 .3rem;border-radius:2px}
+.ad h3{font-size:.98rem;margin-bottom:.2rem}
+.ad p{margin:.2rem 0 .6rem;font-size:.85rem;color:var(--muted)}
+.ad .adv{font-size:.72rem;color:var(--faint)}
+.ad.rail{background:var(--board-2);border-color:var(--board-3);border-inline-start-color:var(--amber);color:#DCE6ED}
+.ad.rail h3{color:#fff;font-size:.9rem}
+.ad.rail p{color:#AFC1CE;font-size:.8rem}
+.adslot{border:1px dashed var(--line);background:var(--card);padding:1rem;text-align:center;
+ font-size:.84rem;color:var(--faint);border-radius:3px}
+
+/* لوحات ونماذج */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
+.panel h2{font-size:1.1rem;margin-bottom:.35rem}
+.panel p{margin:.25rem 0;font-size:.88rem;color:var(--muted)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
+.form label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.22rem}
+.form .wide{grid-column:1/-1}
+.note{font-size:.78rem;color:var(--faint)}
+.ok{background:#E7F4EE;border:1px solid #B8DCCB;color:var(--ok);padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
+.err{background:#FBECEA;border:1px solid #E8C4BF;color:#A3392F;padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:.55rem}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem;
+ display:flex;flex-direction:column;gap:.45rem}
+.gcard h3{font-size:.94rem}
+.subtabs{display:flex;gap:.3rem;margin-bottom:.7rem}
+.subtab{padding:.4rem .9rem;border:1px solid var(--line);border-radius:3px;font-size:.86rem;color:var(--muted)}
+.subtab[aria-pressed="true"]{background:var(--board);border-color:var(--board);color:#fff}
+.empty{border:1px dashed var(--line);background:var(--card);padding:2.6rem 1.4rem;text-align:center;color:var(--muted)}
+.empty b{display:block;font-family:"Noto Kufi Arabic";color:var(--ink);margin-bottom:.25rem}
+.dim{opacity:.5}
+.adminnote{margin:.45rem 0 0;font-size:.8rem;background:var(--amber-soft);border-inline-start:2px solid var(--amber);
+ padding:.35rem .55rem;border-radius:2px;color:#8A5A12}
+.hello{background:var(--card);border:1px solid var(--line);border-inline-start:3px solid var(--amber);
+ border-radius:3px;padding:.8rem 1rem;margin-bottom:.7rem}
+.hello h2{font-size:1.02rem;margin-bottom:.15rem}
+.hello p{margin:0;font-size:.85rem;color:var(--muted)}
+.consult{background:var(--board);color:#DCE6ED;border-radius:3px;padding:1rem 1.1rem;margin:.7rem 0;
+ display:flex;gap:1rem;align-items:center;flex-wrap:wrap;border-inline-start:3px solid var(--amber)}
+.consult img{border-radius:4px;flex:none}
+.consult h3{font-size:1rem;color:var(--amber);margin-bottom:.15rem}
+.consult p{margin:0;font-size:.84rem;color:#AFC1CE}
+.consult .cta{display:flex;gap:.4rem;margin-inline-start:auto;flex-wrap:wrap}
+.tree{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem 1.1rem;font-size:.88rem}
+.tree details{margin:.15rem 0}
+.tree summary{cursor:pointer;padding:.28rem 0;list-style:none;display:flex;justify-content:space-between;gap:.5rem}
+.tree summary::-webkit-details-marker{display:none}
+.tree summary::before{content:"▸";display:inline-block;margin-inline-end:.4rem;color:var(--faint);transition:transform .15s}
+.tree details[open]>summary::before{transform:rotate(-90deg)}
+.tree summary b{font-weight:500}
+.tree .n{font-family:"IBM Plex Mono";font-size:.78rem;color:var(--muted)}
+.tree .lvl2{margin-inline-start:1.1rem;border-inline-start:1px solid var(--line);padding-inline-start:.7rem}
+.tree .lvl3{margin-inline-start:1.1rem;color:var(--muted);display:flex;justify-content:space-between;padding:.2rem 0}
+.stat{display:grid;grid-template-columns:1fr auto;gap:.3rem;align-items:center;font-size:.85rem;margin:.35rem 0}
+.stat .track{grid-column:1/-1;height:4px;background:var(--soft);border-radius:9px;overflow:hidden}
+.stat .fill{display:block;height:100%;background:var(--deep)}
+.tips li{margin:.3rem 0;font-size:.87rem;color:var(--muted)}
+.tips b{color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media (max-width:900px){.two{grid-template-columns:1fr}.consult .cta{margin-inline-start:0;width:100%}}
+footer{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.78rem;color:var(--muted)}
+footer p{margin:.25rem 0}
+.credit{display:flex;align-items:center;gap:.7rem;color:var(--ink);margin-top:.6rem}
+.credit img{border-radius:4px;flex:none}
+.credit b{font-family:"Noto Kufi Arabic"}
+
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .rail{position:fixed;inset-inline-start:0;top:0;width:min(290px,86vw);z-index:40;transform:translateX(100%)}
+  body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.55)}
+  body.open::after{content:"";position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
+  .menu-btn{display:block;background:var(--board);color:#fff;padding:.55rem .85rem;border-radius:3px;
+   font-size:.84rem;font-weight:600}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .job{grid-template-columns:38px 1fr}
+  .slot{width:38px;height:38px}
+  .actions{grid-column:1/-1;flex-direction:row}
+  .actions .btn{flex:1}
+  .form{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="rail" id="rail">
+  <div class="logo">
+    <img src="assets/shawagher-mark.svg" alt="" width="32" height="32">
+    <div><b>شواغر</b><span class="mono">SHAWAGHER</span></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <button data-tab="jobs" aria-current="true">الشواغر <span class="n" id="navJobs">0</span></button>
+    <button data-tab="groups">جروبات واتساب <span class="n" id="navGroups">0</span></button>
+    <button data-tab="saved">المحفوظة <span class="n" id="navSaved">0</span></button>
+    <button data-tab="stats">التحليلات والنصائح</button>
+    <button data-tab="admin" id="navAdmin" hidden>لوحة الإدارة</button>
+  </nav>
+  <button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
+
+  <div class="railsec">
+    <h4>المصدر</h4>
+    <button class="toggle" id="verified" type="button" aria-pressed="false">
+      <span class="sw"><i></i></span> المصادر الرسمية فقط
+    </button>
+    <p style="font-size:.68rem;color:#7E96A8;margin:.35rem 0 0;line-height:1.7">
+      إعلانات الأفراد مجمّعة من قنوات عامة وغير موثّقة — راجعها بنفسك.</p>
+  </div>
+
+  <div class="railsec">
+    <h4>المجال</h4>
+    <div class="bars" id="fCategory"></div>
+  </div>
+  <div class="railsec">
+    <h4>المستوى الوظيفي</h4>
+    <div class="bars" id="fLevel"></div>
+  </div>
+  <div class="railsec" id="railAdBox" hidden>
+    <h4>إعلان</h4>
+    <div id="railAd"></div>
+  </div>
+
+  <div class="railfoot">
+    <span class="pulse"></span><span id="stamp">—</span><br>
+    <span id="srcline" class="mono"></span>
+    <div class="by">المحترف للاستشارات المالية<br><span>أحمد أبو كامل</span></div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <button class="menu-btn" id="menu">☰</button>
+    <div class="searchbox">
+      <span>⌕</span>
+      <input id="q" type="search" placeholder="ابحث بالمسمى أو الشركة — محاسب، Odoo، خدمة عملاء" aria-label="بحث">
+    </div>
+    <select id="sort" aria-label="ترتيب">
+      <option value="new">الأحدث</option>
+      <option value="company">الشركة</option>
+      <option value="title">المسمى</option>
+    </select>
+    <div class="who" id="who">
+      <button id="login">دخول بجوجل</button>
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="heroAd"></div>
+
+  <!-- ============ الشواغر ============ -->
+  <section id="viewJobs">
+    <div class="hello">
+      <h2 id="greet">أهلاً بك في شواغر</h2>
+      <p id="motto"></p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b id="kTotal">0</b><span>شاغر مفتوح</span></div>
+      <div class="kpi"><b id="kWeek">0</b><span>جديد هذا الأسبوع</span></div>
+      <div class="kpi alt"><b id="kCo">0</b><span>جهة توظيف</span></div>
+      <div class="kpi alt"><b id="kUser">0</b><span>إعلانات أفراد</span></div>
+    </div>
+    <div class="crumbs">
+      <p><b id="shown">0</b> نتيجة <span id="crumbTxt"></span></p>
+      <button class="clear" id="clear" hidden>مسح الفلاتر</button>
+    </div>
+    <div class="list" id="list" aria-live="polite"></div>
+    <button class="more" id="more" hidden>عرض المزيد</button>
+    <div class="consult" id="consultBox"></div>
+  </section>
+
+  <!-- ============ التحليلات والنصائح ============ -->
+  <section id="viewStats" hidden>
+    <div class="hello"><h2 id="greet2">لوحة التحليلات</h2>
+      <p>توزيع الشواغر حسب المصدر والدولة والمجال، ونصائح تزوّد فرصتك.</p></div>
+    <div class="two">
+      <div class="panel"><h2>شجرة الشواغر</h2><div class="tree" id="tree"></div></div>
+      <div>
+        <div class="panel"><h2>أكثر الجهات نشراً</h2><div id="topco"></div></div>
+        <div class="panel"><h2>أكثر المجالات طلباً</h2><div id="topcat"></div></div>
+      </div>
+    </div>
+    <div class="panel"><h2>نصائح تزوّد فرصتك</h2><ul class="tips" id="tips"></ul></div>
+    <div class="consult" id="consultBox2"></div>
+  </section>
+
+  <!-- ============ لوحة الإدارة ============ -->
+  <section id="viewAdmin" hidden>
+    <div class="panel">
+      <h2>لوحة الإدارة</h2>
+      <p id="adminWho" class="note"></p>
+      <div class="kpis" style="margin-top:.8rem">
+        <div class="kpi"><b id="aViews">—</b><span>مشاهدة (٣٠ يوم)</span></div>
+        <div class="kpi"><b id="aVisitors">—</b><span>زائر</span></div>
+        <div class="kpi alt"><b id="aToday">—</b><span>مشاهدات اليوم</span></div>
+        <div class="kpi alt"><b id="aNotes">0</b><span>ملاحظة</span></div>
+      </div>
+      <div id="viewsChart" style="margin-top:.9rem"></div>
+    </div>
+    <div class="panel">
+      <h2>إعلانات تحت المراجعة</h2>
+      <div class="list" id="pending"></div>
+    </div>
+    <div class="panel">
+      <h2>آخر الملاحظات</h2>
+      <div id="notesList"></div>
+    </div>
+  </section>
+
+  <!-- ============ الجروبات ============ -->
+  <section id="viewGroups" hidden>
+    <div class="panel" style="border-inline-start:3px solid var(--wa)">
+      <h2>جروبات وقنوات واتساب</h2>
+      <p>جروبات وظائف وجروبات كورسات وتدريب، مقسّمة حسب المجال. الانضمام مجاني.</p>
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
+        <a class="btn wa" id="chanBtn" href="#">اشترك في قناة شواغر</a>
+        <button class="btn ghost" id="addGroup">أضف جروبك للدليل</button>
+      </div>
+      <p class="note" id="waNote"></p>
+    </div>
+    <div class="subtabs">
+      <button class="subtab" data-kind="jobs" aria-pressed="true">جروبات وظائف</button>
+      <button class="subtab" data-kind="courses" aria-pressed="false">جروبات كورسات وتدريب</button>
+    </div>
+    <div class="grid" id="groups"></div>
+  </section>
+
+  <!-- ============ نشر وظيفة ============ -->
+  <section id="viewPost" hidden>
+    <div class="panel">
+      <h2>انشر وظيفة</h2>
+      <p>مجاني بالكامل. الإعلان بيتراجع قبل النشر عشان نمنع الإعلانات الوهمية، وبيظهر خلال ساعات.</p>
+      <p class="note" id="postMode"></p>
+
+      <div id="postMsg"></div>
+
+      <div class="form" id="postForm">
+        <div><label>المسمى الوظيفي *</label><input id="pTitle" placeholder="محاسب أول"></div>
+        <div><label>الجهة / الشركة *</label><input id="pCompany" placeholder="شركة ..."></div>
+        <div><label>الدولة *</label><select id="pCountry"></select></div>
+        <div><label>المدينة / المنطقة</label><input id="pCity" placeholder="حولي"></div>
+        <div><label>المجال</label><select id="pCat"></select></div>
+        <div><label>المستوى</label><select id="pLevel"></select></div>
+        <div><label>نوع الدوام</label><select id="pType">
+          <option value="full_time">دوام كامل</option><option value="part_time">دوام جزئي</option>
+          <option value="contract">عقد / مشروع</option><option value="internship">تدريب</option>
+        </select></div>
+        <div><label>الراتب (اختياري)</label><input id="pSalary" placeholder="حسب الخبرة"></div>
+        <div class="wide"><label>وسيلة التقديم * — رقم واتساب أو إيميل أو رابط</label>
+          <input id="pApply" placeholder="96599112233 أو hr@company.com أو رابط"></div>
+        <div class="wide"><label>تفاصيل مختصرة</label>
+          <textarea id="pSummary" placeholder="المهام المطلوبة، الخبرة، أي شروط..."></textarea></div>
+        <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+          <button class="btn amber" id="pSend" style="padding:.6rem 1.6rem">انشر الوظيفة</button>
+          <span class="note">بالنشر أنت تقرّ إن الإعلان حقيقي وإنك مسؤول عن بياناته.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="mineBox" hidden>
+      <h2>إعلاناتي</h2>
+      <div class="list" id="mine"></div>
+    </div>
+
+    <div class="panel">
+      <h2>للشركات — إعلانات مدفوعة</h2>
+      <p>عايز إعلانك يظهر في أعلى الصفحة أو بين الوظائف لجمهور الباحثين عن عمل في الخليج ومصر؟</p>
+      <a class="btn primary" id="adCta" href="#" style="display:inline-block;margin-top:.5rem;padding:.5rem 1.3rem">تواصل معنا</a>
+    </div>
+  </section>
+
+  <!-- ============ المحفوظة ============ -->
+  <section id="viewSaved" hidden>
+    <div class="list" id="savedList"></div>
+  </section>
+
+  <footer>
+    <p>شواغر يعرض ملخصاً ورابط المصدر الأصلي لكل وظيفة، والتقديم يتم على موقع الجهة. مجاني للباحث عن العمل — لا نحصّل أي رسوم من المتقدمين.</p>
+    <div class="credit">
+      <img src="assets/almohtaref.png" alt="المحترف للاستشارات المالية" width="56" height="56">
+      <div>من إعداد وتطوير<br><b>المحترف للاستشارات المالية</b> — أحمد أبو كامل</div>
+    </div>
+  </footer>
+</main>
+</div>
+
+<script>
+/* ══════════ إعدادات — عدّلها إنت ══════════ */
+const CONFIG = {
+  site: location.origin,
+  supabaseUrl: "https://tfjyfsxxondtsfhphzic.supabase.co",
+  supabaseAnonKey: "sb_publishable_47Tlo1VqXwGBEKS9SFtlTg_I1eQRHRq",
+  whatsappChannel: "https://chat.whatsapp.com/KAaJVnEZ6IaG7NflX9PRjZ",
+  adminNumber: "96550076194",
+  adminEmails: ["ak9092014@gmail.com"],
+  consultName: "المحترف للاستشارات المالية",
+  consultPhone: "+96550076194",
+  consultNote: "محاسبة وإعداد قوائم مالية وأنظمة أودو للمشروعات الصغيرة"
+};
+
+const JOBS_DATA   = {
+ "generated_at": "2026-08-29T06:00:00+00:00",
+ "demo": true,
+ "count": 16,
+ "jobs": [
+  {"fingerprint":"d1","title":"محاسب أول","company_name":"مجموعة الشايع","city":"الكويت","country":"KW","category":"accounting","seniority":"senior","employment_type":"full_time","is_remote":false,"summary":"إعداد القوائم المالية الشهرية ومطابقة الحسابات البنكية والإشراف على دورة الذمم الدائنة.","apply_url":"https://example.com/jobs/1","source_kind":"smartrecruiters","posted_at":"2026-08-29T05:10:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d2","title":"Senior Accountant","company_name":"Talabat","city":"Kuwait City","country":"KW","category":"accounting","seniority":"senior","employment_type":"full_time","is_remote":false,"summary":"Own the monthly close for the Kuwait entity, manage reconciliations and support external audit.","apply_url":"https://example.com/jobs/2","source_kind":"smartrecruiters","posted_at":"2026-08-29T04:40:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d3","title":"مندوب مبيعات ميداني","company_name":"شركة الفنار","city":"حولي","country":"KW","category":"sales","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"زيارة العملاء في المنطقة المخصصة وتحقيق مستهدفات الشهر ومتابعة التحصيل.","apply_url":"https://example.com/jobs/3","source_kind":"careerjet","posted_at":"2026-08-29T03:20:00+00:00","requires_test":false,"requires_video":true},
+  {"fingerprint":"d4","title":"Backend Engineer (Node.js)","company_name":"Tabby","city":"Dubai","country":"AE","category":"it","seniority":"mid","employment_type":"full_time","is_remote":true,"summary":"Build and scale payment services used by millions of shoppers across the GCC.","apply_url":"https://example.com/jobs/4","source_kind":"lever","posted_at":"2026-08-28T18:05:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d5","title":"أخصائي موارد بشرية","company_name":"دار الضيافة","city":"الفروانية","country":"KW","category":"hr","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"إدارة ملفات الموظفين ومتابعة الإقامات والرواتب وفق قانون العمل الكويتي.","apply_url":"https://example.com/jobs/5","source_kind":"direct","posted_at":"2026-08-28T14:00:00+00:00","requires_test":false,"requires_video":true},
+  {"fingerprint":"d6","title":"Financial Analyst","company_name":"Careem","city":"Cairo","country":"EG","category":"accounting","seniority":"mid","employment_type":"full_time","is_remote":true,"summary":"Support budgeting, forecasting and unit-economics reporting for the Egypt market.","apply_url":"https://example.com/jobs/6","source_kind":"greenhouse","posted_at":"2026-08-28T11:30:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d7","title":"كاشير","company_name":"أسواق المنتزه","city":"السالمية","country":"KW","category":"service","seniority":"entry","employment_type":"full_time","is_remote":false,"summary":"استقبال العملاء وتشغيل نقطة البيع وإقفال الوردية بدقة.","apply_url":"https://example.com/jobs/7","source_kind":"direct","posted_at":"2026-08-28T09:15:00+00:00","requires_test":false,"requires_video":false},
+  {"fingerprint":"d8","title":"Odoo ERP Consultant","company_name":"Gulf Palms","city":"الكويت","country":"KW","category":"it","seniority":"senior","employment_type":"contract","is_remote":false,"summary":"تنفيذ وحدات المحاسبة والمخزون على أودو وربطها بأنظمة الفوترة الحكومية.","apply_url":"https://example.com/jobs/8","source_kind":"direct","posted_at":"2026-08-27T16:45:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d9","title":"Customer Support Agent — Arabic/English","company_name":"MNT-Halan","city":"Giza","country":"EG","category":"service","seniority":"entry","employment_type":"full_time","is_remote":false,"summary":"Handle inbound customer calls and chats in Arabic and English with clear resolution notes.","apply_url":"https://example.com/jobs/9","source_kind":"workable","posted_at":"2026-08-27T13:20:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d10","title":"مدير فرع مطعم","company_name":"ضربة معلم","city":"الجهراء","country":"KW","category":"ops","seniority":"manager","employment_type":"full_time","is_remote":false,"summary":"إدارة تشغيل الفرع والجرد اليومي وجدولة الورديات ومتابعة تكلفة الطعام.","apply_url":"https://example.com/jobs/10","source_kind":"direct","posted_at":"2026-08-27T08:00:00+00:00","requires_test":false,"requires_video":true},
+  {"fingerprint":"d11","title":"Data Analyst","company_name":"Property Finder","city":"Dubai","country":"AE","category":"it","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"Turn product and marketing data into dashboards the commercial teams actually use.","apply_url":"https://example.com/jobs/11","source_kind":"lever","posted_at":"2026-08-26T19:10:00+00:00","requires_test":true,"requires_video":false},
+  {"fingerprint":"d12","title":"محاسب حديث التخرج","company_name":"مكتب المحترف للاستشارات المالية","city":"الرياض","country":"SA","category":"accounting","seniority":"entry","employment_type":"full_time","is_remote":false,"summary":"مساعدة الفريق في إدخال القيود وتجهيز إقرارات ضريبة القيمة المضافة.","apply_url":"https://example.com/jobs/12","source_kind":"careerjet","posted_at":"2026-08-26T12:35:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d13","title":"Warehouse Supervisor","company_name":"Kitopi","city":"Abu Dhabi","country":"AE","category":"ops","seniority":"senior","employment_type":"full_time","is_remote":false,"summary":"Lead a shift team, own stock accuracy and keep dispatch SLAs on target.","apply_url":"https://example.com/jobs/13","source_kind":"greenhouse","posted_at":"2026-08-26T07:50:00+00:00","requires_test":false,"requires_video":false},
+  {"fingerprint":"d14","title":"معلم رياضيات — ثانوي","company_name":"مدارس النخبة الأهلية","city":"الدوحة","country":"QA","category":"education","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"تدريس منهج الرياضيات للمرحلة الثانوية وإعداد خطط الدروس والتقييمات.","apply_url":"https://example.com/jobs/14","source_kind":"careerjet","posted_at":"2026-08-25T15:05:00+00:00","requires_test":true,"requires_video":true},
+  {"fingerprint":"d15","title":"ممرض/ممرضة عناية مركزة","company_name":"مستشفى الخليج التخصصي","city":"المنامة","country":"BH","category":"health","seniority":"mid","employment_type":"full_time","is_remote":false,"summary":"العمل ضمن فريق العناية المركزة بنظام ورديات مع رخصة مزاولة سارية.","apply_url":"https://example.com/jobs/15","source_kind":"careerjet","posted_at":"2026-08-25T10:25:00+00:00","requires_test":false,"requires_video":false},
+  {"fingerprint":"d16","title":"Marketing Specialist","company_name":"Paymob","city":"Cairo","country":"EG","category":"sales","seniority":"mid","employment_type":"full_time","is_remote":true,"summary":"Run performance campaigns for merchant acquisition and report on CAC weekly.","apply_url":"https://example.com/jobs/16","source_kind":"greenhouse","posted_at":"2026-08-24T17:40:00+00:00","requires_test":true,"requires_video":true}
+ ]
+};
+const GROUPS_DATA = {
+ "channel": {"name": "قناة شواغر على واتساب", "url": "", "note": "لينك القناة بعد ما تعملها"},
+ "submit_number": "",
+ "groups": [
+  {"name": "Odoo Learning — تعلّم أودو", "kind": "courses", "type": "group", "country": "", "category": "it",
+   "url": "https://chat.whatsapp.com/JZGdAb0GnfRDvMnvZqqtkY",
+   "note": "تعلّم ونقاش أودو ERP — مفيد لوظائف التطبيق والدعم الفني"},
+  {"name": "مال وأعمال", "kind": "jobs", "type": "group", "country": "", "category": "accounting",
+   "url": "https://chat.whatsapp.com/FHpIszAJi21BOjIje7hnfI",
+   "note": "محاسبة ومالية وأعمال — فرص ونقاش مهني"}
+ ]
+};
+const ADS_DATA    = {
+ "note": "الإعلانات المدفوعة. placement: hero (بانر أعلى الصفحة) | inline (بين الوظائف) | rail (الشريط الجانبي). country و category فاضيين = يظهر للكل.",
+ "ads": [
+  {
+   "id": "demo-1",
+   "advertiser": "المحترف للاستشارات المالية",
+   "title": "محتاج محاسب لشركتك؟",
+   "body": "خدمات محاسبة وإعداد قوائم مالية وربط أنظمة أودو للشركات الصغيرة في الكويت.",
+   "target_url": "https://wa.me/",
+   "placement": "rail",
+   "country": "",
+   "category": "",
+   "is_active": false
+  }
+ ]
+};
+
+const COUNTRIES = {EG:"مصر",KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",RM:"عن بُعد"};
+const CATEGORIES = {accounting:"محاسبة ومالية",it:"تقنية وبرمجة",sales:"مبيعات وتسويق",hr:"موارد بشرية",
+  ops:"تشغيل ولوجستيات",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"أخرى"};
+const LEVELS = {executive:"إدارة عليا",manager:"مدير",supervisor:"مشرف",senior:"خبير",
+  mid:"متوسط الخبرة",entry:"مبتدئ / حديث تخرج",worker:"عامل وفني"};
+const SOURCES = {greenhouse:"Greenhouse",lever:"Lever",workable:"Workable",smartrecruiters:"SmartRecruiters",
+  recruitee:"Recruitee",careerjet:"Careerjet",ashby:"Ashby",bamboohr:"BambooHR",personio:"Personio",
+  arbeitnow:"Arbeitnow",remotive:"Remotive",jobicy:"Jobicy",himalayas:"Himalayas",remoteok:"RemoteOK",
+  weworkremotely:"WeWorkRemotely",jooble:"Jooble",whatsapp:"واتساب",user:"إعلان مباشر",direct:"إعلان مباشر",discover:"إعلانات أفراد"};
+const PAGE = 40;
+
+let JOBS = [], GROUPS = {groups:[]}, ADS = [], sb = null, user = null;
+const saved = new Set();
+const state = {tab:"jobs", q:"", country:"", category:"", level:"", sort:"new", kind:"jobs", limit:PAGE, verified:false};
+
+const $ = s => document.querySelector(s);
+const ar = n => Number(n).toLocaleString("ar-EG");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const opts = (map, sel) => Object.entries(map).map(([v,l]) =>
+  `<option value="${v}"${v===sel?" selected":""}>${l}</option>`).join("");
+const PHONE_RE = /(?:\+|00)?(?:965|966|971|974|973|968|20)[\s-]?\d{7,10}|\b\d{8}\b/;
+const MAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]+/;
+function contactOf(j){
+  const text = `${j.summary || ""} ${j.title || ""}`;
+  const m = text.match(PHONE_RE);
+  if(m){
+    let d = m[0].replace(/[^\d]/g, "").replace(/^00/, "");
+    if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "") + d;
+    if(d.length >= 10) return {kind:"wa", value:d, url:"https://wa.me/" + d};
+  }
+  const e = text.match(MAIL_RE);
+  if(e) return {kind:"mail", value:e[0], url:"mailto:" + e[0]};
+  return null;
+}
+const dayDiff = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : null;
+function ago(iso){
+  const d = dayDiff(iso);
+  if(d === null) return "غير محدد";
+  if(d <= 0) return "اليوم";
+  if(d === 1) return "أمس";
+  if(d < 7) return `منذ ${ar(d)} أيام`;
+  if(d < 30) return `منذ ${ar(Math.floor(d/7))} أسابيع`;
+  return `منذ ${ar(Math.floor(d/30))} شهور`;
+}
+
+/* ══════════ الفلترة ══════════ */
+const matchQ = j => { const q = state.q.trim().toLowerCase();
+  return !q || [j.title,j.company_name,j.city,j.summary].join(" ").toLowerCase().includes(q); };
+const inCountry = j => !state.country || j.country === state.country;
+function filtered(){
+  let out = JOBS.filter(j => matchQ(j) && inCountry(j)
+    && (!state.category || j.category === state.category)
+    && (!state.level || j.seniority === state.level)
+    && (!state.verified || j.source_kind !== "discover"));
+  const by = {
+    new:(a,b)=>(b.is_direct?1:0)-(a.is_direct?1:0) || (b.posted_at||"").localeCompare(a.posted_at||""),
+    company:(a,b)=>(a.company_name||"").localeCompare(b.company_name||"","ar"),
+    title:(a,b)=>(a.title||"").localeCompare(b.title||"","ar"),
+  }[state.sort];
+  return out.sort(by);
+}
+const countBy = (rows, key) => rows.reduce((m,j)=>(m[j[key]]=(m[j[key]]||0)+1, m), {});
+
+/* ══════════ الواجهة ══════════ */
+function drawTabs(){
+  const rows = JOBS.filter(matchQ);
+  const c = countBy(rows, "country");
+  const el = $("#tabs"); el.textContent = "";
+  const add = (v, label, n) => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.type = "button";
+    b.setAttribute("aria-pressed", String(state.country === v));
+    b.innerHTML = `${label}<i>${ar(n)}</i>`;
+    b.onclick = () => { state.country = v; state.limit = PAGE; paint(); };
+    el.appendChild(b);
+  };
+  add("", "الكل", rows.length);
+  Object.entries(COUNTRIES).forEach(([v,l]) => add(v, l, c[v] || 0));
+}
+function drawBars(host, map, key){
+  const rows = JOBS.filter(j => matchQ(j) && inCountry(j)
+    && (key === "category" || !state.category || j.category === state.category)
+    && (key === "seniority" || !state.level || j.seniority === state.level));
+  const counts = countBy(rows, key);
+  const max = Math.max(1, ...Object.values(counts));
+  const el = $(host); el.textContent = "";
+  const entries = key === "seniority"
+    ? Object.entries(map)                                   // الترتيب الهرمي كما هو
+    : Object.entries(map).sort((a,b) => (counts[b[0]]||0) - (counts[a[0]]||0));
+  entries.forEach(([v,l]) => {
+    const n = counts[v] || 0;
+    const b = document.createElement("button");
+    b.className = "bar" + (n ? "" : " dim"); b.type = "button";
+    const cur = key === "category" ? state.category : state.level;
+    b.setAttribute("aria-pressed", String(cur === v));
+    b.innerHTML = `<span>${l}</span><span class="n">${ar(n)}</span>
+      <span class="track"><i class="fill" style="width:${(n/max*100).toFixed(0)}%"></i></span>`;
+    b.onclick = () => {
+      if(key === "category") state.category = state.category === v ? "" : v;
+      else state.level = state.level === v ? "" : v;
+      state.limit = PAGE; paint();
+    };
+    el.appendChild(b);
+  });
+}
+
+/* ══════════ الإعلانات ══════════ */
+const liveAds = place => ADS.filter(a => a.is_active && a.placement === place
+  && (!a.country || a.country === state.country || !state.country)
+  && (!a.category || a.category === state.category));
+function adCard(a, cls){
+  const el = document.createElement("a");
+  el.className = "ad " + (cls || "");
+  el.href = a.target_url || "#"; el.target = "_blank"; el.rel = "noopener sponsored";
+  el.style.textDecoration = "none"; el.style.display = "block";
+  el.innerHTML = `<span class="lbl">إعلان</span>
+    <h3>${esc(a.title)}</h3>${a.body ? `<p>${esc(a.body)}</p>` : ""}
+    <span class="adv">${esc(a.advertiser || "")}</span>`;
+  return el;
+}
+function drawAds(){
+  const hero = $("#heroAd"); hero.textContent = "";
+  const h = liveAds("hero")[0];
+  if(h){ hero.appendChild(adCard(h)); hero.style.marginBottom = ".8rem"; }
+  const rail = liveAds("rail")[0];
+  $("#railAdBox").hidden = !rail;
+  if(rail){ $("#railAd").textContent = ""; $("#railAd").appendChild(adCard(rail, "rail")); }
+}
+
+/* ══════════ بطاقة وظيفة ══════════ */
+const shareText = j => encodeURIComponent(
+  `${j.title}\n${j.company_name}${j.city ? " — " + j.city : ""}\n${j.apply_url}\n\nمن شواغر: ${CONFIG.site}`);
+function card(j){
+  const el = document.createElement("article");
+  el.className = "job" + (j.source_kind === "discover" ? " unv" : j.is_direct ? " user" : "");
+  const fresh = (dayDiff(j.posted_at) ?? 99) <= 2;
+  const c = contactOf(j);
+  const note = NOTES[j.fingerprint];
+  el.innerHTML = `
+    <div class="slot" aria-hidden="true">${esc(j.country || "—")}</div>
+    <div>
+      <h3>${esc(j.title)}</h3>
+      <p class="meta"><b>${esc(j.company_name)}</b>${j.city ? " · " + esc(j.city) : ""}${j.is_remote ? " · عن بُعد" : ""}</p>
+      ${j.summary ? `<p class="snippet">${esc(j.summary)}</p>` : ""}
+      ${note ? `<p class="adminnote"><b>ملاحظة الإدارة:</b> ${esc(note.note)}</p>` : ""}
+      <div class="tags">
+        ${j.source_kind === "discover" ? `<span class="tag warn">إعلانات أفراد · غير موثّق</span>`
+          : j.is_direct ? `<span class="tag new">إعلان مباشر</span>` : fresh ? `<span class="tag new">جديد</span>` : ""}
+        <span class="tag">${CATEGORIES[j.category] || "أخرى"}</span>
+        <span class="tag">${LEVELS[j.seniority] || ""}</span>
+        <span class="tag">${SOURCES[j.source_kind] || esc(j.source_kind || "")} · ${ago(j.posted_at)}</span>
+      </div>
+    </div>
+    <div class="actions">
+      ${c && c.kind === "wa"
+        ? `<a class="btn wa" href="${c.url}" target="_blank" rel="noopener">قدّم واتساب</a>`
+        : c && c.kind === "mail"
+        ? `<a class="btn primary" href="${c.url}">قدّم بالإيميل</a>`
+        : `<a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">قدّم</a>`}
+      ${c ? `<button class="btn ghost cp" type="button" data-v="${esc(c.value)}">نسخ ${c.kind === "wa" ? "الرقم" : "الإيميل"}</button>`
+          : `<a class="btn wa" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">شارك</a>`}
+      <button class="btn ghost sv" type="button" aria-pressed="${saved.has(j.fingerprint)}">${saved.has(j.fingerprint) ? "محفوظ" : "احفظ"}</button>
+    </div>`;
+  el.querySelector(".sv").onclick = () => {
+    saved.has(j.fingerprint) ? saved.delete(j.fingerprint) : saved.add(j.fingerprint);
+    paint();
+  };
+  const cp = el.querySelector(".cp");
+  if(cp) cp.onclick = async () => {
+    try{ await navigator.clipboard.writeText(cp.dataset.v);
+      cp.textContent = "اتنسخ ✓"; setTimeout(() => cp.textContent = "نسخ", 1400);
+    }catch(e){}
+  };
+  if(isAdmin()){
+    const b = document.createElement("button");
+    b.className = "btn ghost"; b.textContent = note ? "تعديل الملاحظة" : "أضف ملاحظة";
+    b.onclick = () => addNote(j);
+    el.querySelector(".actions").appendChild(b);
+  }
+  return el;
+}
+function fillList(host, rows, emptyHtml){
+  const el = $(host); el.textContent = "";
+  if(!rows.length){ el.innerHTML = emptyHtml; return; }
+  const frag = document.createDocumentFragment();
+  const inline = liveAds("inline");
+  rows.forEach((j, i) => {
+    frag.appendChild(card(j));
+    if(inline.length && i > 0 && (i + 1) % 6 === 0)
+      frag.appendChild(adCard(inline[Math.floor(i / 6) % inline.length]));
+  });
+  el.appendChild(frag);
+}
+
+/* ══════════ الجروبات ══════════ */
+function drawGroups(){
+  const wrap = $("#groups"); wrap.textContent = "";
+  const chanUrl = CONFIG.whatsappChannel || (GROUPS.channel || {}).url;
+  const btn = $("#chanBtn");
+  if(chanUrl){ btn.href = chanUrl; btn.classList.remove("dim"); } else { btn.href = "#"; btn.classList.add("dim"); }
+  const num = CONFIG.adminNumber || GROUPS.submit_number;
+  $("#waNote").textContent = (chanUrl && num) ? ""
+    : "حط لينك القناة ورقم التواصل في CONFIG أعلى ملف index.html.";
+
+  const list = (GROUPS.groups || []).filter(g => (g.kind || "jobs") === state.kind
+    && (!state.country || !g.country || g.country === state.country));
+  if(!list.length){
+    wrap.innerHTML = `<div class="empty"><b>مفيش جروبات في القسم ده لسه</b>ضيف أول جروب من الزر فوق.</div>`;
+    return;
+  }
+  list.forEach(g => {
+    const el = document.createElement("div");
+    el.className = "gcard";
+    const live = !!g.url;
+    el.innerHTML = `<h3>${esc(g.name)}</h3>
+      <div style="display:flex;gap:.3rem;flex-wrap:wrap">
+        <span class="tag">${COUNTRIES[g.country] || "عام"}</span>
+        <span class="tag">${CATEGORIES[g.category] || "متنوع"}</span>
+        <span class="tag">${g.type === "channel" ? "قناة" : "جروب"}</span>
+      </div>
+      ${g.note ? `<p class="note">${esc(g.note)}</p>` : ""}
+      <a class="btn wa ${live ? "" : "dim"}" href="${live ? esc(g.url) : "#"}" target="_blank" rel="noopener">
+        ${g.type === "channel" ? "اشترك" : "انضم"}</a>`;
+    wrap.appendChild(el);
+  });
+}
+
+/* ══════════ الدخول ══════════ */
+async function initAuth(){
+  if(!(CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)) return renderWho();
+  await new Promise(res => {
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    s.onload = res; s.onerror = res; document.head.appendChild(s);
+  });
+  if(!window.supabase) return renderWho();
+  sb = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseAnonKey);
+  const { data } = await sb.auth.getSession();
+  user = data?.session?.user || null;
+  sb.auth.onAuthStateChange((_e, s) => {
+    user = s?.user || null; renderWho(); loadMine(); loadAdmin(); paint();
+  });
+  renderWho(); loadMine(); loadLiveJobs(); loadNotes(); loadAdmin(); trackVisit();
+}
+function renderWho(){
+  const el = $("#who");
+  if(user){
+    const name = user.user_metadata?.full_name || user.email || "حسابي";
+    el.innerHTML = `<b>${esc(name.split(" ")[0])}</b><button id="logout" class="note">خروج</button>`;
+    $("#logout").onclick = async () => { await sb.auth.signOut(); user = null; renderWho(); };
+  } else if(sb){
+    el.innerHTML = `<button id="login">دخول بجوجل</button>`;
+    $("#login").onclick = () => sb.auth.signInWithOAuth({
+      provider: "google", options: { redirectTo: location.href } });
+  } else {
+    el.innerHTML = `<span class="note">تصفّح كضيف</span>`;
+  }
+}
+async function loadLiveJobs(){
+  if(!sb) return;
+  const { data, error } = await sb.from("job_submissions")
+    .select("title,company_name,country,city,category,seniority,is_remote,summary,apply_url,created_at")
+    .eq("status", "approved").order("created_at", { ascending: false }).limit(300);
+  if(error || !data) return;
+  const extra = data.map(j => ({...j, posted_at: j.created_at, source_kind: "user", is_direct: true,
+    fingerprint: "u" + (j.title + j.company_name).length + j.created_at}));
+  JOBS = extra.concat(JOBS.filter(j => j.source_kind !== "user"));
+  paint();
+}
+async function loadMine(){
+  const box = $("#mineBox");
+  if(!(sb && user)){ box.hidden = true; return; }
+  const { data } = await sb.from("job_submissions")
+    .select("title,company_name,status,created_at,reject_reason")
+    .eq("submitter_id", user.id).order("created_at", { ascending: false }).limit(20);
+  if(!data || !data.length){ box.hidden = true; return; }
+  box.hidden = false;
+  const S = {pending:"تحت المراجعة", approved:"منشور", rejected:"مرفوض"};
+  $("#mine").innerHTML = data.map(j => `<div class="job" style="grid-template-columns:1fr auto">
+    <div><h3>${esc(j.title)}</h3><p class="meta">${esc(j.company_name)} · ${ago(j.created_at)}</p>
+    ${j.reject_reason ? `<p class="note">${esc(j.reject_reason)}</p>` : ""}</div>
+    <span class="tag ${j.status === "approved" ? "on" : ""}">${S[j.status] || j.status}</span></div>`).join("");
+}
+
+/* ══════════ نشر وظيفة ══════════ */
+function applyUrl(raw){
+  const v = (raw || "").trim();
+  if(!v) return "";
+  if(/^https?:\/\//i.test(v)) return v;
+  if(/^[\w.+-]+@[\w-]+\.[\w.]+$/.test(v)) return "mailto:" + v;
+  const digits = v.replace(/[^\d]/g, "");
+  if(digits.length >= 8) return "https://wa.me/" + digits;
+  return v;
+}
+function postPayload(){
+  return {
+    title: $("#pTitle").value.trim(),
+    company_name: $("#pCompany").value.trim(),
+    country: $("#pCountry").value || null,
+    city: $("#pCity").value.trim() || null,
+    category: $("#pCat").value,
+    seniority: $("#pLevel").value,
+    employment_type: $("#pType").value,
+    salary_note: $("#pSalary").value.trim() || null,
+    summary: $("#pSummary").value.trim() || null,
+    apply_url: applyUrl($("#pApply").value),
+  };
+}
+async function submitJob(){
+  const p = postPayload();
+  const msg = $("#postMsg");
+  if(!p.title || !p.company_name || !p.apply_url){
+    msg.innerHTML = `<div class="err">لازم تملأ: المسمى الوظيفي، الجهة، ووسيلة التقديم.</div>`;
+    return;
+  }
+  const btn = $("#pSend"); btn.disabled = true; btn.textContent = "جاري الإرسال...";
+  try{
+    if(sb){
+      const row = {...p, submitter_id: user?.id || null,
+        submitter_name: user?.user_metadata?.full_name || null,
+        submitter_email: user?.email || null};
+      const { error } = await sb.from("job_submissions").insert(row);
+      if(error) throw error;
+      msg.innerHTML = `<div class="ok">تم الإرسال. الإعلان تحت المراجعة وهيظهر خلال ساعات.</div>`;
+      ["pTitle","pCompany","pCity","pSalary","pApply","pSummary"].forEach(id => $("#"+id).value = "");
+      loadMine();
+    } else {
+      const num = CONFIG.adminNumber;
+      const text = `*إعلان وظيفة جديد — شواغر*\n\n` +
+        `المسمى: ${p.title}\nالجهة: ${p.company_name}\n` +
+        `الدولة: ${COUNTRIES[p.country] || "-"}\nالمدينة: ${p.city || "-"}\n` +
+        `المجال: ${CATEGORIES[p.category]}\nالمستوى: ${LEVELS[p.seniority]}\n` +
+        `الراتب: ${p.salary_note || "-"}\nالتقديم: ${p.apply_url}\n\n${p.summary || ""}`;
+      window.open(num ? `https://wa.me/${num}?text=${encodeURIComponent(text)}`
+                      : `https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+      msg.innerHTML = `<div class="ok">اتفتح واتساب بالإعلان جاهز — ابعته وهيتنشر بعد المراجعة.</div>`;
+    }
+  }catch(e){
+    msg.innerHTML = `<div class="err">حصل خطأ في الإرسال. جرّب تاني أو ابعت الإعلان على واتساب.</div>`;
+  }
+  btn.disabled = false; btn.textContent = "انشر الوظيفة";
+}
+
+/* ══════════ ترحيب وتحفيز ══════════ */
+const MOTTOS = [
+  "الوظيفة المناسبة موجودة — المهم توصلها قبل غيرك.",
+  "قدّم على ٥ وظائف كل يوم، والنتيجة هتيجي.",
+  "سيرة ذاتية مظبوطة تفتح أبواب ما بتفتحش بالواسطة.",
+  "كل رفض بيقرّبك من القبول اللي مستنيك.",
+  "الشركات بتدوّر على حد بيحل مشكلة — وضّح المشكلة اللي بتحلها.",
+  "متستناش الإعلان المثالي. قدّم وإنت بتتعلم.",
+  "متابعتك بعد التقديم بتفرق أكتر مما تتخيل.",
+];
+const TIPS = [
+  ["قدّم بسرعة", "الإعلانات اللي عمرها أقل من ٤٨ ساعة فرصتها أضعاف الأقدم. رتّب بـ الأحدث وقدّم أول يوم."],
+  ["اقرأ الإعلان كويس", "ظبّط أول سطرين في سيرتك على المسمى الوظيفي المذكور بالحرف."],
+  ["احذر النصب", "أي جهة تطلب منك فلوس مقابل التوظيف أو التأشيرة — ده نصب. التوظيف الشرعي رسومه على صاحب العمل."],
+  ["تابع بأدب", "بعد ٥ أيام من التقديم، رسالة قصيرة على واتساب أو الإيميل بتفكّر بيك من غير إزعاج."],
+  ["نوّع مصادرك", "شوف الشواغر الرسمية وإعلانات الأفراد — كل مصدر بيوصل لسوق مختلف."],
+  ["جهّز رقمك", "خلي رقم الواتساب شغّال وعليه صورة واسم واضح — أول انطباع بيتكوّن منه."],
+];
+function greeting(){
+  const h = new Date().getHours();
+  return h < 12 ? "صباح الخير" : h < 17 ? "طاب يومك" : h < 21 ? "مساء الخير" : "مساء الخير";
+}
+function drawHello(){
+  const name = user?.user_metadata?.full_name?.split(" ")[0];
+  const g = greeting() + (name ? `، ${name}` : "") + " — " + ar(JOBS.length) + " شاغر مفتوح النهاردة";
+  const m = MOTTOS[new Date().getDate() % MOTTOS.length];
+  $("#greet").textContent = g;
+  $("#motto").textContent = m;
+  $("#greet2").textContent = "لوحة التحليلات";
+}
+function consultHTML(){
+  const tel = CONFIG.consultPhone;
+  return `<img src="assets/almohtaref.png" alt="" width="52" height="52">
+    <div><h3>${esc(CONFIG.consultName)}</h3><p>${esc(CONFIG.consultNote)}</p></div>
+    <div class="cta">
+      ${tel ? `<a class="btn amber" href="tel:${esc(tel)}">اتصل الآن ${esc(tel)}</a>` : ""}
+      ${tel ? `<a class="btn wa" href="https://wa.me/${esc(tel.replace(/[^\d]/g,""))}" target="_blank" rel="noopener">واتساب</a>` : `<span class="note">حط رقم الاستشارات في CONFIG</span>`}
+    </div>`;
+}
+
+/* ══════════ شجرة وتحليلات ══════════ */
+const GROUPKIND = j => j.source_kind === "discover" ? "إعلانات أفراد"
+  : (j.is_direct || j.source_kind === "user" || j.source_kind === "whatsapp") ? "إعلانات مباشرة" : "مصادر رسمية";
+function drawTree(){
+  const t = {};
+  JOBS.forEach(j => {
+    const g = GROUPKIND(j), c = COUNTRIES[j.country] || "غير محدد", k = CATEGORIES[j.category] || "أخرى";
+    t[g] = t[g] || {n:0, kids:{}};
+    t[g].n++;
+    t[g].kids[c] = t[g].kids[c] || {n:0, kids:{}};
+    t[g].kids[c].n++;
+    t[g].kids[c].kids[k] = (t[g].kids[c].kids[k] || 0) + 1;
+  });
+  const el = $("#tree"); el.textContent = "";
+  Object.entries(t).sort((a,b) => b[1].n - a[1].n).forEach(([g, gv]) => {
+    const d = document.createElement("details");
+    d.innerHTML = `<summary><b>${g}</b><span class="n">${ar(gv.n)}</span></summary>` +
+      Object.entries(gv.kids).sort((a,b)=>b[1].n-a[1].n).map(([c, cv]) =>
+        `<details class="lvl2"><summary><b>${c}</b><span class="n">${ar(cv.n)}</span></summary>` +
+        Object.entries(cv.kids).sort((a,b)=>b[1]-a[1]).map(([k,n]) =>
+          `<div class="lvl3"><span>${k}</span><span class="n">${ar(n)}</span></div>`).join("") +
+        `</details>`).join("");
+    el.appendChild(d);
+  });
+}
+function bars(host, pairs){
+  const max = Math.max(1, ...pairs.map(p => p[1]));
+  $(host).innerHTML = pairs.map(([k,v]) =>
+    `<div class="stat"><span>${esc(k)}</span><span class="n mono">${ar(v)}</span>
+     <span class="track"><i class="fill" style="width:${(v/max*100).toFixed(0)}%"></i></span></div>`).join("");
+}
+function drawStats(){
+  drawTree();
+  const co = {}, cat = {};
+  JOBS.forEach(j => { co[j.company_name] = (co[j.company_name]||0)+1;
+                      cat[CATEGORIES[j.category] || "أخرى"] = (cat[CATEGORIES[j.category] || "أخرى"]||0)+1; });
+  bars("#topco", Object.entries(co).sort((a,b)=>b[1]-a[1]).slice(0,7));
+  bars("#topcat", Object.entries(cat).sort((a,b)=>b[1]-a[1]).slice(0,7));
+  $("#tips").innerHTML = TIPS.map(([h,b]) => `<li><b>${h}:</b> ${b}</li>`).join("");
+  $("#consultBox").innerHTML = consultHTML();
+  $("#consultBox2").innerHTML = consultHTML();
+}
+
+/* ══════════ الأدمن ══════════ */
+let NOTES = {};
+const isAdmin = () => !!(user && (CONFIG.adminEmails || [])
+  .map(e => e.toLowerCase()).includes((user.email || "").toLowerCase()));
+
+async function addNote(j){
+  const cur = NOTES[j.fingerprint]?.note || "";
+  const txt = prompt("ملاحظة الإدارة على: " + j.title, cur);
+  if(txt === null) return;
+  if(!sb){ alert("محتاج ربط Supabase لحفظ الملاحظات."); return; }
+  if(!txt.trim()){
+    await sb.from("job_notes").delete().eq("fingerprint", j.fingerprint);
+  } else {
+    await sb.from("job_notes").delete().eq("fingerprint", j.fingerprint);
+    await sb.from("job_notes").insert({fingerprint: j.fingerprint, job_title: j.title,
+      note: txt.trim(), author: user?.email || null});
+  }
+  await loadNotes(); paint();
+}
+async function loadNotes(){
+  if(!sb) return;
+  const { data } = await sb.from("job_notes").select("*").order("created_at", {ascending:false}).limit(500);
+  NOTES = {}; (data || []).forEach(n => { if(!NOTES[n.fingerprint]) NOTES[n.fingerprint] = n; });
+  const box = $("#notesList");
+  if(box) box.innerHTML = (data || []).slice(0,20).map(n =>
+    `<div class="stat"><span><b>${esc(n.job_title || "")}</b> — ${esc(n.note)}</span>
+     <span class="n">${ago(n.created_at)}</span></div>`).join("") || `<p class="note">مفيش ملاحظات.</p>`;
+  const c = $("#aNotes"); if(c) c.textContent = ar((data || []).length);
+}
+async function loadAdmin(){
+  $("#navAdmin").hidden = !isAdmin();
+  if(!isAdmin() || !sb) return;
+  $("#adminWho").textContent = "مسجّل دخول كأدمن: " + (user.email || "");
+  const { data: v } = await sb.rpc("views_summary");
+  if(v && v.length){
+    const views = v.reduce((a,x) => a + Number(x.views), 0);
+    const vis = v.reduce((a,x) => a + Number(x.visitors), 0);
+    const today = v.find(x => x.day === new Date().toISOString().slice(0,10));
+    $("#aViews").textContent = ar(views);
+    $("#aVisitors").textContent = ar(vis);
+    $("#aToday").textContent = ar(today ? today.views : 0);
+    bars("#viewsChart", v.slice(0,14).reverse()
+      .map(x => [new Date(x.day).toLocaleDateString("ar-EG",{day:"numeric",month:"short"}), Number(x.views)]));
+  }
+  const { data: subs } = await sb.from("job_submissions")
+    .select("id,title,company_name,country,city,apply_url,created_at,status")
+    .eq("status","pending").order("created_at",{ascending:false}).limit(30);
+  $("#pending").innerHTML = (subs || []).map(x =>
+    `<div class="job" style="grid-template-columns:1fr auto">
+      <div><h3>${esc(x.title)}</h3>
+        <p class="meta">${esc(x.company_name)} · ${COUNTRIES[x.country] || ""} ${esc(x.city || "")} · ${ago(x.created_at)}</p>
+        <p class="note">${esc(x.apply_url)}</p></div>
+      <div class="actions">
+        <button class="btn amber" data-ok="${x.id}">اعتماد</button>
+        <button class="btn ghost" data-no="${x.id}">رفض</button>
+      </div></div>`).join("") || `<p class="note">مفيش إعلانات تحت المراجعة.</p>`;
+  $("#pending").querySelectorAll("[data-ok]").forEach(b => b.onclick = async () => {
+    await sb.from("job_submissions").update({status:"approved", reviewed_at:new Date().toISOString()})
+      .eq("id", b.dataset.ok);
+    loadAdmin(); loadLiveJobs();
+  });
+  $("#pending").querySelectorAll("[data-no]").forEach(b => b.onclick = async () => {
+    const why = prompt("سبب الرفض (اختياري)") || null;
+    await sb.from("job_submissions").update({status:"rejected", reject_reason:why,
+      reviewed_at:new Date().toISOString()}).eq("id", b.dataset.no);
+    loadAdmin();
+  });
+}
+async function trackVisit(){
+  if(!sb) return;
+  let isNew = false;
+  try{ isNew = !sessionStorage.getItem("sw_seen"); sessionStorage.setItem("sw_seen","1"); }catch(e){ isNew = true; }
+  try{ await sb.rpc("track_view", {p_path: "/", p_new: isNew}); }catch(e){}
+}
+
+/* ══════════ الرسم العام ══════════ */
+function paint(){
+  const rows = filtered();
+  $("#kTotal").textContent = ar(JOBS.length);
+  $("#kWeek").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
+  $("#kCo").textContent    = ar(new Set(JOBS.map(j => j.company_name)).size);
+  $("#kUser").textContent  = ar(JOBS.filter(j => j.source_kind === "discover").length);
+  $("#navJobs").textContent   = ar(JOBS.filter(matchQ).length);
+  $("#navGroups").textContent = ar((GROUPS.groups || []).length);
+  $("#navSaved").textContent  = ar(saved.size);
+
+  drawTabs(); drawBars("#fCategory", CATEGORIES, "category");
+  drawBars("#fLevel", LEVELS, "seniority"); drawAds();
+
+  const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
+                state.level && LEVELS[state.level]].filter(Boolean);
+  $("#crumbTxt").textContent = bits.length ? "— " + bits.join(" · ") : "";
+  $("#clear").hidden = !bits.length && !state.q;
+  $("#shown").textContent = ar(rows.length);
+
+  fillList("#list", rows.slice(0, state.limit),
+    `<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`);
+  $("#more").hidden = rows.length <= state.limit;
+
+  fillList("#savedList", JOBS.filter(j => saved.has(j.fingerprint)),
+    `<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر ويظهر هنا.</div>`);
+  drawGroups();
+  drawHello();
+  $("#consultBox").innerHTML = consultHTML();
+}
+function setTab(tab){
+  state.tab = tab;
+  document.querySelectorAll("#nav button").forEach(b =>
+    b.setAttribute("aria-current", String(b.dataset.tab === tab)));
+  $("#viewJobs").hidden   = tab !== "jobs";
+  $("#viewGroups").hidden = tab !== "groups";
+  $("#viewPost").hidden   = tab !== "post";
+  $("#viewSaved").hidden  = tab !== "saved";
+  $("#viewStats").hidden  = tab !== "stats";
+  $("#viewAdmin").hidden  = tab !== "admin";
+  $("#tabs").hidden = ["post","stats","admin"].includes(tab);
+  if(tab === "stats") drawStats();
+  if(tab === "admin") loadAdmin();
+  document.body.classList.remove("open");
+  window.scrollTo({top:0, behavior:"instant"});
+  paint();
+}
+
+/* ══════════ الإقلاع ══════════ */
+async function load(path, fallback){
+  try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
+  return fallback;
+}
+async function boot(){
+  const [jp, gp, ap] = await Promise.all([
+    load("data/jobs.json", JOBS_DATA),
+    load("data/groups.json", GROUPS_DATA),
+    load("data/ads.json", ADS_DATA),
+  ]);
+  JOBS = jp.jobs || []; GROUPS = gp || {groups:[]}; ADS = (ap && ap.ads) || [];
+
+  const when = new Date(jp.generated_at || Date.now());
+  $("#stamp").textContent = "آخر تحديث " +
+    when.toLocaleString("ar-EG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+  $("#srcline").textContent = (jp.demo ? "بيانات تجريبية · " : "") +
+    ar(new Set(JOBS.map(j => j.source_kind)).size) + " مصادر";
+
+  $("#pCountry").innerHTML = `<option value="">— اختر —</option>` + opts(COUNTRIES, "KW");
+  $("#pCat").innerHTML = opts(CATEGORIES, "other");
+  $("#pLevel").innerHTML = opts(LEVELS, "mid");
+  $("#postMode").textContent = (CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)
+    ? "" : "النشر حالياً بيتبعت على واتساب للمراجعة. لتفعيل النشر المباشر، حط بيانات Supabase في CONFIG.";
+
+  const num = CONFIG.adminNumber;
+  $("#adCta").href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : "#";
+  $("#addGroup").onclick = () => window.open(num
+    ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
+    : "#", "_blank");
+
+  $("#q").addEventListener("input", e => { state.q = e.target.value; state.limit = PAGE; paint(); });
+  $("#sort").onchange = e => { state.sort = e.target.value; paint(); };
+  $("#menu").onclick = () => document.body.classList.toggle("open");
+  $("#more").onclick = () => { state.limit += PAGE; paint(); };
+  $("#clear").onclick = () => {
+    Object.assign(state, {q:"", country:"", category:"", level:"", limit:PAGE});
+    $("#q").value = ""; paint();
+  };
+  $("#pSend").onclick = submitJob;
+  $("#verified").onclick = () => {
+    state.verified = !state.verified; state.limit = PAGE;
+    $("#verified").setAttribute("aria-pressed", String(state.verified));
+    paint();
+  };
+  document.querySelectorAll("#nav button, .postbtn").forEach(b => b.onclick = () => setTab(b.dataset.tab));
+  document.querySelectorAll(".subtab").forEach(b => b.onclick = () => {
+    state.kind = b.dataset.kind;
+    document.querySelectorAll(".subtab").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.kind === state.kind)));
+    drawGroups();
+  });
+  document.addEventListener("keydown", e => { if(e.key === "Escape") document.body.classList.remove("open"); });
+
+  paint();
+  initAuth();
+}
+boot();
+</script>
+</body>
+</html>
