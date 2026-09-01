@@ -127,6 +127,41 @@ textarea{resize:vertical;min-height:80px}
  background:#F7FAFB;border:1px solid var(--line);border-radius:3px;padding:.6rem .7rem;color:var(--ink)}
 .expand{font-size:.78rem;color:var(--deep);text-decoration:underline;text-underline-offset:3px;
  margin-top:.3rem;display:inline-block}
+
+/* ===== نافذة تفاصيل الإعلان ===== */
+.ov{position:fixed;inset:0;background:rgba(18,41,60,.55);backdrop-filter:blur(3px);z-index:60;
+ display:flex;align-items:flex-end;justify-content:center;padding:0;animation:fade .18s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{transform:translateY(28px);opacity:.4}to{transform:none;opacity:1}}
+.modal{background:var(--card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
+ border-radius:14px 14px 0 0;animation:rise .22s cubic-bezier(.2,.8,.3,1);overflow:hidden}
+.mhead{background:var(--board);color:#fff;padding:1.1rem 1.2rem .95rem;position:relative;flex:none}
+.mhead h2{font-size:1.16rem;color:#fff;padding-inline-end:2.2rem;line-height:1.45}
+.mhead .sub{font-size:.86rem;color:#AFC1CE;margin-top:.3rem}
+.mhead .sub b{color:var(--amber);font-weight:600}
+.mclose{position:absolute;inset-inline-end:.7rem;top:.7rem;width:32px;height:32px;border-radius:50%;
+ background:rgba(255,255,255,.12);color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
+.mclose:hover{background:rgba(255,255,255,.24)}
+.mtags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.65rem}
+.mtags span{font-family:"IBM Plex Mono";font-size:.68rem;border:1px solid rgba(255,255,255,.28);
+ padding:.1rem .45rem;border-radius:2px;color:#DCE6ED}
+.mtags span.hot{border-color:var(--amber);background:rgba(231,150,45,.16);color:var(--amber)}
+.mbody{padding:1.1rem 1.2rem;overflow-y:auto;flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9}
+.mbody .lbl{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint);letter-spacing:.06em;
+ display:block;margin-bottom:.35rem;white-space:normal}
+.mrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;white-space:normal}
+.chipx{background:var(--soft);border:1px solid var(--line);border-radius:3px;padding:.28rem .6rem;font-size:.8rem}
+.chipx b{color:var(--deep)}
+.mfoot{border-top:1px solid var(--line);padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
+ display:flex;gap:.5rem;flex-wrap:wrap;flex:none;background:var(--card)}
+.mfoot .btn{flex:1;min-width:120px;padding:.7rem 1rem;font-size:.9rem}
+.mfoot .note{width:100%;text-align:center;margin:.1rem 0 0}
+.warnbox{background:#FBF0DC;border:1px solid #E0BE86;color:#8A5A12;border-radius:3px;
+ padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
+@media (min-width:720px){
+  .ov{align-items:center;padding:1.5rem}
+  .modal{border-radius:6px}
+}
 .tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.5rem}
 .tag{font-family:"IBM Plex Mono";font-size:.66rem;border:1px solid var(--line);padding:.08rem .4rem;
  border-radius:2px;color:var(--muted)}
@@ -444,6 +479,19 @@ footer p{margin:.25rem 0}
 </main>
 </div>
 
+<div class="ov" id="ov" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal" id="modal">
+    <div class="mhead">
+      <button class="mclose" id="mClose" aria-label="إغلاق">✕</button>
+      <h2 id="mTitle"></h2>
+      <p class="sub" id="mSub"></p>
+      <div class="mtags" id="mTags"></div>
+    </div>
+    <div class="mbody" id="mBody"></div>
+    <div class="mfoot" id="mFoot"></div>
+  </div>
+</div>
+
 <script>
 /* ══════════ إعدادات — عدّلها إنت ══════════ */
 const CONFIG = {
@@ -653,8 +701,8 @@ function card(j){
     <div>
       <h3>${esc(j.title)}</h3>
       <p class="meta"><b>${esc(j.company_name)}</b>${j.city ? " · " + esc(j.city) : ""}${j.is_remote ? " · عن بُعد" : ""}</p>
-      ${j.summary ? `<p class="snippet">${esc(j.summary)}</p>
-        ${j.summary.length > 160 ? `<button class="expand" type="button">عرض الإعلان كامل</button>` : ""}` : ""}
+      ${j.summary ? `<p class="snippet">${esc(j.summary)}</p>` : ""}
+      <button class="expand" type="button">التفاصيل والتقديم ←</button>
       ${note ? `<p class="adminnote"><b>ملاحظة الإدارة:</b> ${esc(note.note)}</p>` : ""}
       <div class="tags">
         ${j.source_kind === "discover" ? `<span class="tag warn">إعلانات أفراد · غير موثّق</span>`
@@ -678,12 +726,9 @@ function card(j){
     saved.has(j.fingerprint) ? saved.delete(j.fingerprint) : saved.add(j.fingerprint);
     paint();
   };
-  const ex = el.querySelector(".expand");
-  if(ex) ex.onclick = () => {
-    const sn = el.querySelector(".snippet");
-    const open = sn.classList.toggle("open");
-    ex.textContent = open ? "طيّ الإعلان" : "عرض الإعلان كامل";
-  };
+  el.querySelector(".expand").onclick = () => openJob(j);
+  el.querySelector("h3").style.cursor = "pointer";
+  el.querySelector("h3").onclick = () => openJob(j);
   const cp = el.querySelector(".cp");
   if(cp) cp.onclick = async () => {
     try{ await navigator.clipboard.writeText(cp.dataset.v);
@@ -858,6 +903,80 @@ async function submitJob(){
     msg.innerHTML = `<div class="err">حصل خطأ في الإرسال. جرّب تاني أو ابعت الإعلان على واتساب.</div>`;
   }
   btn.disabled = false; btn.textContent = "انشر الوظيفة";
+}
+
+/* ══════════ نافذة تفاصيل الإعلان ══════════ */
+let lastFocus = null;
+function openJob(j){
+  const c = contactOf(j);
+  const note = NOTES[j.fingerprint];
+  const unv = j.source_kind === "discover";
+  lastFocus = document.activeElement;
+
+  $("#mTitle").textContent = j.title;
+  $("#mSub").innerHTML = `<b>${esc(j.company_name)}</b>` +
+    (j.city ? ` · ${esc(j.city)}` : "") +
+    (j.country ? ` · ${COUNTRIES[j.country] || ""}` : "") +
+    (j.is_remote ? " · عن بُعد" : "");
+
+  $("#mTags").innerHTML = [
+    unv ? `<span class="hot">إعلانات أفراد · غير موثّق</span>` : "",
+    `<span>${CATEGORIES[j.category] || "أخرى"}</span>`,
+    `<span>${LEVELS[j.seniority] || ""}</span>`,
+    `<span>${ago(j.posted_at)}</span>`,
+    `<span>${SOURCES[j.source_kind] || esc(j.source_kind || "")}</span>`,
+  ].filter(Boolean).join("");
+
+  const facts = [
+    ["الجهة", j.company_name],
+    ["المكان", [j.city, COUNTRIES[j.country]].filter(Boolean).join(" — ") || (j.is_remote ? "عن بُعد" : "")],
+    ["المجال", CATEGORIES[j.category]],
+    ["المستوى", LEVELS[j.seniority]],
+    ["الدوام", {full_time:"دوام كامل",part_time:"دوام جزئي",contract:"عقد",internship:"تدريب"}[j.employment_type]],
+  ].filter(x => x[1]);
+
+  $("#mBody").innerHTML =
+    (unv ? `<div class="warnbox">الإعلان ده منقول من قناة عامة ومش متحقَّق منه.
+       أي جهة تطلب منك فلوس مقابل التوظيف أو التأشيرة = نصب. متدفعش أي رسوم.</div>` : "") +
+    `<div class="mrow">${facts.map(([k,v]) =>
+       `<span class="chipx">${k}: <b>${esc(v)}</b></span>`).join("")}</div>` +
+    (note ? `<div class="warnbox"><b>ملاحظة الإدارة:</b> ${esc(note.note)}</div>` : "") +
+    `<span class="lbl">نص الإعلان</span>${esc(j.summary || "مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.")}`;
+
+  $("#mFoot").innerHTML = [
+    c && c.kind === "wa"
+      ? `<a class="btn wa" href="${c.url}" target="_blank" rel="noopener">قدّم على واتساب</a>`
+      : c && c.kind === "mail"
+      ? `<a class="btn primary" href="${c.url}">قدّم بالإيميل</a>`
+      : `<a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">قدّم على المصدر</a>`,
+    c ? `<button class="btn ghost mcp" data-v="${esc(c.value)}">نسخ ${c.kind === "wa" ? "الرقم" : "الإيميل"}</button>` : "",
+    `<a class="btn ghost" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">شارك</a>`,
+    `<button class="btn ghost msv" aria-pressed="${saved.has(j.fingerprint)}">${saved.has(j.fingerprint) ? "محفوظ ✓" : "احفظ"}</button>`,
+    c ? `<p class="note">${c.kind === "wa" ? "اذكر إنك شفت الإعلان على شواغر" : ""}</p>` : "",
+  ].filter(Boolean).join("");
+
+  const cp = $("#mFoot").querySelector(".mcp");
+  if(cp) cp.onclick = async () => {
+    try{ await navigator.clipboard.writeText(cp.dataset.v);
+      cp.textContent = "اتنسخ ✓"; setTimeout(() => cp.textContent = "نسخ", 1400); }catch(e){}
+  };
+  const sv = $("#mFoot").querySelector(".msv");
+  sv.onclick = () => {
+    saved.has(j.fingerprint) ? saved.delete(j.fingerprint) : saved.add(j.fingerprint);
+    sv.textContent = saved.has(j.fingerprint) ? "محفوظ ✓" : "احفظ";
+    sv.setAttribute("aria-pressed", String(saved.has(j.fingerprint)));
+    paint();
+  };
+
+  $("#ov").hidden = false;
+  document.body.style.overflow = "hidden";
+  $("#mBody").scrollTop = 0;
+  $("#mClose").focus();
+}
+function closeJob(){
+  $("#ov").hidden = true;
+  document.body.style.overflow = "";
+  if(lastFocus) lastFocus.focus();
 }
 
 /* ══════════ ترحيب وتحفيز ══════════ */
@@ -1118,7 +1237,12 @@ async function boot(){
       x.setAttribute("aria-pressed", String(x.dataset.kind === state.kind)));
     drawGroups();
   });
-  document.addEventListener("keydown", e => { if(e.key === "Escape") document.body.classList.remove("open"); });
+  $("#mClose").onclick = closeJob;
+  $("#ov").onclick = e => { if(e.target.id === "ov") closeJob(); };
+  document.addEventListener("keydown", e => {
+    if(e.key !== "Escape") return;
+    if(!$("#ov").hidden) closeJob(); else document.body.classList.remove("open");
+  });
 
   paint();
   initAuth();
