@@ -46,6 +46,39 @@ SLEEP = 1.0
 
 TAG_RE = re.compile(r"<[^>]+>")
 WS_RE = re.compile(r"\s+")
+URL_IN_TEXT = re.compile(r"https?://\S+|www\.\S+|bit\.ly/\S+|t\.me/\S+")
+EMOJI = re.compile(
+    "[\U0001F000-\U0001FAFF\U00002190-\U000027BF\U0001F1E6-\U0001F1FF"
+    "\U00002600-\U000026FF\u2190-\u21FF\uFE0F\u200d\u2022\u25aa\u25cf"
+    "\u2705\u274c\u2757\u203c\u2049]+", flags=re.UNICODE)
+DECOR = re.compile(r"[*_~`|]+|[-=–—]{2,}|[.]{3,}|[#]{2,}")
+HASHTAG = re.compile(r"#\S+")
+NOISE_LINE = re.compile(
+    r"(اشترك|انضم|قناة|جروب|للاشتراك|رابط القناة|تابعنا|شارك المنشور|أعجبك|المصدر"
+    r"|utm_source|subscribe|join|channel)", re.I)
+
+
+def tidy(text, limit=1200):
+    """ينضّف نص إعلان: يشيل الإيموجي والزخارف والروابط وسطور الدعاية والتكرار."""
+    if not text:
+        return None
+    t = html.unescape(TAG_RE.sub(" ", str(text)))
+    t = URL_IN_TEXT.sub(" ", t)
+    t = EMOJI.sub(" ", t)
+    t = HASHTAG.sub(" ", t)
+    t = DECOR.sub(" ", t)
+    lines, seen = [], set()
+    for ln in re.split(r"[\n\r]+", t):
+        ln = WS_RE.sub(" ", ln).strip(" :،-—·•")
+        key = re.sub(r"[^\w\u0600-\u06FF]+", "", ln)[:25]
+        if not ln or len(ln) < 6 or NOISE_LINE.search(ln) or key in seen:
+            continue
+        seen.add(key)
+        lines.append(ln)
+    out = "\n".join(lines).strip()
+    if not out:
+        return None
+    return out if len(out) <= limit else out[:limit].rsplit(" ", 1)[0] + "…"
 
 # ------------------------------------------------------------------
 # الجودة: نقبل إعلانات وظائف حقيقية فقط
@@ -91,11 +124,8 @@ SENIORITY_RULES = [
 ]
 
 
-def clean(raw, limit=240):
-    if not raw:
-        return None
-    txt = WS_RE.sub(" ", html.unescape(TAG_RE.sub(" ", str(raw)))).strip()
-    return txt if len(txt) <= limit else txt[:limit].rsplit(" ", 1)[0] + "…"
+def clean(raw, limit=1200):
+    return tidy(raw, limit)
 
 
 def pick(text, rules, default=None):
@@ -128,11 +158,17 @@ def detect_city(text, country):
 
 
 def clean_title(text):
-    line = (text or "").split("\n")[0].strip()
-    line = re.sub(r"^[\-–•*#\s]+", "", line)
+    line = (tidy(text, 400) or "").split("\n")[0].strip()
+    line = re.sub(r"^[\-–•*#\s()\[\]{}«»\"']+", "", line)
+    line = re.sub(r"^\(?\s*عن\s*بعد\s*\)?\s*", "", line)
     line = re.sub(r"(مطلوب للعمل|مطلوب فورا|مطلوب فوراً|مطلوب|نبحث عن|فرصة عمل|وظيفة شاغرة|وظائف|شاغر)\s*[:\-–]?\s*",
                   "", line, flags=re.I)
-    return re.sub(r"\s*[|\-–]\s*(وظائف|jobs?)\b.*$", "", line, flags=re.I).strip()[:90] or "وظيفة"
+    line = re.sub(r"\s*[|\-–]\s*(وظائف|jobs?)\b.*$", "", line, flags=re.I)
+    line = re.sub(r"^(وظائف|فرص)\s+(في\s+)?", "", line).strip(" :،-—")
+    line = re.split(r"\s+[-–—]\s+|\s*[،,؛]\s*", line)[0]
+    line = re.sub(r"\b(واتساب|للتواصل|تليفون|موبايل|هاتف)\b.*$", "", line).strip(" :-—")
+    line = re.sub(r"\s*\d{7,}\s*", " ", line).strip()
+    return line[:70] or "وظيفة"
 
 
 def is_job_ad(text):
@@ -156,6 +192,23 @@ def fingerprint(*parts):
     return hashlib.sha1(norm.encode()).hexdigest()
 
 
+COMPANY_RE = re.compile(r"(?:لدى|لشركة|شركة|مؤسسة|مكتب|مجموعة|مطعم|مستشفى|صيدلية|مدرسة)\s+([^\n،.,:؛·\-–—|/]{2,35})")
+
+
+STOP_AFTER = re.compile(r"\s+(توفر|تعلن|تطلب|بحاجة|تبحث|مطلوب|يطلب|عن|في|بصفة|وظائف|فرص)\b")
+
+
+def company_of(text):
+    m = COMPANY_RE.search(text or "")
+    if not m:
+        return None
+    name = m.group(1).strip()
+    cut = STOP_AFTER.search(name)
+    if cut:
+        name = name[:cut.start()].strip()
+    return name[:40] or None
+
+
 def make(title, body, url, source, posted=None):
     text = f"{title}\n{body or ''}"
     country = detect_country(text)
@@ -163,7 +216,7 @@ def make(title, body, url, source, posted=None):
     return {
         "fingerprint": fingerprint(source, t, country),
         "title": t,
-        "company_name": "إعلان منشور",
+        "company_name": company_of(text) or "إعلان منشور",
         "city": detect_city(text, country),
         "country": country,
         "category": pick(text, CATEGORY_RULES, "other"),
@@ -258,7 +311,7 @@ def from_telegram(channel, source=None, country_hint=None, category_hint=None):
     r.raise_for_status()
     out = []
     for m in POST_RE.finditer(r.text):
-        body = clean(m.group("body").replace("<br/>", "\n"), 600)
+        body = clean(m.group("body").replace("<br/>", "\n"), 1200)
         if not body:
             continue
         ok, _ = is_job_ad(body)
