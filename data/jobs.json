@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T19:24:16.966356+00:00",
+ "generated_at": "2026-09-01T19:42:47.766805+00:00",
  "count": 606,
  "jobs": [
   {
@@ -3541,23 +3541,6 @@
    "posted_at": "2026-09-01T07:30:36+00:00"
   },
   {
-   "fingerprint": "18e6fc97fd4aa2ffb1fb71025cc4558facd6e700",
-   "title": "Cybersecurity - Entry Level Training Program - Egypt",
-   "company_name": "Dreambound",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "it",
-   "seniority": "entry",
-   "employment_type": "full_time",
-   "is_remote": false,
-   "summary": "Note : This is an educational program, not a job. Successful completion of the program does not guarantee employment but will equip you with valuable skills for the cybersecurity job market. Looking to start a rewarding career path in the cybersecurity field? Use Dreambound...",
-   "apply_url": "https://jooble.org/jdp/-8301562535257450012",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-09-01T05:18:40.437000+00:00"
-  },
-  {
    "fingerprint": "eb119e878a3c793588606082cdcbcd379874f0e0",
    "title": "Criminal Justice - Entry Level Training Program - Egypt",
    "company_name": "Dreambound",
@@ -3694,6 +3677,23 @@
    "posted_at": "2026-09-01T05:06:47.977000+00:00"
   },
   {
+   "fingerprint": "18e6fc97fd4aa2ffb1fb71025cc4558facd6e700",
+   "title": "Cybersecurity - Entry Level Training Program - Egypt",
+   "company_name": "Dreambound",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "it",
+   "seniority": "entry",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "Note : This is an educational program, not a job. Successful completion of the program does not guarantee employment but will equip you with valuable skills for the cybersecurity job market. Looking to start a rewarding career path in the cybersecurity field? Use Dreambound...",
+   "apply_url": "https://jooble.org/jdp/-6647952354270171776",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-09-01T05:04:53.213000+00:00"
+  },
+  {
    "fingerprint": "6f16a2792cc5611dcf1c62202413fa7f61e03638",
    "title": "Social Work and Human Services - Career Training Program - Egypt",
    "company_name": "Dreambound",
@@ -3728,23 +3728,6 @@
    "posted_at": "2026-09-01T05:00:07.227000+00:00"
   },
   {
-   "fingerprint": "967e654d0e69cd83065c6606d255a9de1872d541",
-   "title": "CDL-A Truck Driver - Entry Level Training Program - Egypt",
-   "company_name": "Dreambound",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "ops",
-   "seniority": "entry",
-   "employment_type": "full_time",
-   "is_remote": false,
-   "summary": "Note : This is an educational program, not a job. Successful completion of the program does not guarantee employment but will equip you with valuable skills for the transportation job market. Looking to start a rewarding career path in the transportation industry? Use...",
-   "apply_url": "https://jooble.org/jdp/-5924712240863108838",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-09-01T04:58:44.833000+00:00"
-  },
-  {
    "fingerprint": "3f2d3c606d378686364eb237958a4e33362694dc",
    "title": "Radiology Technician - Entry Level Training Program - Egypt",
    "company_name": "Dreambound",
@@ -3760,6 +3743,23 @@
    "source_kind": "jooble",
    "source_slug": "jb-eg-all",
    "posted_at": "2026-09-01T04:58:10.403000+00:00"
+  },
+  {
+   "fingerprint": "2d3b6cbe775675762fb92eaf444eebca9bbe9a5e",
+   "title": "B2B Sales Representative",
+   "company_name": "Slice Merchant Services",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "sales",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "Excellent opportunity to join a leading, national credit card processing company that has over a decade of industry experience. Slice Merchant Services offers innovative payment processing solutions to merchants. Slice has put together a comprehensive package of products...",
+   "apply_url": "https://jooble.org/jdp/5165700726857672159",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-09-01T00:00:00+00:00"
   },
   {
    "fingerprint": "753ebec42e5f4df92481a360698f05c93645528f",
@@ -5020,6 +5020,23 @@
    "posted_at": "2026-08-27T00:00:17+00:00"
   },
   {
+   "fingerprint": "fabc70577bc14d2f611f618e7c1d342c73cf758d",
+   "title": "Remote Licensed Healthcare Insurance Agent",
+   "company_name": "TTEC",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "other",
+   "seniority": "mid",
+   "employment_type": "full-time",
+   "is_remote": false,
+   "summary": "Licensed Healthcare Insurance Agent – Remote USA Your potential has a place here with TTEC’s award-winning employment experience. As a Licensed Healthcare Insurance Agent working remotely, you’ll be a part of bringing humanity to business. #experienceTTEC Our TTEC...",
+   "apply_url": "https://jooble.org/jdp/-634545756207127481",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-08-27T00:00:00+00:00"
+  },
+  {
    "fingerprint": "816183ab599e351e3ae759ad2c4410042f9283cd",
    "title": "Postal Clerk - Egypt",
    "company_name": "Postal Jobs Source (a division of Labor Services)",
@@ -5919,23 +5936,6 @@
    "source_kind": "jooble",
    "source_slug": "jb-ae-all",
    "posted_at": "2026-08-22T00:00:00+00:00"
-  },
-  {
-   "fingerprint": "5d1805846e75b00fffc7ad2c8aa8796b311525b0",
-   "title": "UI/UX Designer",
-   "company_name": "Hirehangar",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "other",
-   "seniority": "mid",
-   "employment_type": "full-time",
-   "is_remote": false,
-   "summary": "We are seeking a creative and detail-oriented UI/UX Designer to design intuitive, user-friendly digital experiences across web and mobile products. This role involves translating ideas and requirements into wireframes, prototypes, and polished visual designs, while…",
-   "apply_url": "https://jooble.org/jdp/-4215041673128346168",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-08-21T19:54:35.087000+00:00"
   },
   {
    "fingerprint": "ea55fd686c582f54cf6dcd7ac253643866238b80",
