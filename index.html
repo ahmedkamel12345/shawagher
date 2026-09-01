@@ -98,6 +98,27 @@ textarea{resize:vertical;min-height:80px}
 .tab[aria-pressed="true"]{background:var(--board);color:#fff}
 .tab i{font-style:normal;font-family:"IBM Plex Mono";font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
 
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.45rem;margin-bottom:.9rem}
+.tiles button{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem .5rem;
+ display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
+.tiles button i{font-style:normal;font-size:1.15rem;color:var(--deep);line-height:1}
+.tiles button b{font-family:"Noto Kufi Arabic";font-size:.82rem;font-weight:500}
+.tiles button .n{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint)}
+.tiles button:hover{border-color:var(--deep);transform:translateY(-1px)}
+.tiles button[aria-current="true"]{background:var(--board);border-color:var(--board);color:#fff}
+.tiles button[aria-current="true"] i{color:var(--amber)}
+.tiles button[aria-current="true"] .n{color:#8FA3B4}
+
+.hello{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--board) 0%,var(--board2) 60%,#25557C 100%);
+ color:#fff;border:0;border-radius:6px;padding:1.05rem 1.2rem;margin-bottom:.8rem}
+.hello::before{content:"";position:absolute;inset-inline-end:-30px;top:-40px;width:150px;height:150px;
+ border-radius:50%;background:rgba(231,150,45,.14)}
+.hello::after{content:"";position:absolute;inset-inline-end:-70px;bottom:-70px;width:170px;height:170px;
+ border-radius:50%;background:rgba(231,150,45,.07)}
+.hello h2{font-size:1.1rem;color:#fff;margin-bottom:.25rem;position:relative}
+.hello p{margin:0;font-size:.9rem;color:#CFDDE8;position:relative;display:flex;align-items:center;gap:.5rem}
+.hello p::before{content:"“";font-family:"Noto Kufi Arabic";font-size:1.6rem;color:var(--amber);line-height:0.1}
+
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.9rem}
 .kpi{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--amber);
  border-radius:3px;padding:.6rem .8rem}
@@ -156,6 +177,10 @@ textarea{resize:vertical;min-height:80px}
  display:flex;gap:.5rem;flex-wrap:wrap;flex:none;background:var(--card)}
 .mfoot .btn{flex:1;min-width:120px;padding:.7rem 1rem;font-size:.9rem}
 .mfoot .note{width:100%;text-align:center;margin:.1rem 0 0}
+.inlink{display:inline-block;background:var(--wa);color:#fff;border-radius:3px;padding:.12rem .5rem;
+ text-decoration:none;font-family:"IBM Plex Mono";font-size:.85rem;margin:.1rem 0;direction:ltr}
+.inlink:hover{filter:brightness(.93)}
+.inlink.mail{background:var(--deep)}
 .warnbox{background:#FBF0DC;border:1px solid #E0BE86;color:#8A5A12;border-radius:3px;
  padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
 @media (min-width:720px){
@@ -285,13 +310,6 @@ footer p{margin:.25rem 0}
     <div><b>شواغر</b><span class="mono">SHAWAGHER</span></div>
   </div>
 
-  <nav class="nav" id="nav">
-    <button data-tab="jobs" aria-current="true">الشواغر <span class="n" id="navJobs">0</span></button>
-    <button data-tab="groups">جروبات واتساب <span class="n" id="navGroups">0</span></button>
-    <button data-tab="saved">المحفوظة <span class="n" id="navSaved">0</span></button>
-    <button data-tab="stats">التحليلات والنصائح</button>
-    <button data-tab="admin" id="navAdmin" hidden>لوحة الإدارة</button>
-  </nav>
   <button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
 
   <div class="railsec">
@@ -324,6 +342,16 @@ footer p{margin:.25rem 0}
 </aside>
 
 <main class="main">
+  <nav class="tiles" id="nav">
+    <button data-tab="jobs" aria-current="true"><i>▤</i><b>الشواغر</b><span class="n" id="navJobs">0</span></button>
+    <button data-tab="services"><i>⚙</i><b>خدمات الموظفين</b><span class="n">حاسبات</span></button>
+    <button data-tab="groups"><i>◍</i><b>جروبات واتساب</b><span class="n" id="navGroups">0</span></button>
+    <button data-tab="saved"><i>♡</i><b>المحفوظة</b><span class="n" id="navSaved">0</span></button>
+    <button data-tab="stats"><i>◫</i><b>التحليلات والنصائح</b><span class="n">نصائح</span></button>
+    <button data-tab="post"><i>+</i><b>انشر وظيفة</b><span class="n">مجاناً</span></button>
+    <button data-tab="admin" id="navAdmin" hidden><i>★</i><b>لوحة الإدارة</b><span class="n">أدمن</span></button>
+  </nav>
+
   <div class="topbar">
     <button class="menu-btn" id="menu">☰</button>
     <div class="searchbox">
@@ -377,6 +405,51 @@ footer p{margin:.25rem 0}
     </div>
     <div class="panel"><h2>نصائح تزوّد فرصتك</h2><ul class="tips" id="tips"></ul></div>
     <div class="consult" id="consultBox2"></div>
+  </section>
+
+  <!-- ============ خدمات الموظفين ============ -->
+  <section id="viewServices" hidden>
+    <div class="hello"><h2>خدمات الموظفين</h2>
+      <p>حاسبات جاهزة تساعدك تعرف حقوقك قبل ما تقرر</p></div>
+
+    <div class="panel">
+      <h2>حاسبة مكافأة نهاية الخدمة — الكويت</h2>
+      <p>حسب قانون العمل الكويتي رقم ٦ لسنة ٢٠١٠، المادة ٥١: ١٥ يوم عن كل سنة في أول ٥ سنوات،
+         وشهر عن كل سنة بعد كده، بحد أقصى راتب سنة ونصف.</p>
+
+      <div class="form">
+        <div><label>الراتب الشهري الشامل (د.ك) *</label>
+          <input id="eSalary" type="number" inputmode="decimal" placeholder="500"></div>
+        <div><label>نظام الأجر</label><select id="ePay">
+          <option value="month">شهري</option><option value="day">يومي / بالساعة</option></select></div>
+        <div><label>تاريخ بداية العمل *</label><input id="eStart" type="date"></div>
+        <div><label>تاريخ نهاية العمل *</label><input id="eEnd" type="date"></div>
+        <div><label>سبب انتهاء العلاقة</label><select id="eReason">
+          <option value="term">إنهاء من صاحب العمل / انتهاء العقد</option>
+          <option value="resign">استقالة</option>
+          <option value="art41">ترك العمل لسبب مشروع (م.٤١)</option>
+        </select></div>
+        <div><label>رصيد إجازات غير مستخدمة (أيام)</label>
+          <input id="eLeave" type="number" inputmode="numeric" placeholder="0"></div>
+        <div class="wide"><button class="btn amber" id="eCalc" style="padding:.6rem 1.8rem">احسب</button></div>
+      </div>
+
+      <div id="eOut" style="margin-top:.9rem"></div>
+      <p class="note" style="margin-top:.8rem">النتيجة تقديرية للاسترشاد فقط. الحساب النهائي بيعتمد على
+         تفاصيل العقد وأي بدلات ثابتة، وفي الخلاف المرجع هو وزارة الشؤون أو محامٍ مختص.</p>
+    </div>
+
+    <div class="panel">
+      <h2>حقوق سريعة تحت إيدك</h2>
+      <ul class="tips">
+        <li><b>الإجازة السنوية:</b> ٣٠ يوم مدفوعة بعد إتمام ٩ شهور خدمة، وبتتراكم ولك حق تعويضها نقداً عند الترك.</li>
+        <li><b>مهلة الإخطار:</b> ٣ شهور للأجر الشهري و١ شهر لغيره — من أي طرف.</li>
+        <li><b>ساعات العمل:</b> ٨ ساعات يومياً / ٤٨ أسبوعياً، والإضافي بأجر إضافي لا يقل عن ٢٥٪.</li>
+        <li><b>إجازة مرضية:</b> ٧٥ يوم متدرجة (١٥ بأجر كامل، ١٠ بثلاثة أرباع، ١٠ بنصف، ١٠ بربع، ٣٠ بدون).</li>
+        <li><b>ممنوع تحصيل رسوم توظيف من العامل</b> — أي طلب فلوس مقابل الوظيفة أو التأشيرة مخالف للقانون.</li>
+      </ul>
+    </div>
+    <div class="consult" id="consultBox3"></div>
   </section>
 
   <!-- ============ لوحة الإدارة ============ -->
@@ -593,6 +666,10 @@ function contactOf(j){
   return null;
 }
 const dayDiff = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : null;
+function fullDate(iso){
+  if(!iso) return "";
+  return new Date(iso).toLocaleDateString("ar-EG", {day:"numeric", month:"long", year:"numeric"});
+}
 function ago(iso){
   const d = dayDiff(iso);
   if(d === null) return "غير محدد";
@@ -709,7 +786,8 @@ function card(j){
           : j.is_direct ? `<span class="tag new">إعلان مباشر</span>` : fresh ? `<span class="tag new">جديد</span>` : ""}
         <span class="tag">${CATEGORIES[j.category] || "أخرى"}</span>
         <span class="tag">${LEVELS[j.seniority] || ""}</span>
-        <span class="tag">${SOURCES[j.source_kind] || esc(j.source_kind || "")} · ${ago(j.posted_at)}</span>
+        <span class="tag">${SOURCES[j.source_kind] || esc(j.source_kind || "")}</span>
+        <span class="tag">نُشر ${fullDate(j.posted_at)} · ${ago(j.posted_at)}</span>
       </div>
     </div>
     <div class="actions">
@@ -905,6 +983,84 @@ async function submitJob(){
   btn.disabled = false; btn.textContent = "انشر الوظيفة";
 }
 
+/* كل رقم في نص الإعلان يبقى زر واتساب، والإيميل زر مراسلة */
+function linkify(text, j){
+  const NUM = /(?:\+|00)?\d[\d\s\-]{6,15}\d/g;
+  const MAIL = /[\w.+-]+@[\w-]+\.[\w.]+/g;
+  return esc(text)
+    .replace(MAIL, m => `<a class="inlink mail" href="mailto:${m}">✉ ${m}</a>`)
+    .replace(NUM, m => {
+      let d = m.replace(/[^\d]/g, "").replace(/^00/, "");
+      if(d.length < 8 || d.length > 15) return m;
+      if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "965") + d;
+      return `<a class="inlink" href="https://wa.me/${d}" target="_blank" rel="noopener">✆ ${m.trim()}</a>`;
+    });
+}
+
+/* ══════════ حاسبة نهاية الخدمة (الكويت — ق.٦/٢٠١٠ م.٥١) ══════════ */
+function eosCalc(){
+  const sal = parseFloat($("#eSalary").value || "0");
+  const monthly = $("#ePay").value === "month";
+  const s = new Date($("#eStart").value), e = new Date($("#eEnd").value);
+  const reason = $("#eReason").value;
+  const leave = parseFloat($("#eLeave").value || "0");
+  const out = $("#eOut");
+  if(!sal || isNaN(s) || isNaN(e) || e <= s){
+    out.innerHTML = `<div class="err">اكتب الراتب وتواريخ صحيحة (النهاية بعد البداية).</div>`;
+    return;
+  }
+  const days = (e - s) / 864e5;
+  const yrs = days / 365.25;
+  const daily = sal / 26, dayVal = monthly ? daily : sal;
+  const monthVal = monthly ? sal : sal * 26;
+
+  // الاستحقاق الأساسي
+  const first = Math.min(yrs, 5), rest = Math.max(0, yrs - 5);
+  let gross = monthly
+    ? first * 15 * daily + rest * monthVal
+    : first * 10 * dayVal + rest * 15 * dayVal;
+
+  // نسبة الاستحقاق حسب سبب الترك
+  let pct = 1, why = "إنهاء من صاحب العمل — استحقاق كامل";
+  if(reason === "resign"){
+    if(monthly){
+      if(yrs < 3){ pct = 0; why = "استقالة قبل ٣ سنوات — لا يوجد استحقاق"; }
+      else if(yrs < 5){ pct = 0.5; why = "استقالة بعد ٣ سنوات — نصف المكافأة"; }
+      else if(yrs < 10){ pct = 2/3; why = "استقالة بعد ٥ سنوات — ثلثا المكافأة"; }
+      else why = "استقالة بعد ١٠ سنوات — استحقاق كامل";
+    } else {
+      if(yrs < 3){ pct = 0; why = "استقالة قبل ٣ سنوات — لا يوجد استحقاق"; }
+      else if(yrs < 5){ pct = 0.5; why = "استقالة بعد ٣ سنوات — نصف المكافأة"; }
+      else why = "استقالة بعد ٥ سنوات — استحقاق كامل";
+    }
+  } else if(reason === "art41"){
+    why = "ترك العمل لسبب مشروع (م.٤١) — استحقاق كامل";
+  }
+
+  let net = gross * pct;
+  const cap = monthVal * 18;                       // الحد الأقصى: راتب سنة ونصف
+  const capped = net > cap;
+  if(capped) net = cap;
+  const leavePay = leave * daily;
+
+  const kd = n => n.toLocaleString("ar-EG", {minimumFractionDigits:3, maximumFractionDigits:3}) + " د.ك";
+  const y = Math.floor(yrs), m = Math.floor((yrs - y) * 12), d = Math.round(((yrs - y) * 12 - m) * 30);
+
+  out.innerHTML = `
+    <div class="ok" style="font-size:1rem">
+      <b>الإجمالي المستحق: ${kd(net + leavePay)}</b>
+    </div>
+    <div class="mrow" style="margin-top:.7rem">
+      <span class="chipx">مدة الخدمة: <b>${ar(y)} سنة و${ar(m)} شهر و${ar(d)} يوم</b></span>
+      <span class="chipx">الأجر اليومي: <b>${kd(daily)}</b></span>
+    </div>
+    <div class="stat"><span>المكافأة قبل النسبة</span><span class="mono">${kd(gross)}</span></div>
+    <div class="stat"><span>${why}</span><span class="mono">${pct === 1 ? "١٠٠٪" : pct === 0 ? "٠٪" : pct === 0.5 ? "٥٠٪" : "٦٦.٧٪"}</span></div>
+    <div class="stat"><span>مكافأة نهاية الخدمة</span><span class="mono">${kd(net)}</span></div>
+    ${capped ? `<p class="note">تم تطبيق الحد الأقصى: راتب سنة ونصف (${kd(cap)}).</p>` : ""}
+    ${leave ? `<div class="stat"><span>بدل إجازات (${ar(leave)} يوم)</span><span class="mono">${kd(leavePay)}</span></div>` : ""}`;
+}
+
 /* ══════════ نافذة تفاصيل الإعلان ══════════ */
 let lastFocus = null;
 function openJob(j){
@@ -923,6 +1079,7 @@ function openJob(j){
     unv ? `<span class="hot">إعلانات أفراد · غير موثّق</span>` : "",
     `<span>${CATEGORIES[j.category] || "أخرى"}</span>`,
     `<span>${LEVELS[j.seniority] || ""}</span>`,
+    `<span>نُشر ${fullDate(j.posted_at)}</span>`,
     `<span>${ago(j.posted_at)}</span>`,
     `<span>${SOURCES[j.source_kind] || esc(j.source_kind || "")}</span>`,
   ].filter(Boolean).join("");
@@ -941,7 +1098,7 @@ function openJob(j){
     `<div class="mrow">${facts.map(([k,v]) =>
        `<span class="chipx">${k}: <b>${esc(v)}</b></span>`).join("")}</div>` +
     (note ? `<div class="warnbox"><b>ملاحظة الإدارة:</b> ${esc(note.note)}</div>` : "") +
-    `<span class="lbl">نص الإعلان</span>${esc(j.summary || "مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.")}`;
+    `<span class="lbl">نص الإعلان</span>${linkify(j.summary || "مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.", j)}`;
 
   $("#mFoot").innerHTML = [
     c && c.kind === "wa"
@@ -1092,7 +1249,7 @@ async function loadNotes(){
   const c = $("#aNotes"); if(c) c.textContent = ar((data || []).length);
 }
 async function loadAdmin(){
-  $("#navAdmin").hidden = !isAdmin();
+  const na = $("#navAdmin"); if(na) na.hidden = !isAdmin();
   if(!isAdmin() || !sb) return;
   $("#adminWho").textContent = "مسجّل دخول كأدمن: " + (user.email || "");
   const { data: v } = await sb.rpc("views_summary");
@@ -1177,7 +1334,9 @@ function setTab(tab){
   $("#viewSaved").hidden  = tab !== "saved";
   $("#viewStats").hidden  = tab !== "stats";
   $("#viewAdmin").hidden  = tab !== "admin";
-  $("#tabs").hidden = ["post","stats","admin"].includes(tab);
+  $("#viewServices").hidden = tab !== "services";
+  $("#tabs").hidden = ["post","stats","admin","services"].includes(tab);
+  if(tab === "services") $("#consultBox3").innerHTML = consultHTML();
   if(tab === "stats") drawStats();
   if(tab === "admin") loadAdmin();
   document.body.classList.remove("open");
@@ -1231,6 +1390,8 @@ async function boot(){
     paint();
   };
   document.querySelectorAll("#nav button, .postbtn").forEach(b => b.onclick = () => setTab(b.dataset.tab));
+  $("#eCalc").onclick = eosCalc;
+  $("#eEnd").value = new Date().toISOString().slice(0,10);
   document.querySelectorAll(".subtab").forEach(b => b.onclick = () => {
     state.kind = b.dataset.kind;
     document.querySelectorAll(".subtab").forEach(x =>
