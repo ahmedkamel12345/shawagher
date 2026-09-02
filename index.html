@@ -808,7 +808,8 @@ const I18N = {
   eCalcBtn2: {ar:"حاسبات", en:"Calculators"},
   fType2: {ar:"الدوام", en:"Type"}, factCompany: {ar:"الجهة", en:"Employer"},
   factLocation: {ar:"المكان", en:"Location"}, factLevel: {ar:"المستوى", en:"Level"},
-  countryAll_remote: {ar:"عن بُعد", en:"Remote"}, navStats2: {ar:"نصائح", en:"Tips"}, navAdmin2: {ar:"أدمن", en:"Admin"},
+  countryAll_remote: {ar:"عن بُعد", en:"Remote"},
+  noApply: {ar:"وسيلة التقديم غير متاحة", en:"No apply method available"}, navStats2: {ar:"نصائح", en:"Tips"}, navAdmin2: {ar:"أدمن", en:"Admin"},
   themeLabel: {ar:"المظهر", en:"Theme"}, sourceLabel: {ar:"المصدر", en:"Source"},
   verifiedOnly: {ar:"المصادر الرسمية فقط", en:"Official sources only"},
   verifiedNote: {ar:"إعلانات الأفراد مجمّعة من قنوات عامة وغير موثّقة — راجعها بنفسك.",
@@ -1039,7 +1040,9 @@ function card(j){
         ? `<a class="btn wa" href="${c.url}" target="_blank" rel="noopener">قدّم واتساب</a>`
         : c && c.kind === "mail"
         ? `<a class="btn primary" href="${c.url}">قدّم بالإيميل</a>`
-        : `<a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">${t("apply")}</a>`}
+        : isRealLink(j.apply_url)
+        ? `<a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">${t("apply")}</a>`
+        : `<span class="btn ghost" style="cursor:default">${t("noApply")}</span>`}
       ${c ? `<button class="btn ghost cp" type="button" data-v="${esc(c.value)}">نسخ ${c.kind === "wa" ? "الرقم" : "الإيميل"}</button>`
           : `<a class="btn wa" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">${t("share")}</a>`}
       <button class="btn ghost sv" type="button" aria-pressed="${saved.has(j.fingerprint)}">${saved.has(j.fingerprint) ? "محفوظ" : "احفظ"}</button>
@@ -1176,7 +1179,11 @@ function applyUrl(raw){
   if(/^[\w.+-]+@[\w-]+\.[\w.]+$/.test(v)) return "mailto:" + v;
   const digits = v.replace(/[^\d]/g, "");
   if(digits.length >= 8) return "https://wa.me/" + digits;
-  return v;
+  return "";   // مش رقم ولا إيميل ولا رابط — نرفضه بدل حفظه كنص عادي
+}
+// نفس المنطق للتحقق من صلاحية apply_url القادم من أي مصدر قبل استخدامه كرابط
+function isRealLink(v){
+  return typeof v === "string" && /^https?:\/\/|^mailto:|^tel:/i.test(v.trim());
 }
 function postPayload(){
   return {
@@ -1535,7 +1542,9 @@ function openJob(j){
       ? `<a class="btn wa" href="${c.url}" target="_blank" rel="noopener">قدّم على واتساب</a>`
       : c && c.kind === "mail"
       ? `<a class="btn primary" href="${c.url}">قدّم بالإيميل</a>`
-      : `<a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">قدّم على المصدر</a>`,
+      : isRealLink(j.apply_url)
+      ? `<a class="btn primary" href="${esc(j.apply_url)}" target="_blank" rel="noopener">${t("applySite")}</a>`
+      : `<span class="btn ghost" style="cursor:default">${t("noApply")}</span>`,
     c ? `<button class="btn ghost mcp" data-v="${esc(c.value)}">نسخ ${c.kind === "wa" ? "الرقم" : "الإيميل"}</button>` : "",
     `<a class="btn ghost" href="https://wa.me/?text=${shareText(j)}" target="_blank" rel="noopener">${t("share")}</a>`,
     `<button class="btn ghost msv" aria-pressed="${saved.has(j.fingerprint)}">${saved.has(j.fingerprint) ? t("saved")+" ✓" : t("save")}</button>`,
