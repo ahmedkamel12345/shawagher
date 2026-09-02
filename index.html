@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="navy">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +11,8 @@
 <meta property="og:description" content="وظائف محدّثة يومياً من المصادر الرسمية. مجاني للباحث عن العمل.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
-<meta name="theme-color" content="#193C58">
-<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#0D1F2E">
+<meta name="color-scheme" content="dark light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -28,18 +28,77 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:light only}
-body{background:#EFF2F4;background:var(--paper);color:#12293C;color:var(--ink);
- font-family:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
- font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700;line-height:1.35;margin:0}
-.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:dark light}
+/* خلفية الهوية: شبكة "الشاغر" المتقطعة + وهج كهرماني — مستمدة من اللوجو */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(680px 380px at 88% -6%, rgba(231,150,45,.16), transparent 62%),
+   radial-gradient(520px 420px at 4% 102%, rgba(25,60,88,.10), transparent 60%),
+   repeating-linear-gradient(0deg, rgba(25,60,88,.055) 0 1px, transparent 1px 46px),
+   repeating-linear-gradient(90deg, rgba(25,60,88,.055) 0 1px, transparent 1px 46px);
+  background-color:var(--paper)}
+html[data-theme="navy"]{
+  --paper:#0C1C2A; --card:#16293A; --ink:#EAF0F5; --muted:#A3B7C6; --faint:#7E93A4;
+  --line:#28455E; --soft:#1D3549; --green-soft:#1D3549; --amber-soft:#3D2E12;
+  --deep:#7FB2D8; --board-3:#33556F;
+  color-scheme:dark}
+html[data-theme="navy"] .job:hover{border-color:#3C6284}
+html[data-theme="navy"] .slot{border-color:#3C6284}
+html[data-theme="navy"] .btn.primary{background:#E7962D;color:#0C1C2A}
+html[data-theme="navy"] .btn.primary:hover{background:#F0AA4E}
+html[data-theme="navy"] .tiles button{border-color:#28455E}
+html[data-theme="navy"] .tiles button[aria-current="true"]{background:#E7962D;border-color:#E7962D;color:#0C1C2A}
+html[data-theme="navy"] .tiles button[aria-current="true"] i,
+html[data-theme="navy"] .tiles button[aria-current="true"] .n{color:#0C1C2A}
+html[data-theme="navy"] .rail{background:#091722;border-inline-start:1px solid #1D3549}
+html[data-theme="navy"] .tag.new{background:#3D2E12;border-color:#8A6A1C;color:#F0B95E}
+html[data-theme="navy"] .tag.warn{background:#3D2E12;border-color:#8A6A1C;color:#F0B95E}
+html[data-theme="navy"] .empty{background:var(--card)}
+html[data-theme="navy"] .ok{background:#12332A;border-color:#1F5B48;color:#7FD3B4}
+html[data-theme="navy"] .err{background:#3A1E1B;border-color:#6E332C;color:#EFA79C}
+html[data-theme="navy"] .adminnote{background:#3D2E12;color:#F0B95E}
+html[data-theme="navy"] .review .r{border-bottom-color:#264054}
+html[data-theme="navy"] body::before{
+  background:
+   radial-gradient(720px 400px at 88% -6%, rgba(231,150,45,.20), transparent 62%),
+   radial-gradient(520px 420px at 4% 102%, rgba(231,150,45,.06), transparent 60%),
+   repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 46px),
+   repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 46px);
+  background-color:var(--paper)}
+html[data-theme="sand"]{
+  --paper:#F4EEE3; --card:#FFFCF7; --line:#E0D5C3; --soft:#F0E6D6; --muted:#6B6355}
+html[data-theme="sand"] body::before{
+  background:
+   radial-gradient(680px 380px at 88% -6%, rgba(231,150,45,.24), transparent 60%),
+   repeating-linear-gradient(45deg, rgba(169,106,27,.05) 0 1px, transparent 1px 22px);
+  background-color:var(--paper)}
+html[data-theme="plain"]{--paper:#FFFFFF; --line:#E2E8EC}
+html[data-theme="plain"] body::before{background:none;background-color:#fff}
+
+/* شريط اختيار الثيم */
+.themebar{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin-bottom:.7rem}
+.themebar b{font-size:.7rem;color:var(–faint);font-family:“IBM Plex Mono”;margin-inline-end:.2rem}
+.swatch{width:30px;height:30px;border-radius:50%;border:2px solid var(–line);cursor:pointer;
+transition:transform .14s,border-color .14s;position:relative}
+.swatch:hover{transform:scale(1.08)}
+.swatch[aria-pressed=“true”]{border-color:var(–amber);transform:scale(1.1)}
+.swatch[aria-pressed=“true”]::after{content:“✓”;position:absolute;inset:0;display:grid;place-content:center;
+font-size:.8rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.swatch.t-paper{background:linear-gradient(135deg,#EFF2F4 50%,#E7962D 50%)}
+.swatch.t-navy{background:linear-gradient(135deg,#193C58 50%,#E7962D 50%)}
+.swatch.t-sand{background:linear-gradient(135deg,#F4EEE3 50%,#A96A1B 50%)}
+.swatch.t-plain{background:linear-gradient(135deg,#FFFFFF 50%,#12293C 50%)}
+body{background:#EFF2F4;background:var(–paper);color:#12293C;color:var(–ink);
+font-family:“IBM Plex Sans Arabic”,system-ui,-apple-system,“Segoe UI”,sans-serif;
+font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.kufi{font-family:“Noto Kufi Arabic”,sans-serif;font-weight:700;line-height:1.35;margin:0}
+.mono{font-family:“IBM Plex Mono”,ui-monospace,monospace;font-variant-numeric:tabular-nums}
 a{color:inherit}
 button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
-input,select,textarea{font:inherit;width:100%;border:1px solid var(--line);border-radius:3px;
- padding:.55rem .65rem;background:#fff;color:var(--ink)}
+input,select,textarea{font:inherit;width:100%;border:1px solid var(–line);border-radius:3px;
+padding:.55rem .65rem;background:var(–card);color:var(–ink)}
 textarea{resize:vertical;min-height:80px}
-:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+:focus-visible{outline:2px solid var(–amber);outline-offset:2px}
 ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#BCCAD4;border-radius:9px}
 [hidden]{display:none!important}
 
@@ -149,47 +208,62 @@ font-family:“IBM Plex Mono”;font-size:.72rem;color:var(–muted);transition:
 .snippet{font-size:.83rem;color:var(–muted);margin:.35rem 0 0;white-space:pre-line;
 display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .snippet.open{display:block;-webkit-line-clamp:none;overflow:visible;
-background:#F7FAFB;border:1px solid var(–line);border-radius:3px;padding:.6rem .7rem;color:var(–ink)}
+background:var(–soft);border:1px solid var(–line);border-radius:3px;padding:.6rem .7rem;color:var(–ink)}
 .expand{font-size:.78rem;color:var(–deep);text-decoration:underline;text-underline-offset:3px;
 margin-top:.3rem;display:inline-block}
 
 /* ===== نافذة تفاصيل الإعلان ===== */
-.ov{position:fixed;inset:0;background:rgba(18,41,60,.55);backdrop-filter:blur(3px);z-index:60;
-display:flex;align-items:flex-end;justify-content:center;padding:0;animation:fade .18s ease}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-@keyframes rise{from{transform:translateY(28px);opacity:.4}to{transform:none;opacity:1}}
-.modal{background:var(–card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
-border-radius:14px 14px 0 0;animation:rise .22s cubic-bezier(.2,.8,.3,1);overflow:hidden}
-.mhead{background:var(–board);color:#fff;padding:1.1rem 1.2rem .95rem;position:relative;flex:none}
-.mhead h2{font-size:1.16rem;color:#fff;padding-inline-end:2.2rem;line-height:1.45}
-.mhead .sub{font-size:.86rem;color:#AFC1CE;margin-top:.3rem}
-.mhead .sub b{color:var(–amber);font-weight:600}
-.mclose{position:absolute;inset-inline-end:.7rem;top:.7rem;width:32px;height:32px;border-radius:50%;
-background:rgba(255,255,255,.12);color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
-.mclose:hover{background:rgba(255,255,255,.24)}
+.ov{position:fixed;inset:0;background:#12293C;background:rgba(18,41,60,.62);z-index:60;
+display:flex;align-items:flex-end;justify-content:center;padding:0;isolation:isolate}
+.modal{background:#FFFFFF;background:var(–card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
+border-radius:14px 14px 0 0;overflow:hidden;position:relative;z-index:1;
+box-shadow:0 -10px 40px rgba(0,0,0,.35)}
+.mhead{background:#193C58;color:#fff;padding:1.1rem 1.2rem .95rem;position:relative;flex:none}
+.mhead h2{font-size:1.16rem;color:#fff;padding-inline-end:2.4rem;line-height:1.45}
+.mhead .sub{font-size:.86rem;color:#B4C7D6;margin-top:.3rem}
+.mhead .sub b{color:#E7962D;font-weight:600}
+.mclose{position:absolute;inset-inline-end:.7rem;top:.7rem;width:34px;height:34px;border-radius:50%;
+background:#2C5878;color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
+.mclose:hover{background:#3C6A8C}
 .mtags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.65rem}
-.mtags span{font-family:“IBM Plex Mono”;font-size:.68rem;border:1px solid rgba(255,255,255,.28);
+.mtags span{font-family:“IBM Plex Mono”;font-size:.68rem;border:1px solid #4A7089;
 padding:.1rem .45rem;border-radius:2px;color:#DCE6ED}
-.mtags span.hot{border-color:var(–amber);background:rgba(231,150,45,.16);color:var(–amber)}
-.mbody{padding:1.1rem 1.2rem;overflow-y:auto;flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9}
-.mbody .lbl{font-family:“IBM Plex Mono”;font-size:.68rem;color:var(–faint);letter-spacing:.06em;
+.mtags span.hot{border-color:#E7962D;background:#2A4A66;color:#F0C381}
+.mbody{background:#FFFFFF;background:var(–card);padding:1.1rem 1.2rem;overflow-y:auto;-webkit-overflow-scrolling:touch;
+flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9;color:#12293C}
+.mbody .lbl{font-family:“IBM Plex Mono”;font-size:.68rem;color:#93A3AF;letter-spacing:.06em;
 display:block;margin-bottom:.35rem;white-space:normal}
 .mrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;white-space:normal}
-.chipx{background:var(–soft);border:1px solid var(–line);border-radius:3px;padding:.28rem .6rem;font-size:.8rem}
-.chipx b{color:var(–deep)}
-.mfoot{border-top:1px solid var(–line);padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
-display:flex;gap:.5rem;flex-wrap:wrap;flex:none;background:var(–card)}
+.chipx{background:#E4EDF4;border:1px solid #D5DEE4;border-radius:3px;padding:.28rem .6rem;font-size:.8rem;color:#12293C}
+.chipx b{color:#1E4668}
+.mfoot{background:#FFFFFF;background:var(–card);border-top:1px solid var(–line);
+padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
+display:flex;gap:.5rem;flex-wrap:wrap;flex:none}
 .mfoot .btn{flex:1;min-width:120px;padding:.7rem 1rem;font-size:.9rem}
 .mfoot .note{width:100%;text-align:center;margin:.1rem 0 0}
-.inlink{display:inline-block;background:var(–wa);color:#fff;border-radius:3px;padding:.12rem .5rem;
+.inlink{display:inline-block;background:#1FA855;color:#fff;border-radius:3px;padding:.12rem .5rem;
 text-decoration:none;font-family:“IBM Plex Mono”;font-size:.85rem;margin:.1rem 0;direction:ltr}
-.inlink:hover{filter:brightness(.93)}
-.inlink.mail{background:var(–deep)}
+.inlink.mail{background:#1E4668}
+.applyform{background:#F7FAFB;background:var(–soft);border:1px solid var(–line);border-radius:6px;padding:.9rem;margin-top:.9rem;white-space:normal}
+.applyform h4{font-family:“Noto Kufi Arabic”;font-size:.95rem;margin-bottom:.2rem}
+.applyform .g{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:.7rem}
+.applyform .g .wide{grid-column:1/-1}
+.applyform label{display:block;font-size:.75rem;color:#5A6E7F;margin-bottom:.2rem}
+.applyform input,.applyform textarea,.applyform select{font-size:.9rem;padding:.5rem .6rem}
+.applyform textarea{min-height:62px}
+.review{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:4px;padding:.7rem .8rem;margin-top:.7rem}
+.review .r{display:flex;justify-content:space-between;gap:.6rem;padding:.28rem 0;
+border-bottom:1px dashed #E3EAEF;font-size:.87rem}
+.review .r:last-child{border:0}
+.review .r span:first-child{color:#5A6E7F}
+.review .r span:last-child{font-weight:600;text-align:end}
+.privacy{font-size:.72rem;color:#93A3AF;margin-top:.5rem;line-height:1.7}
+@media (max-width:520px){.applyform .g{grid-template-columns:1fr}}
 .warnbox{background:#FBF0DC;border:1px solid #E0BE86;color:#8A5A12;border-radius:3px;
 padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
 @media (min-width:720px){
 .ov{align-items:center;padding:1.5rem}
-.modal{border-radius:6px}
+.modal{border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 }
 .tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.5rem}
 .tag{font-family:“IBM Plex Mono”;font-size:.66rem;border:1px solid var(–line);padding:.08rem .4rem;
@@ -347,6 +421,14 @@ font-size:.84rem;font-weight:600}
 </aside>
 
 <main class="main" role="application">
+  <div class="themebar" id="themebar">
+    <b>المظهر</b>
+    <button class="swatch t-navy"  data-theme="navy"  title="كحلي" aria-label="كحلي" aria-pressed="true"></button>
+    <button class="swatch t-paper" data-theme="paper" title="ورقي" aria-label="ورقي" aria-pressed="false"></button>
+    <button class="swatch t-sand"  data-theme="sand"  title="رملي" aria-label="رملي" aria-pressed="false"></button>
+    <button class="swatch t-plain" data-theme="plain" title="أبيض بسيط" aria-label="أبيض بسيط" aria-pressed="false"></button>
+  </div>
+
   <nav class="tiles" id="nav">
     <button data-tab="jobs" aria-current="true"><i>▤</i><b>الشواغر</b><span class="n" id="navJobs">0</span></button>
     <button data-tab="services"><i>⚙</i><b>خدمات الموظفين</b><span class="n">حاسبات</span></button>
@@ -528,6 +610,11 @@ font-size:.84rem;font-weight:600}
   <h2>إعلانات تحت المراجعة</h2>
   <div class="list" id="pending"></div>
 </div>
+<div class="panel">
+  <h2>طلبات التقديم <span class="note" id="appsCount"></span></h2>
+  <div id="appsList"></div>
+</div>
+
 <div class="panel">
   <h2>آخر الملاحظات</h2>
   <div id="notesList"></div>
@@ -1360,6 +1447,7 @@ function openJob(j){
     `<span class="lbl">نص الإعلان</span>${linkify(j.summary || "مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.", j)}`;
 
   $("#mFoot").innerHTML = [
+    `<button class="btn amber" id="mApply">قدّم من الموقع</button>`,
     c && c.kind === "wa"
       ? `<a class="btn wa" href="${c.url}" target="_blank" rel="noopener">قدّم على واتساب</a>`
       : c && c.kind === "mail"
@@ -1376,6 +1464,8 @@ function openJob(j){
     try{ await navigator.clipboard.writeText(cp.dataset.v);
       cp.textContent = "اتنسخ ✓"; setTimeout(() => cp.textContent = "نسخ", 1400); }catch(e){}
   };
+  const ap = $("#mFoot").querySelector("#mApply");
+  if(ap) ap.onclick = () => openApply(j);
   const sv = $("#mFoot").querySelector(".msv");
   sv.onclick = () => {
     saved.has(j.fingerprint) ? saved.delete(j.fingerprint) : saved.add(j.fingerprint);
@@ -1395,294 +1485,403 @@ function closeJob(){
   if(lastFocus) lastFocus.focus();
 }
 
+/* ══════════ الثيمات ══════════ */
+function getTheme(){
+  try{ return sessionStorage.getItem("sw_theme") || "navy"; }catch(e){ return "navy"; }
+}
+function setTheme(t){
+  document.documentElement.dataset.theme = t;
+  try{ sessionStorage.setItem("sw_theme", t); }catch(e){}
+  document.querySelectorAll("#themebar .swatch").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.theme === t)));
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.content = t === "navy" ? "#0D1F2E" : t === "sand" ? "#F4EEE3" : "#193C58";
+}
+
+/* ══════════ التقديم من الموقع ══════════ */
+let applyJob = null;
+function openApply(j){
+  applyJob = j;
+  const saved = lastApplicant();
+  $("#mBody").insertAdjacentHTML("beforeend", `
+    <div class="applyform" id="applyBox">
+      <h4>التقديم على: ${esc(j.title)}</h4>
+      <p class="note" style="margin:0">بياناتك بتتبعت لجهة التوظيف والإدارة فقط — مفيش أي رسوم.</p>
+      <div class="g">
+        <div><label>الاسم بالكامل *</label><input id="aName" value="${esc(saved.full_name)}" placeholder="أحمد محمد"></div>
+        <div><label>رقم الموبايل (واتساب) *</label><input id="aPhone" inputmode="tel" value="${esc(saved.phone)}" placeholder="96599112233"></div>
+        <div><label>البريد الإلكتروني</label><input id="aMail" inputmode="email" value="${esc(saved.email)}" placeholder="name@mail.com"></div>
+        <div><label>المؤهل الدراسي *</label><input id="aQual" value="${esc(saved.qualification)}" placeholder="بكالوريوس تجارة"></div>
+        <div><label>سنوات الخبرة</label><select id="aExp">
+          ${["","بدون خبرة","أقل من سنة","1-3 سنوات","3-5 سنوات","5-10 سنوات","أكثر من 10"]
+            .map(v => `<option value="${v}"${v===saved.experience?" selected":""}>${v || "— اختر —"}</option>`).join("")}
+        </select></div>
+        <div class="wide"><label>ملاحظة أو رابط سيرتك الذاتية (اختياري)</label>
+          <textarea id="aNote" placeholder="أي تفاصيل تحب توصلها لصاحب الإعلان"></textarea></div>
+
+```
+  </div>
+  <div id="applyMsg"></div>
+  <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
+    <button class="btn amber" id="aNext" style="flex:1;min-width:140px">مراجعة البيانات</button>
+    <button class="btn ghost" id="aCancel">إلغاء</button>
+  </div>
+  <p class="privacy">بالضغط على إرسال أنت توافق على مشاركة بياناتك مع جهة التوظيف صاحبة الإعلان.
+    شواغر لا يطلب أي رسوم، وأي جهة تطلب منك فلوس مقابل التوظيف = نصب.</p>
+</div>`);
+```
+
+$(”#aNext”).onclick = reviewApply;
+$(”#aCancel”).onclick = () => { $(”#applyBox”).remove(); applyJob = null; };
+$(”#applyBox”).scrollIntoView({behavior:“smooth”, block:“start”});
+}
+function lastApplicant(){
+try{ return JSON.parse(sessionStorage.getItem(“sw_me”) || “{}”); }catch(e){ return {}; }
+}
+function saveApplicant(d){
+try{ sessionStorage.setItem(“sw_me”, JSON.stringify(d)); }catch(e){}
+}
+function applyData(){
+const g = id => ($(”#” + id)?.value || “”).trim();
+return {full_name:g(“aName”), phone:g(“aPhone”), email:g(“aMail”),
+qualification:g(“aQual”), experience:g(“aExp”), note:g(“aNote”)};
+}
+function reviewApply(){
+const d = applyData();
+const msg = $(”#applyMsg”);
+if(!d.full_name || d.full_name.length < 3){ msg.innerHTML = `<div class="err">اكتب اسمك بالكامل.</div>`; return; }
+if(normPhone(d.phone, applyJob.country).length < 10){
+msg.innerHTML = `<div class="err">رقم الموبايل مش مظبوط — اكتبه بالكامل.</div>`; return; }
+if(!d.qualification){ msg.innerHTML = `<div class="err">اكتب مؤهلك الدراسي.</div>`; return; }
+if(d.email && !/^[\w.+-]+@[\w-]+.[\w.]+$/.test(d.email)){
+msg.innerHTML = `<div class="err">البريد الإلكتروني مش مظبوط.</div>`; return; }
+
+const rows = [[“الاسم”, d.full_name], [“الموبايل”, d.phone], [“البريد”, d.email || “—”],
+[“المؤهل”, d.qualification], [“الخبرة”, d.experience || “—”]];
+msg.innerHTML = `<div class="review"> <p class="note" style="margin:0 0 .4rem">راجع بياناتك قبل الإرسال:</p> ${rows.map(([k,v]) => `<div class="r"><span>${k}</span><span>${esc(v)}</span></div>`).join("")} </div>`;
+$(”#aNext”).textContent = “تأكيد وإرسال”;
+$(”#aNext”).onclick = sendApply;
+}
+async function sendApply(){
+const d = applyData();
+const j = applyJob;
+const btn = $(”#aNext”); btn.disabled = true; btn.textContent = “جاري الإرسال…”;
+saveApplicant(d);
+const row = {…d, phone: normPhone(d.phone, j.country),
+job_fingerprint: j.fingerprint, job_title: j.title, company_name: j.company_name,
+country: j.country || null, city: j.city || null, apply_url: j.apply_url || null,
+applicant_id: user?.id || null};
+let ok = false, why = “”;
+if(sb){
+const { error } = await sb.from(“job_applications”).insert(row);
+ok = !error; why = error?.message || “”;
+}
+const text = `*تقديم جديد من شواغر*\n\n` +
+`الوظيفة: ${j.title}\n${j.company_name ? "الجهة: " + j.company_name + "\n" : ""}` +
+`${j.city ? "المكان: " + j.city + "\n" : ""}\n` +
+`الاسم: ${d.full_name}\nالموبايل: ${row.phone}\n` +
+`${d.email ? "البريد: " + d.email + "\n" : ""}المؤهل: ${d.qualification}\n` +
+`${d.experience ? "الخبرة: " + d.experience + "\n" : ""}${d.note ? "\n" + d.note : ""}`;
+const c = contactOf(j);
+const target = (c && c.kind === “wa”) ? c.value : CONFIG.adminNumber;
+
+$(”#applyBox”).innerHTML = `<h4>${ok ? "تم استلام تقديمك ✓" : "بياناتك جاهزة"}</h4> <p class="note">${ok ? "طلبك اتسجّل عندنا. عشان توصل أسرع لصاحب الإعلان، ابعت البيانات على واتساب كمان." : "ابعت البيانات لصاحب الإعلان مباشرة بالزر ده."}</p> <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem"> ${target ?`<a class="btn wa" style="flex:1;min-width:150px" target="_blank" rel="noopener"
+href="https://wa.me/${target}?text=${encodeURIComponent(text)}">إرسال على واتساب</a>`: ""} <button class="btn ghost" id="aCopy">نسخ البيانات</button> <button class="btn ghost" id="aDone">تم</button> </div> ${!ok && why ?`<p class="privacy">${esc(why)}</p>` : ""}`;
+$(”#aCopy”).onclick = async () => {
+try{ await navigator.clipboard.writeText(text.replace(/*/g, “”));
+$(”#aCopy”).textContent = “اتنسخ ✓”; }catch(e){}
+};
+$(”#aDone”).onclick = () => { $(”#applyBox”).remove(); applyJob = null; };
+}
+
 /* ══════════ ترحيب وتحفيز ══════════ */
 const MOTTOS = [
-  "الوظيفة المناسبة موجودة — المهم توصلها قبل غيرك.",
-  "قدّم على ٥ وظائف كل يوم، والنتيجة هتيجي.",
-  "سيرة ذاتية مظبوطة تفتح أبواب ما بتفتحش بالواسطة.",
-  "كل رفض بيقرّبك من القبول اللي مستنيك.",
-  "الشركات بتدوّر على حد بيحل مشكلة — وضّح المشكلة اللي بتحلها.",
-  "متستناش الإعلان المثالي. قدّم وإنت بتتعلم.",
-  "متابعتك بعد التقديم بتفرق أكتر مما تتخيل.",
+“الوظيفة المناسبة موجودة — المهم توصلها قبل غيرك.”,
+“قدّم على ٥ وظائف كل يوم، والنتيجة هتيجي.”,
+“سيرة ذاتية مظبوطة تفتح أبواب ما بتفتحش بالواسطة.”,
+“كل رفض بيقرّبك من القبول اللي مستنيك.”,
+“الشركات بتدوّر على حد بيحل مشكلة — وضّح المشكلة اللي بتحلها.”,
+“متستناش الإعلان المثالي. قدّم وإنت بتتعلم.”,
+“متابعتك بعد التقديم بتفرق أكتر مما تتخيل.”,
 ];
 const TIPS = [
-  ["قدّم بسرعة", "الإعلانات اللي عمرها أقل من ٤٨ ساعة فرصتها أضعاف الأقدم. رتّب بـ الأحدث وقدّم أول يوم."],
-  ["اقرأ الإعلان كويس", "ظبّط أول سطرين في سيرتك على المسمى الوظيفي المذكور بالحرف."],
-  ["احذر النصب", "أي جهة تطلب منك فلوس مقابل التوظيف أو التأشيرة — ده نصب. التوظيف الشرعي رسومه على صاحب العمل."],
-  ["تابع بأدب", "بعد ٥ أيام من التقديم، رسالة قصيرة على واتساب أو الإيميل بتفكّر بيك من غير إزعاج."],
-  ["نوّع مصادرك", "شوف الشواغر الرسمية وإعلانات الأفراد — كل مصدر بيوصل لسوق مختلف."],
-  ["جهّز رقمك", "خلي رقم الواتساب شغّال وعليه صورة واسم واضح — أول انطباع بيتكوّن منه."],
+[“قدّم بسرعة”, “الإعلانات اللي عمرها أقل من ٤٨ ساعة فرصتها أضعاف الأقدم. رتّب بـ الأحدث وقدّم أول يوم.”],
+[“اقرأ الإعلان كويس”, “ظبّط أول سطرين في سيرتك على المسمى الوظيفي المذكور بالحرف.”],
+[“احذر النصب”, “أي جهة تطلب منك فلوس مقابل التوظيف أو التأشيرة — ده نصب. التوظيف الشرعي رسومه على صاحب العمل.”],
+[“تابع بأدب”, “بعد ٥ أيام من التقديم، رسالة قصيرة على واتساب أو الإيميل بتفكّر بيك من غير إزعاج.”],
+[“نوّع مصادرك”, “شوف الشواغر الرسمية وإعلانات الأفراد — كل مصدر بيوصل لسوق مختلف.”],
+[“جهّز رقمك”, “خلي رقم الواتساب شغّال وعليه صورة واسم واضح — أول انطباع بيتكوّن منه.”],
 ];
 function greeting(){
-  const h = new Date().getHours();
-  return h < 12 ? "صباح الخير" : h < 17 ? "طاب يومك" : h < 21 ? "مساء الخير" : "مساء الخير";
+const h = new Date().getHours();
+return h < 12 ? “صباح الخير” : h < 17 ? “طاب يومك” : h < 21 ? “مساء الخير” : “مساء الخير”;
 }
 function drawHello(){
-  const name = user?.user_metadata?.full_name?.split(" ")[0];
-  const g = greeting() + (name ? `، ${name}` : "") + " — " + ar(JOBS.length) + " شاغر مفتوح النهاردة";
-  const m = MOTTOS[new Date().getDate() % MOTTOS.length];
-  $("#greet").textContent = g;
-  $("#motto").textContent = m;
-  $("#greet2").textContent = "لوحة التحليلات";
+const name = user?.user_metadata?.full_name?.split(” “)[0];
+const g = greeting() + (name ? `، ${name}` : “”) + “ — “ + ar(JOBS.length) + “ شاغر مفتوح النهاردة”;
+const m = MOTTOS[new Date().getDate() % MOTTOS.length];
+$(”#greet”).textContent = g;
+$(”#motto”).textContent = m;
+$(”#greet2”).textContent = “لوحة التحليلات”;
 }
 function consultHTML(){
-  const tel = CONFIG.consultPhone;
-  return `<img src="assets/almohtaref.png" alt="" width="52" height="52">
-    <div><h3>${esc(CONFIG.consultName)}</h3><p>${esc(CONFIG.consultNote)}</p></div>
-    <div class="cta">
-      ${tel ? `<a class="btn amber" href="tel:${esc(tel)}">اتصل الآن ${esc(tel)}</a>` : ""}
-      ${tel ? `<a class="btn wa" href="https://wa.me/${esc(tel.replace(/[^\d]/g,""))}" target="_blank" rel="noopener">واتساب</a>` : `<span class="note">حط رقم الاستشارات في CONFIG</span>`}
-    </div>`;
+const tel = CONFIG.consultPhone;
+return `<img src="assets/almohtaref.png" alt="" width="52" height="52"> <div><h3>${esc(CONFIG.consultName)}</h3><p>${esc(CONFIG.consultNote)}</p></div> <div class="cta"> ${tel ? `<a class="btn amber" href="tel:${esc(tel)}">اتصل الآن ${esc(tel)}</a>`: ""} ${tel ?`<a class=“btn wa” href=“https://wa.me/${esc(tel.replace(/[^\d]/g,””))}” target=”_blank” rel=“noopener”>واتساب</a>`:`<span class="note">حط رقم الاستشارات في CONFIG</span>`} </div>`;
 }
 
 /* ══════════ شجرة وتحليلات ══════════ */
-const GROUPKIND = j => j.source_kind === "discover" ? "إعلانات أفراد"
-  : (j.is_direct || j.source_kind === "user" || j.source_kind === "whatsapp") ? "إعلانات مباشرة" : "مصادر رسمية";
+const GROUPKIND = j => j.source_kind === “discover” ? “إعلانات أفراد”
+: (j.is_direct || j.source_kind === “user” || j.source_kind === “whatsapp”) ? “إعلانات مباشرة” : “مصادر رسمية”;
 function drawTree(){
-  const t = {};
-  JOBS.forEach(j => {
-    const g = GROUPKIND(j), c = COUNTRIES[j.country] || "غير محدد", k = CATEGORIES[j.category] || "أخرى";
-    t[g] = t[g] || {n:0, kids:{}};
-    t[g].n++;
-    t[g].kids[c] = t[g].kids[c] || {n:0, kids:{}};
-    t[g].kids[c].n++;
-    t[g].kids[c].kids[k] = (t[g].kids[c].kids[k] || 0) + 1;
-  });
-  const el = $("#tree"); el.textContent = "";
-  Object.entries(t).sort((a,b) => b[1].n - a[1].n).forEach(([g, gv]) => {
-    const d = document.createElement("details");
-    d.innerHTML = `<summary><b>${g}</b><span class="n">${ar(gv.n)}</span></summary>` +
-      Object.entries(gv.kids).sort((a,b)=>b[1].n-a[1].n).map(([c, cv]) =>
-        `<details class="lvl2"><summary><b>${c}</b><span class="n">${ar(cv.n)}</span></summary>` +
-        Object.entries(cv.kids).sort((a,b)=>b[1]-a[1]).map(([k,n]) =>
-          `<div class="lvl3"><span>${k}</span><span class="n">${ar(n)}</span></div>`).join("") +
-        `</details>`).join("");
-    el.appendChild(d);
-  });
+const t = {};
+JOBS.forEach(j => {
+const g = GROUPKIND(j), c = COUNTRIES[j.country] || “غير محدد”, k = CATEGORIES[j.category] || “أخرى”;
+t[g] = t[g] || {n:0, kids:{}};
+t[g].n++;
+t[g].kids[c] = t[g].kids[c] || {n:0, kids:{}};
+t[g].kids[c].n++;
+t[g].kids[c].kids[k] = (t[g].kids[c].kids[k] || 0) + 1;
+});
+const el = $(”#tree”); el.textContent = “”;
+Object.entries(t).sort((a,b) => b[1].n - a[1].n).forEach(([g, gv]) => {
+const d = document.createElement(“details”);
+d.innerHTML = `<summary><b>${g}</b><span class="n">${ar(gv.n)}</span></summary>` +
+Object.entries(gv.kids).sort((a,b)=>b[1].n-a[1].n).map(([c, cv]) =>
+`<details class="lvl2"><summary><b>${c}</b><span class="n">${ar(cv.n)}</span></summary>` +
+Object.entries(cv.kids).sort((a,b)=>b[1]-a[1]).map(([k,n]) =>
+`<div class="lvl3"><span>${k}</span><span class="n">${ar(n)}</span></div>`).join(””) +
+`</details>`).join(””);
+el.appendChild(d);
+});
 }
 function bars(host, pairs){
-  const max = Math.max(1, ...pairs.map(p => p[1]));
-  $(host).innerHTML = pairs.map(([k,v]) =>
-    `<div class="stat"><span>${esc(k)}</span><span class="n mono">${ar(v)}</span>
-     <span class="track"><i class="fill" style="width:${(v/max*100).toFixed(0)}%"></i></span></div>`).join("");
+const max = Math.max(1, …pairs.map(p => p[1]));
+$(host).innerHTML = pairs.map(([k,v]) =>
+`<div class="stat"><span>${esc(k)}</span><span class="n mono">${ar(v)}</span> <span class="track"><i class="fill" style="width:${(v/max*100).toFixed(0)}%"></i></span></div>`).join(””);
 }
 function drawStats(){
-  drawTree();
-  const co = {}, cat = {};
-  JOBS.forEach(j => { co[j.company_name] = (co[j.company_name]||0)+1;
-                      cat[CATEGORIES[j.category] || "أخرى"] = (cat[CATEGORIES[j.category] || "أخرى"]||0)+1; });
-  bars("#topco", Object.entries(co).sort((a,b)=>b[1]-a[1]).slice(0,7));
-  bars("#topcat", Object.entries(cat).sort((a,b)=>b[1]-a[1]).slice(0,7));
-  $("#tips").innerHTML = TIPS.map(([h,b]) => `<li><b>${h}:</b> ${b}</li>`).join("");
-  $("#consultBox").innerHTML = consultHTML();
-  $("#consultBox2").innerHTML = consultHTML();
+drawTree();
+const co = {}, cat = {};
+JOBS.forEach(j => { co[j.company_name] = (co[j.company_name]||0)+1;
+cat[CATEGORIES[j.category] || “أخرى”] = (cat[CATEGORIES[j.category] || “أخرى”]||0)+1; });
+bars(”#topco”, Object.entries(co).sort((a,b)=>b[1]-a[1]).slice(0,7));
+bars(”#topcat”, Object.entries(cat).sort((a,b)=>b[1]-a[1]).slice(0,7));
+$(”#tips”).innerHTML = TIPS.map(([h,b]) => `<li><b>${h}:</b> ${b}</li>`).join(””);
+$(”#consultBox”).innerHTML = consultHTML();
+$(”#consultBox2”).innerHTML = consultHTML();
 }
 
 /* ══════════ الأدمن ══════════ */
 let NOTES = {};
 const isAdmin = () => !!(user && (CONFIG.adminEmails || [])
-  .map(e => e.toLowerCase()).includes((user.email || "").toLowerCase()));
+.map(e => e.toLowerCase()).includes((user.email || “”).toLowerCase()));
 
 async function addNote(j){
-  const cur = NOTES[j.fingerprint]?.note || "";
-  const txt = prompt("ملاحظة الإدارة على: " + j.title, cur);
-  if(txt === null) return;
-  if(!sb){ alert("محتاج ربط Supabase لحفظ الملاحظات."); return; }
-  if(!txt.trim()){
-    await sb.from("job_notes").delete().eq("fingerprint", j.fingerprint);
-  } else {
-    await sb.from("job_notes").delete().eq("fingerprint", j.fingerprint);
-    await sb.from("job_notes").insert({fingerprint: j.fingerprint, job_title: j.title,
-      note: txt.trim(), author: user?.email || null});
-  }
-  await loadNotes(); paint();
+const cur = NOTES[j.fingerprint]?.note || “”;
+const txt = prompt(“ملاحظة الإدارة على: “ + j.title, cur);
+if(txt === null) return;
+if(!sb){ alert(“محتاج ربط Supabase لحفظ الملاحظات.”); return; }
+if(!txt.trim()){
+await sb.from(“job_notes”).delete().eq(“fingerprint”, j.fingerprint);
+} else {
+await sb.from(“job_notes”).delete().eq(“fingerprint”, j.fingerprint);
+await sb.from(“job_notes”).insert({fingerprint: j.fingerprint, job_title: j.title,
+note: txt.trim(), author: user?.email || null});
+}
+await loadNotes(); paint();
 }
 async function loadNotes(){
-  if(!sb) return;
-  const { data } = await sb.from("job_notes").select("*").order("created_at", {ascending:false}).limit(500);
-  NOTES = {}; (data || []).forEach(n => { if(!NOTES[n.fingerprint]) NOTES[n.fingerprint] = n; });
-  const box = $("#notesList");
-  if(box) box.innerHTML = (data || []).slice(0,20).map(n =>
-    `<div class="stat"><span><b>${esc(n.job_title || "")}</b> — ${esc(n.note)}</span>
-     <span class="n">${ago(n.created_at)}</span></div>`).join("") || `<p class="note">مفيش ملاحظات.</p>`;
-  const c = $("#aNotes"); if(c) c.textContent = ar((data || []).length);
+if(!sb) return;
+const { data } = await sb.from(“job_notes”).select(”*”).order(“created_at”, {ascending:false}).limit(500);
+NOTES = {}; (data || []).forEach(n => { if(!NOTES[n.fingerprint]) NOTES[n.fingerprint] = n; });
+const box = $(”#notesList”);
+if(box) box.innerHTML = (data || []).slice(0,20).map(n =>
+`<div class="stat"><span><b>${esc(n.job_title || "")}</b> — ${esc(n.note)}</span> <span class="n">${ago(n.created_at)}</span></div>`).join(””) || `<p class="note">مفيش ملاحظات.</p>`;
+const c = $(”#aNotes”); if(c) c.textContent = ar((data || []).length);
 }
 async function loadAdmin(){
-  const na = $("#navAdmin"); if(na) na.hidden = !isAdmin();
-  if(!isAdmin() || !sb) return;
-  $("#adminWho").textContent = "مسجّل دخول كأدمن: " + (user.email || "");
-  const { data: v } = await sb.rpc("views_summary");
-  if(v && v.length){
-    const views = v.reduce((a,x) => a + Number(x.views), 0);
-    const vis = v.reduce((a,x) => a + Number(x.visitors), 0);
-    const today = v.find(x => x.day === new Date().toISOString().slice(0,10));
-    $("#aViews").textContent = ar(views);
-    $("#aVisitors").textContent = ar(vis);
-    $("#aToday").textContent = ar(today ? today.views : 0);
-    bars("#viewsChart", v.slice(0,14).reverse()
-      .map(x => [new Date(x.day).toLocaleDateString("ar-EG",{day:"numeric",month:"short"}), Number(x.views)]));
-  }
-  const { data: subs } = await sb.from("job_submissions")
-    .select("id,title,company_name,country,city,apply_url,created_at,status")
-    .eq("status","pending").order("created_at",{ascending:false}).limit(30);
-  $("#pending").innerHTML = (subs || []).map(x =>
-    `<div class="job" style="grid-template-columns:1fr auto">
-      <div><h3>${esc(x.title)}</h3>
-        <p class="meta">${esc(x.company_name)} · ${COUNTRIES[x.country] || ""} ${esc(x.city || "")} · ${ago(x.created_at)}</p>
-        <p class="note">${esc(x.apply_url)}</p></div>
-      <div class="actions">
-        <button class="btn amber" data-ok="${x.id}">اعتماد</button>
-        <button class="btn ghost" data-no="${x.id}">رفض</button>
-      </div></div>`).join("") || `<p class="note">مفيش إعلانات تحت المراجعة.</p>`;
-  $("#pending").querySelectorAll("[data-ok]").forEach(b => b.onclick = async () => {
-    await sb.from("job_submissions").update({status:"approved", reviewed_at:new Date().toISOString()})
-      .eq("id", b.dataset.ok);
-    loadAdmin(); loadLiveJobs();
-  });
-  $("#pending").querySelectorAll("[data-no]").forEach(b => b.onclick = async () => {
-    const why = prompt("سبب الرفض (اختياري)") || null;
-    await sb.from("job_submissions").update({status:"rejected", reject_reason:why,
-      reviewed_at:new Date().toISOString()}).eq("id", b.dataset.no);
-    loadAdmin();
-  });
+const na = $(”#navAdmin”); if(na) na.hidden = !isAdmin();
+if(!isAdmin() || !sb) return;
+$(”#adminWho”).textContent = “مسجّل دخول كأدمن: “ + (user.email || “”);
+const { data: v } = await sb.rpc(“views_summary”);
+if(v && v.length){
+const views = v.reduce((a,x) => a + Number(x.views), 0);
+const vis = v.reduce((a,x) => a + Number(x.visitors), 0);
+const today = v.find(x => x.day === new Date().toISOString().slice(0,10));
+$(”#aViews”).textContent = ar(views);
+$(”#aVisitors”).textContent = ar(vis);
+$(”#aToday”).textContent = ar(today ? today.views : 0);
+bars(”#viewsChart”, v.slice(0,14).reverse()
+.map(x => [new Date(x.day).toLocaleDateString(“ar-EG”,{day:“numeric”,month:“short”}), Number(x.views)]));
+}
+const { data: apps } = await sb.from(“job_applications”)
+.select(”*”).order(“created_at”, {ascending:false}).limit(40);
+if(apps){
+$(”#appsCount”).textContent = `(${ar(apps.length)})`;
+$(”#appsList”).innerHTML = apps.length ? apps.map(a => `<div class="job" style="grid-template-columns:1fr auto"> <div> <h3>${esc(a.full_name)} — ${esc(a.qualification || "")}</h3> <p class="meta">تقدّم على <b>${esc(a.job_title)}</b>${a.company_name ? " · " + esc(a.company_name) : ""}</p> <div class="tags"> <span class="tag">${ago(a.created_at)}</span> ${a.experience ?`<span class="tag">${esc(a.experience)}</span>`: ""} ${a.email ?`<span class="tag">${esc(a.email)}</span>`: ""} <span class="tag on">${a.status === "new" ? "جديد" : esc(a.status)}</span> </div> ${a.note ?`<p class="snippet">${esc(a.note)}</p>`: ""} </div> <div class="actions"> <a class="btn wa" href="https://wa.me/${esc(a.phone)}" target="_blank" rel="noopener">واتساب</a> ${a.email ?`<a class="btn ghost" href="mailto:${esc(a.email)}">إيميل</a>` : ""} <button class="btn ghost" data-seen="${a.id}">تم التواصل</button> </div> </div>`).join(””) : `<p class="note">مفيش طلبات تقديم لسه.</p>`;
+$(”#appsList”).querySelectorAll(”[data-seen]”).forEach(b => b.onclick = async () => {
+await sb.from(“job_applications”).update({status:“seen”}).eq(“id”, b.dataset.seen);
+loadAdmin();
+});
+}
+
+const { data: subs } = await sb.from(“job_submissions”)
+.select(“id,title,company_name,country,city,apply_url,created_at,status”)
+.eq(“status”,“pending”).order(“created_at”,{ascending:false}).limit(30);
+$(”#pending”).innerHTML = (subs || []).map(x =>
+`<div class="job" style="grid-template-columns:1fr auto"> <div><h3>${esc(x.title)}</h3> <p class="meta">${esc(x.company_name)} · ${COUNTRIES[x.country] || ""} ${esc(x.city || "")} · ${ago(x.created_at)}</p> <p class="note">${esc(x.apply_url)}</p></div> <div class="actions"> <button class="btn amber" data-ok="${x.id}">اعتماد</button> <button class="btn ghost" data-no="${x.id}">رفض</button> </div></div>`).join(””) || `<p class="note">مفيش إعلانات تحت المراجعة.</p>`;
+$(”#pending”).querySelectorAll(”[data-ok]”).forEach(b => b.onclick = async () => {
+await sb.from(“job_submissions”).update({status:“approved”, reviewed_at:new Date().toISOString()})
+.eq(“id”, b.dataset.ok);
+loadAdmin(); loadLiveJobs();
+});
+$(”#pending”).querySelectorAll(”[data-no]”).forEach(b => b.onclick = async () => {
+const why = prompt(“سبب الرفض (اختياري)”) || null;
+await sb.from(“job_submissions”).update({status:“rejected”, reject_reason:why,
+reviewed_at:new Date().toISOString()}).eq(“id”, b.dataset.no);
+loadAdmin();
+});
 }
 async function trackVisit(){
-  if(!sb) return;
-  let isNew = false;
-  try{ isNew = !sessionStorage.getItem("sw_seen"); sessionStorage.setItem("sw_seen","1"); }catch(e){ isNew = true; }
-  try{ await sb.rpc("track_view", {p_path: "/", p_new: isNew}); }catch(e){}
+if(!sb) return;
+let isNew = false;
+try{ isNew = !sessionStorage.getItem(“sw_seen”); sessionStorage.setItem(“sw_seen”,“1”); }catch(e){ isNew = true; }
+try{ await sb.rpc(“track_view”, {p_path: “/”, p_new: isNew}); }catch(e){}
 }
 
 /* ══════════ الرسم العام ══════════ */
 function paint(){
-  const rows = filtered();
-  $("#kTotal").textContent = ar(JOBS.length);
-  $("#kWeek").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
-  $("#kCo").textContent    = ar(new Set(JOBS.map(j => j.company_name)).size);
-  $("#kUser").textContent  = ar(JOBS.filter(j => j.source_kind === "discover").length);
-  $("#navJobs").textContent   = ar(JOBS.filter(matchQ).length);
-  $("#navGroups").textContent = ar((GROUPS.groups || []).length);
-  $("#navSaved").textContent  = ar(saved.size);
+const rows = filtered();
+$(”#kTotal”).textContent = ar(JOBS.length);
+$(”#kWeek”).textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
+$(”#kCo”).textContent    = ar(new Set(JOBS.map(j => j.company_name)).size);
+$(”#kUser”).textContent  = ar(JOBS.filter(j => j.source_kind === “discover”).length);
+$(”#navJobs”).textContent   = ar(JOBS.filter(matchQ).length);
+$(”#navGroups”).textContent = ar((GROUPS.groups || []).length);
+$(”#navSaved”).textContent  = ar(saved.size);
 
-  drawTabs(); drawBars("#fCategory", CATEGORIES, "category");
-  drawBars("#fLevel", LEVELS, "seniority"); drawAds();
+drawTabs(); drawBars(”#fCategory”, CATEGORIES, “category”);
+drawBars(”#fLevel”, LEVELS, “seniority”); drawAds();
 
-  const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
-                state.level && LEVELS[state.level]].filter(Boolean);
-  $("#crumbTxt").textContent = bits.length ? "— " + bits.join(" · ") : "";
-  $("#clear").hidden = !bits.length && !state.q;
-  $("#shown").textContent = ar(rows.length);
+const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
+state.level && LEVELS[state.level]].filter(Boolean);
+$(”#crumbTxt”).textContent = bits.length ? “— “ + bits.join(” · “) : “”;
+$(”#clear”).hidden = !bits.length && !state.q;
+$(”#shown”).textContent = ar(rows.length);
 
-  fillList("#list", rows.slice(0, state.limit),
-    `<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`);
-  $("#more").hidden = rows.length <= state.limit;
+fillList(”#list”, rows.slice(0, state.limit),
+`<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`);
+$(”#more”).hidden = rows.length <= state.limit;
 
-  fillList("#savedList", JOBS.filter(j => saved.has(j.fingerprint)),
-    `<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر ويظهر هنا.</div>`);
-  drawGroups();
-  drawHello();
-  $("#consultBox").innerHTML = consultHTML();
+fillList(”#savedList”, JOBS.filter(j => saved.has(j.fingerprint)),
+`<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر ويظهر هنا.</div>`);
+drawGroups();
+drawHello();
+$(”#consultBox”).innerHTML = consultHTML();
 }
 function setTab(tab){
-  state.tab = tab;
-  document.querySelectorAll("#nav button").forEach(b =>
-    b.setAttribute("aria-current", String(b.dataset.tab === tab)));
-  $("#viewJobs").hidden   = tab !== "jobs";
-  $("#viewGroups").hidden = tab !== "groups";
-  $("#viewPost").hidden   = tab !== "post";
-  $("#viewSaved").hidden  = tab !== "saved";
-  $("#viewStats").hidden  = tab !== "stats";
-  $("#viewAdmin").hidden  = tab !== "admin";
-  $("#viewServices").hidden = tab !== "services";
-  $("#tabs").hidden = ["post","stats","admin","services"].includes(tab);
-  if(tab === "services") $("#consultBox3").innerHTML = consultHTML();
-  if(tab === "stats") drawStats();
-  if(tab === "admin") loadAdmin();
-  document.body.classList.remove("open");
-  window.scrollTo({top:0, behavior:"instant"});
-  paint();
+state.tab = tab;
+document.querySelectorAll(”#nav button”).forEach(b =>
+b.setAttribute(“aria-current”, String(b.dataset.tab === tab)));
+$(”#viewJobs”).hidden   = tab !== “jobs”;
+$(”#viewGroups”).hidden = tab !== “groups”;
+$(”#viewPost”).hidden   = tab !== “post”;
+$(”#viewSaved”).hidden  = tab !== “saved”;
+$(”#viewStats”).hidden  = tab !== “stats”;
+$(”#viewAdmin”).hidden  = tab !== “admin”;
+$(”#viewServices”).hidden = tab !== “services”;
+$(”#tabs”).hidden = [“post”,“stats”,“admin”,“services”].includes(tab);
+if(tab === “services”) $(”#consultBox3”).innerHTML = consultHTML();
+if(tab === “stats”) drawStats();
+if(tab === “admin”) loadAdmin();
+document.body.classList.remove(“open”);
+window.scrollTo({top:0, behavior:“instant”});
+paint();
 }
 
 /* ══════════ الإقلاع ══════════ */
 async function load(path, fallback){
-  try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
-  return fallback;
+try{ const r = await fetch(path, {cache:“no-store”}); if(r.ok) return await r.json(); }catch(e){}
+return fallback;
 }
 async function boot(){
-  const [jp, gp, ap] = await Promise.all([
-    load("data/jobs.json", JOBS_DATA),
-    load("data/groups.json", GROUPS_DATA),
-    load("data/ads.json", ADS_DATA),
-  ]);
-  JOBS = jp.jobs || []; GROUPS = gp || {groups:[]}; ADS = (ap && ap.ads) || [];
+const [jp, gp, ap] = await Promise.all([
+load(“data/jobs.json”, JOBS_DATA),
+load(“data/groups.json”, GROUPS_DATA),
+load(“data/ads.json”, ADS_DATA),
+]);
+JOBS = jp.jobs || []; GROUPS = gp || {groups:[]}; ADS = (ap && ap.ads) || [];
 
-  const when = new Date(jp.generated_at || Date.now());
-  $("#stamp").textContent = "آخر تحديث " +
-    when.toLocaleString("ar-EG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
-  $("#srcline").textContent = (jp.demo ? "بيانات تجريبية · " : "") +
-    ar(new Set(JOBS.map(j => j.source_kind)).size) + " مصادر";
+const when = new Date(jp.generated_at || Date.now());
+$(”#stamp”).textContent = “آخر تحديث “ +
+when.toLocaleString(“ar-EG”,{day:“numeric”,month:“short”,hour:“2-digit”,minute:“2-digit”});
+$(”#srcline”).textContent = (jp.demo ? “بيانات تجريبية · “ : “”) +
+ar(new Set(JOBS.map(j => j.source_kind)).size) + “ مصادر”;
 
-  $("#pCountry").innerHTML = `<option value="">— اختر —</option>` + opts(COUNTRIES, "KW");
-  $("#pCat").innerHTML = opts(CATEGORIES, "other");
-  $("#pLevel").innerHTML = opts(LEVELS, "mid");
-  $("#postMode").textContent = (CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)
-    ? "" : "النشر حالياً بيتبعت على واتساب للمراجعة. لتفعيل النشر المباشر، حط بيانات Supabase في CONFIG.";
+$(”#pCountry”).innerHTML = `<option value="">— اختر —</option>` + opts(COUNTRIES, “KW”);
+$(”#pCat”).innerHTML = opts(CATEGORIES, “other”);
+$(”#pLevel”).innerHTML = opts(LEVELS, “mid”);
+$(”#postMode”).textContent = (CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)
+? “” : “النشر حالياً بيتبعت على واتساب للمراجعة. لتفعيل النشر المباشر، حط بيانات Supabase في CONFIG.”;
 
-  const num = CONFIG.adminNumber;
-  $("#adCta").href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : "#";
-  $("#addGroup").onclick = () => window.open(num
-    ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
-    : "#", "_blank");
+const num = CONFIG.adminNumber;
+$(”#adCta”).href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : “#”;
+$(”#addGroup”).onclick = () => window.open(num
+? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
+: “#”, “_blank”);
 
-  $("#q").addEventListener("input", e => { state.q = e.target.value; state.limit = PAGE; paint(); });
-  $("#sort").onchange = e => { state.sort = e.target.value; paint(); };
-  $("#menu").onclick = () => document.body.classList.toggle("open");
-  $("#more").onclick = () => { state.limit += PAGE; paint(); };
-  $("#clear").onclick = () => {
-    Object.assign(state, {q:"", country:"", category:"", level:"", limit:PAGE});
-    $("#q").value = ""; paint();
-  };
-  $("#pSend").onclick = submitJob;
-  $("#verified").onclick = () => {
-    state.verified = !state.verified; state.limit = PAGE;
-    $("#verified").setAttribute("aria-pressed", String(state.verified));
-    paint();
-  };
-  document.querySelectorAll("#nav button, .postbtn").forEach(b => b.onclick = () => setTab(b.dataset.tab));
-  $("#eCalc").onclick = eosCalc;
-  $("#waFile").onchange = async e => {
-    const f = e.target.files[0]; if(!f) return;
-    $("#waFileName").textContent = f.name;
-    try{ $("#waPaste").value = await waReadFile(f); $("#waStat").textContent = "الملف اتقرا — اضغط حلّل"; }
-    catch(err){ $("#waStat").textContent = "مقدرش أقرا الملف: " + err.message; }
-  };
-  $("#waParse").onclick = () => { waRows = waExtract($("#waPaste").value); waRender(); };
-  $("#waClear").onclick = () => { waRows = []; $("#waPaste").value = ""; $("#waFileName").textContent = "مفيش ملف"; waRender(); };
-  $("#waPublish").onclick = waPublish;
-  $("#waDownload").onclick = () => {
-    const rows = waRows.filter(r => r.keep && r.title && r.apply_url)
-      .map(({keep, ...r}) => ({...r, source_kind:"whatsapp", is_direct:true,
-        posted_at: r.posted_at || new Date().toISOString(), employment_type:"full_time", is_remote:false}));
-    const b = new Blob([JSON.stringify({generated_at:new Date().toISOString(), jobs:rows}, null, 1)],
-      {type:"application/json"});
-    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "manual.json"; a.click();
-  };
-  $("#eEnd").value = new Date().toISOString().slice(0,10);
-  document.querySelectorAll(".subtab").forEach(b => b.onclick = () => {
-    state.kind = b.dataset.kind;
-    document.querySelectorAll(".subtab").forEach(x =>
-      x.setAttribute("aria-pressed", String(x.dataset.kind === state.kind)));
-    drawGroups();
-  });
-  $("#mClose").onclick = closeJob;
-  $("#ov").onclick = e => { if(e.target.id === "ov") closeJob(); };
-  document.addEventListener("keydown", e => {
-    if(e.key !== "Escape") return;
-    if(!$("#ov").hidden) closeJob(); else document.body.classList.remove("open");
-  });
+$(”#q”).addEventListener(“input”, e => { state.q = e.target.value; state.limit = PAGE; paint(); });
+$(”#sort”).onchange = e => { state.sort = e.target.value; paint(); };
+$(”#menu”).onclick = () => document.body.classList.toggle(“open”);
+$(”#more”).onclick = () => { state.limit += PAGE; paint(); };
+$(”#clear”).onclick = () => {
+Object.assign(state, {q:””, country:””, category:””, level:””, limit:PAGE});
+$(”#q”).value = “”; paint();
+};
+setTheme(getTheme());
+document.querySelectorAll(”#themebar .swatch”).forEach(b =>
+b.onclick = () => setTheme(b.dataset.theme));
+$(”#pSend”).onclick = submitJob;
+$(”#verified”).onclick = () => {
+state.verified = !state.verified; state.limit = PAGE;
+$(”#verified”).setAttribute(“aria-pressed”, String(state.verified));
+paint();
+};
+document.querySelectorAll(”#nav button, .postbtn”).forEach(b => b.onclick = () => setTab(b.dataset.tab));
+$(”#eCalc”).onclick = eosCalc;
+$(”#waFile”).onchange = async e => {
+const f = e.target.files[0]; if(!f) return;
+$(”#waFileName”).textContent = f.name;
+try{ $(”#waPaste”).value = await waReadFile(f); $(”#waStat”).textContent = “الملف اتقرا — اضغط حلّل”; }
+catch(err){ $(”#waStat”).textContent = “مقدرش أقرا الملف: “ + err.message; }
+};
+$(”#waParse”).onclick = () => { waRows = waExtract($(”#waPaste”).value); waRender(); };
+$(”#waClear”).onclick = () => { waRows = []; $(”#waPaste”).value = “”; $(”#waFileName”).textContent = “مفيش ملف”; waRender(); };
+$(”#waPublish”).onclick = waPublish;
+$(”#waDownload”).onclick = () => {
+const rows = waRows.filter(r => r.keep && r.title && r.apply_url)
+.map(({keep, …r}) => ({…r, source_kind:“whatsapp”, is_direct:true,
+posted_at: r.posted_at || new Date().toISOString(), employment_type:“full_time”, is_remote:false}));
+const b = new Blob([JSON.stringify({generated_at:new Date().toISOString(), jobs:rows}, null, 1)],
+{type:“application/json”});
+const a = document.createElement(“a”); a.href = URL.createObjectURL(b); a.download = “manual.json”; a.click();
+};
+$(”#eEnd”).value = new Date().toISOString().slice(0,10);
+document.querySelectorAll(”.subtab”).forEach(b => b.onclick = () => {
+state.kind = b.dataset.kind;
+document.querySelectorAll(”.subtab”).forEach(x =>
+x.setAttribute(“aria-pressed”, String(x.dataset.kind === state.kind)));
+drawGroups();
+});
+$(”#mClose”).onclick = closeJob;
+$(”#ov”).onclick = e => { if(e.target.id === “ov”) closeJob(); };
+document.addEventListener(“keydown”, e => {
+if(e.key !== “Escape”) return;
+if(!$(”#ov”).hidden) closeJob(); else document.body.classList.remove(“open”);
+});
 
-  paint();
-  initAuth();
+paint();
+initAuth();
 }
 boot();
 </script>
