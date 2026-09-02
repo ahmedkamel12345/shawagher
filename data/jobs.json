@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T17:25:24.708367+00:00",
+ "generated_at": "2026-09-02T17:45:06.918854+00:00",
  "count": 628,
  "jobs": [
   {
@@ -4498,7 +4498,7 @@
    "employment_type": "full-time",
    "is_remote": false,
    "summary": "Join to apply for the Billing and Collections Specialist role at Udacity Continue with Google Continue with Google Join to apply for the Billing and Collections Specialist role at Udacity About Us Udacity is on a mission of forging futures in tech through...",
-   "apply_url": "https://jooble.org/jdp/-9069985653478990039",
+   "apply_url": "https://jooble.org/jdp/6702866194743471160",
    "source_kind": "jooble",
    "source_slug": "jb-eg-all",
    "posted_at": "2026-09-01T00:00:00+00:00"
@@ -5862,23 +5862,6 @@
    "source_kind": "greenhouse",
    "source_slug": "careem",
    "posted_at": "2026-08-27T11:25:03+00:00"
-  },
-  {
-   "fingerprint": "494201a87bd6154d3bb8ecf7e51115b4e7a555f7",
-   "title": "Junior Crypto Trader (Remote)",
-   "company_name": "ATOM PARTNERS LIMITED",
-   "city": null,
-   "country": "RM",
-   "location_raw": "Anywhere in the World",
-   "category": "other",
-   "seniority": "entry",
-   "employment_type": "full_time",
-   "is_remote": true,
-   "summary": "Headquarters: ATOM PARTNERS LIMITED URL: https://atomsmiths.com Application link: https://atomsmiths.com/work/weworkremotely ATOM Partners is an international company focused on digital asset markets, trading technologies, and data-driven market research. We work with modern…",
-   "apply_url": "https://weworkremotely.com/remote-jobs/atom-partners-limited-junior-crypto-trader-remote",
-   "source_kind": "weworkremotely",
-   "source_slug": "wwr",
-   "posted_at": "2026-08-27T10:58:06+00:00"
   },
   {
    "fingerprint": "29c9ba09f5388293da6d7258a3840e19dade7857",
@@ -9058,6 +9041,23 @@
    "source_kind": "smartrecruiters",
    "source_slug": "DeliveryHero",
    "posted_at": "2026-08-04T05:48:20.553000+00:00"
+  },
+  {
+   "fingerprint": "bb3cb1341f7e30e7594be0b95f58676f8fc605d8",
+   "title": "Temporary US Corporate Relations Specialist",
+   "company_name": "The Humane League",
+   "city": null,
+   "country": "RM",
+   "location_raw": "Anywhere in the World",
+   "category": "other",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": true,
+   "summary": "Headquarters: United States URL: https://thehumaneleague.org/ WHO WE ARE The Humane League (THL) is a global nonprofit ending the abuse of animals raised for food. THL fosters a high-energy culture of teamwork and mission-driven problem solving, and we have earned recognition as…",
+   "apply_url": "https://weworkremotely.com/remote-jobs/the-humane-league-temporary-us-corporate-relations-specialist",
+   "source_kind": "weworkremotely",
+   "source_slug": "wwr",
+   "posted_at": "2026-08-03T17:34:26+00:00"
   },
   {
    "fingerprint": "3e5e7a2b4c33622fa55c2336a19aec6a66762b4a",
