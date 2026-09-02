@@ -782,15 +782,18 @@ const LEVELS_AR = {executive:"إدارة عليا",manager:"مدير",supervisor
   mid:"متوسط الخبرة",entry:"مبتدئ / حديث تخرج",worker:"عامل وفني"};
 const LEVELS_EN = {executive:"Executive",manager:"Manager",supervisor:"Supervisor",senior:"Senior",
   mid:"Mid-level",entry:"Entry-level",worker:"Worker / Technician"};
+const EMP_AR = {full_time:"دوام كامل",part_time:"دوام جزئي",contract:"عقد",internship:"تدريب"};
+const EMP_EN = {full_time:"Full-time",part_time:"Part-time",contract:"Contract",internship:"Internship"};
 
 let LANG = "ar";
 const COUNTRIES  = {...COUNTRIES_AR};
 const CATEGORIES = {...CATEGORIES_AR};
 const LEVELS     = {...LEVELS_AR};
+const EMP        = {...EMP_AR};
 function syncDicts(){
-  const src = LANG === "en" ? [COUNTRIES_EN, CATEGORIES_EN, LEVELS_EN]
-                             : [COUNTRIES_AR, CATEGORIES_AR, LEVELS_AR];
-  [COUNTRIES, CATEGORIES, LEVELS].forEach((dst, i) => {
+  const src = LANG === "en" ? [COUNTRIES_EN, CATEGORIES_EN, LEVELS_EN, EMP_EN]
+                             : [COUNTRIES_AR, CATEGORIES_AR, LEVELS_AR, EMP_AR];
+  [COUNTRIES, CATEGORIES, LEVELS, EMP].forEach((dst, i) => {
     Object.keys(dst).forEach(k => delete dst[k]);
     Object.assign(dst, src[i]);
   });
