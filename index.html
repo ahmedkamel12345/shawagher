@@ -12,6 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
 <meta name="theme-color" content="#193C58">
+<meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,7 +28,9 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:light only}
+body{background:#EFF2F4;background:var(--paper);color:#12293C;color:var(--ink);
+ font-family:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4,.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700;line-height:1.35;margin:0}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
@@ -42,7 +45,7 @@ textarea{resize:vertical;min-height:80px}
 
 /* ===== التخطيط ===== */
 .app{display:grid;grid-template-columns:var(–rail) 1fr;min-height:100vh}
-.rail{background:var(–board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
+.rail{background:#193C58;background:var(–board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
 padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
 .logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(–board-3)}
 .logo img{flex:none}
@@ -80,7 +83,7 @@ margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
 
 .main{min-width:0;padding:1.1rem clamp(.9rem,2.4vw,1.9rem) 3rem}
 .topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem}
-.searchbox{flex:1;min-width:220px;display:flex;background:var(–card);border:1px solid var(–line);border-radius:3px}
+.searchbox{flex:1;min-width:220px;display:flex;background:#fff;background:var(–card);border:1px solid var(–line);border-radius:3px}
 .searchbox input{border:0;background:transparent}
 .searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(–faint)}
 .topbar select{width:auto}
@@ -100,7 +103,7 @@ font-family:“Noto Kufi Arabic”;font-weight:500;border:1px solid transparent}
 .tab i{font-style:normal;font-family:“IBM Plex Mono”;font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
 
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.45rem;margin-bottom:.9rem}
-.tiles button{background:var(–card);border:1px solid var(–line);border-radius:4px;padding:.7rem .5rem;
+.tiles button{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:4px;padding:.7rem .5rem;
 display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
 .tiles button i{font-style:normal;font-size:1.15rem;color:var(–deep);line-height:1}
 .tiles button b{font-family:“Noto Kufi Arabic”;font-size:.82rem;font-weight:500}
@@ -121,7 +124,7 @@ border-radius:50%;background:rgba(231,150,45,.07)}
 .hello p::before{content:”“”;font-family:“Noto Kufi Arabic”;font-size:1.6rem;color:var(–amber);line-height:0.1}
 
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.9rem}
-.kpi{background:var(–card);border:1px solid var(–line);border-top:2px solid var(–amber);
+.kpi{background:#fff;background:var(–card);border:1px solid var(–line);border-top:2px solid var(–amber);
 border-radius:3px;padding:.6rem .8rem}
 .kpi b{display:block;font-family:“IBM Plex Mono”;font-size:1.45rem;font-weight:500;line-height:1.2}
 .kpi span{font-size:.7rem;color:var(–muted)}
@@ -133,7 +136,7 @@ border-bottom:1px solid var(–line);padding-bottom:.5rem;margin-bottom:.7rem;fo
 
 /* بطاقات */
 .list{display:grid;gap:.5rem}
-.job{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.85rem .95rem;
+.job{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.85rem .95rem;
 display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
 .job:hover{border-color:#A9BECD}
 .job.user{border-inline-start:3px solid var(–amber)}
@@ -206,12 +209,12 @@ background:#8FA3B4;transition:transform .16s,background .16s}
 .actions{display:flex;flex-direction:column;gap:.3rem;min-width:108px}
 .btn{display:block;text-align:center;padding:.42rem .8rem;border-radius:3px;font-size:.82rem;
 font-weight:600;text-decoration:none;border:1px solid transparent}
-.btn.primary{background:var(–ink);color:#fff}
+.btn.primary{background:#12293C;background:var(–ink);color:#fff}
 .btn.primary:hover{background:var(–deep)}
-.btn.wa{background:var(–wa);color:#fff}
+.btn.wa{background:#1FA855;background:var(–wa);color:#fff}
 .btn.ghost{border-color:var(–line);color:var(–muted);font-weight:400}
 .btn.ghost[aria-pressed=“true”]{border-color:var(–amber);background:var(–amber-soft);color:#8A5A12}
-.btn.amber{background:var(–amber);color:var(–board)}
+.btn.amber{background:#E7962D;background:var(–amber);color:#193C58;color:var(–board)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .more{margin:.8rem auto 0;display:block;border:1px solid var(–line);background:var(–card);
 padding:.6rem 1.6rem;border-radius:3px;color:var(–deep);font-weight:600}
@@ -231,7 +234,7 @@ font-size:.6rem;color:var(–faint);border:1px solid var(–line);padding:0 .3re
 font-size:.84rem;color:var(–faint);border-radius:3px}
 
 /* لوحات ونماذج */
-.panel{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
+.panel{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
 .panel h2{font-size:1.1rem;margin-bottom:.35rem}
 .panel p{margin:.25rem 0;font-size:.88rem;color:var(–muted)}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
@@ -343,7 +346,7 @@ font-size:.84rem;font-weight:600}
   </div>
 </aside>
 
-<main class="main">
+<main class="main" role="application">
   <nav class="tiles" id="nav">
     <button data-tab="jobs" aria-current="true"><i>▤</i><b>الشواغر</b><span class="n" id="navJobs">0</span></button>
     <button data-tab="services"><i>⚙</i><b>خدمات الموظفين</b><span class="n">حاسبات</span></button>
