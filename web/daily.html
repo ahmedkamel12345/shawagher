@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شواغر — استعراض وظائف اليوم</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--board:#193C58;--board2:#1E4668;--amber:#E7962D;--ink:#12293C;--muted:#5A6E7F;
+ --line:#D5DEE4;--wa:#1FA855;--soft:#E4EDF4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0A1620;font-family:"IBM Plex Sans Arabic",sans-serif;display:grid;
+ place-items:center;min-height:100vh;gap:1rem;padding:1rem}
+.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700}
+
+#stage{width:405px;height:720px;position:relative;overflow:hidden;border-radius:14px;
+background:linear-gradient(160deg,#193C58 0%,#12293C 55%,#0E2233 100%);
+box-shadow:0 30px 80px -30px #000}
+#stage::before{content:””;position:absolute;inset-inline-end:-90px;top:-90px;width:280px;height:280px;
+border-radius:50%;background:rgba(231,150,45,.10)}
+#stage::after{content:””;position:absolute;inset-inline-start:-120px;bottom:-120px;width:320px;height:320px;
+border-radius:50%;background:rgba(231,150,45,.06)}
+
+.scene{position:absolute;inset:0;padding:2rem 1.6rem;display:flex;flex-direction:column;
+justify-content:center;gap:1rem;opacity:0;transform:translateY(20px) scale(.98);pointer-events:none}
+.scene.on{opacity:1;transform:none;transition:opacity .45s ease,transform .55s cubic-bezier(.2,.8,.3,1)}
+.scene.out{opacity:0;transform:translateY(-16px) scale(.99);transition:.3s ease}
+
+.brandbar{position:absolute;inset-inline:0;top:0;display:flex;align-items:center;gap:.5rem;
+padding:.9rem 1.2rem;z-index:5}
+.brandbar b{font-family:“Noto Kufi Arabic”;font-size:1.05rem;color:var(–amber)}
+.brandbar span{font-family:“IBM Plex Mono”;font-size:.6rem;color:#7E96A8;letter-spacing:.14em}
+.datepill{margin-inline-start:auto;font-family:“IBM Plex Mono”;font-size:.66rem;color:#A9BECD;
+border:1px solid #2C5878;border-radius:20px;padding:.15rem .6rem}
+
+h1{font-family:“Noto Kufi Arabic”;font-size:2.1rem;color:#fff;line-height:1.4}
+h1 em{font-style:normal;color:var(–amber)}
+.lead{color:#A9BECD;font-size:1rem;line-height:1.85}
+
+.num{position:absolute;inset-inline-end:1.4rem;top:4.2rem;font-family:“IBM Plex Mono”;
+font-size:3.4rem;color:rgba(231,150,45,.22);line-height:1}
+.jobcard{background:#fff;border-radius:10px;padding:1.1rem 1.15rem;color:var(–ink);
+box-shadow:0 20px 50px -22px rgba(0,0,0,.7)}
+.jobcard .cat{font-family:“IBM Plex Mono”;font-size:.66rem;color:var(–muted);
+border:1px solid var(–line);border-radius:2px;padding:.1rem .45rem;display:inline-block}
+.jobcard .cat.hot{border-color:var(–amber);background:#FCEFDC;color:#8A5A12}
+.jobcard h2{font-family:“Noto Kufi Arabic”;font-size:1.32rem;line-height:1.45;margin:.55rem 0 .35rem}
+.jobcard .co{font-size:.95rem;color:var(–muted)}
+.jobcard .co b{color:var(–ink)}
+.facts{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.8rem}
+.facts span{background:var(–soft);border-radius:3px;padding:.25rem .55rem;font-size:.78rem;color:var(–ink)}
+.applybar{display:flex;align-items:center;gap:.5rem;margin-top:.9rem;background:var(–wa);color:#fff;
+border-radius:5px;padding:.55rem .8rem;font-size:.85rem;font-weight:600;justify-content:center}
+
+.tick{display:flex;flex-direction:column;gap:.7rem}
+.tick li{list-style:none;color:#DCE6ED;font-size:1.02rem;display:flex;gap:.6rem;align-items:flex-start}
+.tick li::before{content:””;width:7px;height:7px;border-radius:50%;background:var(–amber);
+flex:none;margin-top:.6rem}
+.cta{text-align:center}
+.cta .url{font-family:“IBM Plex Mono”;font-size:1.6rem;color:var(–amber);margin:.6rem 0}
+.cta .swipe{font-size:.9rem;color:#A9BECD}
+.bar{position:absolute;inset-inline:0;bottom:0;height:3px;background:rgba(255,255,255,.1);z-index:6}
+.bar i{display:block;height:100%;background:var(–amber);width:0}
+
+.ctl{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;align-items:center}
+.ctl button,.ctl select,.ctl a{background:#1E4668;color:#DCE6ED;border:0;border-radius:3px;
+padding:.5rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;text-decoration:none}
+.ctl button:hover{background:var(–amber);color:var(–board)}
+.hint{color:#5A7285;font-size:.8rem;text-align:center;max-width:440px;line-height:1.9}
+.hint b{color:#8FA3B4}
+#cap{width:min(440px,100%);background:#12293C;color:#C6D5E0;border:1px solid #22415C;border-radius:4px;
+padding:.7rem .8rem;font-size:.82rem;line-height:1.9;white-space:pre-wrap}
+</style>
+
+</head>
+<body>
+
+<div id="stage">
+  <div class="brandbar">
+    <svg width="26" height="26" viewBox="0 0 64 64"><path d="M12 6h40a6 6 0 0 1 6 6v25c0 10.5-11.6 17.9-26 21C17.6 54.9 6 47.5 6 37V12a6 6 0 0 1 6-6z" fill="#E7962D"/><rect x="16.5" y="30" width="7.5" height="12" rx="1.6" fill="#193C58"/><rect x="27.5" y="23" width="7.5" height="19" rx="1.6" fill="#193C58"/><rect x="39.7" y="14.2" width="7.5" height="27.5" rx="1.6" fill="none" stroke="#193C58" stroke-width="2.6" stroke-dasharray="4.2 3.4"/></svg>
+    <div><b>شواغر</b><span style="display:block">SHAWAGHER</span></div>
+    <span class="datepill" id="dpill">—</span>
+  </div>
+  <div id="scenes"></div>
+  <div class="bar"><i id="prog"></i></div>
+</div>
+
+<div class="ctl">
+  <button id="play">▶ تشغيل</button>
+  <select id="country"><option value="">كل الدول</option></select>
+  <select id="cat"><option value="">كل المجالات</option></select>
+  <select id="count"><option value="5">٥ وظائف</option><option value="7">٧ وظائف</option><option value="10">١٠ وظائف</option></select>
+  <button id="shuffle">وظائف تانية</button>
+</div>
+
+<p class="hint">اضغط تشغيل وسجّل الشاشة: <b>Win + Alt + R</b> في ويندوز، أو مسجّل الشاشة في الموبايل.
+سجّل المستطيل بس. الفيديو بيطلع بمقاس تيك توك ٩:١٦.</p>
+
+<div id="cap"></div>
+
+<script>
+const COUNTRIES = {EG:"مصر",KW:"الكويت",SA:"السعودية",AE:"الإمارات",QA:"قطر",BH:"البحرين",OM:"عُمان",RM:"عن بُعد"};
+const CATEGORIES = {accounting:"محاسبة ومالية",it:"تقنية وبرمجة",sales:"مبيعات وتسويق",hr:"موارد بشرية",
+ ops:"تشغيل ولوجستيات",service:"خدمة عملاء",health:"صحة",education:"تعليم",other:"وظائف عامة"};
+const LEVELS = {executive:"إدارة عليا",manager:"مدير",supervisor:"مشرف",senior:"خبير",
+ mid:"متوسط الخبرة",entry:"مبتدئ",worker:"عامل وفني"};
+const EMP = {full_time:"دوام كامل",part_time:"دوام جزئي",contract:"عقد",internship:"تدريب"};
+
+let JOBS = [], picks = [], timers = [];
+const $ = s => document.querySelector(s);
+const ar = n => Number(n).toLocaleString("ar-EG");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const days = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : 99;
+
+function choose(){
+  const c = $("#country").value, k = $("#cat").value, n = +$("#count").value;
+  let pool = JOBS.filter(j => j.title && (!c || j.country === c) && (!k || j.category === k));
+  pool = pool.filter(j => days(j.posted_at) <= 7);
+  if(pool.length < n) pool = JOBS.filter(j => (!c || j.country === c) && (!k || j.category === k));
+  // تنويع: مش أكتر من وظيفتين لنفس الجهة
+  const seen = {}, out = [];
+  pool.sort(() => Math.random() - .5);
+  for(const j of pool){
+    seen[j.company_name] = (seen[j.company_name] || 0) + 1;
+    if(seen[j.company_name] > 2) continue;
+    out.push(j);
+    if(out.length >= n) break;
+  }
+  return out;
+}
+
+function build(){
+  picks = choose();
+  const c = $("#country").value, k = $("#cat").value;
+  const where = c ? COUNTRIES[c] : "الخليج ومصر";
+  const what = k ? CATEGORIES[k] : "";
+  const el = $("#scenes"); el.textContent = "";
+
+  const add = (html, ms) => {
+    const d = document.createElement("div");
+    d.className = "scene"; d.dataset.t = ms; d.innerHTML = html;
+    el.appendChild(d);
+  };
+
+  add(`<h1>أهم <em>${ar(picks.length)}</em> وظائف<br>في ${where} النهاردة</h1>
+       <p class="lead">${what ? what + " — " : ""}كلها مفتوحة دلوقتي، والتقديم مباشر مع صاحب العمل.
+       اتفرّج للآخر واللينك في البايو.</p>`, 3400);
+
+  picks.forEach((j, i) => {
+    const facts = [
+      j.city || COUNTRIES[j.country],
+      LEVELS[j.seniority],
+      EMP[j.employment_type],
+      j.is_remote ? "عن بُعد" : "",
+    ].filter(Boolean);
+    add(`<span class="num">${ar(i + 1)}</span>
+      <div class="jobcard">
+        <span class="cat ${j.source_kind === "discover" ? "hot" : ""}">${CATEGORIES[j.category] || "وظائف عامة"}</span>
+        <h2>${esc(j.title.slice(0, 60))}</h2>
+        <p class="co"><b>${esc(j.company_name.slice(0, 40))}</b></p>
+        <div class="facts">${facts.map(f => `<span>${esc(f)}</span>`).join("")}</div>
+        <div class="applybar">التقديم من الموقع في ثانيتين</div>
+      </div>`, 3600);
+  });
+
+  add(`<ul class="tick">
+        <li>أكتر من ٦٠٠ شاغر بتتحدّث كل يوم</li>
+        <li>مصر · الكويت · السعودية · الإمارات · وعن بُعد</li>
+        <li>تقديم مباشر بالواتساب من غير وسيط</li>
+        <li>مجاني تماماً — مفيش رسوم على الباحث عن عمل</li>
+      </ul>`, 4200);
+
+  add(`<div class="cta">
+        <h1 style="font-size:1.5rem">دوّر على شغلك<br><em>من مكان واحد</em></h1>
+        <div class="url">shawagherna.com</div>
+        <p class="swipe">اللينك في البايو ↑</p>
+        <p class="lead" style="font-size:.82rem;margin-top:1rem">
+          المحترف للاستشارات المالية — أحمد أبو كامل</p>
+      </div>`, 3800);
+
+  caption(where, what);
+}
+
+function caption(where, what){
+  const titles = picks.slice(0, 3).map(j => "• " + j.title.slice(0, 42)).join("\n");
+  $("#cap").textContent =
+`أهم ${ar(picks.length)} وظائف في ${where} النهاردة ${what ? "— " + what : ""}
+${titles}
+والباقي على الموقع 👇
+shawagherna.com
+
+#وظائف #وظائف_الكويت #وظائف_مصر #وظائف_السعودية #وظائف_الامارات #شواغر #فرص_عمل #توظيف #وظائف_خالية #بحث_عن_عمل`;
+}
+
+function play(){
+  timers.forEach(clearTimeout); timers = [];
+  const scenes = [...document.querySelectorAll(".scene")];
+  const total = scenes.reduce((a, s) => a + +s.dataset.t, 0);
+  scenes.forEach(s => s.className = "scene");
+  const prog = $("#prog");
+  prog.style.transition = "none"; prog.style.width = "0";
+  requestAnimationFrame(() => {
+    prog.style.transition = `width ${total}ms linear`; prog.style.width = "100%";
+  });
+  let t = 0;
+  scenes.forEach((s, i) => {
+    timers.push(setTimeout(() => {
+      if(i) scenes[i-1].className = "scene out";
+      s.className = "scene on";
+    }, t));
+    t += +s.dataset.t;
+  });
+}
+
+async function boot(){
+  $("#dpill").textContent = new Date().toLocaleDateString("ar-EG",{day:"numeric",month:"long"});
+  try{
+    const r = await fetch("data/jobs.json", {cache:"no-store"});
+    JOBS = (await r.json()).jobs || [];
+  }catch(e){
+    JOBS = [{title:"محاسب أول",company_name:"شركة الخليج للمقاولات",city:"حولي",country:"KW",
+      category:"accounting",seniority:"senior",employment_type:"full_time",posted_at:new Date().toISOString()}];
+  }
+  const cs = [...new Set(JOBS.map(j => j.country).filter(Boolean))];
+  cs.forEach(c => $("#country").insertAdjacentHTML("beforeend",
+    `<option value="${c}">${COUNTRIES[c] || c}</option>`));
+  Object.entries(CATEGORIES).forEach(([v,l]) => $("#cat").insertAdjacentHTML("beforeend",
+    `<option value="${v}">${l}</option>`));
+
+  ["country","cat","count"].forEach(id => $("#" + id).onchange = () => { build(); play(); });
+  $("#shuffle").onclick = () => { build(); play(); };
+  $("#play").onclick = play;
+  build(); play();
+}
+boot();
+</script>
+
+</body>
+</html>
