@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T18:22:11.823893+00:00",
+ "generated_at": "2026-09-02T18:44:23.020485+00:00",
  "count": 631,
  "jobs": [
   {
@@ -3657,6 +3657,24 @@
    "needs_review": true
   },
   {
+   "fingerprint": "3456dfdec99565632f7babbf28c0a3c94e708d1f",
+   "title": "يعلن إحدي مصانع إنتاج البطاريات عن فتح باب التوظيف باحدي أفرع الصعيد",
+   "company_name": "إعلان منشور",
+   "city": "مصر",
+   "country": "EG",
+   "category": "sales",
+   "seniority": "worker",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "يعلن إحدي مصانع إنتاج البطاريات عن فتح باب التوظيف باحدي أفرع الصعيد\nعن فرصة عمل مندوب سائق.\nمكان العمل: جرجا المنطقه الصناعيه\nساعات العمل: 8ساعات\nالراتب: 10000 جنية\nالشروط\nخبرة لا تقل عن سنتين كمندوب\nمهارات التفاوض و البيع\nالسن: لا يزيد عن 38\nتواجد رخصه قيادة ساريه\nالمهام\nتوصيل توزيع البضائع علي التجار\nالجرد اليومي و تحصيل الاموال\nللتواصل: ارسال الـبيانات عبر\ndoaabahhaa@gmail.com ‏\nفرص عمل جديدة تُنشر يوميًا في محافظات صعيد مصر.",
+   "apply_url": "https://t.me/QenaLuxorJobs/39843",
+   "source_kind": "discover",
+   "source_name": "وظائف قنا والأقصر",
+   "posted_at": "2026-09-02T18:44:17.285760+00:00",
+   "is_direct": false,
+   "needs_review": true
+  },
+  {
    "fingerprint": "7ea4471459820e86edfa50a60537e4eb0dbd5853",
    "title": "Fullstack Software Engineer - Core",
    "company_name": "dataiku",
@@ -4490,6 +4508,23 @@
    "posted_at": "2026-09-01T00:00:00+00:00"
   },
   {
+   "fingerprint": "a7b7822a3dd06e62fda5d1aba0695a6648c29ed6",
+   "title": "Shift Leader — Flexible Hours, Training & Growth",
+   "company_name": "Flynn Pizza Hut",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "other",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "A leading pizza franchise is looking for a Shift Leader in Egypt Lake-Leto, Florida. This role is perfect for those wanting to grow into management while working in a fun and flexible environment. Responsibilities include managing shifts, ensuring excellent customer service...",
+   "apply_url": "https://jooble.org/jdp/1448646444310670115",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-09-01T00:00:00+00:00"
+  },
+  {
    "fingerprint": "f346d2ce1e6bfb116283adc965b2d88bcebb8209",
    "title": "Sr Advanced CAD Specialist",
    "company_name": "Honeywell",
@@ -4881,6 +4916,23 @@
    "posted_at": "2026-08-31T00:00:00+00:00"
   },
   {
+   "fingerprint": "9a3ac8ac92d0f9b0ea5ab08baa28f7da86675c32",
+   "title": "Shift Leader",
+   "company_name": "Flynn Pizza Hut",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "other",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "Overview Flynn Hut joined the Pizza Hut system in 2021. In 2023, we expanded internationally acquiring Pizza Hut’s master franchisee in Australia with 260+ units. Today we are the largest Pizza Hut franchisee in the world with 1200+ locations and are operating in 2 Countries...",
+   "apply_url": "https://jooble.org/jdp/2225607187192295859",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-08-31T00:00:00+00:00"
+  },
+  {
    "fingerprint": "df95b07fbe29d6b99b9884b53239923796c69485",
    "title": "CDL A Home Daily Truck Drivers",
    "company_name": "Werner Enterprises",
@@ -5065,6 +5117,40 @@
    "apply_url": "https://apply.workable.com/j/E55721EB2C",
    "source_kind": "workable",
    "source_slug": "robusta",
+   "posted_at": "2026-08-30T00:00:00+00:00"
+  },
+  {
+   "fingerprint": "da73f38cecc31b8d498ce696d8de0efb0f54b389",
+   "title": "Warehouse Manager",
+   "company_name": "Primo Brands",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "ops",
+   "seniority": "manager",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "Overview Primo Brands is a leading branded beverage company in North America with a focus on healthy hydration. We are proud to offer an extensive and iconic portfolio of highly recognizable, sustainably sourced, and conveniently packaged branded beverages distributed across...",
+   "apply_url": "https://jooble.org/jdp/4528616650462387636",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-08-30T00:00:00+00:00"
+  },
+  {
+   "fingerprint": "434bd1bc1169436de2d58b5b9923b7435135f42c",
+   "title": "Hotel On Site Manager",
+   "company_name": "WSS Tampa",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "other",
+   "seniority": "manager",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "If you are unable to complete this application due to a disability, contact this employer to ask for an accommodation or an alternative application process. Full Time Manager WSS Tampa, Tampa, FL, US 3 days ago Requisition ID: 9082 Salary Range: $40,000.00 To $44,000...",
+   "apply_url": "https://jooble.org/jdp/-1247386970261416799",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
    "posted_at": "2026-08-30T00:00:00+00:00"
   },
   {
@@ -6086,23 +6172,6 @@
    "source_kind": "weworkremotely",
    "source_slug": "wwr",
    "posted_at": "2026-08-26T07:30:39+00:00"
-  },
-  {
-   "fingerprint": "4ffb2d5f90f66e2e5999c8a9b2bbf15956dcb08e",
-   "title": "AP Accountant",
-   "company_name": "Bosta",
-   "city": "Maadi",
-   "country": "EG",
-   "location_raw": "Maadi, ",
-   "category": "accounting",
-   "seniority": "mid",
-   "employment_type": "full_time",
-   "is_remote": true,
-   "summary": "We may use artificial intelligence (AI) tools to support parts of the hiring process, such as reviewing applications, analyzing resumes, or assessing responses. These tools assist our recruitment team but do not replace human judgment. Final hiring decisions are ultimately made…",
-   "apply_url": "https://remoteOK.com/remote-jobs/remote-ap-accountant-bosta-1137124",
-   "source_kind": "remoteok",
-   "source_slug": "remoteok",
-   "posted_at": "2026-08-25T14:12:49+00:00"
   },
   {
    "fingerprint": "d9e6269a8484bc4cefad42486cf006bfad7d9997",
@@ -8825,57 +8894,6 @@
    "posted_at": "2026-08-05T07:54:34.927000+00:00"
   },
   {
-   "fingerprint": "fc8a45727e70509b55f14bab1a1d385b0b1c6a71",
-   "title": "WordPress Specialist",
-   "company_name": "GTECH Information Technology",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "other",
-   "seniority": "mid",
-   "employment_type": "full-time",
-   "is_remote": false,
-   "summary": "About the role GTECH builds and maintains a large portfolio of WordPress websites for brands across the Middle East. We're looking for a hands-on WordPress Specialist who can own a website from design to front-end to back-end, turning approved designs into pixel-accurate...",
-   "apply_url": "https://jooble.org/jdp/2601167649303489305",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-08-05T07:54:34.640000+00:00"
-  },
-  {
-   "fingerprint": "d0cabd56c6a52cf8d3723bb3dd570ad34b2b22ac",
-   "title": "WMS Specialist",
-   "company_name": "Scale Army",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "other",
-   "seniority": "mid",
-   "employment_type": "full-time",
-   "is_remote": false,
-   "summary": "Our client is a leading provider of third-party logistics (3PL) solutions, delivering warehouse and supply chain services to a diverse range of customers. As they continue to optimize warehouse operations, they are seeking a WMS Specialist to serve as the functional expert...",
-   "apply_url": "https://jooble.org/jdp/2157507268329479990",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-08-05T07:54:34.360000+00:00"
-  },
-  {
-   "fingerprint": "773bd987e5a77987315e6d811919c10b684d0bad",
-   "title": "Production Planner",
-   "company_name": "Scale Army",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "other",
-   "seniority": "mid",
-   "employment_type": "full-time",
-   "is_remote": false,
-   "summary": "Our client is a leading provider of third-party logistics (3PL) solutions, helping businesses streamline warehouse operations, fulfillment, and value-added services. As their operations continue to grow, they are seeking a Production Planner to coordinate customer demand...",
-   "apply_url": "https://jooble.org/jdp/4732947231196389626",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-08-05T07:54:34.337000+00:00"
-  },
-  {
    "fingerprint": "eb7ec1741f6eb34967dfcc96f53f74f5ebdf216c",
    "title": "Engineering Manager - Deployment Engineering (Middle East)",
    "company_name": "Cohere",
@@ -8891,23 +8909,6 @@
    "source_kind": "jooble",
    "source_slug": "jb-sa-all",
    "posted_at": "2026-08-05T07:54:34.193000+00:00"
-  },
-  {
-   "fingerprint": "ef32fafea837ce77722f5e7b1ce87b1e8a0e5739",
-   "title": "QA Engineer",
-   "company_name": "Whitecollars",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "it",
-   "seniority": "mid",
-   "employment_type": "temporary",
-   "is_remote": false,
-   "summary": "Quality isn't the final step in development; it's what defines the user experience. As the QA Engineer on this project, you'll play a critical role in ensuring that every feature released meets the highest standards of functionality, reliability, and usability. You'll work...",
-   "apply_url": "https://jooble.org/jdp/7947339390091161455",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-08-05T07:54:33.453000+00:00"
   },
   {
    "fingerprint": "8b0fed40e1cb3f6aae12c357b814f86591920bb3",
