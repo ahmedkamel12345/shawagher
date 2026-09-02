@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
@@ -40,266 +41,267 @@ textarea{resize:vertical;min-height:80px}
 [hidden]{display:none!important}
 
 /* ===== التخطيط ===== */
-.app{display:grid;grid-template-columns:var(--rail) 1fr;min-height:100vh}
-.rail{background:var(--board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
- padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
-.logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(--board-3)}
+.app{display:grid;grid-template-columns:var(–rail) 1fr;min-height:100vh}
+.rail{background:var(–board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
+padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
+.logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(–board-3)}
 .logo img{flex:none}
-.logo b{display:block;font-family:"Noto Kufi Arabic";font-size:1.3rem;color:var(--amber);line-height:1.1}
+.logo b{display:block;font-family:“Noto Kufi Arabic”;font-size:1.3rem;color:var(–amber);line-height:1.1}
 .logo span{font-size:.6rem;color:#8FA3B4;letter-spacing:.14em}
 .nav{display:flex;flex-direction:column;gap:2px;margin:.85rem 0 .3rem}
 .nav button{display:flex;justify-content:space-between;align-items:center;padding:.5rem .65rem;
- border-radius:3px;font-size:.9rem;color:#AFC1CE;width:100%;text-align:start}
-.nav button:hover{background:var(--board-2);color:#fff}
-.nav button[aria-current="true"]{background:var(--amber);color:var(--board);font-weight:600}
-.nav .n{font-family:"IBM Plex Mono";font-size:.72rem;opacity:.8}
-.postbtn{background:#fff;color:var(--board);font-weight:700;border-radius:3px;padding:.6rem;
- margin:.6rem 0 .2rem;text-align:center;font-family:"Noto Kufi Arabic";font-size:.88rem}
-.postbtn:hover{background:var(--amber)}
-.railsec{margin-top:1rem;border-top:1px solid var(--board-3);padding-top:.8rem}
+border-radius:3px;font-size:.9rem;color:#AFC1CE;width:100%;text-align:start}
+.nav button:hover{background:var(–board-2);color:#fff}
+.nav button[aria-current=“true”]{background:var(–amber);color:var(–board);font-weight:600}
+.nav .n{font-family:“IBM Plex Mono”;font-size:.72rem;opacity:.8}
+.postbtn{background:#fff;color:var(–board);font-weight:700;border-radius:3px;padding:.6rem;
+margin:.6rem 0 .2rem;text-align:center;font-family:“Noto Kufi Arabic”;font-size:.88rem}
+.postbtn:hover{background:var(–amber)}
+.railsec{margin-top:1rem;border-top:1px solid var(–board-3);padding-top:.8rem}
 .railsec h4{font-size:.66rem;letter-spacing:.1em;color:#7E96A8;font-weight:500;
- margin-bottom:.5rem;font-family:"IBM Plex Mono"}
+margin-bottom:.5rem;font-family:“IBM Plex Mono”}
 .bars{display:flex;flex-direction:column;gap:.38rem}
 .bar{display:grid;grid-template-columns:1fr auto;gap:.35rem;align-items:center;width:100%;
- text-align:start;font-size:.81rem;color:#AFC1CE}
+text-align:start;font-size:.81rem;color:#AFC1CE}
 .bar:hover{color:#fff}
-.bar .track{grid-column:1/-1;height:3px;background:var(--board-3);border-radius:9px;overflow:hidden}
-.bar .fill{display:block;height:100%;background:var(--amber-dim)}
-.bar[aria-pressed="true"]{color:#fff}
-.bar[aria-pressed="true"] .fill{background:var(--amber)}
-.bar .n{font-family:"IBM Plex Mono";font-size:.72rem;color:#7E96A8}
+.bar .track{grid-column:1/-1;height:3px;background:var(–board-3);border-radius:9px;overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(–amber-dim)}
+.bar[aria-pressed=“true”]{color:#fff}
+.bar[aria-pressed=“true”] .fill{background:var(–amber)}
+.bar .n{font-family:“IBM Plex Mono”;font-size:.72rem;color:#7E96A8}
 .bar.dim{opacity:.45}
 .railfoot{margin-top:auto;padding-top:.9rem;font-size:.68rem;color:#7E96A8;line-height:1.75}
-.by{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--board-3);
- font-family:"Noto Kufi Arabic";font-size:.7rem;color:#9FB3C1;line-height:1.8}
-.by span{font-family:"IBM Plex Sans Arabic";color:#7E96A8}
-.pulse{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;
- margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
+.by{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(–board-3);
+font-family:“Noto Kufi Arabic”;font-size:.7rem;color:#9FB3C1;line-height:1.8}
+.by span{font-family:“IBM Plex Sans Arabic”;color:#7E96A8}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(–amber);display:inline-block;
+margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
 .main{min-width:0;padding:1.1rem clamp(.9rem,2.4vw,1.9rem) 3rem}
 .topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem}
-.searchbox{flex:1;min-width:220px;display:flex;background:var(--card);border:1px solid var(--line);border-radius:3px}
+.searchbox{flex:1;min-width:220px;display:flex;background:var(–card);border:1px solid var(–line);border-radius:3px}
 .searchbox input{border:0;background:transparent}
-.searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(--faint)}
+.searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(–faint)}
 .topbar select{width:auto}
 .menu-btn{display:none}
-.who{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(--muted);
- background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.45rem .7rem}
-.who b{color:var(--ink);font-weight:600}
+.who{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(–muted);
+background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.45rem .7rem}
+.who b{color:var(–ink);font-weight:600}
 
 /* تبويبات الدول */
 .tabs{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:.7rem;
- border-bottom:1px solid var(--line);scrollbar-width:none}
+border-bottom:1px solid var(–line);scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{white-space:nowrap;padding:.45rem .85rem;border-radius:3px;font-size:.9rem;color:var(--muted);
- font-family:"Noto Kufi Arabic";font-weight:500;border:1px solid transparent}
-.tab:hover{background:var(--soft);color:var(--ink)}
-.tab[aria-pressed="true"]{background:var(--board);color:#fff}
-.tab i{font-style:normal;font-family:"IBM Plex Mono";font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
+.tab{white-space:nowrap;padding:.45rem .85rem;border-radius:3px;font-size:.9rem;color:var(–muted);
+font-family:“Noto Kufi Arabic”;font-weight:500;border:1px solid transparent}
+.tab:hover{background:var(–soft);color:var(–ink)}
+.tab[aria-pressed=“true”]{background:var(–board);color:#fff}
+.tab i{font-style:normal;font-family:“IBM Plex Mono”;font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
 
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.45rem;margin-bottom:.9rem}
-.tiles button{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem .5rem;
- display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
-.tiles button i{font-style:normal;font-size:1.15rem;color:var(--deep);line-height:1}
-.tiles button b{font-family:"Noto Kufi Arabic";font-size:.82rem;font-weight:500}
-.tiles button .n{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint)}
-.tiles button:hover{border-color:var(--deep);transform:translateY(-1px)}
-.tiles button[aria-current="true"]{background:var(--board);border-color:var(--board);color:#fff}
-.tiles button[aria-current="true"] i{color:var(--amber)}
-.tiles button[aria-current="true"] .n{color:#8FA3B4}
+.tiles button{background:var(–card);border:1px solid var(–line);border-radius:4px;padding:.7rem .5rem;
+display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
+.tiles button i{font-style:normal;font-size:1.15rem;color:var(–deep);line-height:1}
+.tiles button b{font-family:“Noto Kufi Arabic”;font-size:.82rem;font-weight:500}
+.tiles button .n{font-family:“IBM Plex Mono”;font-size:.68rem;color:var(–faint)}
+.tiles button:hover{border-color:var(–deep);transform:translateY(-1px)}
+.tiles button[aria-current=“true”]{background:var(–board);border-color:var(–board);color:#fff}
+.tiles button[aria-current=“true”] i{color:var(–amber)}
+.tiles button[aria-current=“true”] .n{color:#8FA3B4}
 
-.hello{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--board) 0%,var(--board2) 60%,#25557C 100%);
- color:#fff;border:0;border-radius:6px;padding:1.05rem 1.2rem;margin-bottom:.8rem}
-.hello::before{content:"";position:absolute;inset-inline-end:-30px;top:-40px;width:150px;height:150px;
- border-radius:50%;background:rgba(231,150,45,.14)}
-.hello::after{content:"";position:absolute;inset-inline-end:-70px;bottom:-70px;width:170px;height:170px;
- border-radius:50%;background:rgba(231,150,45,.07)}
+.hello{position:relative;overflow:hidden;background:linear-gradient(135deg,var(–board) 0%,var(–board2) 60%,#25557C 100%);
+color:#fff;border:0;border-radius:6px;padding:1.05rem 1.2rem;margin-bottom:.8rem}
+.hello::before{content:””;position:absolute;inset-inline-end:-30px;top:-40px;width:150px;height:150px;
+border-radius:50%;background:rgba(231,150,45,.14)}
+.hello::after{content:””;position:absolute;inset-inline-end:-70px;bottom:-70px;width:170px;height:170px;
+border-radius:50%;background:rgba(231,150,45,.07)}
 .hello h2{font-size:1.1rem;color:#fff;margin-bottom:.25rem;position:relative}
 .hello p{margin:0;font-size:.9rem;color:#CFDDE8;position:relative;display:flex;align-items:center;gap:.5rem}
-.hello p::before{content:"“";font-family:"Noto Kufi Arabic";font-size:1.6rem;color:var(--amber);line-height:0.1}
+.hello p::before{content:”“”;font-family:“Noto Kufi Arabic”;font-size:1.6rem;color:var(–amber);line-height:0.1}
 
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.9rem}
-.kpi{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--amber);
- border-radius:3px;padding:.6rem .8rem}
-.kpi b{display:block;font-family:"IBM Plex Mono";font-size:1.45rem;font-weight:500;line-height:1.2}
-.kpi span{font-size:.7rem;color:var(--muted)}
-.kpi.alt{border-top-color:var(--deep)}
+.kpi{background:var(–card);border:1px solid var(–line);border-top:2px solid var(–amber);
+border-radius:3px;padding:.6rem .8rem}
+.kpi b{display:block;font-family:“IBM Plex Mono”;font-size:1.45rem;font-weight:500;line-height:1.2}
+.kpi span{font-size:.7rem;color:var(–muted)}
+.kpi.alt{border-top-color:var(–deep)}
 .crumbs{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;
- border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.7rem;font-size:.85rem;color:var(--muted)}
-.crumbs b{font-family:"IBM Plex Mono";color:var(--ink)}
-.clear{color:var(--deep);text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
+border-bottom:1px solid var(–line);padding-bottom:.5rem;margin-bottom:.7rem;font-size:.85rem;color:var(–muted)}
+.crumbs b{font-family:“IBM Plex Mono”;color:var(–ink)}
+.clear{color:var(–deep);text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
 
 /* بطاقات */
 .list{display:grid;gap:.5rem}
-.job{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem .95rem;
- display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
+.job{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.85rem .95rem;
+display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
 .job:hover{border-color:#A9BECD}
-.job.user{border-inline-start:3px solid var(--amber)}
+.job.user{border-inline-start:3px solid var(–amber)}
 .slot{width:44px;height:44px;border:1.5px dashed #B4C6D3;border-radius:3px;display:grid;place-content:center;
- font-family:"IBM Plex Mono";font-size:.72rem;color:var(--muted);transition:.15s}
-.job:hover .slot{background:var(--amber);border-color:var(--amber);border-style:solid;color:var(--board)}
+font-family:“IBM Plex Mono”;font-size:.72rem;color:var(–muted);transition:.15s}
+.job:hover .slot{background:var(–amber);border-color:var(–amber);border-style:solid;color:var(–board)}
 .job h3{font-size:1rem;margin-bottom:.1rem}
-.meta{font-size:.84rem;color:var(--muted);margin:0}
-.meta b{color:var(--ink);font-weight:600}
-.snippet{font-size:.83rem;color:var(--muted);margin:.35rem 0 0;white-space:pre-line;
- display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.meta{font-size:.84rem;color:var(–muted);margin:0}
+.meta b{color:var(–ink);font-weight:600}
+.snippet{font-size:.83rem;color:var(–muted);margin:.35rem 0 0;white-space:pre-line;
+display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .snippet.open{display:block;-webkit-line-clamp:none;overflow:visible;
- background:#F7FAFB;border:1px solid var(--line);border-radius:3px;padding:.6rem .7rem;color:var(--ink)}
-.expand{font-size:.78rem;color:var(--deep);text-decoration:underline;text-underline-offset:3px;
- margin-top:.3rem;display:inline-block}
+background:#F7FAFB;border:1px solid var(–line);border-radius:3px;padding:.6rem .7rem;color:var(–ink)}
+.expand{font-size:.78rem;color:var(–deep);text-decoration:underline;text-underline-offset:3px;
+margin-top:.3rem;display:inline-block}
 
 /* ===== نافذة تفاصيل الإعلان ===== */
 .ov{position:fixed;inset:0;background:rgba(18,41,60,.55);backdrop-filter:blur(3px);z-index:60;
- display:flex;align-items:flex-end;justify-content:center;padding:0;animation:fade .18s ease}
+display:flex;align-items:flex-end;justify-content:center;padding:0;animation:fade .18s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes rise{from{transform:translateY(28px);opacity:.4}to{transform:none;opacity:1}}
-.modal{background:var(--card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
- border-radius:14px 14px 0 0;animation:rise .22s cubic-bezier(.2,.8,.3,1);overflow:hidden}
-.mhead{background:var(--board);color:#fff;padding:1.1rem 1.2rem .95rem;position:relative;flex:none}
+.modal{background:var(–card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
+border-radius:14px 14px 0 0;animation:rise .22s cubic-bezier(.2,.8,.3,1);overflow:hidden}
+.mhead{background:var(–board);color:#fff;padding:1.1rem 1.2rem .95rem;position:relative;flex:none}
 .mhead h2{font-size:1.16rem;color:#fff;padding-inline-end:2.2rem;line-height:1.45}
 .mhead .sub{font-size:.86rem;color:#AFC1CE;margin-top:.3rem}
-.mhead .sub b{color:var(--amber);font-weight:600}
+.mhead .sub b{color:var(–amber);font-weight:600}
 .mclose{position:absolute;inset-inline-end:.7rem;top:.7rem;width:32px;height:32px;border-radius:50%;
- background:rgba(255,255,255,.12);color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
+background:rgba(255,255,255,.12);color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
 .mclose:hover{background:rgba(255,255,255,.24)}
 .mtags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.65rem}
-.mtags span{font-family:"IBM Plex Mono";font-size:.68rem;border:1px solid rgba(255,255,255,.28);
- padding:.1rem .45rem;border-radius:2px;color:#DCE6ED}
-.mtags span.hot{border-color:var(--amber);background:rgba(231,150,45,.16);color:var(--amber)}
+.mtags span{font-family:“IBM Plex Mono”;font-size:.68rem;border:1px solid rgba(255,255,255,.28);
+padding:.1rem .45rem;border-radius:2px;color:#DCE6ED}
+.mtags span.hot{border-color:var(–amber);background:rgba(231,150,45,.16);color:var(–amber)}
 .mbody{padding:1.1rem 1.2rem;overflow-y:auto;flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9}
-.mbody .lbl{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint);letter-spacing:.06em;
- display:block;margin-bottom:.35rem;white-space:normal}
+.mbody .lbl{font-family:“IBM Plex Mono”;font-size:.68rem;color:var(–faint);letter-spacing:.06em;
+display:block;margin-bottom:.35rem;white-space:normal}
 .mrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;white-space:normal}
-.chipx{background:var(--soft);border:1px solid var(--line);border-radius:3px;padding:.28rem .6rem;font-size:.8rem}
-.chipx b{color:var(--deep)}
-.mfoot{border-top:1px solid var(--line);padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
- display:flex;gap:.5rem;flex-wrap:wrap;flex:none;background:var(--card)}
+.chipx{background:var(–soft);border:1px solid var(–line);border-radius:3px;padding:.28rem .6rem;font-size:.8rem}
+.chipx b{color:var(–deep)}
+.mfoot{border-top:1px solid var(–line);padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
+display:flex;gap:.5rem;flex-wrap:wrap;flex:none;background:var(–card)}
 .mfoot .btn{flex:1;min-width:120px;padding:.7rem 1rem;font-size:.9rem}
 .mfoot .note{width:100%;text-align:center;margin:.1rem 0 0}
-.inlink{display:inline-block;background:var(--wa);color:#fff;border-radius:3px;padding:.12rem .5rem;
- text-decoration:none;font-family:"IBM Plex Mono";font-size:.85rem;margin:.1rem 0;direction:ltr}
+.inlink{display:inline-block;background:var(–wa);color:#fff;border-radius:3px;padding:.12rem .5rem;
+text-decoration:none;font-family:“IBM Plex Mono”;font-size:.85rem;margin:.1rem 0;direction:ltr}
 .inlink:hover{filter:brightness(.93)}
-.inlink.mail{background:var(--deep)}
+.inlink.mail{background:var(–deep)}
 .warnbox{background:#FBF0DC;border:1px solid #E0BE86;color:#8A5A12;border-radius:3px;
- padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
+padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
 @media (min-width:720px){
-  .ov{align-items:center;padding:1.5rem}
-  .modal{border-radius:6px}
+.ov{align-items:center;padding:1.5rem}
+.modal{border-radius:6px}
 }
 .tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.5rem}
-.tag{font-family:"IBM Plex Mono";font-size:.66rem;border:1px solid var(--line);padding:.08rem .4rem;
- border-radius:2px;color:var(--muted)}
-.tag.new{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
-.tag.on{border-color:#C3D5E2;background:var(--soft);color:var(--deep)}
+.tag{font-family:“IBM Plex Mono”;font-size:.66rem;border:1px solid var(–line);padding:.08rem .4rem;
+border-radius:2px;color:var(–muted)}
+.tag.new{border-color:var(–amber);background:var(–amber-soft);color:#8A5A12}
+.tag.on{border-color:#C3D5E2;background:var(–soft);color:var(–deep)}
 .tag.warn{border-color:#E0BE86;background:#FBF0DC;color:#8A5A12}
 .job.unv{border-inline-start:3px solid #E0BE86}
 .toggle{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#AFC1CE;
- padding:.45rem .1rem;cursor:pointer;width:100%}
-.toggle .sw{width:32px;height:18px;border-radius:9px;background:var(--board-3);position:relative;flex:none;transition:background .16s}
+padding:.45rem .1rem;cursor:pointer;width:100%}
+.toggle .sw{width:32px;height:18px;border-radius:9px;background:var(–board-3);position:relative;flex:none;transition:background .16s}
 .toggle .sw i{position:absolute;top:2px;inset-inline-start:2px;width:14px;height:14px;border-radius:50%;
- background:#8FA3B4;transition:transform .16s,background .16s}
-.toggle[aria-pressed="true"] .sw{background:var(--amber)}
-.toggle[aria-pressed="true"] .sw i{background:#fff;transform:translateX(-14px)}
-.toggle[aria-pressed="true"]{color:#fff}
+background:#8FA3B4;transition:transform .16s,background .16s}
+.toggle[aria-pressed=“true”] .sw{background:var(–amber)}
+.toggle[aria-pressed=“true”] .sw i{background:#fff;transform:translateX(-14px)}
+.toggle[aria-pressed=“true”]{color:#fff}
 .actions{display:flex;flex-direction:column;gap:.3rem;min-width:108px}
 .btn{display:block;text-align:center;padding:.42rem .8rem;border-radius:3px;font-size:.82rem;
- font-weight:600;text-decoration:none;border:1px solid transparent}
-.btn.primary{background:var(--ink);color:#fff}
-.btn.primary:hover{background:var(--deep)}
-.btn.wa{background:var(--wa);color:#fff}
-.btn.ghost{border-color:var(--line);color:var(--muted);font-weight:400}
-.btn.ghost[aria-pressed="true"]{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
-.btn.amber{background:var(--amber);color:var(--board)}
+font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.primary{background:var(–ink);color:#fff}
+.btn.primary:hover{background:var(–deep)}
+.btn.wa{background:var(–wa);color:#fff}
+.btn.ghost{border-color:var(–line);color:var(–muted);font-weight:400}
+.btn.ghost[aria-pressed=“true”]{border-color:var(–amber);background:var(–amber-soft);color:#8A5A12}
+.btn.amber{background:var(–amber);color:var(–board)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
-.more{margin:.8rem auto 0;display:block;border:1px solid var(--line);background:var(--card);
- padding:.6rem 1.6rem;border-radius:3px;color:var(--deep);font-weight:600}
+.more{margin:.8rem auto 0;display:block;border:1px solid var(–line);background:var(–card);
+padding:.6rem 1.6rem;border-radius:3px;color:var(–deep);font-weight:600}
 
 /* إعلانات */
-.ad{background:linear-gradient(180deg,#fff,#FAFCFD);border:1px solid var(--line);
- border-inline-start:3px solid var(--amber);border-radius:3px;padding:.85rem 1rem;position:relative}
-.ad .lbl{position:absolute;inset-inline-end:.6rem;top:.5rem;font-family:"IBM Plex Mono";
- font-size:.6rem;color:var(--faint);border:1px solid var(--line);padding:0 .3rem;border-radius:2px}
+.ad{background:linear-gradient(180deg,#fff,#FAFCFD);border:1px solid var(–line);
+border-inline-start:3px solid var(–amber);border-radius:3px;padding:.85rem 1rem;position:relative}
+.ad .lbl{position:absolute;inset-inline-end:.6rem;top:.5rem;font-family:“IBM Plex Mono”;
+font-size:.6rem;color:var(–faint);border:1px solid var(–line);padding:0 .3rem;border-radius:2px}
 .ad h3{font-size:.98rem;margin-bottom:.2rem}
-.ad p{margin:.2rem 0 .6rem;font-size:.85rem;color:var(--muted)}
-.ad .adv{font-size:.72rem;color:var(--faint)}
-.ad.rail{background:var(--board-2);border-color:var(--board-3);border-inline-start-color:var(--amber);color:#DCE6ED}
+.ad p{margin:.2rem 0 .6rem;font-size:.85rem;color:var(–muted)}
+.ad .adv{font-size:.72rem;color:var(–faint)}
+.ad.rail{background:var(–board-2);border-color:var(–board-3);border-inline-start-color:var(–amber);color:#DCE6ED}
 .ad.rail h3{color:#fff;font-size:.9rem}
 .ad.rail p{color:#AFC1CE;font-size:.8rem}
-.adslot{border:1px dashed var(--line);background:var(--card);padding:1rem;text-align:center;
- font-size:.84rem;color:var(--faint);border-radius:3px}
+.adslot{border:1px dashed var(–line);background:var(–card);padding:1rem;text-align:center;
+font-size:.84rem;color:var(–faint);border-radius:3px}
 
 /* لوحات ونماذج */
-.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
+.panel{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
 .panel h2{font-size:1.1rem;margin-bottom:.35rem}
-.panel p{margin:.25rem 0;font-size:.88rem;color:var(--muted)}
+.panel p{margin:.25rem 0;font-size:.88rem;color:var(–muted)}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
-.form label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.22rem}
+.form label{display:block;font-size:.78rem;color:var(–muted);margin-bottom:.22rem}
 .form .wide{grid-column:1/-1}
-.note{font-size:.78rem;color:var(--faint)}
-.ok{background:#E7F4EE;border:1px solid #B8DCCB;color:var(--ok);padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
+.note{font-size:.78rem;color:var(–faint)}
+.ok{background:#E7F4EE;border:1px solid #B8DCCB;color:var(–ok);padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
 .err{background:#FBECEA;border:1px solid #E8C4BF;color:#A3392F;padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:.55rem}
-.gcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem;
- display:flex;flex-direction:column;gap:.45rem}
+.gcard{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.85rem;
+display:flex;flex-direction:column;gap:.45rem}
 .gcard h3{font-size:.94rem}
 .subtabs{display:flex;gap:.3rem;margin-bottom:.7rem}
-.subtab{padding:.4rem .9rem;border:1px solid var(--line);border-radius:3px;font-size:.86rem;color:var(--muted)}
-.subtab[aria-pressed="true"]{background:var(--board);border-color:var(--board);color:#fff}
-.empty{border:1px dashed var(--line);background:var(--card);padding:2.6rem 1.4rem;text-align:center;color:var(--muted)}
-.empty b{display:block;font-family:"Noto Kufi Arabic";color:var(--ink);margin-bottom:.25rem}
+.subtab{padding:.4rem .9rem;border:1px solid var(–line);border-radius:3px;font-size:.86rem;color:var(–muted)}
+.subtab[aria-pressed=“true”]{background:var(–board);border-color:var(–board);color:#fff}
+.empty{border:1px dashed var(–line);background:var(–card);padding:2.6rem 1.4rem;text-align:center;color:var(–muted)}
+.empty b{display:block;font-family:“Noto Kufi Arabic”;color:var(–ink);margin-bottom:.25rem}
 .dim{opacity:.5}
-.adminnote{margin:.45rem 0 0;font-size:.8rem;background:var(--amber-soft);border-inline-start:2px solid var(--amber);
- padding:.35rem .55rem;border-radius:2px;color:#8A5A12}
-.hello{background:var(--card);border:1px solid var(--line);border-inline-start:3px solid var(--amber);
- border-radius:3px;padding:.8rem 1rem;margin-bottom:.7rem}
+.adminnote{margin:.45rem 0 0;font-size:.8rem;background:var(–amber-soft);border-inline-start:2px solid var(–amber);
+padding:.35rem .55rem;border-radius:2px;color:#8A5A12}
+.hello{background:var(–card);border:1px solid var(–line);border-inline-start:3px solid var(–amber);
+border-radius:3px;padding:.8rem 1rem;margin-bottom:.7rem}
 .hello h2{font-size:1.02rem;margin-bottom:.15rem}
-.hello p{margin:0;font-size:.85rem;color:var(--muted)}
-.consult{background:var(--board);color:#DCE6ED;border-radius:3px;padding:1rem 1.1rem;margin:.7rem 0;
- display:flex;gap:1rem;align-items:center;flex-wrap:wrap;border-inline-start:3px solid var(--amber)}
+.hello p{margin:0;font-size:.85rem;color:var(–muted)}
+.consult{background:var(–board);color:#DCE6ED;border-radius:3px;padding:1rem 1.1rem;margin:.7rem 0;
+display:flex;gap:1rem;align-items:center;flex-wrap:wrap;border-inline-start:3px solid var(–amber)}
 .consult img{border-radius:4px;flex:none}
-.consult h3{font-size:1rem;color:var(--amber);margin-bottom:.15rem}
+.consult h3{font-size:1rem;color:var(–amber);margin-bottom:.15rem}
 .consult p{margin:0;font-size:.84rem;color:#AFC1CE}
 .consult .cta{display:flex;gap:.4rem;margin-inline-start:auto;flex-wrap:wrap}
-.tree{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem 1.1rem;font-size:.88rem}
+.tree{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.9rem 1.1rem;font-size:.88rem}
 .tree details{margin:.15rem 0}
 .tree summary{cursor:pointer;padding:.28rem 0;list-style:none;display:flex;justify-content:space-between;gap:.5rem}
 .tree summary::-webkit-details-marker{display:none}
-.tree summary::before{content:"▸";display:inline-block;margin-inline-end:.4rem;color:var(--faint);transition:transform .15s}
+.tree summary::before{content:“▸”;display:inline-block;margin-inline-end:.4rem;color:var(–faint);transition:transform .15s}
 .tree details[open]>summary::before{transform:rotate(-90deg)}
 .tree summary b{font-weight:500}
-.tree .n{font-family:"IBM Plex Mono";font-size:.78rem;color:var(--muted)}
-.tree .lvl2{margin-inline-start:1.1rem;border-inline-start:1px solid var(--line);padding-inline-start:.7rem}
-.tree .lvl3{margin-inline-start:1.1rem;color:var(--muted);display:flex;justify-content:space-between;padding:.2rem 0}
+.tree .n{font-family:“IBM Plex Mono”;font-size:.78rem;color:var(–muted)}
+.tree .lvl2{margin-inline-start:1.1rem;border-inline-start:1px solid var(–line);padding-inline-start:.7rem}
+.tree .lvl3{margin-inline-start:1.1rem;color:var(–muted);display:flex;justify-content:space-between;padding:.2rem 0}
 .stat{display:grid;grid-template-columns:1fr auto;gap:.3rem;align-items:center;font-size:.85rem;margin:.35rem 0}
-.stat .track{grid-column:1/-1;height:4px;background:var(--soft);border-radius:9px;overflow:hidden}
-.stat .fill{display:block;height:100%;background:var(--deep)}
-.tips li{margin:.3rem 0;font-size:.87rem;color:var(--muted)}
-.tips b{color:var(--ink)}
+.stat .track{grid-column:1/-1;height:4px;background:var(–soft);border-radius:9px;overflow:hidden}
+.stat .fill{display:block;height:100%;background:var(–deep)}
+.tips li{margin:.3rem 0;font-size:.87rem;color:var(–muted)}
+.tips b{color:var(–ink)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 @media (max-width:900px){.two{grid-template-columns:1fr}.consult .cta{margin-inline-start:0;width:100%}}
-footer{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.78rem;color:var(--muted)}
+footer{margin-top:2rem;border-top:1px solid var(–line);padding-top:1rem;font-size:.78rem;color:var(–muted)}
 footer p{margin:.25rem 0}
-.credit{display:flex;align-items:center;gap:.7rem;color:var(--ink);margin-top:.6rem}
+.credit{display:flex;align-items:center;gap:.7rem;color:var(–ink);margin-top:.6rem}
 .credit img{border-radius:4px;flex:none}
-.credit b{font-family:"Noto Kufi Arabic"}
+.credit b{font-family:“Noto Kufi Arabic”}
 
 @media (max-width:900px){
-  .app{grid-template-columns:1fr}
-  .rail{position:fixed;inset-inline-start:0;top:0;width:min(290px,86vw);z-index:40;transform:translateX(100%)}
-  body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.55)}
-  body.open::after{content:"";position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
-  .menu-btn{display:block;background:var(--board);color:#fff;padding:.55rem .85rem;border-radius:3px;
-   font-size:.84rem;font-weight:600}
-  .kpis{grid-template-columns:repeat(2,1fr)}
-  .job{grid-template-columns:38px 1fr}
-  .slot{width:38px;height:38px}
-  .actions{grid-column:1/-1;flex-direction:row}
-  .actions .btn{flex:1}
-  .form{grid-template-columns:1fr}
+.app{grid-template-columns:1fr}
+.rail{position:fixed;inset-inline-start:0;top:0;width:min(290px,86vw);z-index:40;transform:translateX(100%)}
+body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.55)}
+body.open::after{content:””;position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
+.menu-btn{display:block;background:var(–board);color:#fff;padding:.55rem .85rem;border-radius:3px;
+font-size:.84rem;font-weight:600}
+.kpis{grid-template-columns:repeat(2,1fr)}
+.job{grid-template-columns:38px 1fr}
+.slot{width:38px;height:38px}
+.actions{grid-column:1/-1;flex-direction:row}
+.actions .btn{flex:1}
+.form{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+
 </head>
 <body>
 <div class="app">
@@ -310,7 +312,7 @@ footer p{margin:.25rem 0}
     <div><b>شواغر</b><span class="mono">SHAWAGHER</span></div>
   </div>
 
-  <button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
+<button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
 
   <div class="railsec">
     <h4>المصدر</h4>
@@ -372,6 +374,7 @@ footer p{margin:.25rem 0}
   <div id="heroAd"></div>
 
   <!-- ============ الشواغر ============ -->
+
   <section id="viewJobs">
     <div class="hello">
       <h2 id="greet">أهلاً بك في شواغر</h2>
@@ -393,6 +396,7 @@ footer p{margin:.25rem 0}
   </section>
 
   <!-- ============ التحليلات والنصائح ============ -->
+
   <section id="viewStats" hidden>
     <div class="hello"><h2 id="greet2">لوحة التحليلات</h2>
       <p>توزيع الشواغر حسب المصدر والدولة والمجال، ونصائح تزوّد فرصتك.</p></div>
@@ -408,51 +412,56 @@ footer p{margin:.25rem 0}
   </section>
 
   <!-- ============ خدمات الموظفين ============ -->
+
   <section id="viewServices" hidden>
     <div class="hello"><h2>خدمات الموظفين</h2>
       <p>حاسبات جاهزة تساعدك تعرف حقوقك قبل ما تقرر</p></div>
 
-    <div class="panel">
-      <h2>حاسبة مكافأة نهاية الخدمة — الكويت</h2>
-      <p>حسب قانون العمل الكويتي رقم ٦ لسنة ٢٠١٠، المادة ٥١: ١٥ يوم عن كل سنة في أول ٥ سنوات،
-         وشهر عن كل سنة بعد كده، بحد أقصى راتب سنة ونصف.</p>
+```
+<div class="panel">
+  <h2>حاسبة مكافأة نهاية الخدمة — الكويت</h2>
+  <p>حسب قانون العمل الكويتي رقم ٦ لسنة ٢٠١٠، المادة ٥١: ١٥ يوم عن كل سنة في أول ٥ سنوات،
+     وشهر عن كل سنة بعد كده، بحد أقصى راتب سنة ونصف.</p>
 
-      <div class="form">
-        <div><label>الراتب الشهري الشامل (د.ك) *</label>
-          <input id="eSalary" type="number" inputmode="decimal" placeholder="500"></div>
-        <div><label>نظام الأجر</label><select id="ePay">
-          <option value="month">شهري</option><option value="day">يومي / بالساعة</option></select></div>
-        <div><label>تاريخ بداية العمل *</label><input id="eStart" type="date"></div>
-        <div><label>تاريخ نهاية العمل *</label><input id="eEnd" type="date"></div>
-        <div><label>سبب انتهاء العلاقة</label><select id="eReason">
-          <option value="term">إنهاء من صاحب العمل / انتهاء العقد</option>
-          <option value="resign">استقالة</option>
-          <option value="art41">ترك العمل لسبب مشروع (م.٤١)</option>
-        </select></div>
-        <div><label>رصيد إجازات غير مستخدمة (أيام)</label>
-          <input id="eLeave" type="number" inputmode="numeric" placeholder="0"></div>
-        <div class="wide"><button class="btn amber" id="eCalc" style="padding:.6rem 1.8rem">احسب</button></div>
-      </div>
+  <div class="form">
+    <div><label>الراتب الشهري الشامل (د.ك) *</label>
+      <input id="eSalary" type="number" inputmode="decimal" placeholder="500"></div>
+    <div><label>نظام الأجر</label><select id="ePay">
+      <option value="month">شهري</option><option value="day">يومي / بالساعة</option></select></div>
+    <div><label>تاريخ بداية العمل *</label><input id="eStart" type="date"></div>
+    <div><label>تاريخ نهاية العمل *</label><input id="eEnd" type="date"></div>
+    <div><label>سبب انتهاء العلاقة</label><select id="eReason">
+      <option value="term">إنهاء من صاحب العمل / انتهاء العقد</option>
+      <option value="resign">استقالة</option>
+      <option value="art41">ترك العمل لسبب مشروع (م.٤١)</option>
+    </select></div>
+    <div><label>رصيد إجازات غير مستخدمة (أيام)</label>
+      <input id="eLeave" type="number" inputmode="numeric" placeholder="0"></div>
+    <div class="wide"><button class="btn amber" id="eCalc" style="padding:.6rem 1.8rem">احسب</button></div>
+  </div>
 
-      <div id="eOut" style="margin-top:.9rem"></div>
-      <p class="note" style="margin-top:.8rem">النتيجة تقديرية للاسترشاد فقط. الحساب النهائي بيعتمد على
-         تفاصيل العقد وأي بدلات ثابتة، وفي الخلاف المرجع هو وزارة الشؤون أو محامٍ مختص.</p>
-    </div>
+  <div id="eOut" style="margin-top:.9rem"></div>
+  <p class="note" style="margin-top:.8rem">النتيجة تقديرية للاسترشاد فقط. الحساب النهائي بيعتمد على
+     تفاصيل العقد وأي بدلات ثابتة، وفي الخلاف المرجع هو وزارة الشؤون أو محامٍ مختص.</p>
+</div>
 
-    <div class="panel">
-      <h2>حقوق سريعة تحت إيدك</h2>
-      <ul class="tips">
-        <li><b>الإجازة السنوية:</b> ٣٠ يوم مدفوعة بعد إتمام ٩ شهور خدمة، وبتتراكم ولك حق تعويضها نقداً عند الترك.</li>
-        <li><b>مهلة الإخطار:</b> ٣ شهور للأجر الشهري و١ شهر لغيره — من أي طرف.</li>
-        <li><b>ساعات العمل:</b> ٨ ساعات يومياً / ٤٨ أسبوعياً، والإضافي بأجر إضافي لا يقل عن ٢٥٪.</li>
-        <li><b>إجازة مرضية:</b> ٧٥ يوم متدرجة (١٥ بأجر كامل، ١٠ بثلاثة أرباع، ١٠ بنصف، ١٠ بربع، ٣٠ بدون).</li>
-        <li><b>ممنوع تحصيل رسوم توظيف من العامل</b> — أي طلب فلوس مقابل الوظيفة أو التأشيرة مخالف للقانون.</li>
-      </ul>
-    </div>
-    <div class="consult" id="consultBox3"></div>
+<div class="panel">
+  <h2>حقوق سريعة تحت إيدك</h2>
+  <ul class="tips">
+    <li><b>الإجازة السنوية:</b> ٣٠ يوم مدفوعة بعد إتمام ٩ شهور خدمة، وبتتراكم ولك حق تعويضها نقداً عند الترك.</li>
+    <li><b>مهلة الإخطار:</b> ٣ شهور للأجر الشهري و١ شهر لغيره — من أي طرف.</li>
+    <li><b>ساعات العمل:</b> ٨ ساعات يومياً / ٤٨ أسبوعياً، والإضافي بأجر إضافي لا يقل عن ٢٥٪.</li>
+    <li><b>إجازة مرضية:</b> ٧٥ يوم متدرجة (١٥ بأجر كامل، ١٠ بثلاثة أرباع، ١٠ بنصف، ١٠ بربع، ٣٠ بدون).</li>
+    <li><b>ممنوع تحصيل رسوم توظيف من العامل</b> — أي طلب فلوس مقابل الوظيفة أو التأشيرة مخالف للقانون.</li>
+  </ul>
+</div>
+<div class="consult" id="consultBox3"></div>
+```
+
   </section>
 
   <!-- ============ لوحة الإدارة ============ -->
+
   <section id="viewAdmin" hidden>
     <div class="panel">
       <h2>لوحة الإدارة</h2>
@@ -466,27 +475,66 @@ footer p{margin:.25rem 0}
       <div id="viewsChart" style="margin-top:.9rem"></div>
     </div>
     <div class="panel">
-      <h2>أدوات الإدارة</h2>
-      <p>حوّل إعلانات جروبات واتساب لوظائف على الموقع — انسخ الرسالة، الأداة تحلّلها وتطلعلك ملف جاهز.</p>
-      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
-        <a class="btn wa" href="whatsapp-import.html" target="_blank" style="padding:.55rem 1.2rem">أداة استيراد واتساب</a>
-        <a class="btn ghost" href="promo.html" target="_blank" style="padding:.55rem 1.2rem">العرض الدعائي</a>
-      </div>
-      <p class="note" style="margin-top:.6rem">بعد التنزيل: ارفع محتوى الملف في
-        <b>web/data/manual.json</b> على GitHub، والوظائف تظهر خلال دقيقتين.</p>
-    </div>
+      <h2>استيراد وظائف من واتساب</h2>
+      <p>ارفع ملف تصدير الجروب (<b>.zip</b> أو <b>_chat.txt</b>) أو الصق رسائل مباشرة —
+         الأداة تفصل الإعلانات وتستخرج المسمى والجهة والمكان ورقم التواصل.</p>
+      <p class="note">في واتساب: افتح الجروب ← ⋮ ← المزيد ← تصدير الدردشة ← بدون وسائط.</p>
 
-    <div class="panel">
-      <h2>إعلانات تحت المراجعة</h2>
-      <div class="list" id="pending"></div>
+```
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.8rem 0 .5rem">
+    <label class="btn wa" style="padding:.55rem 1.2rem;cursor:pointer">
+      اختر ملف التصدير<input id="waFile" type="file" accept=".zip,.txt" hidden></label>
+    <span class="note" id="waFileName">مفيش ملف</span>
+  </div>
+
+  <textarea id="waPaste" placeholder="أو الصق الرسائل هنا..." style="min-height:110px"></textarea>
+  <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem">
+    <button class="btn amber" id="waParse" style="padding:.55rem 1.4rem">حلّل</button>
+    <button class="btn ghost" id="waClear" style="padding:.55rem 1rem">مسح</button>
+    <span class="note" id="waStat"></span>
+  </div>
+
+  <div id="waResult" hidden style="margin-top:1rem">
+    <div style="overflow-x:auto"><table id="waTbl" style="width:100%;border-collapse:collapse;font-size:.84rem">
+      <thead><tr>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">المسمى</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">الجهة</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">الدولة</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">المجال</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">التقديم</th>
+        <th style="border-bottom:1px solid var(--line)"></th>
+      </tr></thead><tbody></tbody>
+    </table></div>
+    <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem;align-items:center">
+      <button class="btn amber" id="waPublish" style="padding:.6rem 1.5rem">انشر على الموقع</button>
+      <button class="btn ghost" id="waDownload" style="padding:.6rem 1.2rem">نزّل manual.json</button>
+      <span class="note" id="waMsg"></span>
     </div>
-    <div class="panel">
-      <h2>آخر الملاحظات</h2>
-      <div id="notesList"></div>
-    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>أدوات أخرى</h2>
+  <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+    <a class="btn ghost" href="daily.html" target="_blank" style="padding:.55rem 1.2rem">استعراض وظائف اليوم</a>
+    <a class="btn ghost" href="promo.html" target="_blank" style="padding:.55rem 1.2rem">العرض الدعائي</a>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>إعلانات تحت المراجعة</h2>
+  <div class="list" id="pending"></div>
+</div>
+<div class="panel">
+  <h2>آخر الملاحظات</h2>
+  <div id="notesList"></div>
+</div>
+```
+
   </section>
 
   <!-- ============ الجروبات ============ -->
+
   <section id="viewGroups" hidden>
     <div class="panel" style="border-inline-start:3px solid var(--wa)">
       <h2>جروبات وقنوات واتساب</h2>
@@ -505,50 +553,55 @@ footer p{margin:.25rem 0}
   </section>
 
   <!-- ============ نشر وظيفة ============ -->
+
   <section id="viewPost" hidden>
     <div class="panel">
       <h2>انشر وظيفة</h2>
       <p>مجاني بالكامل. الإعلان بيتراجع قبل النشر عشان نمنع الإعلانات الوهمية، وبيظهر خلال ساعات.</p>
       <p class="note" id="postMode"></p>
 
-      <div id="postMsg"></div>
+```
+  <div id="postMsg"></div>
 
-      <div class="form" id="postForm">
-        <div><label>المسمى الوظيفي *</label><input id="pTitle" placeholder="محاسب أول"></div>
-        <div><label>الجهة / الشركة *</label><input id="pCompany" placeholder="شركة ..."></div>
-        <div><label>الدولة *</label><select id="pCountry"></select></div>
-        <div><label>المدينة / المنطقة</label><input id="pCity" placeholder="حولي"></div>
-        <div><label>المجال</label><select id="pCat"></select></div>
-        <div><label>المستوى</label><select id="pLevel"></select></div>
-        <div><label>نوع الدوام</label><select id="pType">
-          <option value="full_time">دوام كامل</option><option value="part_time">دوام جزئي</option>
-          <option value="contract">عقد / مشروع</option><option value="internship">تدريب</option>
-        </select></div>
-        <div><label>الراتب (اختياري)</label><input id="pSalary" placeholder="حسب الخبرة"></div>
-        <div class="wide"><label>وسيلة التقديم * — رقم واتساب أو إيميل أو رابط</label>
-          <input id="pApply" placeholder="96599112233 أو hr@company.com أو رابط"></div>
-        <div class="wide"><label>تفاصيل مختصرة</label>
-          <textarea id="pSummary" placeholder="المهام المطلوبة، الخبرة، أي شروط..."></textarea></div>
-        <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
-          <button class="btn amber" id="pSend" style="padding:.6rem 1.6rem">انشر الوظيفة</button>
-          <span class="note">بالنشر أنت تقرّ إن الإعلان حقيقي وإنك مسؤول عن بياناته.</span>
-        </div>
-      </div>
+  <div class="form" id="postForm">
+    <div><label>المسمى الوظيفي *</label><input id="pTitle" placeholder="محاسب أول"></div>
+    <div><label>الجهة / الشركة *</label><input id="pCompany" placeholder="شركة ..."></div>
+    <div><label>الدولة *</label><select id="pCountry"></select></div>
+    <div><label>المدينة / المنطقة</label><input id="pCity" placeholder="حولي"></div>
+    <div><label>المجال</label><select id="pCat"></select></div>
+    <div><label>المستوى</label><select id="pLevel"></select></div>
+    <div><label>نوع الدوام</label><select id="pType">
+      <option value="full_time">دوام كامل</option><option value="part_time">دوام جزئي</option>
+      <option value="contract">عقد / مشروع</option><option value="internship">تدريب</option>
+    </select></div>
+    <div><label>الراتب (اختياري)</label><input id="pSalary" placeholder="حسب الخبرة"></div>
+    <div class="wide"><label>وسيلة التقديم * — رقم واتساب أو إيميل أو رابط</label>
+      <input id="pApply" placeholder="96599112233 أو hr@company.com أو رابط"></div>
+    <div class="wide"><label>تفاصيل مختصرة</label>
+      <textarea id="pSummary" placeholder="المهام المطلوبة، الخبرة، أي شروط..."></textarea></div>
+    <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+      <button class="btn amber" id="pSend" style="padding:.6rem 1.6rem">انشر الوظيفة</button>
+      <span class="note">بالنشر أنت تقرّ إن الإعلان حقيقي وإنك مسؤول عن بياناته.</span>
     </div>
+  </div>
+</div>
 
-    <div class="panel" id="mineBox" hidden>
-      <h2>إعلاناتي</h2>
-      <div class="list" id="mine"></div>
-    </div>
+<div class="panel" id="mineBox" hidden>
+  <h2>إعلاناتي</h2>
+  <div class="list" id="mine"></div>
+</div>
 
-    <div class="panel">
-      <h2>للشركات — إعلانات مدفوعة</h2>
-      <p>عايز إعلانك يظهر في أعلى الصفحة أو بين الوظائف لجمهور الباحثين عن عمل في الخليج ومصر؟</p>
-      <a class="btn primary" id="adCta" href="#" style="display:inline-block;margin-top:.5rem;padding:.5rem 1.3rem">تواصل معنا</a>
-    </div>
+<div class="panel">
+  <h2>للشركات — إعلانات مدفوعة</h2>
+  <p>عايز إعلانك يظهر في أعلى الصفحة أو بين الوظائف لجمهور الباحثين عن عمل في الخليج ومصر؟</p>
+  <a class="btn primary" id="adCta" href="#" style="display:inline-block;margin-top:.5rem;padding:.5rem 1.3rem">تواصل معنا</a>
+</div>
+```
+
   </section>
 
   <!-- ============ المحفوظة ============ -->
+
   <section id="viewSaved" hidden>
     <div class="list" id="savedList"></div>
   </section>
@@ -662,15 +715,22 @@ const ar = n => Number(n).toLocaleString("ar-EG");
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const opts = (map, sel) => Object.entries(map).map(([v,l]) =>
   `<option value="${v}"${v===sel?" selected":""}>${l}</option>`).join("");
-const PHONE_RE = /(?:\+|00)?(?:965|966|971|974|973|968|20)[\s-]?\d{7,10}|\b\d{8}\b/;
+const PHONE_RE = /(?:\+|00)?(?:965|966|971|974|973|968|20)[\s-]?\d{7,10}|\b01\d{9}\b|\b05\d{8}\b|\b\d{8}\b/;
 const MAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]+/;
+function normPhone(raw, country){
+  let d = String(raw).replace(/[^\d]/g, "").replace(/^00/, "");
+  if(/^01\d{9}$/.test(d)) return "2" + d;                 // مصر
+  if(/^05\d{8}$/.test(d)) return "966" + d.slice(1);      // السعودية
+  if(/^0\d{8,9}$/.test(d) && country === "AE") return "971" + d.slice(1);
+  if(d.length === 8) return (country === "EG" ? "20" : "965") + d;
+  return d;
+}
 function contactOf(j){
   const text = `${j.summary || ""} ${j.title || ""}`;
   const m = text.match(PHONE_RE);
   if(m){
-    let d = m[0].replace(/[^\d]/g, "").replace(/^00/, "");
-    if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "") + d;
-    if(d.length >= 10) return {kind:"wa", value:d, url:"https://wa.me/" + d};
+    const d = normPhone(m[0], j.country);
+    if(d.length >= 10 && d.length <= 15) return {kind:"wa", value:d, url:"https://wa.me/" + d};
   }
   const e = text.match(MAIL_RE);
   if(e) return {kind:"mail", value:e[0], url:"mailto:" + e[0]};
@@ -1006,6 +1066,191 @@ function linkify(text, j){
       if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "965") + d;
       return `<a class="inlink" href="https://wa.me/${d}" target="_blank" rel="noopener">✆ ${m.trim()}</a>`;
     });
+}
+
+/* ══════════ استيراد واتساب (مدمج) ══════════ */
+const WA_CITIES = {
+  KW:["الكويت","حولي","السالمية","الفروانية","الجهراء","الأحمدي","مبارك الكبير","الفحيحيل","الشويخ","خيطان","صباح السالم","المهبولة","الري"],
+  SA:["الرياض","جدة","الدمام","الخبر","مكة","المدينة","الطائف","تبوك","أبها","القصيم","الجبيل","ينبع","الباحة"],
+  AE:["دبي","أبوظبي","الشارقة","عجمان","العين","رأس الخيمة","الفجيرة"],
+  QA:["الدوحة","الوكرة","الريان"], BH:["المنامة","المحرق","الرفاع"], OM:["مسقط","صلالة","صحار","نزوى"],
+  EG:["القاهرة","الجيزة","الإسكندرية","المعادي","مدينة نصر","التجمع","أكتوبر","الشيخ زايد","المنصورة","طنطا","أسيوط","الزقازيق","بورسعيد","السويس","الغردقة","المهندسين"],
+};
+const WA_COUNTRY = {KW:["الكويت","kuwait"],SA:["السعودية","saudi","المملكة العربية"],AE:["الإمارات","دبي","uae"],
+  QA:["قطر","qatar"],BH:["البحرين","bahrain"],OM:["سلطنة عمان","oman"],EG:["مصر","egypt"]};
+const WA_CATS = [
+  ["accounting",["محاسب","محاسبة","مالي","مدقق","مراجع","ضريب","accountant"]],
+  ["it",["مبرمج","مطور","برمج","شبكات","دعم فني","odoo","أودو","developer","software","بيانات"]],
+  ["sales",["مبيعات","مندوب","تسويق","سيلز","تجاري","sales","marketing"]],
+  ["hr",["موارد بشرية","شؤون موظفين","توظيف","hr"]],
+  ["ops",["مخازن","مخزن","لوجستي","سائق","تشغيل","إنتاج","عمال","فني","دهان","نجار","حداد","كهربائي","سباك"]],
+  ["service",["خدمة عملاء","كول سنتر","كاشير","استقبال","مضيف","ويتر","بائع","شيف","طباخ"]],
+  ["health",["طبيب","ممرض","صيدل","أخصائي علاج","مختبر","أسنان"]],
+  ["education",["معلم","مدرس","مدرّس","أكاديمي","مدرسة","حضانة"]],
+];
+const WA_LEVELS = [["executive",["مدير عام","رئيس تنفيذي"]],["manager",["مدير","رئيس قسم"]],
+  ["supervisor",["مشرف","ملاحظ"]],["senior",["أول","خبير","استشاري"]],
+  ["entry",["حديث التخرج","مبتدئ","خريج","بدون خبرة"]],
+  ["worker",["عامل","عمال","سائق","حارس","نظافة","فني","دهان","نجار","حداد","سباك","كهربائي","طباخ"]]];
+const WA_SCAM = ["رسوم تقديم","مبلغ رمزي","ادفع","ربح من المنزل","استثمار","تداول","فوركس","تسويق شبكي","كريبتو"];
+const WA_SKIP = /(joined using|added|created group|changed this group|Messages and calls|omitted|deleted|تم حذف|غيّر|انضم|أضاف)/i;
+
+let waRows = [];
+
+function waPick(text, rules, dflt){
+  const t = text.toLowerCase();
+  for(const [v, keys] of rules) if(keys.some(k => t.includes(k.toLowerCase()))) return v;
+  return dflt;
+}
+function waHas(text, word){
+  // مطابقة بحدود عربية: تمنع "الخبر" من التقاط "الخبرة" و"الري" من "الرياض"
+  const re = new RegExp("(^|[^\\p{L}])" + word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+    + "($|[^\\p{L}])", "u");
+  return re.test(text);
+}
+function waCountry(t){
+  for(const [c, w] of Object.entries(WA_COUNTRY)) if(w.some(x => waHas(t, x) || t.toLowerCase().includes(x.toLowerCase()) && x.length > 5)) return c;
+  for(const [c, cities] of Object.entries(WA_CITIES)) if(cities.some(x => waHas(t, x))) return c;
+  return "";
+}
+function waCity(t, c){ return (WA_CITIES[c] || []).find(x => waHas(t, x)) || ""; }
+const WA_ROLE = /(محاسب\w*|مدير\w*|مشرف\w*|مندوب\w*|سائق\w*|مبرمج\w*|مطور\w*|مهندس\w*|فني\w*|فنى\w*|عامل\w*|عمال|كاشير|طباخ|شيف|ممرض\w*|طبيب\w*|صيدل\w*|معلم\w*|مدرس\w*|سكرتير\w*|موظف\w*|أخصائي\w*|اخصائى\w*|أخصائى\w*|مسؤول\w*|مساعد\w*|بائع\w*|دهان\w*|نجار\w*|حداد\w*|سباك\w*|كهربائي\w*|خدمة عملاء|موارد بشرية|مبيعات|تسويق|حارس\w*|مضيف\w*)/u;
+function waTitle(t){
+  const clean = x => x.replace(/[^\p{L}\p{N}\s\-()\/]/gu, " ").replace(/\s+/g, " ").trim();
+  const lines = t.split("\n").map(clean).filter(Boolean);
+  for(const ln of lines.slice(0, 8)){
+    const m = ln.match(WA_ROLE);
+    if(!m) continue;
+    let out = ln.slice(m.index)
+      .replace(/\s*(للعمل|للتعيين|فورا|فوراً)\s*/g, " ")
+      .split(/\s+[-–—]\s+|\s+(?:في|فى|ب|لدى|لشركة|بشركة|بمدينة|بمنطقة)\s+/)[0];
+    out = clean(out).slice(0, 60);
+    if(out.length > 2) return out;
+  }
+  const first = lines[0] || "";
+  return clean(first.replace(/(مطلوب للعمل|مطلوب|نبحث عن|فرصة عمل|وظيفة شاغرة|وظائف|شاغر|تعلن عن)/i, ""))
+    .replace(/^(في|فى|ب|لدى|ل)\s*/, "").slice(0, 60) || "وظيفة";
+}
+function waCompany(t){
+  const m = t.match(/(?:لدى|لشركة|بشركة|شركة|مؤسسة|مكتب|مجموعة|مطعم|مستشفى|صيدلية|مدرسة|فندق)\s+([^\n،.,:؛·\-–—|\/()]{2,35})/);
+  if(!m) return "إعلان واتساب";
+  let n = m[1].replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
+  n = n.split(/\s+(?:توفر|تعلن|تطلب|بحاجة|تبحث|مطلوب|يطلب|بمدينة|بمنطقة|يوم|في|فى)\s/)[0].trim();
+  return (n.length > 2 && n.length < 45 && /\p{L}/u.test(n)) ? n : "إعلان واتساب";
+}
+function waParseChat(text){
+  const t = text.replace(/[\u200e\u200f\u202a-\u202e\ufeff\u202f]/g, " ");
+  const HEAD = /^\[?(\d{1,2}\/\d{1,2}\/\d{2,4})[,،]?\s+([\d:]+)\s*([APap][Mm]|ص|م)?\]?\s*[-–]?\s*([^:]{1,45}):\s?([\s\S]*)$/;
+  const out = [];
+  let cur = null;
+  for(const raw of t.split(/\r?\n/)){
+    const m = raw.match(HEAD);
+    if(m){
+      if(cur) out.push(cur);
+      cur = {date: m[1], body: m[5] || ""};
+    } else if(cur){ cur.body += "\n" + raw; }
+    else if(raw.trim()){ cur = {date: "", body: raw}; }
+  }
+  if(cur) out.push(cur);
+  return out.length ? out : text.split(/\n\s*\n/).map(b => ({date:"", body:b}));
+}
+function waExtract(text){
+  const rows = [];
+  const seen = new Set();
+  for(const m of waParseChat(text)){
+    const body = m.body.trim();
+    if(body.length < 60 || WA_SKIP.test(body)) continue;
+    if(!/مطلوب|وظيف|شاغر|فرصة عمل|نبحث|تعلن|hiring|vacancy/i.test(body)) continue;
+    if(WA_SCAM.some(x => body.includes(x))) continue;
+    const country = waCountry(body);
+    const title = waTitle(body);
+    const key = (title + country).replace(/\s/g, "").slice(0, 30);
+    if(seen.has(key)) continue;
+    seen.add(key);
+    let posted = null;
+    if(m.date){
+      const [d, mo, y] = m.date.split("/").map(Number);
+      const yy = y < 100 ? 2000 + y : y;
+      const dt = new Date(Date.UTC(yy, mo - 1, d, 9));
+      if(!isNaN(dt)) posted = dt.toISOString();
+    }
+    const j = {title, company_name: waCompany(body), country, city: waCity(body, country),
+      category: waPick(body, WA_CATS, "other"), seniority: waPick(body, WA_LEVELS, "mid"),
+      summary: body.replace(/\s*\n\s*/g, "\n").slice(0, 1200), posted_at: posted, keep: true};
+    const c = contactOf({summary: body, country});
+    j.apply_url = c ? (c.kind === "wa" ? "https://wa.me/" + c.value : "mailto:" + c.value) : "";
+    rows.push(j);
+  }
+  return rows;
+}
+function waRender(){
+  const tb = $("#waTbl").querySelector("tbody");
+  tb.textContent = "";
+  waRows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    tr.style.opacity = r.keep ? 1 : .4;
+    const cell = v => `padding:.35rem;border-bottom:1px solid var(--line)`;
+    tr.innerHTML = `
+      <td style="${cell()}"><input value="${esc(r.title)}" data-f="title"></td>
+      <td style="${cell()}"><input value="${esc(r.company_name)}" data-f="company_name"></td>
+      <td style="${cell()}"><select data-f="country"><option value="">—</option>${
+        Object.entries(COUNTRIES).map(([v,l]) => `<option value="${v}"${v===r.country?" selected":""}>${l}</option>`).join("")}</select></td>
+      <td style="${cell()}"><select data-f="category">${
+        Object.entries(CATEGORIES).map(([v,l]) => `<option value="${v}"${v===r.category?" selected":""}>${l}</option>`).join("")}</select></td>
+      <td style="${cell()}"><input value="${esc(r.apply_url)}" data-f="apply_url" placeholder="رقم أو رابط"></td>
+      <td style="${cell()}"><button class="btn ghost" style="padding:.25rem .6rem;font-size:.75rem">${r.keep ? "استبعد" : "رجّع"}</button></td>`;
+    tr.querySelectorAll("[data-f]").forEach(el => el.addEventListener("input", () => {
+      let v = el.value;
+      if(el.dataset.f === "apply_url" && v && !/^https?:|^mailto:/.test(v)){
+        const d = v.replace(/[^\d]/g, "");
+        if(d.length >= 8) v = "https://wa.me/" + (d.length === 8 ? (r.country === "EG" ? "20" : "965") + d : d);
+      }
+      waRows[i][el.dataset.f] = v;
+    }));
+    tr.querySelector("button").onclick = () => { waRows[i].keep = !waRows[i].keep; waRender(); };
+    tb.appendChild(tr);
+  });
+  const ok = waRows.filter(r => r.keep && r.title && r.apply_url).length;
+  $("#waStat").textContent = `${ar(waRows.length)} إعلان اتقرا · ${ar(ok)} جاهز للنشر`;
+  $("#waResult").hidden = !waRows.length;
+}
+async function waReadFile(file){
+  if(file.name.toLowerCase().endsWith(".txt")) return await file.text();
+  // فك ضغط zip والبحث عن _chat.txt
+  const buf = new Uint8Array(await file.arrayBuffer());
+  const dv = new DataView(buf.buffer);
+  const dec = new TextDecoder("utf-8");
+  for(let i = 0; i < buf.length - 4; i++){
+    if(dv.getUint32(i, true) !== 0x04034b50) continue;
+    const method = dv.getUint16(i + 8, true);
+    const csize = dv.getUint32(i + 18, true);
+    const nlen = dv.getUint16(i + 26, true), elen = dv.getUint16(i + 28, true);
+    const name = dec.decode(buf.slice(i + 30, i + 30 + nlen));
+    if(!/\.txt$/i.test(name)) continue;
+    const start = i + 30 + nlen + elen;
+    const data = buf.slice(start, start + csize);
+    if(method === 0) return dec.decode(data);
+    const ds = new DecompressionStream("deflate-raw");
+    const out = new Response(new Blob([data]).stream().pipeThrough(ds));
+    return await out.text();
+  }
+  throw new Error("مفيش ملف نصي جوه الأرشيف");
+}
+async function waPublish(){
+  const rows = waRows.filter(r => r.keep && r.title && r.apply_url);
+  if(!rows.length){ $("#waMsg").textContent = "مفيش إعلانات جاهزة."; return; }
+  if(!sb){ $("#waMsg").textContent = "محتاج ربط Supabase — استخدم زر التنزيل."; return; }
+  $("#waPublish").disabled = true; $("#waMsg").textContent = "جاري النشر...";
+  const payload = rows.map(r => ({
+    title: r.title, company_name: r.company_name, country: r.country || null, city: r.city || null,
+    category: r.category, seniority: r.seniority, summary: r.summary, apply_url: r.apply_url,
+    status: "approved", submitter_name: "استيراد واتساب", submitter_email: user?.email || null,
+  }));
+  const { error } = await sb.from("job_submissions").insert(payload);
+  $("#waPublish").disabled = false;
+  if(error){ $("#waMsg").innerHTML = `<span style="color:#A3392F">فشل النشر: ${esc(error.message)}</span>`; return; }
+  $("#waMsg").innerHTML = `<span style="color:var(--ok)">تم نشر ${ar(rows.length)} وظيفة ✓</span>`;
+  waRows = []; waRender(); $("#waPaste").value = ""; loadLiveJobs();
 }
 
 /* ══════════ حاسبة نهاية الخدمة (الكويت — ق.٦/٢٠١٠ م.٥١) ══════════ */
@@ -1402,6 +1647,23 @@ async function boot(){
   };
   document.querySelectorAll("#nav button, .postbtn").forEach(b => b.onclick = () => setTab(b.dataset.tab));
   $("#eCalc").onclick = eosCalc;
+  $("#waFile").onchange = async e => {
+    const f = e.target.files[0]; if(!f) return;
+    $("#waFileName").textContent = f.name;
+    try{ $("#waPaste").value = await waReadFile(f); $("#waStat").textContent = "الملف اتقرا — اضغط حلّل"; }
+    catch(err){ $("#waStat").textContent = "مقدرش أقرا الملف: " + err.message; }
+  };
+  $("#waParse").onclick = () => { waRows = waExtract($("#waPaste").value); waRender(); };
+  $("#waClear").onclick = () => { waRows = []; $("#waPaste").value = ""; $("#waFileName").textContent = "مفيش ملف"; waRender(); };
+  $("#waPublish").onclick = waPublish;
+  $("#waDownload").onclick = () => {
+    const rows = waRows.filter(r => r.keep && r.title && r.apply_url)
+      .map(({keep, ...r}) => ({...r, source_kind:"whatsapp", is_direct:true,
+        posted_at: r.posted_at || new Date().toISOString(), employment_type:"full_time", is_remote:false}));
+    const b = new Blob([JSON.stringify({generated_at:new Date().toISOString(), jobs:rows}, null, 1)],
+      {type:"application/json"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "manual.json"; a.click();
+  };
   $("#eEnd").value = new Date().toISOString().slice(0,10);
   document.querySelectorAll(".subtab").forEach(b => b.onclick = () => {
     state.kind = b.dataset.kind;
@@ -1421,5 +1683,6 @@ async function boot(){
 }
 boot();
 </script>
+
 </body>
 </html>
