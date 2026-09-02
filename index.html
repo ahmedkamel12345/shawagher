@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl" data-theme="navy">
 <head>
 <meta charset="utf-8">
@@ -76,307 +77,308 @@ html[data-theme="plain"] body::before{background:none;background-color:#fff}
 
 /* شريط اختيار الثيم */
 .themebar{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin-bottom:.7rem}
-.themebar b{font-size:.7rem;color:var(--faint);font-family:"IBM Plex Mono";margin-inline-end:.2rem}
-.swatch{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);cursor:pointer;
- transition:transform .14s,border-color .14s;position:relative}
+.themebar b{font-size:.7rem;color:var(–faint);font-family:“IBM Plex Mono”;margin-inline-end:.2rem}
+.swatch{width:30px;height:30px;border-radius:50%;border:2px solid var(–line);cursor:pointer;
+transition:transform .14s,border-color .14s;position:relative}
 .swatch:hover{transform:scale(1.08)}
-.swatch[aria-pressed="true"]{border-color:var(--amber);transform:scale(1.1)}
-.swatch[aria-pressed="true"]::after{content:"✓";position:absolute;inset:0;display:grid;place-content:center;
- font-size:.8rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.swatch[aria-pressed=“true”]{border-color:var(–amber);transform:scale(1.1)}
+.swatch[aria-pressed=“true”]::after{content:“✓”;position:absolute;inset:0;display:grid;place-content:center;
+font-size:.8rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
 .swatch.t-paper{background:linear-gradient(135deg,#EFF2F4 50%,#E7962D 50%)}
 .swatch.t-navy{background:linear-gradient(135deg,#193C58 50%,#E7962D 50%)}
 .swatch.t-sand{background:linear-gradient(135deg,#F4EEE3 50%,#A96A1B 50%)}
 .swatch.t-plain{background:linear-gradient(135deg,#FFFFFF 50%,#12293C 50%)}
-body{background:#EFF2F4;background:var(--paper);color:#12293C;color:var(--ink);
- font-family:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
- font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700;line-height:1.35;margin:0}
-.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+body{background:#EFF2F4;background:var(–paper);color:#12293C;color:var(–ink);
+font-family:“IBM Plex Sans Arabic”,system-ui,-apple-system,“Segoe UI”,sans-serif;
+font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.kufi{font-family:“Noto Kufi Arabic”,sans-serif;font-weight:700;line-height:1.35;margin:0}
+.mono{font-family:“IBM Plex Mono”,ui-monospace,monospace;font-variant-numeric:tabular-nums}
 a{color:inherit}
 button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
-input,select,textarea{font:inherit;width:100%;border:1px solid var(--line);border-radius:3px;
- padding:.55rem .65rem;background:var(--card);color:var(--ink)}
+input,select,textarea{font:inherit;width:100%;border:1px solid var(–line);border-radius:3px;
+padding:.55rem .65rem;background:var(–card);color:var(–ink)}
 textarea{resize:vertical;min-height:80px}
-:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+:focus-visible{outline:2px solid var(–amber);outline-offset:2px}
 ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#BCCAD4;border-radius:9px}
 [hidden]{display:none!important}
 
 /* ===== التخطيط ===== */
-.app{display:grid;grid-template-columns:var(--rail) 1fr;min-height:100vh}
-.rail{background:#193C58;background:var(--board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
- padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
-.logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(--board-3)}
+.app{display:grid;grid-template-columns:var(–rail) 1fr;min-height:100vh}
+.rail{background:#193C58;background:var(–board);color:#DCE6ED;position:sticky;top:0;height:100vh;overflow-y:auto;
+padding:1rem .9rem 1.4rem;display:flex;flex-direction:column}
+.logo{display:flex;align-items:center;gap:.55rem;padding-bottom:.85rem;border-bottom:1px solid var(–board-3)}
 .logo img{flex:none}
-.logo b{display:block;font-family:"Noto Kufi Arabic";font-size:1.3rem;color:var(--amber);line-height:1.1}
+.logo b{display:block;font-family:“Noto Kufi Arabic”;font-size:1.3rem;color:var(–amber);line-height:1.1}
 .logo span{font-size:.6rem;color:#8FA3B4;letter-spacing:.14em}
 .nav{display:flex;flex-direction:column;gap:2px;margin:.85rem 0 .3rem}
 .nav button{display:flex;justify-content:space-between;align-items:center;padding:.5rem .65rem;
- border-radius:3px;font-size:.9rem;color:#AFC1CE;width:100%;text-align:start}
-.nav button:hover{background:var(--board-2);color:#fff}
-.nav button[aria-current="true"]{background:var(--amber);color:var(--board);font-weight:600}
-.nav .n{font-family:"IBM Plex Mono";font-size:.72rem;opacity:.8}
-.postbtn{background:#fff;color:var(--board);font-weight:700;border-radius:3px;padding:.6rem;
- margin:.6rem 0 .2rem;text-align:center;font-family:"Noto Kufi Arabic";font-size:.88rem}
-.postbtn:hover{background:var(--amber)}
-.railsec{margin-top:1rem;border-top:1px solid var(--board-3);padding-top:.8rem}
+border-radius:3px;font-size:.9rem;color:#AFC1CE;width:100%;text-align:start}
+.nav button:hover{background:var(–board-2);color:#fff}
+.nav button[aria-current=“true”]{background:var(–amber);color:var(–board);font-weight:600}
+.nav .n{font-family:“IBM Plex Mono”;font-size:.72rem;opacity:.8}
+.postbtn{background:#fff;color:var(–board);font-weight:700;border-radius:3px;padding:.6rem;
+margin:.6rem 0 .2rem;text-align:center;font-family:“Noto Kufi Arabic”;font-size:.88rem}
+.postbtn:hover{background:var(–amber)}
+.railsec{margin-top:1rem;border-top:1px solid var(–board-3);padding-top:.8rem}
 .railsec h4{font-size:.66rem;letter-spacing:.1em;color:#7E96A8;font-weight:500;
- margin-bottom:.5rem;font-family:"IBM Plex Mono"}
+margin-bottom:.5rem;font-family:“IBM Plex Mono”}
 .bars{display:flex;flex-direction:column;gap:.38rem}
 .bar{display:grid;grid-template-columns:1fr auto;gap:.35rem;align-items:center;width:100%;
- text-align:start;font-size:.81rem;color:#AFC1CE}
+text-align:start;font-size:.81rem;color:#AFC1CE}
 .bar:hover{color:#fff}
-.bar .track{grid-column:1/-1;height:3px;background:var(--board-3);border-radius:9px;overflow:hidden}
-.bar .fill{display:block;height:100%;background:var(--amber-dim)}
-.bar[aria-pressed="true"]{color:#fff}
-.bar[aria-pressed="true"] .fill{background:var(--amber)}
-.bar .n{font-family:"IBM Plex Mono";font-size:.72rem;color:#7E96A8}
+.bar .track{grid-column:1/-1;height:3px;background:var(–board-3);border-radius:9px;overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(–amber-dim)}
+.bar[aria-pressed=“true”]{color:#fff}
+.bar[aria-pressed=“true”] .fill{background:var(–amber)}
+.bar .n{font-family:“IBM Plex Mono”;font-size:.72rem;color:#7E96A8}
 .bar.dim{opacity:.45}
 .railfoot{margin-top:auto;padding-top:.9rem;font-size:.68rem;color:#7E96A8;line-height:1.75}
-.by{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--board-3);
- font-family:"Noto Kufi Arabic";font-size:.7rem;color:#9FB3C1;line-height:1.8}
-.by span{font-family:"IBM Plex Sans Arabic";color:#7E96A8}
-.pulse{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;
- margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
+.by{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(–board-3);
+font-family:“Noto Kufi Arabic”;font-size:.7rem;color:#9FB3C1;line-height:1.8}
+.by span{font-family:“IBM Plex Sans Arabic”;color:#7E96A8}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(–amber);display:inline-block;
+margin-inline-end:.3rem;animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
 .main{min-width:0;padding:1.1rem clamp(.9rem,2.4vw,1.9rem) 3rem}
 .topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem}
-.searchbox{flex:1;min-width:220px;display:flex;background:#fff;background:var(--card);border:1px solid var(--line);border-radius:3px}
+.searchbox{flex:1;min-width:220px;display:flex;background:#fff;background:var(–card);border:1px solid var(–line);border-radius:3px}
 .searchbox input{border:0;background:transparent}
-.searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(--faint)}
+.searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(–faint)}
 .topbar select{width:auto}
 .menu-btn{display:none}
-.who{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(--muted);
- background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.45rem .7rem}
-.who b{color:var(--ink);font-weight:600}
+.who{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(–muted);
+background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.45rem .7rem}
+.who b{color:var(–ink);font-weight:600}
 
 /* تبويبات الدول */
 .tabs{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:.7rem;
- border-bottom:1px solid var(--line);scrollbar-width:none}
+border-bottom:1px solid var(–line);scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{white-space:nowrap;padding:.45rem .85rem;border-radius:3px;font-size:.9rem;color:var(--muted);
- font-family:"Noto Kufi Arabic";font-weight:500;border:1px solid transparent}
-.tab:hover{background:var(--soft);color:var(--ink)}
-.tab[aria-pressed="true"]{background:var(--board);color:#fff}
-.tab i{font-style:normal;font-family:"IBM Plex Mono";font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
+.tab{white-space:nowrap;padding:.45rem .85rem;border-radius:3px;font-size:.9rem;color:var(–muted);
+font-family:“Noto Kufi Arabic”;font-weight:500;border:1px solid transparent}
+.tab:hover{background:var(–soft);color:var(–ink)}
+.tab[aria-pressed=“true”]{background:var(–board);color:#fff}
+.tab i{font-style:normal;font-family:“IBM Plex Mono”;font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
 
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.45rem;margin-bottom:.9rem}
-.tiles button{background:#fff;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem .5rem;
- display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
-.tiles button i{font-style:normal;font-size:1.15rem;color:var(--deep);line-height:1}
-.tiles button b{font-family:"Noto Kufi Arabic";font-size:.82rem;font-weight:500}
-.tiles button .n{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint)}
-.tiles button:hover{border-color:var(--deep);transform:translateY(-1px)}
-.tiles button[aria-current="true"]{background:var(--board);border-color:var(--board);color:#fff}
-.tiles button[aria-current="true"] i{color:var(--amber)}
-.tiles button[aria-current="true"] .n{color:#8FA3B4}
+.tiles button{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:4px;padding:.7rem .5rem;
+display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
+.tiles button i{font-style:normal;font-size:1.15rem;color:var(–deep);line-height:1}
+.tiles button b{font-family:“Noto Kufi Arabic”;font-size:.82rem;font-weight:500}
+.tiles button .n{font-family:“IBM Plex Mono”;font-size:.68rem;color:var(–faint)}
+.tiles button:hover{border-color:var(–deep);transform:translateY(-1px)}
+.tiles button[aria-current=“true”]{background:var(–board);border-color:var(–board);color:#fff}
+.tiles button[aria-current=“true”] i{color:var(–amber)}
+.tiles button[aria-current=“true”] .n{color:#8FA3B4}
 
-.hello{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--board) 0%,var(--board2) 60%,#25557C 100%);
- color:#fff;border:0;border-radius:6px;padding:1.05rem 1.2rem;margin-bottom:.8rem}
-.hello::before{content:"";position:absolute;inset-inline-end:-30px;top:-40px;width:150px;height:150px;
- border-radius:50%;background:rgba(231,150,45,.14)}
-.hello::after{content:"";position:absolute;inset-inline-end:-70px;bottom:-70px;width:170px;height:170px;
- border-radius:50%;background:rgba(231,150,45,.07)}
+.hello{position:relative;overflow:hidden;background:linear-gradient(135deg,var(–board) 0%,var(–board2) 60%,#25557C 100%);
+color:#fff;border:0;border-radius:6px;padding:1.05rem 1.2rem;margin-bottom:.8rem}
+.hello::before{content:””;position:absolute;inset-inline-end:-30px;top:-40px;width:150px;height:150px;
+border-radius:50%;background:rgba(231,150,45,.14)}
+.hello::after{content:””;position:absolute;inset-inline-end:-70px;bottom:-70px;width:170px;height:170px;
+border-radius:50%;background:rgba(231,150,45,.07)}
 .hello h2{font-size:1.1rem;color:#fff;margin-bottom:.25rem;position:relative}
 .hello p{margin:0;font-size:.9rem;color:#CFDDE8;position:relative;display:flex;align-items:center;gap:.5rem}
-.hello p::before{content:"“";font-family:"Noto Kufi Arabic";font-size:1.6rem;color:var(--amber);line-height:0.1}
+.hello p::before{content:”“”;font-family:“Noto Kufi Arabic”;font-size:1.6rem;color:var(–amber);line-height:0.1}
 
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.9rem}
-.kpi{background:#fff;background:var(--card);border:1px solid var(--line);border-top:2px solid var(--amber);
- border-radius:3px;padding:.6rem .8rem}
-.kpi b{display:block;font-family:"IBM Plex Mono";font-size:1.45rem;font-weight:500;line-height:1.2}
-.kpi span{font-size:.7rem;color:var(--muted)}
-.kpi.alt{border-top-color:var(--deep)}
+.kpi{background:#fff;background:var(–card);border:1px solid var(–line);border-top:2px solid var(–amber);
+border-radius:3px;padding:.6rem .8rem}
+.kpi b{display:block;font-family:“IBM Plex Mono”;font-size:1.45rem;font-weight:500;line-height:1.2}
+.kpi span{font-size:.7rem;color:var(–muted)}
+.kpi.alt{border-top-color:var(–deep)}
 .crumbs{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;
- border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.7rem;font-size:.85rem;color:var(--muted)}
-.crumbs b{font-family:"IBM Plex Mono";color:var(--ink)}
-.clear{color:var(--deep);text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
+border-bottom:1px solid var(–line);padding-bottom:.5rem;margin-bottom:.7rem;font-size:.85rem;color:var(–muted)}
+.crumbs b{font-family:“IBM Plex Mono”;color:var(–ink)}
+.clear{color:var(–deep);text-decoration:underline;text-underline-offset:3px;font-size:.8rem}
 
 /* بطاقات */
 .list{display:grid;gap:.5rem}
-.job{background:#fff;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem .95rem;
- display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
+.job{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.85rem .95rem;
+display:grid;grid-template-columns:44px 1fr auto;gap:.85rem;align-items:start}
 .job:hover{border-color:#A9BECD}
-.job.user{border-inline-start:3px solid var(--amber)}
+.job.user{border-inline-start:3px solid var(–amber)}
 .slot{width:44px;height:44px;border:1.5px dashed #B4C6D3;border-radius:3px;display:grid;place-content:center;
- font-family:"IBM Plex Mono";font-size:.72rem;color:var(--muted);transition:.15s}
-.job:hover .slot{background:var(--amber);border-color:var(--amber);border-style:solid;color:var(--board)}
+font-family:“IBM Plex Mono”;font-size:.72rem;color:var(–muted);transition:.15s}
+.job:hover .slot{background:var(–amber);border-color:var(–amber);border-style:solid;color:var(–board)}
 .job h3{font-size:1rem;margin-bottom:.1rem}
-.meta{font-size:.84rem;color:var(--muted);margin:0}
-.meta b{color:var(--ink);font-weight:600}
-.snippet{font-size:.83rem;color:var(--muted);margin:.35rem 0 0;white-space:pre-line;
- display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.meta{font-size:.84rem;color:var(–muted);margin:0}
+.meta b{color:var(–ink);font-weight:600}
+.snippet{font-size:.83rem;color:var(–muted);margin:.35rem 0 0;white-space:pre-line;
+display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .snippet.open{display:block;-webkit-line-clamp:none;overflow:visible;
- background:var(--soft);border:1px solid var(--line);border-radius:3px;padding:.6rem .7rem;color:var(--ink)}
-.expand{font-size:.78rem;color:var(--deep);text-decoration:underline;text-underline-offset:3px;
- margin-top:.3rem;display:inline-block}
+background:var(–soft);border:1px solid var(–line);border-radius:3px;padding:.6rem .7rem;color:var(–ink)}
+.expand{font-size:.78rem;color:var(–deep);text-decoration:underline;text-underline-offset:3px;
+margin-top:.3rem;display:inline-block}
 
 /* ===== نافذة تفاصيل الإعلان ===== */
 .ov{position:fixed;inset:0;background:#12293C;background:rgba(18,41,60,.62);z-index:60;
- display:flex;align-items:flex-end;justify-content:center;padding:0;isolation:isolate}
-.modal{background:#FFFFFF;background:var(--card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
- border-radius:14px 14px 0 0;overflow:hidden;position:relative;z-index:1;
- box-shadow:0 -10px 40px rgba(0,0,0,.35)}
+display:flex;align-items:flex-end;justify-content:center;padding:0;isolation:isolate}
+.modal{background:#FFFFFF;background:var(–card);width:min(680px,100%);max-height:92vh;display:flex;flex-direction:column;
+border-radius:14px 14px 0 0;overflow:hidden;position:relative;z-index:1;
+box-shadow:0 -10px 40px rgba(0,0,0,.35)}
 .mhead{background:#193C58;color:#fff;padding:1.1rem 1.2rem .95rem;position:relative;flex:none}
 .mhead h2{font-size:1.16rem;color:#fff;padding-inline-end:2.4rem;line-height:1.45}
 .mhead .sub{font-size:.86rem;color:#B4C7D6;margin-top:.3rem}
 .mhead .sub b{color:#E7962D;font-weight:600}
 .mclose{position:absolute;inset-inline-end:.7rem;top:.7rem;width:34px;height:34px;border-radius:50%;
- background:#2C5878;color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
+background:#2C5878;color:#fff;font-size:1.15rem;line-height:1;display:grid;place-content:center}
 .mclose:hover{background:#3C6A8C}
 .mtags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.65rem}
-.mtags span{font-family:"IBM Plex Mono";font-size:.68rem;border:1px solid #4A7089;
- padding:.1rem .45rem;border-radius:2px;color:#DCE6ED}
+.mtags span{font-family:“IBM Plex Mono”;font-size:.68rem;border:1px solid #4A7089;
+padding:.1rem .45rem;border-radius:2px;color:#DCE6ED}
 .mtags span.hot{border-color:#E7962D;background:#2A4A66;color:#F0C381}
-.mbody{background:#FFFFFF;background:var(--card);padding:1.1rem 1.2rem;overflow-y:auto;-webkit-overflow-scrolling:touch;
- flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9;color:#12293C}
-.mbody .lbl{font-family:"IBM Plex Mono";font-size:.68rem;color:#93A3AF;letter-spacing:.06em;
- display:block;margin-bottom:.35rem;white-space:normal}
+.mbody{background:#FFFFFF;background:var(–card);padding:1.1rem 1.2rem;overflow-y:auto;-webkit-overflow-scrolling:touch;
+flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9;color:#12293C}
+.mbody .lbl{font-family:“IBM Plex Mono”;font-size:.68rem;color:#93A3AF;letter-spacing:.06em;
+display:block;margin-bottom:.35rem;white-space:normal}
 .mrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;white-space:normal}
 .chipx{background:#E4EDF4;border:1px solid #D5DEE4;border-radius:3px;padding:.28rem .6rem;font-size:.8rem;color:#12293C}
 .chipx b{color:#1E4668}
-.mfoot{background:#FFFFFF;background:var(--card);border-top:1px solid var(--line);
- padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
- display:flex;gap:.5rem;flex-wrap:wrap;flex:none}
+.mfoot{background:#FFFFFF;background:var(–card);border-top:1px solid var(–line);
+padding:.8rem 1.2rem calc(.8rem + env(safe-area-inset-bottom));
+display:flex;gap:.5rem;flex-wrap:wrap;flex:none}
 .mfoot .btn{flex:1;min-width:120px;padding:.7rem 1rem;font-size:.9rem}
 .mfoot .note{width:100%;text-align:center;margin:.1rem 0 0}
 .inlink{display:inline-block;background:#1FA855;color:#fff;border-radius:3px;padding:.12rem .5rem;
- text-decoration:none;font-family:"IBM Plex Mono";font-size:.85rem;margin:.1rem 0;direction:ltr}
+text-decoration:none;font-family:“IBM Plex Mono”;font-size:.85rem;margin:.1rem 0;direction:ltr}
 .inlink.mail{background:#1E4668}
-.applyform{background:#F7FAFB;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:.9rem;margin-top:.9rem;white-space:normal}
-.applyform h4{font-family:"Noto Kufi Arabic";font-size:.95rem;margin-bottom:.2rem}
+.applyform{background:#F7FAFB;background:var(–soft);border:1px solid var(–line);border-radius:6px;padding:.9rem;margin-top:.9rem;white-space:normal}
+.applyform h4{font-family:“Noto Kufi Arabic”;font-size:.95rem;margin-bottom:.2rem}
 .applyform .g{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:.7rem}
 .applyform .g .wide{grid-column:1/-1}
 .applyform label{display:block;font-size:.75rem;color:#5A6E7F;margin-bottom:.2rem}
 .applyform input,.applyform textarea,.applyform select{font-size:.9rem;padding:.5rem .6rem}
 .applyform textarea{min-height:62px}
-.review{background:#fff;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem .8rem;margin-top:.7rem}
+.review{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:4px;padding:.7rem .8rem;margin-top:.7rem}
 .review .r{display:flex;justify-content:space-between;gap:.6rem;padding:.28rem 0;
- border-bottom:1px dashed #E3EAEF;font-size:.87rem}
+border-bottom:1px dashed #E3EAEF;font-size:.87rem}
 .review .r:last-child{border:0}
 .review .r span:first-child{color:#5A6E7F}
 .review .r span:last-child{font-weight:600;text-align:end}
 .privacy{font-size:.72rem;color:#93A3AF;margin-top:.5rem;line-height:1.7}
 @media (max-width:520px){.applyform .g{grid-template-columns:1fr}}
 .warnbox{background:#FBF0DC;border:1px solid #E0BE86;color:#8A5A12;border-radius:3px;
- padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
+padding:.6rem .75rem;font-size:.8rem;margin-bottom:.9rem;white-space:normal;line-height:1.7}
 @media (min-width:720px){
-  .ov{align-items:center;padding:1.5rem}
-  .modal{border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.ov{align-items:center;padding:1.5rem}
+.modal{border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 }
 .tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-top:.5rem}
-.tag{font-family:"IBM Plex Mono";font-size:.66rem;border:1px solid var(--line);padding:.08rem .4rem;
- border-radius:2px;color:var(--muted)}
-.tag.new{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
-.tag.on{border-color:#C3D5E2;background:var(--soft);color:var(--deep)}
+.tag{font-family:“IBM Plex Mono”;font-size:.66rem;border:1px solid var(–line);padding:.08rem .4rem;
+border-radius:2px;color:var(–muted)}
+.tag.new{border-color:var(–amber);background:var(–amber-soft);color:#8A5A12}
+.tag.on{border-color:#C3D5E2;background:var(–soft);color:var(–deep)}
 .tag.warn{border-color:#E0BE86;background:#FBF0DC;color:#8A5A12}
 .job.unv{border-inline-start:3px solid #E0BE86}
 .toggle{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#AFC1CE;
- padding:.45rem .1rem;cursor:pointer;width:100%}
-.toggle .sw{width:32px;height:18px;border-radius:9px;background:var(--board-3);position:relative;flex:none;transition:background .16s}
+padding:.45rem .1rem;cursor:pointer;width:100%}
+.toggle .sw{width:32px;height:18px;border-radius:9px;background:var(–board-3);position:relative;flex:none;transition:background .16s}
 .toggle .sw i{position:absolute;top:2px;inset-inline-start:2px;width:14px;height:14px;border-radius:50%;
- background:#8FA3B4;transition:transform .16s,background .16s}
-.toggle[aria-pressed="true"] .sw{background:var(--amber)}
-.toggle[aria-pressed="true"] .sw i{background:#fff;transform:translateX(-14px)}
-.toggle[aria-pressed="true"]{color:#fff}
+background:#8FA3B4;transition:transform .16s,background .16s}
+.toggle[aria-pressed=“true”] .sw{background:var(–amber)}
+.toggle[aria-pressed=“true”] .sw i{background:#fff;transform:translateX(-14px)}
+.toggle[aria-pressed=“true”]{color:#fff}
 .actions{display:flex;flex-direction:column;gap:.3rem;min-width:108px}
 .btn{display:block;text-align:center;padding:.42rem .8rem;border-radius:3px;font-size:.82rem;
- font-weight:600;text-decoration:none;border:1px solid transparent}
-.btn.primary{background:#12293C;background:var(--ink);color:#fff}
-.btn.primary:hover{background:var(--deep)}
-.btn.wa{background:#1FA855;background:var(--wa);color:#fff}
-.btn.ghost{border-color:var(--line);color:var(--muted);font-weight:400}
-.btn.ghost[aria-pressed="true"]{border-color:var(--amber);background:var(--amber-soft);color:#8A5A12}
-.btn.amber{background:#E7962D;background:var(--amber);color:#193C58;color:var(--board)}
+font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.primary{background:#12293C;background:var(–ink);color:#fff}
+.btn.primary:hover{background:var(–deep)}
+.btn.wa{background:#1FA855;background:var(–wa);color:#fff}
+.btn.ghost{border-color:var(–line);color:var(–muted);font-weight:400}
+.btn.ghost[aria-pressed=“true”]{border-color:var(–amber);background:var(–amber-soft);color:#8A5A12}
+.btn.amber{background:#E7962D;background:var(–amber);color:#193C58;color:var(–board)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
-.more{margin:.8rem auto 0;display:block;border:1px solid var(--line);background:var(--card);
- padding:.6rem 1.6rem;border-radius:3px;color:var(--deep);font-weight:600}
+.more{margin:.8rem auto 0;display:block;border:1px solid var(–line);background:var(–card);
+padding:.6rem 1.6rem;border-radius:3px;color:var(–deep);font-weight:600}
 
 /* إعلانات */
-.ad{background:linear-gradient(180deg,#fff,#FAFCFD);border:1px solid var(--line);
- border-inline-start:3px solid var(--amber);border-radius:3px;padding:.85rem 1rem;position:relative}
-.ad .lbl{position:absolute;inset-inline-end:.6rem;top:.5rem;font-family:"IBM Plex Mono";
- font-size:.6rem;color:var(--faint);border:1px solid var(--line);padding:0 .3rem;border-radius:2px}
+.ad{background:linear-gradient(180deg,#fff,#FAFCFD);border:1px solid var(–line);
+border-inline-start:3px solid var(–amber);border-radius:3px;padding:.85rem 1rem;position:relative}
+.ad .lbl{position:absolute;inset-inline-end:.6rem;top:.5rem;font-family:“IBM Plex Mono”;
+font-size:.6rem;color:var(–faint);border:1px solid var(–line);padding:0 .3rem;border-radius:2px}
 .ad h3{font-size:.98rem;margin-bottom:.2rem}
-.ad p{margin:.2rem 0 .6rem;font-size:.85rem;color:var(--muted)}
-.ad .adv{font-size:.72rem;color:var(--faint)}
-.ad.rail{background:var(--board-2);border-color:var(--board-3);border-inline-start-color:var(--amber);color:#DCE6ED}
+.ad p{margin:.2rem 0 .6rem;font-size:.85rem;color:var(–muted)}
+.ad .adv{font-size:.72rem;color:var(–faint)}
+.ad.rail{background:var(–board-2);border-color:var(–board-3);border-inline-start-color:var(–amber);color:#DCE6ED}
 .ad.rail h3{color:#fff;font-size:.9rem}
 .ad.rail p{color:#AFC1CE;font-size:.8rem}
-.adslot{border:1px dashed var(--line);background:var(--card);padding:1rem;text-align:center;
- font-size:.84rem;color:var(--faint);border-radius:3px}
+.adslot{border:1px dashed var(–line);background:var(–card);padding:1rem;text-align:center;
+font-size:.84rem;color:var(–faint);border-radius:3px}
 
 /* لوحات ونماذج */
-.panel{background:#fff;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
+.panel{background:#fff;background:var(–card);border:1px solid var(–line);border-radius:3px;padding:1.1rem;margin-bottom:.7rem}
 .panel h2{font-size:1.1rem;margin-bottom:.35rem}
-.panel p{margin:.25rem 0;font-size:.88rem;color:var(--muted)}
+.panel p{margin:.25rem 0;font-size:.88rem;color:var(–muted)}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
-.form label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.22rem}
+.form label{display:block;font-size:.78rem;color:var(–muted);margin-bottom:.22rem}
 .form .wide{grid-column:1/-1}
-.note{font-size:.78rem;color:var(--faint)}
-.ok{background:#E7F4EE;border:1px solid #B8DCCB;color:var(--ok);padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
+.note{font-size:.78rem;color:var(–faint)}
+.ok{background:#E7F4EE;border:1px solid #B8DCCB;color:var(–ok);padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
 .err{background:#FBECEA;border:1px solid #E8C4BF;color:#A3392F;padding:.7rem .9rem;border-radius:3px;font-size:.88rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:.55rem}
-.gcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.85rem;
- display:flex;flex-direction:column;gap:.45rem}
+.gcard{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.85rem;
+display:flex;flex-direction:column;gap:.45rem}
 .gcard h3{font-size:.94rem}
 .subtabs{display:flex;gap:.3rem;margin-bottom:.7rem}
-.subtab{padding:.4rem .9rem;border:1px solid var(--line);border-radius:3px;font-size:.86rem;color:var(--muted)}
-.subtab[aria-pressed="true"]{background:var(--board);border-color:var(--board);color:#fff}
-.empty{border:1px dashed var(--line);background:var(--card);padding:2.6rem 1.4rem;text-align:center;color:var(--muted)}
-.empty b{display:block;font-family:"Noto Kufi Arabic";color:var(--ink);margin-bottom:.25rem}
+.subtab{padding:.4rem .9rem;border:1px solid var(–line);border-radius:3px;font-size:.86rem;color:var(–muted)}
+.subtab[aria-pressed=“true”]{background:var(–board);border-color:var(–board);color:#fff}
+.empty{border:1px dashed var(–line);background:var(–card);padding:2.6rem 1.4rem;text-align:center;color:var(–muted)}
+.empty b{display:block;font-family:“Noto Kufi Arabic”;color:var(–ink);margin-bottom:.25rem}
 .dim{opacity:.5}
-.adminnote{margin:.45rem 0 0;font-size:.8rem;background:var(--amber-soft);border-inline-start:2px solid var(--amber);
- padding:.35rem .55rem;border-radius:2px;color:#8A5A12}
-.hello{background:var(--card);border:1px solid var(--line);border-inline-start:3px solid var(--amber);
- border-radius:3px;padding:.8rem 1rem;margin-bottom:.7rem}
+.adminnote{margin:.45rem 0 0;font-size:.8rem;background:var(–amber-soft);border-inline-start:2px solid var(–amber);
+padding:.35rem .55rem;border-radius:2px;color:#8A5A12}
+.hello{background:var(–card);border:1px solid var(–line);border-inline-start:3px solid var(–amber);
+border-radius:3px;padding:.8rem 1rem;margin-bottom:.7rem}
 .hello h2{font-size:1.02rem;margin-bottom:.15rem}
-.hello p{margin:0;font-size:.85rem;color:var(--muted)}
-.consult{background:var(--board);color:#DCE6ED;border-radius:3px;padding:1rem 1.1rem;margin:.7rem 0;
- display:flex;gap:1rem;align-items:center;flex-wrap:wrap;border-inline-start:3px solid var(--amber)}
+.hello p{margin:0;font-size:.85rem;color:var(–muted)}
+.consult{background:var(–board);color:#DCE6ED;border-radius:3px;padding:1rem 1.1rem;margin:.7rem 0;
+display:flex;gap:1rem;align-items:center;flex-wrap:wrap;border-inline-start:3px solid var(–amber)}
 .consult img{border-radius:4px;flex:none}
-.consult h3{font-size:1rem;color:var(--amber);margin-bottom:.15rem}
+.consult h3{font-size:1rem;color:var(–amber);margin-bottom:.15rem}
 .consult p{margin:0;font-size:.84rem;color:#AFC1CE}
 .consult .cta{display:flex;gap:.4rem;margin-inline-start:auto;flex-wrap:wrap}
-.tree{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:.9rem 1.1rem;font-size:.88rem}
+.tree{background:var(–card);border:1px solid var(–line);border-radius:3px;padding:.9rem 1.1rem;font-size:.88rem}
 .tree details{margin:.15rem 0}
 .tree summary{cursor:pointer;padding:.28rem 0;list-style:none;display:flex;justify-content:space-between;gap:.5rem}
 .tree summary::-webkit-details-marker{display:none}
-.tree summary::before{content:"▸";display:inline-block;margin-inline-end:.4rem;color:var(--faint);transition:transform .15s}
+.tree summary::before{content:“▸”;display:inline-block;margin-inline-end:.4rem;color:var(–faint);transition:transform .15s}
 .tree details[open]>summary::before{transform:rotate(-90deg)}
 .tree summary b{font-weight:500}
-.tree .n{font-family:"IBM Plex Mono";font-size:.78rem;color:var(--muted)}
-.tree .lvl2{margin-inline-start:1.1rem;border-inline-start:1px solid var(--line);padding-inline-start:.7rem}
-.tree .lvl3{margin-inline-start:1.1rem;color:var(--muted);display:flex;justify-content:space-between;padding:.2rem 0}
+.tree .n{font-family:“IBM Plex Mono”;font-size:.78rem;color:var(–muted)}
+.tree .lvl2{margin-inline-start:1.1rem;border-inline-start:1px solid var(–line);padding-inline-start:.7rem}
+.tree .lvl3{margin-inline-start:1.1rem;color:var(–muted);display:flex;justify-content:space-between;padding:.2rem 0}
 .stat{display:grid;grid-template-columns:1fr auto;gap:.3rem;align-items:center;font-size:.85rem;margin:.35rem 0}
-.stat .track{grid-column:1/-1;height:4px;background:var(--soft);border-radius:9px;overflow:hidden}
-.stat .fill{display:block;height:100%;background:var(--deep)}
-.tips li{margin:.3rem 0;font-size:.87rem;color:var(--muted)}
-.tips b{color:var(--ink)}
+.stat .track{grid-column:1/-1;height:4px;background:var(–soft);border-radius:9px;overflow:hidden}
+.stat .fill{display:block;height:100%;background:var(–deep)}
+.tips li{margin:.3rem 0;font-size:.87rem;color:var(–muted)}
+.tips b{color:var(–ink)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 @media (max-width:900px){.two{grid-template-columns:1fr}.consult .cta{margin-inline-start:0;width:100%}}
-footer{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.78rem;color:var(--muted)}
+footer{margin-top:2rem;border-top:1px solid var(–line);padding-top:1rem;font-size:.78rem;color:var(–muted)}
 footer p{margin:.25rem 0}
-.credit{display:flex;align-items:center;gap:.7rem;color:var(--ink);margin-top:.6rem}
+.credit{display:flex;align-items:center;gap:.7rem;color:var(–ink);margin-top:.6rem}
 .credit img{border-radius:4px;flex:none}
-.credit b{font-family:"Noto Kufi Arabic"}
+.credit b{font-family:“Noto Kufi Arabic”}
 
 @media (max-width:900px){
-  .app{grid-template-columns:1fr}
-  .rail{position:fixed;inset-inline-start:0;top:0;width:min(290px,86vw);z-index:40;transform:translateX(100%)}
-  body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.55)}
-  body.open::after{content:"";position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
-  .menu-btn{display:block;background:var(--board);color:#fff;padding:.55rem .85rem;border-radius:3px;
-   font-size:.84rem;font-weight:600}
-  .kpis{grid-template-columns:repeat(2,1fr)}
-  .job{grid-template-columns:38px 1fr}
-  .slot{width:38px;height:38px}
-  .actions{grid-column:1/-1;flex-direction:row}
-  .actions .btn{flex:1}
-  .form{grid-template-columns:1fr}
+.app{grid-template-columns:1fr}
+.rail{position:fixed;inset-inline-start:0;top:0;width:min(290px,86vw);z-index:40;transform:translateX(100%)}
+body.open .rail{transform:none;box-shadow:-16px 0 40px -20px rgba(0,0,0,.55)}
+body.open::after{content:””;position:fixed;inset:0;background:rgba(18,41,60,.5);z-index:30}
+.menu-btn{display:block;background:var(–board);color:#fff;padding:.55rem .85rem;border-radius:3px;
+font-size:.84rem;font-weight:600}
+.kpis{grid-template-columns:repeat(2,1fr)}
+.job{grid-template-columns:38px 1fr}
+.slot{width:38px;height:38px}
+.actions{grid-column:1/-1;flex-direction:row}
+.actions .btn{flex:1}
+.form{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+
 </head>
 <body>
 <div class="app">
@@ -387,7 +389,7 @@ footer p{margin:.25rem 0}
     <div><b>شواغر</b><span class="mono">SHAWAGHER</span></div>
   </div>
 
-  <button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
+<button class="postbtn" data-tab="post">+ انشر وظيفة مجاناً</button>
 
   <div class="railsec">
     <h4>المصدر</h4>
@@ -457,6 +459,7 @@ footer p{margin:.25rem 0}
   <div id="heroAd"></div>
 
   <!-- ============ الشواغر ============ -->
+
   <section id="viewJobs">
     <div class="hello">
       <h2 id="greet">أهلاً بك في شواغر</h2>
@@ -478,6 +481,7 @@ footer p{margin:.25rem 0}
   </section>
 
   <!-- ============ التحليلات والنصائح ============ -->
+
   <section id="viewStats" hidden>
     <div class="hello"><h2 id="greet2">لوحة التحليلات</h2>
       <p>توزيع الشواغر حسب المصدر والدولة والمجال، ونصائح تزوّد فرصتك.</p></div>
@@ -493,51 +497,56 @@ footer p{margin:.25rem 0}
   </section>
 
   <!-- ============ خدمات الموظفين ============ -->
+
   <section id="viewServices" hidden>
     <div class="hello"><h2>خدمات الموظفين</h2>
       <p>حاسبات جاهزة تساعدك تعرف حقوقك قبل ما تقرر</p></div>
 
-    <div class="panel">
-      <h2>حاسبة مكافأة نهاية الخدمة — الكويت</h2>
-      <p>حسب قانون العمل الكويتي رقم ٦ لسنة ٢٠١٠، المادة ٥١: ١٥ يوم عن كل سنة في أول ٥ سنوات،
-         وشهر عن كل سنة بعد كده، بحد أقصى راتب سنة ونصف.</p>
+```
+<div class="panel">
+  <h2>حاسبة مكافأة نهاية الخدمة — الكويت</h2>
+  <p>حسب قانون العمل الكويتي رقم ٦ لسنة ٢٠١٠، المادة ٥١: ١٥ يوم عن كل سنة في أول ٥ سنوات،
+     وشهر عن كل سنة بعد كده، بحد أقصى راتب سنة ونصف.</p>
 
-      <div class="form">
-        <div><label>الراتب الشهري الشامل (د.ك) *</label>
-          <input id="eSalary" type="number" inputmode="decimal" placeholder="500"></div>
-        <div><label>نظام الأجر</label><select id="ePay">
-          <option value="month">شهري</option><option value="day">يومي / بالساعة</option></select></div>
-        <div><label>تاريخ بداية العمل *</label><input id="eStart" type="date"></div>
-        <div><label>تاريخ نهاية العمل *</label><input id="eEnd" type="date"></div>
-        <div><label>سبب انتهاء العلاقة</label><select id="eReason">
-          <option value="term">إنهاء من صاحب العمل / انتهاء العقد</option>
-          <option value="resign">استقالة</option>
-          <option value="art41">ترك العمل لسبب مشروع (م.٤١)</option>
-        </select></div>
-        <div><label>رصيد إجازات غير مستخدمة (أيام)</label>
-          <input id="eLeave" type="number" inputmode="numeric" placeholder="0"></div>
-        <div class="wide"><button class="btn amber" id="eCalc" style="padding:.6rem 1.8rem">احسب</button></div>
-      </div>
+  <div class="form">
+    <div><label>الراتب الشهري الشامل (د.ك) *</label>
+      <input id="eSalary" type="number" inputmode="decimal" placeholder="500"></div>
+    <div><label>نظام الأجر</label><select id="ePay">
+      <option value="month">شهري</option><option value="day">يومي / بالساعة</option></select></div>
+    <div><label>تاريخ بداية العمل *</label><input id="eStart" type="date"></div>
+    <div><label>تاريخ نهاية العمل *</label><input id="eEnd" type="date"></div>
+    <div><label>سبب انتهاء العلاقة</label><select id="eReason">
+      <option value="term">إنهاء من صاحب العمل / انتهاء العقد</option>
+      <option value="resign">استقالة</option>
+      <option value="art41">ترك العمل لسبب مشروع (م.٤١)</option>
+    </select></div>
+    <div><label>رصيد إجازات غير مستخدمة (أيام)</label>
+      <input id="eLeave" type="number" inputmode="numeric" placeholder="0"></div>
+    <div class="wide"><button class="btn amber" id="eCalc" style="padding:.6rem 1.8rem">احسب</button></div>
+  </div>
 
-      <div id="eOut" style="margin-top:.9rem"></div>
-      <p class="note" style="margin-top:.8rem">النتيجة تقديرية للاسترشاد فقط. الحساب النهائي بيعتمد على
-         تفاصيل العقد وأي بدلات ثابتة، وفي الخلاف المرجع هو وزارة الشؤون أو محامٍ مختص.</p>
-    </div>
+  <div id="eOut" style="margin-top:.9rem"></div>
+  <p class="note" style="margin-top:.8rem">النتيجة تقديرية للاسترشاد فقط. الحساب النهائي بيعتمد على
+     تفاصيل العقد وأي بدلات ثابتة، وفي الخلاف المرجع هو وزارة الشؤون أو محامٍ مختص.</p>
+</div>
 
-    <div class="panel">
-      <h2>حقوق سريعة تحت إيدك</h2>
-      <ul class="tips">
-        <li><b>الإجازة السنوية:</b> ٣٠ يوم مدفوعة بعد إتمام ٩ شهور خدمة، وبتتراكم ولك حق تعويضها نقداً عند الترك.</li>
-        <li><b>مهلة الإخطار:</b> ٣ شهور للأجر الشهري و١ شهر لغيره — من أي طرف.</li>
-        <li><b>ساعات العمل:</b> ٨ ساعات يومياً / ٤٨ أسبوعياً، والإضافي بأجر إضافي لا يقل عن ٢٥٪.</li>
-        <li><b>إجازة مرضية:</b> ٧٥ يوم متدرجة (١٥ بأجر كامل، ١٠ بثلاثة أرباع، ١٠ بنصف، ١٠ بربع، ٣٠ بدون).</li>
-        <li><b>ممنوع تحصيل رسوم توظيف من العامل</b> — أي طلب فلوس مقابل الوظيفة أو التأشيرة مخالف للقانون.</li>
-      </ul>
-    </div>
-    <div class="consult" id="consultBox3"></div>
+<div class="panel">
+  <h2>حقوق سريعة تحت إيدك</h2>
+  <ul class="tips">
+    <li><b>الإجازة السنوية:</b> ٣٠ يوم مدفوعة بعد إتمام ٩ شهور خدمة، وبتتراكم ولك حق تعويضها نقداً عند الترك.</li>
+    <li><b>مهلة الإخطار:</b> ٣ شهور للأجر الشهري و١ شهر لغيره — من أي طرف.</li>
+    <li><b>ساعات العمل:</b> ٨ ساعات يومياً / ٤٨ أسبوعياً، والإضافي بأجر إضافي لا يقل عن ٢٥٪.</li>
+    <li><b>إجازة مرضية:</b> ٧٥ يوم متدرجة (١٥ بأجر كامل، ١٠ بثلاثة أرباع، ١٠ بنصف، ١٠ بربع، ٣٠ بدون).</li>
+    <li><b>ممنوع تحصيل رسوم توظيف من العامل</b> — أي طلب فلوس مقابل الوظيفة أو التأشيرة مخالف للقانون.</li>
+  </ul>
+</div>
+<div class="consult" id="consultBox3"></div>
+```
+
   </section>
 
   <!-- ============ لوحة الإدارة ============ -->
+
   <section id="viewAdmin" hidden>
     <div class="panel">
       <h2>لوحة الإدارة</h2>
@@ -556,62 +565,66 @@ footer p{margin:.25rem 0}
          الأداة تفصل الإعلانات وتستخرج المسمى والجهة والمكان ورقم التواصل.</p>
       <p class="note">في واتساب: افتح الجروب ← ⋮ ← المزيد ← تصدير الدردشة ← بدون وسائط.</p>
 
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.8rem 0 .5rem">
-        <label class="btn wa" style="padding:.55rem 1.2rem;cursor:pointer">
-          اختر ملف التصدير<input id="waFile" type="file" accept=".zip,.txt" hidden></label>
-        <span class="note" id="waFileName">مفيش ملف</span>
-      </div>
+```
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.8rem 0 .5rem">
+    <label class="btn wa" style="padding:.55rem 1.2rem;cursor:pointer">
+      اختر ملف التصدير<input id="waFile" type="file" accept=".zip,.txt" hidden></label>
+    <span class="note" id="waFileName">مفيش ملف</span>
+  </div>
 
-      <textarea id="waPaste" placeholder="أو الصق الرسائل هنا..." style="min-height:110px"></textarea>
-      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem">
-        <button class="btn amber" id="waParse" style="padding:.55rem 1.4rem">حلّل</button>
-        <button class="btn ghost" id="waClear" style="padding:.55rem 1rem">مسح</button>
-        <span class="note" id="waStat"></span>
-      </div>
+  <textarea id="waPaste" placeholder="أو الصق الرسائل هنا..." style="min-height:110px"></textarea>
+  <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem">
+    <button class="btn amber" id="waParse" style="padding:.55rem 1.4rem">حلّل</button>
+    <button class="btn ghost" id="waClear" style="padding:.55rem 1rem">مسح</button>
+    <span class="note" id="waStat"></span>
+  </div>
 
-      <div id="waResult" hidden style="margin-top:1rem">
-        <div style="overflow-x:auto"><table id="waTbl" style="width:100%;border-collapse:collapse;font-size:.84rem">
-          <thead><tr>
-            <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">المسمى</th>
-            <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">الجهة</th>
-            <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">الدولة</th>
-            <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">المجال</th>
-            <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">التقديم</th>
-            <th style="border-bottom:1px solid var(--line)"></th>
-          </tr></thead><tbody></tbody>
-        </table></div>
-        <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem;align-items:center">
-          <button class="btn amber" id="waPublish" style="padding:.6rem 1.5rem">انشر على الموقع</button>
-          <button class="btn ghost" id="waDownload" style="padding:.6rem 1.2rem">نزّل manual.json</button>
-          <span class="note" id="waMsg"></span>
-        </div>
-      </div>
+  <div id="waResult" hidden style="margin-top:1rem">
+    <div style="overflow-x:auto"><table id="waTbl" style="width:100%;border-collapse:collapse;font-size:.84rem">
+      <thead><tr>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">المسمى</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">الجهة</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">الدولة</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">المجال</th>
+        <th style="text-align:start;padding:.4rem;border-bottom:1px solid var(--line);font-size:.7rem;color:var(--muted)">التقديم</th>
+        <th style="border-bottom:1px solid var(--line)"></th>
+      </tr></thead><tbody></tbody>
+    </table></div>
+    <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem;align-items:center">
+      <button class="btn amber" id="waPublish" style="padding:.6rem 1.5rem">انشر على الموقع</button>
+      <button class="btn ghost" id="waDownload" style="padding:.6rem 1.2rem">نزّل manual.json</button>
+      <span class="note" id="waMsg"></span>
     </div>
+  </div>
+</div>
 
-    <div class="panel">
-      <h2>أدوات أخرى</h2>
-      <div style="display:flex;gap:.4rem;flex-wrap:wrap">
-        <a class="btn ghost" href="daily.html" target="_blank" style="padding:.55rem 1.2rem">استعراض وظائف اليوم</a>
-        <a class="btn ghost" href="promo.html" target="_blank" style="padding:.55rem 1.2rem">العرض الدعائي</a>
-      </div>
-    </div>
+<div class="panel">
+  <h2>أدوات أخرى</h2>
+  <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+    <a class="btn ghost" href="daily.html" target="_blank" style="padding:.55rem 1.2rem">استعراض وظائف اليوم</a>
+    <a class="btn ghost" href="promo.html" target="_blank" style="padding:.55rem 1.2rem">العرض الدعائي</a>
+  </div>
+</div>
 
-    <div class="panel">
-      <h2>إعلانات تحت المراجعة</h2>
-      <div class="list" id="pending"></div>
-    </div>
-    <div class="panel">
-      <h2>طلبات التقديم <span class="note" id="appsCount"></span></h2>
-      <div id="appsList"></div>
-    </div>
+<div class="panel">
+  <h2>إعلانات تحت المراجعة</h2>
+  <div class="list" id="pending"></div>
+</div>
+<div class="panel">
+  <h2>طلبات التقديم <span class="note" id="appsCount"></span></h2>
+  <div id="appsList"></div>
+</div>
 
-    <div class="panel">
-      <h2>آخر الملاحظات</h2>
-      <div id="notesList"></div>
-    </div>
+<div class="panel">
+  <h2>آخر الملاحظات</h2>
+  <div id="notesList"></div>
+</div>
+```
+
   </section>
 
   <!-- ============ الجروبات ============ -->
+
   <section id="viewGroups" hidden>
     <div class="panel" style="border-inline-start:3px solid var(--wa)">
       <h2>جروبات وقنوات واتساب</h2>
@@ -630,50 +643,55 @@ footer p{margin:.25rem 0}
   </section>
 
   <!-- ============ نشر وظيفة ============ -->
+
   <section id="viewPost" hidden>
     <div class="panel">
       <h2>انشر وظيفة</h2>
       <p>مجاني بالكامل. الإعلان بيتراجع قبل النشر عشان نمنع الإعلانات الوهمية، وبيظهر خلال ساعات.</p>
       <p class="note" id="postMode"></p>
 
-      <div id="postMsg"></div>
+```
+  <div id="postMsg"></div>
 
-      <div class="form" id="postForm">
-        <div><label>المسمى الوظيفي *</label><input id="pTitle" placeholder="محاسب أول"></div>
-        <div><label>الجهة / الشركة *</label><input id="pCompany" placeholder="شركة ..."></div>
-        <div><label>الدولة *</label><select id="pCountry"></select></div>
-        <div><label>المدينة / المنطقة</label><input id="pCity" placeholder="حولي"></div>
-        <div><label>المجال</label><select id="pCat"></select></div>
-        <div><label>المستوى</label><select id="pLevel"></select></div>
-        <div><label>نوع الدوام</label><select id="pType">
-          <option value="full_time">دوام كامل</option><option value="part_time">دوام جزئي</option>
-          <option value="contract">عقد / مشروع</option><option value="internship">تدريب</option>
-        </select></div>
-        <div><label>الراتب (اختياري)</label><input id="pSalary" placeholder="حسب الخبرة"></div>
-        <div class="wide"><label>وسيلة التقديم * — رقم واتساب أو إيميل أو رابط</label>
-          <input id="pApply" placeholder="96599112233 أو hr@company.com أو رابط"></div>
-        <div class="wide"><label>تفاصيل مختصرة</label>
-          <textarea id="pSummary" placeholder="المهام المطلوبة، الخبرة، أي شروط..."></textarea></div>
-        <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
-          <button class="btn amber" id="pSend" style="padding:.6rem 1.6rem">انشر الوظيفة</button>
-          <span class="note">بالنشر أنت تقرّ إن الإعلان حقيقي وإنك مسؤول عن بياناته.</span>
-        </div>
-      </div>
+  <div class="form" id="postForm">
+    <div><label>المسمى الوظيفي *</label><input id="pTitle" placeholder="محاسب أول"></div>
+    <div><label>الجهة / الشركة *</label><input id="pCompany" placeholder="شركة ..."></div>
+    <div><label>الدولة *</label><select id="pCountry"></select></div>
+    <div><label>المدينة / المنطقة</label><input id="pCity" placeholder="حولي"></div>
+    <div><label>المجال</label><select id="pCat"></select></div>
+    <div><label>المستوى</label><select id="pLevel"></select></div>
+    <div><label>نوع الدوام</label><select id="pType">
+      <option value="full_time">دوام كامل</option><option value="part_time">دوام جزئي</option>
+      <option value="contract">عقد / مشروع</option><option value="internship">تدريب</option>
+    </select></div>
+    <div><label>الراتب (اختياري)</label><input id="pSalary" placeholder="حسب الخبرة"></div>
+    <div class="wide"><label>وسيلة التقديم * — رقم واتساب أو إيميل أو رابط</label>
+      <input id="pApply" placeholder="96599112233 أو hr@company.com أو رابط"></div>
+    <div class="wide"><label>تفاصيل مختصرة</label>
+      <textarea id="pSummary" placeholder="المهام المطلوبة، الخبرة، أي شروط..."></textarea></div>
+    <div class="wide" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+      <button class="btn amber" id="pSend" style="padding:.6rem 1.6rem">انشر الوظيفة</button>
+      <span class="note">بالنشر أنت تقرّ إن الإعلان حقيقي وإنك مسؤول عن بياناته.</span>
     </div>
+  </div>
+</div>
 
-    <div class="panel" id="mineBox" hidden>
-      <h2>إعلاناتي</h2>
-      <div class="list" id="mine"></div>
-    </div>
+<div class="panel" id="mineBox" hidden>
+  <h2>إعلاناتي</h2>
+  <div class="list" id="mine"></div>
+</div>
 
-    <div class="panel">
-      <h2>للشركات — إعلانات مدفوعة</h2>
-      <p>عايز إعلانك يظهر في أعلى الصفحة أو بين الوظائف لجمهور الباحثين عن عمل في الخليج ومصر؟</p>
-      <a class="btn primary" id="adCta" href="#" style="display:inline-block;margin-top:.5rem;padding:.5rem 1.3rem">تواصل معنا</a>
-    </div>
+<div class="panel">
+  <h2>للشركات — إعلانات مدفوعة</h2>
+  <p>عايز إعلانك يظهر في أعلى الصفحة أو بين الوظائف لجمهور الباحثين عن عمل في الخليج ومصر؟</p>
+  <a class="btn primary" id="adCta" href="#" style="display:inline-block;margin-top:.5rem;padding:.5rem 1.3rem">تواصل معنا</a>
+</div>
+```
+
   </section>
 
   <!-- ============ المحفوظة ============ -->
+
   <section id="viewSaved" hidden>
     <div class="list" id="savedList"></div>
   </section>
@@ -1500,413 +1518,373 @@ function openApply(j){
         </select></div>
         <div class="wide"><label>ملاحظة أو رابط سيرتك الذاتية (اختياري)</label>
           <textarea id="aNote" placeholder="أي تفاصيل تحب توصلها لصاحب الإعلان"></textarea></div>
-      </div>
-      <div id="applyMsg"></div>
-      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
-        <button class="btn amber" id="aNext" style="flex:1;min-width:140px">مراجعة البيانات</button>
-        <button class="btn ghost" id="aCancel">إلغاء</button>
-      </div>
-      <p class="privacy">بالضغط على إرسال أنت توافق على مشاركة بياناتك مع جهة التوظيف صاحبة الإعلان.
-        شواغر لا يطلب أي رسوم، وأي جهة تطلب منك فلوس مقابل التوظيف = نصب.</p>
-    </div>`);
-  $("#aNext").onclick = reviewApply;
-  $("#aCancel").onclick = () => { $("#applyBox").remove(); applyJob = null; };
-  $("#applyBox").scrollIntoView({behavior:"smooth", block:"start"});
+
+```
+  </div>
+  <div id="applyMsg"></div>
+  <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
+    <button class="btn amber" id="aNext" style="flex:1;min-width:140px">مراجعة البيانات</button>
+    <button class="btn ghost" id="aCancel">إلغاء</button>
+  </div>
+  <p class="privacy">بالضغط على إرسال أنت توافق على مشاركة بياناتك مع جهة التوظيف صاحبة الإعلان.
+    شواغر لا يطلب أي رسوم، وأي جهة تطلب منك فلوس مقابل التوظيف = نصب.</p>
+</div>`);
+```
+
+$(”#aNext”).onclick = reviewApply;
+$(”#aCancel”).onclick = () => { $(”#applyBox”).remove(); applyJob = null; };
+$(”#applyBox”).scrollIntoView({behavior:“smooth”, block:“start”});
 }
 function lastApplicant(){
-  try{ return JSON.parse(sessionStorage.getItem("sw_me") || "{}"); }catch(e){ return {}; }
+try{ return JSON.parse(sessionStorage.getItem(“sw_me”) || “{}”); }catch(e){ return {}; }
 }
 function saveApplicant(d){
-  try{ sessionStorage.setItem("sw_me", JSON.stringify(d)); }catch(e){}
+try{ sessionStorage.setItem(“sw_me”, JSON.stringify(d)); }catch(e){}
 }
 function applyData(){
-  const g = id => ($("#" + id)?.value || "").trim();
-  return {full_name:g("aName"), phone:g("aPhone"), email:g("aMail"),
-          qualification:g("aQual"), experience:g("aExp"), note:g("aNote")};
+const g = id => ($(”#” + id)?.value || “”).trim();
+return {full_name:g(“aName”), phone:g(“aPhone”), email:g(“aMail”),
+qualification:g(“aQual”), experience:g(“aExp”), note:g(“aNote”)};
 }
 function reviewApply(){
-  const d = applyData();
-  const msg = $("#applyMsg");
-  if(!d.full_name || d.full_name.length < 3){ msg.innerHTML = `<div class="err">اكتب اسمك بالكامل.</div>`; return; }
-  if(normPhone(d.phone, applyJob.country).length < 10){
-    msg.innerHTML = `<div class="err">رقم الموبايل مش مظبوط — اكتبه بالكامل.</div>`; return; }
-  if(!d.qualification){ msg.innerHTML = `<div class="err">اكتب مؤهلك الدراسي.</div>`; return; }
-  if(d.email && !/^[\w.+-]+@[\w-]+\.[\w.]+$/.test(d.email)){
-    msg.innerHTML = `<div class="err">البريد الإلكتروني مش مظبوط.</div>`; return; }
+const d = applyData();
+const msg = $(”#applyMsg”);
+if(!d.full_name || d.full_name.length < 3){ msg.innerHTML = `<div class="err">اكتب اسمك بالكامل.</div>`; return; }
+if(normPhone(d.phone, applyJob.country).length < 10){
+msg.innerHTML = `<div class="err">رقم الموبايل مش مظبوط — اكتبه بالكامل.</div>`; return; }
+if(!d.qualification){ msg.innerHTML = `<div class="err">اكتب مؤهلك الدراسي.</div>`; return; }
+if(d.email && !/^[\w.+-]+@[\w-]+.[\w.]+$/.test(d.email)){
+msg.innerHTML = `<div class="err">البريد الإلكتروني مش مظبوط.</div>`; return; }
 
-  const rows = [["الاسم", d.full_name], ["الموبايل", d.phone], ["البريد", d.email || "—"],
-                ["المؤهل", d.qualification], ["الخبرة", d.experience || "—"]];
-  msg.innerHTML = `<div class="review">
-      <p class="note" style="margin:0 0 .4rem">راجع بياناتك قبل الإرسال:</p>
-      ${rows.map(([k,v]) => `<div class="r"><span>${k}</span><span>${esc(v)}</span></div>`).join("")}
-    </div>`;
-  $("#aNext").textContent = "تأكيد وإرسال";
-  $("#aNext").onclick = sendApply;
+const rows = [[“الاسم”, d.full_name], [“الموبايل”, d.phone], [“البريد”, d.email || “—”],
+[“المؤهل”, d.qualification], [“الخبرة”, d.experience || “—”]];
+msg.innerHTML = `<div class="review"> <p class="note" style="margin:0 0 .4rem">راجع بياناتك قبل الإرسال:</p> ${rows.map(([k,v]) => `<div class="r"><span>${k}</span><span>${esc(v)}</span></div>`).join("")} </div>`;
+$(”#aNext”).textContent = “تأكيد وإرسال”;
+$(”#aNext”).onclick = sendApply;
 }
 async function sendApply(){
-  const d = applyData();
-  const j = applyJob;
-  const btn = $("#aNext"); btn.disabled = true; btn.textContent = "جاري الإرسال...";
-  saveApplicant(d);
-  const row = {...d, phone: normPhone(d.phone, j.country),
-    job_fingerprint: j.fingerprint, job_title: j.title, company_name: j.company_name,
-    country: j.country || null, city: j.city || null, apply_url: j.apply_url || null,
-    applicant_id: user?.id || null};
-  let ok = false, why = "";
-  if(sb){
-    const { error } = await sb.from("job_applications").insert(row);
-    ok = !error; why = error?.message || "";
-  }
-  const text = `*تقديم جديد من شواغر*\n\n` +
-    `الوظيفة: ${j.title}\n${j.company_name ? "الجهة: " + j.company_name + "\n" : ""}` +
-    `${j.city ? "المكان: " + j.city + "\n" : ""}\n` +
-    `الاسم: ${d.full_name}\nالموبايل: ${row.phone}\n` +
-    `${d.email ? "البريد: " + d.email + "\n" : ""}المؤهل: ${d.qualification}\n` +
-    `${d.experience ? "الخبرة: " + d.experience + "\n" : ""}${d.note ? "\n" + d.note : ""}`;
-  const c = contactOf(j);
-  const target = (c && c.kind === "wa") ? c.value : CONFIG.adminNumber;
+const d = applyData();
+const j = applyJob;
+const btn = $(”#aNext”); btn.disabled = true; btn.textContent = “جاري الإرسال…”;
+saveApplicant(d);
+const row = {…d, phone: normPhone(d.phone, j.country),
+job_fingerprint: j.fingerprint, job_title: j.title, company_name: j.company_name,
+country: j.country || null, city: j.city || null, apply_url: j.apply_url || null,
+applicant_id: user?.id || null};
+let ok = false, why = “”;
+if(sb){
+const { error } = await sb.from(“job_applications”).insert(row);
+ok = !error; why = error?.message || “”;
+}
+const text = `*تقديم جديد من شواغر*\n\n` +
+`الوظيفة: ${j.title}\n${j.company_name ? "الجهة: " + j.company_name + "\n" : ""}` +
+`${j.city ? "المكان: " + j.city + "\n" : ""}\n` +
+`الاسم: ${d.full_name}\nالموبايل: ${row.phone}\n` +
+`${d.email ? "البريد: " + d.email + "\n" : ""}المؤهل: ${d.qualification}\n` +
+`${d.experience ? "الخبرة: " + d.experience + "\n" : ""}${d.note ? "\n" + d.note : ""}`;
+const c = contactOf(j);
+const target = (c && c.kind === “wa”) ? c.value : CONFIG.adminNumber;
 
-  $("#applyBox").innerHTML = `
-    <h4>${ok ? "تم استلام تقديمك ✓" : "بياناتك جاهزة"}</h4>
-    <p class="note">${ok
-      ? "طلبك اتسجّل عندنا. عشان توصل أسرع لصاحب الإعلان، ابعت البيانات على واتساب كمان."
-      : "ابعت البيانات لصاحب الإعلان مباشرة بالزر ده."}</p>
-    <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem">
-      ${target ? `<a class="btn wa" style="flex:1;min-width:150px" target="_blank" rel="noopener"
-        href="https://wa.me/${target}?text=${encodeURIComponent(text)}">إرسال على واتساب</a>` : ""}
-      <button class="btn ghost" id="aCopy">نسخ البيانات</button>
-      <button class="btn ghost" id="aDone">تم</button>
-    </div>
-    ${!ok && why ? `<p class="privacy">${esc(why)}</p>` : ""}`;
-  $("#aCopy").onclick = async () => {
-    try{ await navigator.clipboard.writeText(text.replace(/\*/g, ""));
-      $("#aCopy").textContent = "اتنسخ ✓"; }catch(e){}
-  };
-  $("#aDone").onclick = () => { $("#applyBox").remove(); applyJob = null; };
+$(”#applyBox”).innerHTML = `<h4>${ok ? "تم استلام تقديمك ✓" : "بياناتك جاهزة"}</h4> <p class="note">${ok ? "طلبك اتسجّل عندنا. عشان توصل أسرع لصاحب الإعلان، ابعت البيانات على واتساب كمان." : "ابعت البيانات لصاحب الإعلان مباشرة بالزر ده."}</p> <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem"> ${target ?`<a class="btn wa" style="flex:1;min-width:150px" target="_blank" rel="noopener"
+href="https://wa.me/${target}?text=${encodeURIComponent(text)}">إرسال على واتساب</a>`: ""} <button class="btn ghost" id="aCopy">نسخ البيانات</button> <button class="btn ghost" id="aDone">تم</button> </div> ${!ok && why ?`<p class="privacy">${esc(why)}</p>` : ""}`;
+$(”#aCopy”).onclick = async () => {
+try{ await navigator.clipboard.writeText(text.replace(/*/g, “”));
+$(”#aCopy”).textContent = “اتنسخ ✓”; }catch(e){}
+};
+$(”#aDone”).onclick = () => { $(”#applyBox”).remove(); applyJob = null; };
 }
 
 /* ══════════ ترحيب وتحفيز ══════════ */
 const MOTTOS = [
-  "الوظيفة المناسبة موجودة — المهم توصلها قبل غيرك.",
-  "قدّم على ٥ وظائف كل يوم، والنتيجة هتيجي.",
-  "سيرة ذاتية مظبوطة تفتح أبواب ما بتفتحش بالواسطة.",
-  "كل رفض بيقرّبك من القبول اللي مستنيك.",
-  "الشركات بتدوّر على حد بيحل مشكلة — وضّح المشكلة اللي بتحلها.",
-  "متستناش الإعلان المثالي. قدّم وإنت بتتعلم.",
-  "متابعتك بعد التقديم بتفرق أكتر مما تتخيل.",
+“الوظيفة المناسبة موجودة — المهم توصلها قبل غيرك.”,
+“قدّم على ٥ وظائف كل يوم، والنتيجة هتيجي.”,
+“سيرة ذاتية مظبوطة تفتح أبواب ما بتفتحش بالواسطة.”,
+“كل رفض بيقرّبك من القبول اللي مستنيك.”,
+“الشركات بتدوّر على حد بيحل مشكلة — وضّح المشكلة اللي بتحلها.”,
+“متستناش الإعلان المثالي. قدّم وإنت بتتعلم.”,
+“متابعتك بعد التقديم بتفرق أكتر مما تتخيل.”,
 ];
 const TIPS = [
-  ["قدّم بسرعة", "الإعلانات اللي عمرها أقل من ٤٨ ساعة فرصتها أضعاف الأقدم. رتّب بـ الأحدث وقدّم أول يوم."],
-  ["اقرأ الإعلان كويس", "ظبّط أول سطرين في سيرتك على المسمى الوظيفي المذكور بالحرف."],
-  ["احذر النصب", "أي جهة تطلب منك فلوس مقابل التوظيف أو التأشيرة — ده نصب. التوظيف الشرعي رسومه على صاحب العمل."],
-  ["تابع بأدب", "بعد ٥ أيام من التقديم، رسالة قصيرة على واتساب أو الإيميل بتفكّر بيك من غير إزعاج."],
-  ["نوّع مصادرك", "شوف الشواغر الرسمية وإعلانات الأفراد — كل مصدر بيوصل لسوق مختلف."],
-  ["جهّز رقمك", "خلي رقم الواتساب شغّال وعليه صورة واسم واضح — أول انطباع بيتكوّن منه."],
+[“قدّم بسرعة”, “الإعلانات اللي عمرها أقل من ٤٨ ساعة فرصتها أضعاف الأقدم. رتّب بـ الأحدث وقدّم أول يوم.”],
+[“اقرأ الإعلان كويس”, “ظبّط أول سطرين في سيرتك على المسمى الوظيفي المذكور بالحرف.”],
+[“احذر النصب”, “أي جهة تطلب منك فلوس مقابل التوظيف أو التأشيرة — ده نصب. التوظيف الشرعي رسومه على صاحب العمل.”],
+[“تابع بأدب”, “بعد ٥ أيام من التقديم، رسالة قصيرة على واتساب أو الإيميل بتفكّر بيك من غير إزعاج.”],
+[“نوّع مصادرك”, “شوف الشواغر الرسمية وإعلانات الأفراد — كل مصدر بيوصل لسوق مختلف.”],
+[“جهّز رقمك”, “خلي رقم الواتساب شغّال وعليه صورة واسم واضح — أول انطباع بيتكوّن منه.”],
 ];
 function greeting(){
-  const h = new Date().getHours();
-  return h < 12 ? "صباح الخير" : h < 17 ? "طاب يومك" : h < 21 ? "مساء الخير" : "مساء الخير";
+const h = new Date().getHours();
+return h < 12 ? “صباح الخير” : h < 17 ? “طاب يومك” : h < 21 ? “مساء الخير” : “مساء الخير”;
 }
 function drawHello(){
-  const name = user?.user_metadata?.full_name?.split(" ")[0];
-  const g = greeting() + (name ? `، ${name}` : "") + " — " + ar(JOBS.length) + " شاغر مفتوح النهاردة";
-  const m = MOTTOS[new Date().getDate() % MOTTOS.length];
-  $("#greet").textContent = g;
-  $("#motto").textContent = m;
-  $("#greet2").textContent = "لوحة التحليلات";
+const name = user?.user_metadata?.full_name?.split(” “)[0];
+const g = greeting() + (name ? `، ${name}` : “”) + “ — “ + ar(JOBS.length) + “ شاغر مفتوح النهاردة”;
+const m = MOTTOS[new Date().getDate() % MOTTOS.length];
+$(”#greet”).textContent = g;
+$(”#motto”).textContent = m;
+$(”#greet2”).textContent = “لوحة التحليلات”;
 }
 function consultHTML(){
-  const tel = CONFIG.consultPhone;
-  return `<img src="assets/almohtaref.png" alt="" width="52" height="52">
-    <div><h3>${esc(CONFIG.consultName)}</h3><p>${esc(CONFIG.consultNote)}</p></div>
-    <div class="cta">
-      ${tel ? `<a class="btn amber" href="tel:${esc(tel)}">اتصل الآن ${esc(tel)}</a>` : ""}
-      ${tel ? `<a class="btn wa" href="https://wa.me/${esc(tel.replace(/[^\d]/g,""))}" target="_blank" rel="noopener">واتساب</a>` : `<span class="note">حط رقم الاستشارات في CONFIG</span>`}
-    </div>`;
+const tel = CONFIG.consultPhone;
+return `<img src="assets/almohtaref.png" alt="" width="52" height="52"> <div><h3>${esc(CONFIG.consultName)}</h3><p>${esc(CONFIG.consultNote)}</p></div> <div class="cta"> ${tel ? `<a class="btn amber" href="tel:${esc(tel)}">اتصل الآن ${esc(tel)}</a>`: ""} ${tel ?`<a class=“btn wa” href=“https://wa.me/${esc(tel.replace(/[^\d]/g,””))}” target=”_blank” rel=“noopener”>واتساب</a>`:`<span class="note">حط رقم الاستشارات في CONFIG</span>`} </div>`;
 }
 
 /* ══════════ شجرة وتحليلات ══════════ */
-const GROUPKIND = j => j.source_kind === "discover" ? "إعلانات أفراد"
-  : (j.is_direct || j.source_kind === "user" || j.source_kind === "whatsapp") ? "إعلانات مباشرة" : "مصادر رسمية";
+const GROUPKIND = j => j.source_kind === “discover” ? “إعلانات أفراد”
+: (j.is_direct || j.source_kind === “user” || j.source_kind === “whatsapp”) ? “إعلانات مباشرة” : “مصادر رسمية”;
 function drawTree(){
-  const t = {};
-  JOBS.forEach(j => {
-    const g = GROUPKIND(j), c = COUNTRIES[j.country] || "غير محدد", k = CATEGORIES[j.category] || "أخرى";
-    t[g] = t[g] || {n:0, kids:{}};
-    t[g].n++;
-    t[g].kids[c] = t[g].kids[c] || {n:0, kids:{}};
-    t[g].kids[c].n++;
-    t[g].kids[c].kids[k] = (t[g].kids[c].kids[k] || 0) + 1;
-  });
-  const el = $("#tree"); el.textContent = "";
-  Object.entries(t).sort((a,b) => b[1].n - a[1].n).forEach(([g, gv]) => {
-    const d = document.createElement("details");
-    d.innerHTML = `<summary><b>${g}</b><span class="n">${ar(gv.n)}</span></summary>` +
-      Object.entries(gv.kids).sort((a,b)=>b[1].n-a[1].n).map(([c, cv]) =>
-        `<details class="lvl2"><summary><b>${c}</b><span class="n">${ar(cv.n)}</span></summary>` +
-        Object.entries(cv.kids).sort((a,b)=>b[1]-a[1]).map(([k,n]) =>
-          `<div class="lvl3"><span>${k}</span><span class="n">${ar(n)}</span></div>`).join("") +
-        `</details>`).join("");
-    el.appendChild(d);
-  });
+const t = {};
+JOBS.forEach(j => {
+const g = GROUPKIND(j), c = COUNTRIES[j.country] || “غير محدد”, k = CATEGORIES[j.category] || “أخرى”;
+t[g] = t[g] || {n:0, kids:{}};
+t[g].n++;
+t[g].kids[c] = t[g].kids[c] || {n:0, kids:{}};
+t[g].kids[c].n++;
+t[g].kids[c].kids[k] = (t[g].kids[c].kids[k] || 0) + 1;
+});
+const el = $(”#tree”); el.textContent = “”;
+Object.entries(t).sort((a,b) => b[1].n - a[1].n).forEach(([g, gv]) => {
+const d = document.createElement(“details”);
+d.innerHTML = `<summary><b>${g}</b><span class="n">${ar(gv.n)}</span></summary>` +
+Object.entries(gv.kids).sort((a,b)=>b[1].n-a[1].n).map(([c, cv]) =>
+`<details class="lvl2"><summary><b>${c}</b><span class="n">${ar(cv.n)}</span></summary>` +
+Object.entries(cv.kids).sort((a,b)=>b[1]-a[1]).map(([k,n]) =>
+`<div class="lvl3"><span>${k}</span><span class="n">${ar(n)}</span></div>`).join(””) +
+`</details>`).join(””);
+el.appendChild(d);
+});
 }
 function bars(host, pairs){
-  const max = Math.max(1, ...pairs.map(p => p[1]));
-  $(host).innerHTML = pairs.map(([k,v]) =>
-    `<div class="stat"><span>${esc(k)}</span><span class="n mono">${ar(v)}</span>
-     <span class="track"><i class="fill" style="width:${(v/max*100).toFixed(0)}%"></i></span></div>`).join("");
+const max = Math.max(1, …pairs.map(p => p[1]));
+$(host).innerHTML = pairs.map(([k,v]) =>
+`<div class="stat"><span>${esc(k)}</span><span class="n mono">${ar(v)}</span> <span class="track"><i class="fill" style="width:${(v/max*100).toFixed(0)}%"></i></span></div>`).join(””);
 }
 function drawStats(){
-  drawTree();
-  const co = {}, cat = {};
-  JOBS.forEach(j => { co[j.company_name] = (co[j.company_name]||0)+1;
-                      cat[CATEGORIES[j.category] || "أخرى"] = (cat[CATEGORIES[j.category] || "أخرى"]||0)+1; });
-  bars("#topco", Object.entries(co).sort((a,b)=>b[1]-a[1]).slice(0,7));
-  bars("#topcat", Object.entries(cat).sort((a,b)=>b[1]-a[1]).slice(0,7));
-  $("#tips").innerHTML = TIPS.map(([h,b]) => `<li><b>${h}:</b> ${b}</li>`).join("");
-  $("#consultBox").innerHTML = consultHTML();
-  $("#consultBox2").innerHTML = consultHTML();
+drawTree();
+const co = {}, cat = {};
+JOBS.forEach(j => { co[j.company_name] = (co[j.company_name]||0)+1;
+cat[CATEGORIES[j.category] || “أخرى”] = (cat[CATEGORIES[j.category] || “أخرى”]||0)+1; });
+bars(”#topco”, Object.entries(co).sort((a,b)=>b[1]-a[1]).slice(0,7));
+bars(”#topcat”, Object.entries(cat).sort((a,b)=>b[1]-a[1]).slice(0,7));
+$(”#tips”).innerHTML = TIPS.map(([h,b]) => `<li><b>${h}:</b> ${b}</li>`).join(””);
+$(”#consultBox”).innerHTML = consultHTML();
+$(”#consultBox2”).innerHTML = consultHTML();
 }
 
 /* ══════════ الأدمن ══════════ */
 let NOTES = {};
 const isAdmin = () => !!(user && (CONFIG.adminEmails || [])
-  .map(e => e.toLowerCase()).includes((user.email || "").toLowerCase()));
+.map(e => e.toLowerCase()).includes((user.email || “”).toLowerCase()));
 
 async function addNote(j){
-  const cur = NOTES[j.fingerprint]?.note || "";
-  const txt = prompt("ملاحظة الإدارة على: " + j.title, cur);
-  if(txt === null) return;
-  if(!sb){ alert("محتاج ربط Supabase لحفظ الملاحظات."); return; }
-  if(!txt.trim()){
-    await sb.from("job_notes").delete().eq("fingerprint", j.fingerprint);
-  } else {
-    await sb.from("job_notes").delete().eq("fingerprint", j.fingerprint);
-    await sb.from("job_notes").insert({fingerprint: j.fingerprint, job_title: j.title,
-      note: txt.trim(), author: user?.email || null});
-  }
-  await loadNotes(); paint();
+const cur = NOTES[j.fingerprint]?.note || “”;
+const txt = prompt(“ملاحظة الإدارة على: “ + j.title, cur);
+if(txt === null) return;
+if(!sb){ alert(“محتاج ربط Supabase لحفظ الملاحظات.”); return; }
+if(!txt.trim()){
+await sb.from(“job_notes”).delete().eq(“fingerprint”, j.fingerprint);
+} else {
+await sb.from(“job_notes”).delete().eq(“fingerprint”, j.fingerprint);
+await sb.from(“job_notes”).insert({fingerprint: j.fingerprint, job_title: j.title,
+note: txt.trim(), author: user?.email || null});
+}
+await loadNotes(); paint();
 }
 async function loadNotes(){
-  if(!sb) return;
-  const { data } = await sb.from("job_notes").select("*").order("created_at", {ascending:false}).limit(500);
-  NOTES = {}; (data || []).forEach(n => { if(!NOTES[n.fingerprint]) NOTES[n.fingerprint] = n; });
-  const box = $("#notesList");
-  if(box) box.innerHTML = (data || []).slice(0,20).map(n =>
-    `<div class="stat"><span><b>${esc(n.job_title || "")}</b> — ${esc(n.note)}</span>
-     <span class="n">${ago(n.created_at)}</span></div>`).join("") || `<p class="note">مفيش ملاحظات.</p>`;
-  const c = $("#aNotes"); if(c) c.textContent = ar((data || []).length);
+if(!sb) return;
+const { data } = await sb.from(“job_notes”).select(”*”).order(“created_at”, {ascending:false}).limit(500);
+NOTES = {}; (data || []).forEach(n => { if(!NOTES[n.fingerprint]) NOTES[n.fingerprint] = n; });
+const box = $(”#notesList”);
+if(box) box.innerHTML = (data || []).slice(0,20).map(n =>
+`<div class="stat"><span><b>${esc(n.job_title || "")}</b> — ${esc(n.note)}</span> <span class="n">${ago(n.created_at)}</span></div>`).join(””) || `<p class="note">مفيش ملاحظات.</p>`;
+const c = $(”#aNotes”); if(c) c.textContent = ar((data || []).length);
 }
 async function loadAdmin(){
-  const na = $("#navAdmin"); if(na) na.hidden = !isAdmin();
-  if(!isAdmin() || !sb) return;
-  $("#adminWho").textContent = "مسجّل دخول كأدمن: " + (user.email || "");
-  const { data: v } = await sb.rpc("views_summary");
-  if(v && v.length){
-    const views = v.reduce((a,x) => a + Number(x.views), 0);
-    const vis = v.reduce((a,x) => a + Number(x.visitors), 0);
-    const today = v.find(x => x.day === new Date().toISOString().slice(0,10));
-    $("#aViews").textContent = ar(views);
-    $("#aVisitors").textContent = ar(vis);
-    $("#aToday").textContent = ar(today ? today.views : 0);
-    bars("#viewsChart", v.slice(0,14).reverse()
-      .map(x => [new Date(x.day).toLocaleDateString("ar-EG",{day:"numeric",month:"short"}), Number(x.views)]));
-  }
-  const { data: apps } = await sb.from("job_applications")
-    .select("*").order("created_at", {ascending:false}).limit(40);
-  if(apps){
-    $("#appsCount").textContent = `(${ar(apps.length)})`;
-    $("#appsList").innerHTML = apps.length ? apps.map(a => `
-      <div class="job" style="grid-template-columns:1fr auto">
-        <div>
-          <h3>${esc(a.full_name)} — ${esc(a.qualification || "")}</h3>
-          <p class="meta">تقدّم على <b>${esc(a.job_title)}</b>${a.company_name ? " · " + esc(a.company_name) : ""}</p>
-          <div class="tags">
-            <span class="tag">${ago(a.created_at)}</span>
-            ${a.experience ? `<span class="tag">${esc(a.experience)}</span>` : ""}
-            ${a.email ? `<span class="tag">${esc(a.email)}</span>` : ""}
-            <span class="tag on">${a.status === "new" ? "جديد" : esc(a.status)}</span>
-          </div>
-          ${a.note ? `<p class="snippet">${esc(a.note)}</p>` : ""}
-        </div>
-        <div class="actions">
-          <a class="btn wa" href="https://wa.me/${esc(a.phone)}" target="_blank" rel="noopener">واتساب</a>
-          ${a.email ? `<a class="btn ghost" href="mailto:${esc(a.email)}">إيميل</a>` : ""}
-          <button class="btn ghost" data-seen="${a.id}">تم التواصل</button>
-        </div>
-      </div>`).join("") : `<p class="note">مفيش طلبات تقديم لسه.</p>`;
-    $("#appsList").querySelectorAll("[data-seen]").forEach(b => b.onclick = async () => {
-      await sb.from("job_applications").update({status:"seen"}).eq("id", b.dataset.seen);
-      loadAdmin();
-    });
-  }
+const na = $(”#navAdmin”); if(na) na.hidden = !isAdmin();
+if(!isAdmin() || !sb) return;
+$(”#adminWho”).textContent = “مسجّل دخول كأدمن: “ + (user.email || “”);
+const { data: v } = await sb.rpc(“views_summary”);
+if(v && v.length){
+const views = v.reduce((a,x) => a + Number(x.views), 0);
+const vis = v.reduce((a,x) => a + Number(x.visitors), 0);
+const today = v.find(x => x.day === new Date().toISOString().slice(0,10));
+$(”#aViews”).textContent = ar(views);
+$(”#aVisitors”).textContent = ar(vis);
+$(”#aToday”).textContent = ar(today ? today.views : 0);
+bars(”#viewsChart”, v.slice(0,14).reverse()
+.map(x => [new Date(x.day).toLocaleDateString(“ar-EG”,{day:“numeric”,month:“short”}), Number(x.views)]));
+}
+const { data: apps } = await sb.from(“job_applications”)
+.select(”*”).order(“created_at”, {ascending:false}).limit(40);
+if(apps){
+$(”#appsCount”).textContent = `(${ar(apps.length)})`;
+$(”#appsList”).innerHTML = apps.length ? apps.map(a => `<div class="job" style="grid-template-columns:1fr auto"> <div> <h3>${esc(a.full_name)} — ${esc(a.qualification || "")}</h3> <p class="meta">تقدّم على <b>${esc(a.job_title)}</b>${a.company_name ? " · " + esc(a.company_name) : ""}</p> <div class="tags"> <span class="tag">${ago(a.created_at)}</span> ${a.experience ?`<span class="tag">${esc(a.experience)}</span>`: ""} ${a.email ?`<span class="tag">${esc(a.email)}</span>`: ""} <span class="tag on">${a.status === "new" ? "جديد" : esc(a.status)}</span> </div> ${a.note ?`<p class="snippet">${esc(a.note)}</p>`: ""} </div> <div class="actions"> <a class="btn wa" href="https://wa.me/${esc(a.phone)}" target="_blank" rel="noopener">واتساب</a> ${a.email ?`<a class="btn ghost" href="mailto:${esc(a.email)}">إيميل</a>` : ""} <button class="btn ghost" data-seen="${a.id}">تم التواصل</button> </div> </div>`).join(””) : `<p class="note">مفيش طلبات تقديم لسه.</p>`;
+$(”#appsList”).querySelectorAll(”[data-seen]”).forEach(b => b.onclick = async () => {
+await sb.from(“job_applications”).update({status:“seen”}).eq(“id”, b.dataset.seen);
+loadAdmin();
+});
+}
 
-  const { data: subs } = await sb.from("job_submissions")
-    .select("id,title,company_name,country,city,apply_url,created_at,status")
-    .eq("status","pending").order("created_at",{ascending:false}).limit(30);
-  $("#pending").innerHTML = (subs || []).map(x =>
-    `<div class="job" style="grid-template-columns:1fr auto">
-      <div><h3>${esc(x.title)}</h3>
-        <p class="meta">${esc(x.company_name)} · ${COUNTRIES[x.country] || ""} ${esc(x.city || "")} · ${ago(x.created_at)}</p>
-        <p class="note">${esc(x.apply_url)}</p></div>
-      <div class="actions">
-        <button class="btn amber" data-ok="${x.id}">اعتماد</button>
-        <button class="btn ghost" data-no="${x.id}">رفض</button>
-      </div></div>`).join("") || `<p class="note">مفيش إعلانات تحت المراجعة.</p>`;
-  $("#pending").querySelectorAll("[data-ok]").forEach(b => b.onclick = async () => {
-    await sb.from("job_submissions").update({status:"approved", reviewed_at:new Date().toISOString()})
-      .eq("id", b.dataset.ok);
-    loadAdmin(); loadLiveJobs();
-  });
-  $("#pending").querySelectorAll("[data-no]").forEach(b => b.onclick = async () => {
-    const why = prompt("سبب الرفض (اختياري)") || null;
-    await sb.from("job_submissions").update({status:"rejected", reject_reason:why,
-      reviewed_at:new Date().toISOString()}).eq("id", b.dataset.no);
-    loadAdmin();
-  });
+const { data: subs } = await sb.from(“job_submissions”)
+.select(“id,title,company_name,country,city,apply_url,created_at,status”)
+.eq(“status”,“pending”).order(“created_at”,{ascending:false}).limit(30);
+$(”#pending”).innerHTML = (subs || []).map(x =>
+`<div class="job" style="grid-template-columns:1fr auto"> <div><h3>${esc(x.title)}</h3> <p class="meta">${esc(x.company_name)} · ${COUNTRIES[x.country] || ""} ${esc(x.city || "")} · ${ago(x.created_at)}</p> <p class="note">${esc(x.apply_url)}</p></div> <div class="actions"> <button class="btn amber" data-ok="${x.id}">اعتماد</button> <button class="btn ghost" data-no="${x.id}">رفض</button> </div></div>`).join(””) || `<p class="note">مفيش إعلانات تحت المراجعة.</p>`;
+$(”#pending”).querySelectorAll(”[data-ok]”).forEach(b => b.onclick = async () => {
+await sb.from(“job_submissions”).update({status:“approved”, reviewed_at:new Date().toISOString()})
+.eq(“id”, b.dataset.ok);
+loadAdmin(); loadLiveJobs();
+});
+$(”#pending”).querySelectorAll(”[data-no]”).forEach(b => b.onclick = async () => {
+const why = prompt(“سبب الرفض (اختياري)”) || null;
+await sb.from(“job_submissions”).update({status:“rejected”, reject_reason:why,
+reviewed_at:new Date().toISOString()}).eq(“id”, b.dataset.no);
+loadAdmin();
+});
 }
 async function trackVisit(){
-  if(!sb) return;
-  let isNew = false;
-  try{ isNew = !sessionStorage.getItem("sw_seen"); sessionStorage.setItem("sw_seen","1"); }catch(e){ isNew = true; }
-  try{ await sb.rpc("track_view", {p_path: "/", p_new: isNew}); }catch(e){}
+if(!sb) return;
+let isNew = false;
+try{ isNew = !sessionStorage.getItem(“sw_seen”); sessionStorage.setItem(“sw_seen”,“1”); }catch(e){ isNew = true; }
+try{ await sb.rpc(“track_view”, {p_path: “/”, p_new: isNew}); }catch(e){}
 }
 
 /* ══════════ الرسم العام ══════════ */
 function paint(){
-  const rows = filtered();
-  $("#kTotal").textContent = ar(JOBS.length);
-  $("#kWeek").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
-  $("#kCo").textContent    = ar(new Set(JOBS.map(j => j.company_name)).size);
-  $("#kUser").textContent  = ar(JOBS.filter(j => j.source_kind === "discover").length);
-  $("#navJobs").textContent   = ar(JOBS.filter(matchQ).length);
-  $("#navGroups").textContent = ar((GROUPS.groups || []).length);
-  $("#navSaved").textContent  = ar(saved.size);
+const rows = filtered();
+$(”#kTotal”).textContent = ar(JOBS.length);
+$(”#kWeek”).textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
+$(”#kCo”).textContent    = ar(new Set(JOBS.map(j => j.company_name)).size);
+$(”#kUser”).textContent  = ar(JOBS.filter(j => j.source_kind === “discover”).length);
+$(”#navJobs”).textContent   = ar(JOBS.filter(matchQ).length);
+$(”#navGroups”).textContent = ar((GROUPS.groups || []).length);
+$(”#navSaved”).textContent  = ar(saved.size);
 
-  drawTabs(); drawBars("#fCategory", CATEGORIES, "category");
-  drawBars("#fLevel", LEVELS, "seniority"); drawAds();
+drawTabs(); drawBars(”#fCategory”, CATEGORIES, “category”);
+drawBars(”#fLevel”, LEVELS, “seniority”); drawAds();
 
-  const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
-                state.level && LEVELS[state.level]].filter(Boolean);
-  $("#crumbTxt").textContent = bits.length ? "— " + bits.join(" · ") : "";
-  $("#clear").hidden = !bits.length && !state.q;
-  $("#shown").textContent = ar(rows.length);
+const bits = [state.country && COUNTRIES[state.country], state.category && CATEGORIES[state.category],
+state.level && LEVELS[state.level]].filter(Boolean);
+$(”#crumbTxt”).textContent = bits.length ? “— “ + bits.join(” · “) : “”;
+$(”#clear”).hidden = !bits.length && !state.q;
+$(”#shown”).textContent = ar(rows.length);
 
-  fillList("#list", rows.slice(0, state.limit),
-    `<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`);
-  $("#more").hidden = rows.length <= state.limit;
+fillList(”#list”, rows.slice(0, state.limit),
+`<div class="empty"><b>مفيش شاغر مطابق</b>جرّب كلمة أقصر أو شيل فلتر.</div>`);
+$(”#more”).hidden = rows.length <= state.limit;
 
-  fillList("#savedList", JOBS.filter(j => saved.has(j.fingerprint)),
-    `<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر ويظهر هنا.</div>`);
-  drawGroups();
-  drawHello();
-  $("#consultBox").innerHTML = consultHTML();
+fillList(”#savedList”, JOBS.filter(j => saved.has(j.fingerprint)),
+`<div class="empty"><b>مفيش شواغر محفوظة</b>اضغط "احفظ" على أي شاغر ويظهر هنا.</div>`);
+drawGroups();
+drawHello();
+$(”#consultBox”).innerHTML = consultHTML();
 }
 function setTab(tab){
-  state.tab = tab;
-  document.querySelectorAll("#nav button").forEach(b =>
-    b.setAttribute("aria-current", String(b.dataset.tab === tab)));
-  $("#viewJobs").hidden   = tab !== "jobs";
-  $("#viewGroups").hidden = tab !== "groups";
-  $("#viewPost").hidden   = tab !== "post";
-  $("#viewSaved").hidden  = tab !== "saved";
-  $("#viewStats").hidden  = tab !== "stats";
-  $("#viewAdmin").hidden  = tab !== "admin";
-  $("#viewServices").hidden = tab !== "services";
-  $("#tabs").hidden = ["post","stats","admin","services"].includes(tab);
-  if(tab === "services") $("#consultBox3").innerHTML = consultHTML();
-  if(tab === "stats") drawStats();
-  if(tab === "admin") loadAdmin();
-  document.body.classList.remove("open");
-  window.scrollTo({top:0, behavior:"instant"});
-  paint();
+state.tab = tab;
+document.querySelectorAll(”#nav button”).forEach(b =>
+b.setAttribute(“aria-current”, String(b.dataset.tab === tab)));
+$(”#viewJobs”).hidden   = tab !== “jobs”;
+$(”#viewGroups”).hidden = tab !== “groups”;
+$(”#viewPost”).hidden   = tab !== “post”;
+$(”#viewSaved”).hidden  = tab !== “saved”;
+$(”#viewStats”).hidden  = tab !== “stats”;
+$(”#viewAdmin”).hidden  = tab !== “admin”;
+$(”#viewServices”).hidden = tab !== “services”;
+$(”#tabs”).hidden = [“post”,“stats”,“admin”,“services”].includes(tab);
+if(tab === “services”) $(”#consultBox3”).innerHTML = consultHTML();
+if(tab === “stats”) drawStats();
+if(tab === “admin”) loadAdmin();
+document.body.classList.remove(“open”);
+window.scrollTo({top:0, behavior:“instant”});
+paint();
 }
 
 /* ══════════ الإقلاع ══════════ */
 async function load(path, fallback){
-  try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
-  return fallback;
+try{ const r = await fetch(path, {cache:“no-store”}); if(r.ok) return await r.json(); }catch(e){}
+return fallback;
 }
 async function boot(){
-  const [jp, gp, ap] = await Promise.all([
-    load("data/jobs.json", JOBS_DATA),
-    load("data/groups.json", GROUPS_DATA),
-    load("data/ads.json", ADS_DATA),
-  ]);
-  JOBS = jp.jobs || []; GROUPS = gp || {groups:[]}; ADS = (ap && ap.ads) || [];
+const [jp, gp, ap] = await Promise.all([
+load(“data/jobs.json”, JOBS_DATA),
+load(“data/groups.json”, GROUPS_DATA),
+load(“data/ads.json”, ADS_DATA),
+]);
+JOBS = jp.jobs || []; GROUPS = gp || {groups:[]}; ADS = (ap && ap.ads) || [];
 
-  const when = new Date(jp.generated_at || Date.now());
-  $("#stamp").textContent = "آخر تحديث " +
-    when.toLocaleString("ar-EG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
-  $("#srcline").textContent = (jp.demo ? "بيانات تجريبية · " : "") +
-    ar(new Set(JOBS.map(j => j.source_kind)).size) + " مصادر";
+const when = new Date(jp.generated_at || Date.now());
+$(”#stamp”).textContent = “آخر تحديث “ +
+when.toLocaleString(“ar-EG”,{day:“numeric”,month:“short”,hour:“2-digit”,minute:“2-digit”});
+$(”#srcline”).textContent = (jp.demo ? “بيانات تجريبية · “ : “”) +
+ar(new Set(JOBS.map(j => j.source_kind)).size) + “ مصادر”;
 
-  $("#pCountry").innerHTML = `<option value="">— اختر —</option>` + opts(COUNTRIES, "KW");
-  $("#pCat").innerHTML = opts(CATEGORIES, "other");
-  $("#pLevel").innerHTML = opts(LEVELS, "mid");
-  $("#postMode").textContent = (CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)
-    ? "" : "النشر حالياً بيتبعت على واتساب للمراجعة. لتفعيل النشر المباشر، حط بيانات Supabase في CONFIG.";
+$(”#pCountry”).innerHTML = `<option value="">— اختر —</option>` + opts(COUNTRIES, “KW”);
+$(”#pCat”).innerHTML = opts(CATEGORIES, “other”);
+$(”#pLevel”).innerHTML = opts(LEVELS, “mid”);
+$(”#postMode”).textContent = (CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)
+? “” : “النشر حالياً بيتبعت على واتساب للمراجعة. لتفعيل النشر المباشر، حط بيانات Supabase في CONFIG.”;
 
-  const num = CONFIG.adminNumber;
-  $("#adCta").href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : "#";
-  $("#addGroup").onclick = () => window.open(num
-    ? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
-    : "#", "_blank");
+const num = CONFIG.adminNumber;
+$(”#adCta”).href = num ? `https://wa.me/${num}?text=${encodeURIComponent("مهتم بالإعلان على شواغر")}` : “#”;
+$(”#addGroup”).onclick = () => window.open(num
+? `https://wa.me/${num}?text=${encodeURIComponent("عايز أضيف جروب لدليل شواغر:")}`
+: “#”, “_blank”);
 
-  $("#q").addEventListener("input", e => { state.q = e.target.value; state.limit = PAGE; paint(); });
-  $("#sort").onchange = e => { state.sort = e.target.value; paint(); };
-  $("#menu").onclick = () => document.body.classList.toggle("open");
-  $("#more").onclick = () => { state.limit += PAGE; paint(); };
-  $("#clear").onclick = () => {
-    Object.assign(state, {q:"", country:"", category:"", level:"", limit:PAGE});
-    $("#q").value = ""; paint();
-  };
-  setTheme(getTheme());
-  document.querySelectorAll("#themebar .swatch").forEach(b =>
-    b.onclick = () => setTheme(b.dataset.theme));
-  $("#pSend").onclick = submitJob;
-  $("#verified").onclick = () => {
-    state.verified = !state.verified; state.limit = PAGE;
-    $("#verified").setAttribute("aria-pressed", String(state.verified));
-    paint();
-  };
-  document.querySelectorAll("#nav button, .postbtn").forEach(b => b.onclick = () => setTab(b.dataset.tab));
-  $("#eCalc").onclick = eosCalc;
-  $("#waFile").onchange = async e => {
-    const f = e.target.files[0]; if(!f) return;
-    $("#waFileName").textContent = f.name;
-    try{ $("#waPaste").value = await waReadFile(f); $("#waStat").textContent = "الملف اتقرا — اضغط حلّل"; }
-    catch(err){ $("#waStat").textContent = "مقدرش أقرا الملف: " + err.message; }
-  };
-  $("#waParse").onclick = () => { waRows = waExtract($("#waPaste").value); waRender(); };
-  $("#waClear").onclick = () => { waRows = []; $("#waPaste").value = ""; $("#waFileName").textContent = "مفيش ملف"; waRender(); };
-  $("#waPublish").onclick = waPublish;
-  $("#waDownload").onclick = () => {
-    const rows = waRows.filter(r => r.keep && r.title && r.apply_url)
-      .map(({keep, ...r}) => ({...r, source_kind:"whatsapp", is_direct:true,
-        posted_at: r.posted_at || new Date().toISOString(), employment_type:"full_time", is_remote:false}));
-    const b = new Blob([JSON.stringify({generated_at:new Date().toISOString(), jobs:rows}, null, 1)],
-      {type:"application/json"});
-    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "manual.json"; a.click();
-  };
-  $("#eEnd").value = new Date().toISOString().slice(0,10);
-  document.querySelectorAll(".subtab").forEach(b => b.onclick = () => {
-    state.kind = b.dataset.kind;
-    document.querySelectorAll(".subtab").forEach(x =>
-      x.setAttribute("aria-pressed", String(x.dataset.kind === state.kind)));
-    drawGroups();
-  });
-  $("#mClose").onclick = closeJob;
-  $("#ov").onclick = e => { if(e.target.id === "ov") closeJob(); };
-  document.addEventListener("keydown", e => {
-    if(e.key !== "Escape") return;
-    if(!$("#ov").hidden) closeJob(); else document.body.classList.remove("open");
-  });
+$(”#q”).addEventListener(“input”, e => { state.q = e.target.value; state.limit = PAGE; paint(); });
+$(”#sort”).onchange = e => { state.sort = e.target.value; paint(); };
+$(”#menu”).onclick = () => document.body.classList.toggle(“open”);
+$(”#more”).onclick = () => { state.limit += PAGE; paint(); };
+$(”#clear”).onclick = () => {
+Object.assign(state, {q:””, country:””, category:””, level:””, limit:PAGE});
+$(”#q”).value = “”; paint();
+};
+setTheme(getTheme());
+document.querySelectorAll(”#themebar .swatch”).forEach(b =>
+b.onclick = () => setTheme(b.dataset.theme));
+$(”#pSend”).onclick = submitJob;
+$(”#verified”).onclick = () => {
+state.verified = !state.verified; state.limit = PAGE;
+$(”#verified”).setAttribute(“aria-pressed”, String(state.verified));
+paint();
+};
+document.querySelectorAll(”#nav button, .postbtn”).forEach(b => b.onclick = () => setTab(b.dataset.tab));
+$(”#eCalc”).onclick = eosCalc;
+$(”#waFile”).onchange = async e => {
+const f = e.target.files[0]; if(!f) return;
+$(”#waFileName”).textContent = f.name;
+try{ $(”#waPaste”).value = await waReadFile(f); $(”#waStat”).textContent = “الملف اتقرا — اضغط حلّل”; }
+catch(err){ $(”#waStat”).textContent = “مقدرش أقرا الملف: “ + err.message; }
+};
+$(”#waParse”).onclick = () => { waRows = waExtract($(”#waPaste”).value); waRender(); };
+$(”#waClear”).onclick = () => { waRows = []; $(”#waPaste”).value = “”; $(”#waFileName”).textContent = “مفيش ملف”; waRender(); };
+$(”#waPublish”).onclick = waPublish;
+$(”#waDownload”).onclick = () => {
+const rows = waRows.filter(r => r.keep && r.title && r.apply_url)
+.map(({keep, …r}) => ({…r, source_kind:“whatsapp”, is_direct:true,
+posted_at: r.posted_at || new Date().toISOString(), employment_type:“full_time”, is_remote:false}));
+const b = new Blob([JSON.stringify({generated_at:new Date().toISOString(), jobs:rows}, null, 1)],
+{type:“application/json”});
+const a = document.createElement(“a”); a.href = URL.createObjectURL(b); a.download = “manual.json”; a.click();
+};
+$(”#eEnd”).value = new Date().toISOString().slice(0,10);
+document.querySelectorAll(”.subtab”).forEach(b => b.onclick = () => {
+state.kind = b.dataset.kind;
+document.querySelectorAll(”.subtab”).forEach(x =>
+x.setAttribute(“aria-pressed”, String(x.dataset.kind === state.kind)));
+drawGroups();
+});
+$(”#mClose”).onclick = closeJob;
+$(”#ov”).onclick = e => { if(e.target.id === “ov”) closeJob(); };
+document.addEventListener(“keydown”, e => {
+if(e.key !== “Escape”) return;
+if(!$(”#ov”).hidden) closeJob(); else document.body.classList.remove(“open”);
+});
 
-  paint();
-  initAuth();
+paint();
+initAuth();
 }
 boot();
 </script>
+
 </body>
 </html>
