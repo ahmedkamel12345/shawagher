@@ -236,6 +236,12 @@ textarea{resize:vertical;min-height:80px}
  flex:1;white-space:pre-line;font-size:.92rem;line-height:1.9;color:#12293C;color:var(--ink)}
 .mbody .lbl{font-family:"IBM Plex Mono";font-size:.68rem;color:#93A3AF;letter-spacing:.06em;
  display:block;margin-bottom:.35rem;white-space:normal}
+.lblrow{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.35rem;white-space:normal}
+.trbtn{font-family:"IBM Plex Mono";font-size:.72rem;color:var(--deep);border:1px solid var(--line);
+ border-radius:3px;padding:.2rem .6rem;flex:none;white-space:nowrap}
+.trbtn:hover{border-color:var(--deep)}
+.trbtn:disabled{opacity:.6;cursor:wait}
+.trnote{font-size:.72rem;color:#93A3AF;margin-top:.5rem;white-space:normal;font-style:italic}
 .mrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;white-space:normal}
 .chipx{background:#E4EDF4;border:1px solid #D5DEE4;border-radius:3px;padding:.28rem .6rem;font-size:.8rem;color:#12293C}
 .chipx b{color:#1E4668}
@@ -809,7 +815,12 @@ const I18N = {
   fType2: {ar:"الدوام", en:"Type"}, factCompany: {ar:"الجهة", en:"Employer"},
   factLocation: {ar:"المكان", en:"Location"}, factLevel: {ar:"المستوى", en:"Level"},
   countryAll_remote: {ar:"عن بُعد", en:"Remote"},
-  noApply: {ar:"وسيلة التقديم غير متاحة", en:"No apply method available"}, navStats2: {ar:"نصائح", en:"Tips"}, navAdmin2: {ar:"أدمن", en:"Admin"},
+  noApply: {ar:"وسيلة التقديم غير متاحة", en:"No apply method available"},
+  adText: {ar:"نص الإعلان", en:"Ad Text"}, noDetails: {ar:"مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.", en:"No extra details — open the source for full information."},
+  translateBtn: {ar:"ترجم الإعلان", en:"Translate ad"}, showOriginal: {ar:"عرض النص الأصلي", en:"Show original"},
+  translating: {ar:"جاري الترجمة...", en:"Translating..."},
+  machineTranslated: {ar:"ترجمة آلية تقريبية — للفهم العام فقط.", en:"Approximate machine translation — for general understanding only."},
+  translateFailed: {ar:"تعذّرت الترجمة الآن. جرّب تاني بعد شوية.", en:"Translation failed. Try again shortly."}, navStats2: {ar:"نصائح", en:"Tips"}, navAdmin2: {ar:"أدمن", en:"Admin"},
   themeLabel: {ar:"المظهر", en:"Theme"}, sourceLabel: {ar:"المصدر", en:"Source"},
   verifiedOnly: {ar:"المصادر الرسمية فقط", en:"Official sources only"},
   verifiedNote: {ar:"إعلانات الأفراد مجمّعة من قنوات عامة وغير موثّقة — راجعها بنفسك.",
@@ -1236,9 +1247,13 @@ async function submitJob(){
 
 /* كل رقم في نص الإعلان يبقى زر واتساب، والإيميل زر مراسلة */
 function linkify(text, j){
+  const DATE = /\b\d{1,2}[-\/]\d{1,2}[-\/]\d{2,4}\b|\b\d{4}[-\/]\d{1,2}[-\/]\d{1,2}\b/g;
   const NUM = /(?:\+|00)?\d[\d\s\-]{6,15}\d/g;
   const MAIL = /[\w.+-]+@[\w-]+\.[\w.]+/g;
-  return esc(text)
+  // نحمي التواريخ الأول بعلامة مؤقتة عشان NUM ميلمّهاش كرقم تليفون
+  const dates = [];
+  let safe = esc(text).replace(DATE, m => { dates.push(m); return `\u0000${dates.length - 1}\u0000`; });
+  safe = safe
     .replace(MAIL, m => `<a class="inlink mail" href="mailto:${m}">✉ ${m}</a>`)
     .replace(NUM, m => {
       let d = m.replace(/[^\d]/g, "").replace(/^00/, "");
@@ -1246,6 +1261,7 @@ function linkify(text, j){
       if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "965") + d;
       return `<a class="inlink" href="https://wa.me/${d}" target="_blank" rel="noopener">✆ ${m.trim()}</a>`;
     });
+  return safe.replace(/\u0000(\d+)\u0000/g, (_, i) => dates[+i]);
 }
 
 /* ══════════ استيراد واتساب (مدمج) ══════════ */
@@ -1534,7 +1550,10 @@ function openJob(j){
     `<div class="mrow">${facts.map(([k,v]) =>
        `<span class="chipx">${k}: <b>${esc(v)}</b></span>`).join("")}</div>` +
     (note ? `<div class="warnbox"><b>ملاحظة الإدارة:</b> ${esc(note.note)}</div>` : "") +
-    `<span class="lbl">نص الإعلان</span>${linkify(j.summary || "مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.", j)}`;
+    `<div class="lblrow"><span class="lbl" style="margin:0">${t("adText")}</span>
+     ${j.summary ? `<button class="trbtn" id="trBtn" type="button">${t("translateBtn")}</button>` : ""}</div>
+     <div id="adBody">${linkify(j.summary || t("noDetails"), j)}</div>
+     <p class="trnote" id="trNote" hidden></p>`;
 
   $("#mFoot").innerHTML = [
     `<button class="btn amber" id="mApply">قدّم من الموقع</button>`,
@@ -1556,6 +1575,8 @@ function openJob(j){
     try{ await navigator.clipboard.writeText(cp.dataset.v);
       cp.textContent = "اتنسخ ✓"; setTimeout(() => cp.textContent = "نسخ", 1400); }catch(e){}
   };
+  const trBtn = document.getElementById("trBtn");
+  if(trBtn) trBtn.onclick = () => translateAdBody(j);
   const ap = $("#mFoot").querySelector("#mApply");
   if(ap) ap.onclick = () => openApply(j);
   const sv = $("#mFoot").querySelector(".msv");
@@ -1575,6 +1596,53 @@ function closeJob(){
   $("#ov").hidden = true;
   document.body.style.overflow = "";
   if(lastFocus) lastFocus.focus();
+}
+
+/* ══════════ ترجمة نص الإعلان (عند الطلب) ══════════ */
+const TR_CACHE = {};
+async function translateAdBody(j){
+  const btn = document.getElementById("trBtn");
+  const body = document.getElementById("adBody");
+  const note = document.getElementById("trNote");
+  if(!btn || !body) return;
+
+  // زر التبديل: لو مترجم بالفعل، ارجع للأصل
+  if(btn.dataset.state === "translated"){
+    body.innerHTML = linkify(j.summary, j);
+    btn.textContent = t("translateBtn");
+    btn.dataset.state = "";
+    note.hidden = true;
+    return;
+  }
+
+  const key = j.fingerprint + "|" + LANG;
+  if(TR_CACHE[key]){
+    body.innerHTML = TR_CACHE[key];
+    btn.textContent = t("showOriginal");
+    btn.dataset.state = "translated";
+    note.hidden = false; note.textContent = t("machineTranslated");
+    return;
+  }
+
+  btn.disabled = true; btn.textContent = t("translating");
+  try{
+    const target = LANG === "en" ? "en" : "ar";
+    const source = target === "en" ? "ar" : "en";
+    const text = (j.summary || "").slice(0, 480);   // حد الخدمة المجانية لكل طلب
+    const r = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${source}|${target}`);
+    const data = await r.json();
+    const out = data?.responseData?.translatedText;
+    if(!out || data.responseStatus !== 200) throw new Error("no translation");
+    const html = esc(out).replace(/\n/g, "<br>");
+    TR_CACHE[key] = html;
+    body.innerHTML = html;
+    btn.textContent = t("showOriginal");
+    btn.dataset.state = "translated";
+    note.hidden = false; note.textContent = t("machineTranslated");
+  }catch(e){
+    note.hidden = false; note.textContent = t("translateFailed");
+  }
+  btn.disabled = false;
 }
 
 /* ══════════ اللغة (عربي/إنجليزي) ══════════ */
