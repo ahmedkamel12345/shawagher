@@ -50,6 +50,10 @@ border:1px solid var(–line);border-radius:2px;padding:.1rem .45rem;display:inl
 .jobcard .co b{color:var(–ink)}
 .facts{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.8rem}
 .facts span{background:var(–soft);border-radius:3px;padding:.25rem .55rem;font-size:.78rem;color:var(–ink)}
+.detail{margin-top:.75rem;padding-top:.7rem;border-top:1px solid var(–line);white-space:pre-line;
+font-size:.86rem;line-height:1.75;color:var(–muted);max-height:230px;overflow:hidden}
+.jobcard.tight h2{font-size:1.18rem}
+.jobcard.tight .detail{font-size:.8rem;line-height:1.65;max-height:262px}
 .applybar{display:flex;align-items:center;gap:.5rem;margin-top:.9rem;background:var(–wa);color:#fff;
 border-radius:5px;padding:.55rem .8rem;font-size:.85rem;font-weight:600;justify-content:center}
 
@@ -90,7 +94,7 @@ padding:.7rem .8rem;font-size:.82rem;line-height:1.9;white-space:pre-wrap}
   <button id="play">▶ تشغيل</button>
   <select id="country"><option value="">كل الدول</option></select>
   <select id="cat"><option value="">كل المجالات</option></select>
-  <select id="count"><option value="5">٥ وظائف</option><option value="7">٧ وظائف</option><option value="10">١٠ وظائف</option></select>
+  <select id="count"><option value="10" selected>١٠ وظائف</option><option value="7">٧ وظائف</option><option value="5">٥ وظائف</option><option value="15">١٥ وظيفة</option></select>
   <button id="shuffle">وظائف تانية</button>
 </div>
 
@@ -112,6 +116,32 @@ const $ = s => document.querySelector(s);
 const ar = n => Number(n).toLocaleString("ar-EG");
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const days = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : 99;
+
+const PHONE_RE = /(?:\+|00)?\d[\d\s-]{6,15}\d/;
+const MAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]+/;
+function contactOf(j){
+  const t = `${j.summary || ""} ${j.title || ""}`;
+  const m = t.match(PHONE_RE);
+  if(m){
+    let d = m[0].replace(/[^\d]/g, "").replace(/^00/, "");
+    if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "965") + d;
+    if(d.length >= 10) return {kind:"wa", value:d};
+  }
+  const e = t.match(MAIL_RE);
+  return e ? {kind:"mail", value:e[0]} : null;
+}
+function cleanBody(txt, limit){
+  if(!txt) return "";
+  const seen = new Set();
+  const lines = String(txt).split(/\n+/).map(l => l.trim()).filter(l => {
+    if(l.length < 4) return false;
+    const k = l.replace(/[^\w\u0600-\u06FF]/g, "").slice(0, 20);
+    if(seen.has(k)) return false;
+    seen.add(k); return true;
+  });
+  const out = lines.join("\n");
+  return out.length <= limit ? out : out.slice(0, limit).replace(/\s\S*$/, "") + "…";
+}
 
 function choose(){
   const c = $("#country").value, k = $("#cat").value, n = +$("#count").value;
@@ -145,7 +175,7 @@ function build(){
 
   add(`<h1>أهم <em>${ar(picks.length)}</em> وظائف<br>في ${where} النهاردة</h1>
        <p class="lead">${what ? what + " — " : ""}كلها مفتوحة دلوقتي، والتقديم مباشر مع صاحب العمل.
-       اتفرّج للآخر واللينك في البايو.</p>`, 3400);
+       اتفرّج للآخر واللينك في البايو.</p>`, 3200);
 
   picks.forEach((j, i) => {
     const facts = [
@@ -154,14 +184,20 @@ function build(){
       EMP[j.employment_type],
       j.is_remote ? "عن بُعد" : "",
     ].filter(Boolean);
+    const c = contactOf(j);
+    const body = cleanBody(j.summary, 420);
+    const long = body && body.length > 210;
     add(`<span class="num">${ar(i + 1)}</span>
-      <div class="jobcard">
+      <div class="jobcard${long ? " tight" : ""}">
         <span class="cat ${j.source_kind === "discover" ? "hot" : ""}">${CATEGORIES[j.category] || "وظائف عامة"}</span>
-        <h2>${esc(j.title.slice(0, 60))}</h2>
-        <p class="co"><b>${esc(j.company_name.slice(0, 40))}</b></p>
+        <h2>${esc(j.title.slice(0, 64))}</h2>
+        <p class="co"><b>${esc(j.company_name.slice(0, 44))}</b></p>
         <div class="facts">${facts.map(f => `<span>${esc(f)}</span>`).join("")}</div>
-        <div class="applybar">التقديم من الموقع في ثانيتين</div>
-      </div>`, 3600);
+        ${body ? `<div class="detail">${esc(body)}</div>` : ""}
+        <div class="applybar">${c
+          ? (c.kind === "wa" ? "واتساب: " + c.value : "إيميل: " + c.value)
+          : "التقديم من الموقع"}</div>
+      </div>`, long ? 5200 : 4200);
   });
 
   add(`<ul class="tick">
