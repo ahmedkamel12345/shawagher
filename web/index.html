@@ -976,6 +976,7 @@ const countBy = (rows, key) => rows.reduce((m,j)=>(m[j[key]]=(m[j[key]]||0)+1, m
 
 /* ══════════ الواجهة ══════════ */
 function drawTabs(){
+ try{
   const rows = JOBS.filter(matchQ);
   const c = countBy(rows, "country");
   const el = $("#tabs"); el.textContent = "";
@@ -989,8 +990,10 @@ function drawTabs(){
   };
   add("", "الكل", rows.length);
   Object.entries(COUNTRIES).forEach(([v,l]) => add(v, l, c[v] || 0));
+ }catch(e){ console.error("خطأ في drawTabs():", e); }
 }
 function drawBars(host, map, key){
+ try{
   const rows = JOBS.filter(j => matchQ(j) && inCountry(j)
     && (key === "category" || !state.category || j.category === state.category)
     && (key === "seniority" || !state.level || j.seniority === state.level));
@@ -1015,6 +1018,7 @@ function drawBars(host, map, key){
     };
     el.appendChild(b);
   });
+ }catch(e){ console.error("خطأ في drawBars():", e); }
 }
 
 /* ══════════ الإعلانات ══════════ */
@@ -1104,10 +1108,16 @@ function fillList(host, rows, emptyHtml){
   if(!rows.length){ el.innerHTML = emptyHtml; return; }
   const frag = document.createDocumentFragment();
   const inline = liveAds("inline");
-  rows.forEach((j, i) => {
-    frag.appendChild(card(j));
-    if(inline.length && i > 0 && (i + 1) % 6 === 0)
-      frag.appendChild(adCard(inline[Math.floor(i / 6) % inline.length]));
+  let shown = 0;
+  rows.forEach((j) => {
+    try{
+      frag.appendChild(card(j));
+      shown++;
+      if(inline.length && shown > 0 && shown % 6 === 0)
+        frag.appendChild(adCard(inline[Math.floor(shown / 6 - 1) % inline.length]));
+    }catch(e){
+      console.warn("تجاهل وظيفة بسبب خطأ في العرض:", j && j.fingerprint, e);
+    }
   });
   el.appendChild(frag);
 }
@@ -1160,7 +1170,14 @@ async function initAuth(){
   sb.auth.onAuthStateChange((_e, s) => {
     user = s?.user || null; renderWho(); loadMine(); loadAdmin(); paint();
   });
-  renderWho(); loadMine(); loadLiveJobs(); loadNotes(); loadAdmin(); trackVisit();
+  renderWho();
+  const safe = (fn, name) => { try{ Promise.resolve(fn()).catch(e => console.error(name + ":", e)); }
+                                catch(e){ console.error(name + ":", e); } };
+  safe(loadMine, "loadMine");
+  safe(loadLiveJobs, "loadLiveJobs");
+  safe(loadNotes, "loadNotes");
+  safe(loadAdmin, "loadAdmin");
+  safe(trackVisit, "trackVisit");
 }
 function renderWho(){
   const el = $("#who");
@@ -1178,14 +1195,20 @@ function renderWho(){
 }
 async function loadLiveJobs(){
   if(!sb) return;
-  const { data, error } = await sb.from("job_submissions")
-    .select("title,company_name,country,city,category,seniority,is_remote,summary,apply_url,created_at")
-    .eq("status", "approved").order("created_at", { ascending: false }).limit(300);
-  if(error || !data) return;
-  const extra = data.map(j => ({...j, posted_at: j.created_at, source_kind: "user", is_direct: true,
-    fingerprint: "u" + (j.title + j.company_name).length + j.created_at}));
-  JOBS = extra.concat(JOBS.filter(j => j.source_kind !== "user"));
-  paint();
+  try{
+    const { data, error } = await sb.from("job_submissions")
+      .select("title,company_name,country,city,category,seniority,is_remote,summary,apply_url,created_at")
+      .eq("status", "approved").order("created_at", { ascending: false }).limit(300);
+    if(error || !data) return;
+    const base = JOBS.filter(j => j.source_kind !== "user");   // نحتفظ بالأصلية قبل أي تعديل
+    const extra = data.map(j => ({...j, posted_at: j.created_at, source_kind: "user", is_direct: true,
+      fingerprint: "u" + (j.title + j.company_name).length + j.created_at}));
+    const merged = extra.concat(base);
+    if(merged.length >= base.length) JOBS = merged;   // حماية: منرجعش لعدد أقل من غير قصد
+    paint();
+  }catch(e){
+    console.error("خطأ في loadLiveJobs() — الشواغر الأصلية اتحفظت زي ما هي:", e);
+  }
 }
 async function loadMine(){
   const box = $("#mineBox");
@@ -1833,6 +1856,7 @@ return `<img src="assets/almohtaref.png" alt="" width="52" height="52"> <div><h3
 const GROUPKIND = j => j.source_kind === “discover” ? “إعلانات أفراد”
 : (j.is_direct || j.source_kind === “user” || j.source_kind === “whatsapp”) ? “إعلانات مباشرة” : “مصادر رسمية”;
 function drawTree(){
+try{
 const t = {};
 JOBS.forEach(j => {
 const g = GROUPKIND(j), c = COUNTRIES[j.country] || “غير محدد”, k = CATEGORIES[j.category] || “أخرى”;
@@ -1853,6 +1877,7 @@ Object.entries(cv.kids).sort((a,b)=>b[1]-a[1]).map(([k,n]) =>
 `</details>`).join(””);
 el.appendChild(d);
 });
+}catch(e){ console.error(“خطأ في drawTree():”, e); }
 }
 function bars(host, pairs){
 const max = Math.max(1, …pairs.map(p => p[1]));
@@ -1951,6 +1976,10 @@ try{ await sb.rpc(“track_view”, {p_path: “/”, p_new: isNew}); }catch(e){
 
 /* ══════════ الرسم العام ══════════ */
 function paint(){
+try{ paintInner(); }
+catch(e){ console.error(“خطأ في paint():”, e); }
+}
+function paintInner(){
 const rows = filtered();
 $(”#kTotal”).textContent = ar(JOBS.length);
 $(”#kWeek”).textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
