@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-09-03T08:48:46.297927+00:00",
- "count": 642,
+ "generated_at": "2026-09-03T09:20:07.562305+00:00",
+ "count": 644,
  "jobs": [
   {
    "fingerprint": "5e3b9eeb3eedd18f3d29254d40ee649f24c0bb8c",
@@ -4017,6 +4017,42 @@
    "needs_review": true
   },
   {
+   "fingerprint": "bee6237e84469c25892962d40fc6d88f2f22c063",
+   "title": "معلم عصائر محترف يشترط: خبرة ممتازة في إعداد وتجهيز جميع أنواع العصائر",
+   "company_name": "إعلان منشور",
+   "city": "الكويت",
+   "country": "KW",
+   "category": "education",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "مطلوب معلم عصائر محترف يشترط: خبرة ممتازة في إعداد وتجهيز جميع أنواع العصائر والكوكتيلات والميلك شيك. سرعة عالية في تقطيع وتجهيز الفواكه وتحضير الطلبات. خبرة في ترتيب وتزيين وتقديم المشروبات بشكل احترافي. وسرعة تنفيذ الطلبات. يُفضّل من لديه خبرة سابقة في محلات العصائر بالكويت.\nيفضل العمر اقل من 43 سنه الرجاء التواصل للجادين وأصحاب الخبرة فقط. 90078185 واتس فقط",
+   "apply_url": "https://t.me/kwjob/10575",
+   "source_kind": "discover",
+   "source_name": "KW Job",
+   "posted_at": "2026-09-03T09:19:56.503449+00:00",
+   "is_direct": false,
+   "needs_review": true
+  },
+  {
+   "fingerprint": "d5a8747d36e53a053ca7b521dd85162054d56519",
+   "title": "في جامعة نجران بنظام عقود التعاون",
+   "company_name": "إعلان منشور",
+   "city": "الخبر",
+   "country": "SA",
+   "category": "other",
+   "seniority": "senior",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "وظائف في جامعة نجران بنظام عقود التعاون\nتعلن جامعة نجران عن توفر عدد من الوظائف على عقود التعاون (رجال / نساء) للفصل الدراسي الأول من العام 1448هـ لحملة الماجستير والدكتوراه للتدريس في عدد من التخصصات\nعن طريق إرسال المستندات للبريد الإلكتروني للكلية المعنية\nكلية العلوم والآداب: S-ARTS@NU.EDU.SA\nكلية اللغات والترجمة: LANGUAGES@NU.EDU.SA\nالتفاصيل: wadhefa.com/news/21099\nلمشاركة الخبر عبر الواتساب: اضغط هنا",
+   "apply_url": "https://t.me/wadhefadotcom/20323",
+   "source_kind": "discover",
+   "source_name": "وظيفة دوت كوم",
+   "posted_at": "2026-09-03T09:19:43.896287+00:00",
+   "is_direct": false,
+   "needs_review": true
+  },
+  {
    "fingerprint": "adaec5d291482e24ac8a9878fd342e57d72f6644",
    "title": "Senior Data Scientist, Guest & Host",
    "company_name": "Airbnb",
@@ -5014,7 +5050,7 @@
    "employment_type": "full-time",
    "is_remote": false,
    "summary": "Join to apply for the Billing and Collections Specialist role at Udacity Continue with Google Continue with Google Join to apply for the Billing and Collections Specialist role at Udacity About Us Udacity is on a mission of forging futures in tech through...",
-   "apply_url": "https://jooble.org/jdp/-4243468592072264760",
+   "apply_url": "https://jooble.org/jdp/7891125168976142612",
    "source_kind": "jooble",
    "source_slug": "jb-eg-all",
    "posted_at": "2026-09-01T00:00:00+00:00"
@@ -5190,23 +5226,6 @@
    "posted_at": "2026-09-01T00:00:00+00:00"
   },
   {
-   "fingerprint": "ad9563c87a488c047c1c076d4c07622b9b70d7c3",
-   "title": "Head of Market Surveillance",
-   "company_name": "Bybit",
-   "city": "United Arab Emirates",
-   "country": "AE",
-   "location_raw": "United Arab Emirates",
-   "category": "other",
-   "seniority": "manager",
-   "employment_type": "full-time",
-   "is_remote": false,
-   "summary": "About Us Established in 2018, Bybit is one of the world’s leading cryptocurrency exchanges and digital financial platforms, serving over 80 million users across more than 200 countries and regions. Powered by world-class technology and a user-first mindset, Bybit delivers...",
-   "apply_url": "https://jooble.org/jdp/-299138125768831073",
-   "source_kind": "jooble",
-   "source_slug": "jb-ae-all",
-   "posted_at": "2026-09-01T00:00:00+00:00"
-  },
-  {
    "fingerprint": "95f52dbb984460dc553fbf2c0561a0f939d54293",
    "title": "StraitsX Talent Community",
    "company_name": "StraitsX",
@@ -5219,6 +5238,23 @@
    "is_remote": false,
    "summary": "At StraitsX, we are always looking to connect with passionate and driven individuals who are excited about shaping the future of digital payments and stablecoin innovation. Our Talent Pool is designed for candidates who are interested in exploring future opportunities...",
    "apply_url": "https://jooble.org/jdp/-3328393099250995637",
+   "source_kind": "jooble",
+   "source_slug": "jb-ae-all",
+   "posted_at": "2026-09-01T00:00:00+00:00"
+  },
+  {
+   "fingerprint": "ad9563c87a488c047c1c076d4c07622b9b70d7c3",
+   "title": "Head of Market Surveillance",
+   "company_name": "Bybit",
+   "city": "United Arab Emirates",
+   "country": "AE",
+   "location_raw": "United Arab Emirates",
+   "category": "other",
+   "seniority": "manager",
+   "employment_type": "full-time",
+   "is_remote": false,
+   "summary": "About Us Established in 2018, Bybit is one of the world’s leading cryptocurrency exchanges and digital financial platforms, serving over 80 million users across more than 200 countries and regions. Powered by world-class technology and a user-first mindset, Bybit delivers...",
+   "apply_url": "https://jooble.org/jdp/-299138125768831073",
    "source_kind": "jooble",
    "source_slug": "jb-ae-all",
    "posted_at": "2026-09-01T00:00:00+00:00"
