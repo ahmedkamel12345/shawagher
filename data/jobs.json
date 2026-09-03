@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T19:32:22.135186+00:00",
+ "generated_at": "2026-09-03T19:45:29.397675+00:00",
  "count": 661,
  "jobs": [
   {
@@ -4955,6 +4955,23 @@
    "posted_at": "2026-09-02T19:37:54.160000+00:00"
   },
   {
+   "fingerprint": "11f2a3de8ac745d9f53c5e53b476e2b9b46dfe22",
+   "title": "Virtual Physician",
+   "company_name": "QuickMD",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "health",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "About QuickMD QuickMD is a leading telemedicine provider, delivering high-quality virtual care across 44 states. Since our founding in 2019, we've helped more than 100,000 patients access essential medical treatment, with a primary focus on addiction care, and growing...",
+   "apply_url": "https://jooble.org/jdp/5060281039664470586",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-09-02T19:35:35.643000+00:00"
+  },
+  {
    "fingerprint": "81c1d100be157018b6266bbdc01356e0737e1f4c",
    "title": "Telehealth Physician",
    "company_name": "QuickMD",
@@ -4970,23 +4987,6 @@
    "source_kind": "jooble",
    "source_slug": "jb-eg-all",
    "posted_at": "2026-09-02T19:34:42.283000+00:00"
-  },
-  {
-   "fingerprint": "11f2a3de8ac745d9f53c5e53b476e2b9b46dfe22",
-   "title": "Virtual Physician",
-   "company_name": "QuickMD",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "health",
-   "seniority": "mid",
-   "employment_type": "full_time",
-   "is_remote": false,
-   "summary": "About QuickMD QuickMD is a leading telemedicine provider, delivering high-quality virtual care across 44 states. Since our founding in 2019, we've helped more than 100,000 patients access essential medical treatment, with a primary focus on addiction care, and growing...",
-   "apply_url": "https://jooble.org/jdp/2038529023729559476",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-09-02T19:30:20.717000+00:00"
   },
   {
    "fingerprint": "49910423b124212aefb12fd4cfc0167e48003c08",
