@@ -1,91 +1,91 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>شواغر — استعراض وظائف اليوم</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--board:#193C58;--board2:#1E4668;--amber:#E7962D;--ink:#12293C;--muted:#5A6E7F;
- --line:#D5DEE4;--wa:#1FA855;--soft:#E4EDF4}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#0A1620;font-family:"IBM Plex Sans Arabic",sans-serif;display:grid;
+body{background:#0A0F14;font-family:"IBM Plex Sans Arabic",sans-serif;display:grid;
  place-items:center;min-height:100vh;gap:1rem;padding:1rem}
-.kufi{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700}
 
 #stage{width:405px;height:720px;position:relative;overflow:hidden;border-radius:14px;
-background:linear-gradient(160deg,#193C58 0%,#12293C 55%,#0E2233 100%);
-box-shadow:0 30px 80px -30px #000}
-#stage::before{content:””;position:absolute;inset-inline-end:-90px;top:-90px;width:280px;height:280px;
-border-radius:50%;background:rgba(231,150,45,.10)}
-#stage::after{content:””;position:absolute;inset-inline-start:-120px;bottom:-120px;width:320px;height:320px;
-border-radius:50%;background:rgba(231,150,45,.06)}
+ box-shadow:0 30px 80px -30px #000;background:#12293C}
 
 .scene{position:absolute;inset:0;padding:2rem 1.6rem;display:flex;flex-direction:column;
-justify-content:center;gap:1rem;opacity:0;transform:translateY(20px) scale(.98);pointer-events:none}
+ justify-content:center;gap:1rem;opacity:0;transform:translateY(20px) scale(.98);pointer-events:none;z-index:2}
 .scene.on{opacity:1;transform:none;transition:opacity .45s ease,transform .55s cubic-bezier(.2,.8,.3,1)}
 .scene.out{opacity:0;transform:translateY(-16px) scale(.99);transition:.3s ease}
 
 .brandbar{position:absolute;inset-inline:0;top:0;display:flex;align-items:center;gap:.5rem;
-padding:.9rem 1.2rem;z-index:5}
-.brandbar b{font-family:“Noto Kufi Arabic”;font-size:1.05rem;color:var(–amber)}
-.brandbar span{font-family:“IBM Plex Mono”;font-size:.6rem;color:#7E96A8;letter-spacing:.14em}
-.datepill{margin-inline-start:auto;font-family:“IBM Plex Mono”;font-size:.66rem;color:#A9BECD;
-border:1px solid #2C5878;border-radius:20px;padding:.15rem .6rem}
+ padding:.9rem 1.2rem;z-index:5}
+.brandbar b{font-family:"Noto Kufi Arabic";font-size:1.05rem}
+.brandbar span{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.14em;opacity:.65}
+.datepill{margin-inline-start:auto;font-family:"IBM Plex Mono";font-size:.66rem;
+ border-radius:20px;padding:.15rem .6rem}
+.daytag{position:absolute;inset-inline-end:1.2rem;top:2.9rem;font-family:"IBM Plex Mono";
+ font-size:.62rem;letter-spacing:.16em;z-index:5;opacity:.55}
 
-h1{font-family:“Noto Kufi Arabic”;font-size:2.1rem;color:#fff;line-height:1.4}
-h1 em{font-style:normal;color:var(–amber)}
-.lead{color:#A9BECD;font-size:1rem;line-height:1.85}
+h1{font-family:"Noto Kufi Arabic";font-size:2.1rem;line-height:1.4}
+h1 em{font-style:normal}
+.lead{font-size:1rem;line-height:1.85;opacity:.82}
 
-.num{position:absolute;inset-inline-end:1.4rem;top:4.2rem;font-family:“IBM Plex Mono”;
-font-size:3.4rem;color:rgba(231,150,45,.22);line-height:1}
-.jobcard{background:#fff;border-radius:10px;padding:1.1rem 1.15rem;color:var(–ink);
-box-shadow:0 20px 50px -22px rgba(0,0,0,.7)}
-.jobcard .cat{font-family:“IBM Plex Mono”;font-size:.66rem;color:var(–muted);
-border:1px solid var(–line);border-radius:2px;padding:.1rem .45rem;display:inline-block}
-.jobcard .cat.hot{border-color:var(–amber);background:#FCEFDC;color:#8A5A12}
-.jobcard h2{font-family:“Noto Kufi Arabic”;font-size:1.32rem;line-height:1.45;margin:.55rem 0 .35rem}
-.jobcard .co{font-size:.95rem;color:var(–muted)}
-.jobcard .co b{color:var(–ink)}
+.num{position:absolute;inset-inline-end:1.4rem;top:4.2rem;font-family:"IBM Plex Mono";
+ font-size:3.4rem;line-height:1;opacity:.18}
+.jobcard{border-radius:10px;padding:1.1rem 1.15rem;box-shadow:0 20px 50px -22px rgba(0,0,0,.7)}
+.jobcard .cat{font-family:"IBM Plex Mono";font-size:.66rem;border-radius:2px;padding:.1rem .45rem;
+ display:inline-block;border:1px solid transparent}
+.jobcard .cat.hot{font-weight:600}
+.jobcard h2{font-family:"Noto Kufi Arabic";font-size:1.32rem;line-height:1.45;margin:.55rem 0 .35rem}
+.jobcard .co{font-size:.95rem;opacity:.75}
+.jobcard .co b{opacity:1}
 .facts{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.8rem}
-.facts span{background:var(–soft);border-radius:3px;padding:.25rem .55rem;font-size:.78rem;color:var(–ink)}
-.detail{margin-top:.75rem;padding-top:.7rem;border-top:1px solid var(–line);white-space:pre-line;
-font-size:.86rem;line-height:1.75;color:var(–muted);max-height:230px;overflow:hidden}
-.jobcard.tight h2{font-size:1.18rem}
-.jobcard.tight .detail{font-size:.8rem;line-height:1.65;max-height:262px}
-.applybar{display:flex;align-items:center;gap:.5rem;margin-top:.9rem;background:var(–wa);color:#fff;
-border-radius:5px;padding:.55rem .8rem;font-size:.85rem;font-weight:600;justify-content:center}
+.facts span{border-radius:3px;padding:.25rem .55rem;font-size:.78rem}
+.applybar{display:flex;align-items:center;gap:.5rem;margin-top:.9rem;border-radius:5px;
+ padding:.55rem .8rem;font-size:.85rem;font-weight:600;justify-content:center}
+.detail{margin-top:.75rem;padding-top:.7rem;white-space:pre-line;
+ font-size:.86rem;line-height:1.75;opacity:.8;max-height:210px;overflow:hidden}
 
 .tick{display:flex;flex-direction:column;gap:.7rem}
-.tick li{list-style:none;color:#DCE6ED;font-size:1.02rem;display:flex;gap:.6rem;align-items:flex-start}
-.tick li::before{content:””;width:7px;height:7px;border-radius:50%;background:var(–amber);
-flex:none;margin-top:.6rem}
+.tick li{list-style:none;font-size:1.02rem;display:flex;gap:.6rem;align-items:flex-start}
 .cta{text-align:center}
-.cta .url{font-family:“IBM Plex Mono”;font-size:1.6rem;color:var(–amber);margin:.6rem 0}
-.cta .swipe{font-size:.9rem;color:#A9BECD}
+.cta .url{font-family:"IBM Plex Mono";font-size:1.6rem;margin:.6rem 0}
+.cta .swipe{font-size:.9rem;opacity:.75}
 .bar{position:absolute;inset-inline:0;bottom:0;height:3px;background:rgba(255,255,255,.1);z-index:6}
-.bar i{display:block;height:100%;background:var(–amber);width:0}
+.bar i{display:block;height:100%;width:0}
+
+.newbadge{position:absolute;z-index:8;font-family:"IBM Plex Mono";font-size:.68rem;font-weight:600;
+ padding:.3rem .7rem;border-radius:20px;display:flex;align-items:center;gap:.35rem;
+ box-shadow:0 8px 20px -6px rgba(0,0,0,.5)}
+.newbadge .dot{width:6px;height:6px;border-radius:50%;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.newbadge.corner{top:1rem;inset-inline-end:1rem}
+.newbadge.float{top:50%;inset-inline-start:1rem;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.newbadge.ribbon{top:1.4rem;inset-inline-start:-2.2rem;transform:rotate(-38deg);border-radius:0;
+ padding:.35rem 3rem}
+.newbadge.stack{bottom:1rem;inset-inline-start:1rem}
 
 .ctl{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;align-items:center}
 .ctl button,.ctl select,.ctl a{background:#1E4668;color:#DCE6ED;border:0;border-radius:3px;
-padding:.5rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;text-decoration:none}
-.ctl button:hover{background:var(–amber);color:var(–board)}
+ padding:.5rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;text-decoration:none}
+.ctl button:hover{background:#E7962D;color:#193C58}
 .hint{color:#5A7285;font-size:.8rem;text-align:center;max-width:440px;line-height:1.9}
 .hint b{color:#8FA3B4}
 #cap{width:min(440px,100%);background:#12293C;color:#C6D5E0;border:1px solid #22415C;border-radius:4px;
-padding:.7rem .8rem;font-size:.82rem;line-height:1.9;white-space:pre-wrap}
+ padding:.7rem .8rem;font-size:.82rem;line-height:1.9;white-space:pre-wrap}
 </style>
-
 </head>
 <body>
 
 <div id="stage">
   <div class="brandbar">
-    <svg width="26" height="26" viewBox="0 0 64 64"><path d="M12 6h40a6 6 0 0 1 6 6v25c0 10.5-11.6 17.9-26 21C17.6 54.9 6 47.5 6 37V12a6 6 0 0 1 6-6z" fill="#E7962D"/><rect x="16.5" y="30" width="7.5" height="12" rx="1.6" fill="#193C58"/><rect x="27.5" y="23" width="7.5" height="19" rx="1.6" fill="#193C58"/><rect x="39.7" y="14.2" width="7.5" height="27.5" rx="1.6" fill="none" stroke="#193C58" stroke-width="2.6" stroke-dasharray="4.2 3.4"/></svg>
-    <div><b>شواغر</b><span style="display:block">SHAWAGHER</span></div>
+    <svg id="logoMark" width="26" height="26" viewBox="0 0 64 64"></svg>
+    <div><b id="brandName">شواغر</b><span style="display:block">SHAWAGHER</span></div>
     <span class="datepill" id="dpill">—</span>
   </div>
+  <span class="daytag" id="daytag"></span>
   <div id="scenes"></div>
   <div class="bar"><i id="prog"></i></div>
 </div>
@@ -94,12 +94,19 @@ padding:.7rem .8rem;font-size:.82rem;line-height:1.9;white-space:pre-wrap}
   <button id="play">▶ تشغيل</button>
   <select id="country"><option value="">كل الدول</option></select>
   <select id="cat"><option value="">كل المجالات</option></select>
-  <select id="count"><option value="10" selected>١٠ وظائف</option><option value="7">٧ وظائف</option><option value="5">٥ وظائف</option><option value="15">١٥ وظيفة</option></select>
+  <select id="count"><option value="10" selected>١٠ وظائف</option><option value="7">٧ وظائف</option>
+    <option value="5">٥ وظائف</option><option value="15">١٥ وظيفة</option></select>
+  <select id="styleSel"><option value="auto" selected>تصميم اليوم (تلقائي)</option>
+    <option value="0">تصميم ١ — كحلي/كهرماني</option><option value="1">تصميم ٢ — أخضر زمردي</option>
+    <option value="2">تصميم ٣ — بنفسجي نيون</option><option value="3">تصميم ٤ — ورقي فاتح</option>
+    <option value="4">تصميم ٥ — أحمر ناري</option><option value="5">تصميم ٦ — تركواز غامق</option>
+    <option value="6">تصميم ٧ — ذهبي ملكي</option></select>
   <button id="shuffle">وظائف تانية</button>
 </div>
 
-<p class="hint">اضغط تشغيل وسجّل الشاشة: <b>Win + Alt + R</b> في ويندوز، أو مسجّل الشاشة في الموبايل.
-سجّل المستطيل بس. الفيديو بيطلع بمقاس تيك توك ٩:١٦.</p>
+<p class="hint">التصميم بيتغيّر لوحده كل يوم حسب التاريخ (٧ تصاميم بتدور أسبوعياً) —
+ كده كل فيديو تنزّله على تيك توك يبان مختلف عن اللي فاتوا من غير أي شغل إضافي منك.
+ اضغط تشغيل وسجّل الشاشة: Win + Alt + R في ويندوز، أو مسجّل الشاشة في الموبايل.</p>
 
 <div id="cap"></div>
 
@@ -111,36 +118,82 @@ const LEVELS = {executive:"إدارة عليا",manager:"مدير",supervisor:"�
  mid:"متوسط الخبرة",entry:"مبتدئ",worker:"عامل وفني"};
 const EMP = {full_time:"دوام كامل",part_time:"دوام جزئي",contract:"عقد",internship:"تدريب"};
 
-let JOBS = [], picks = [], timers = [];
+const THEMES = [
+  { name:"كحلي/كهرماني", bg:"linear-gradient(160deg,#193C58 0%,#12293C 55%,#0E2233 100%)",
+    ink:"#EAF0F5", muted:"#A9BECD", amber:"#E7962D", card:"#FFFFFF", cardInk:"#12293C",
+    catBg:"#FCEFDC", catInk:"#8A5A12", factBg:"#E4EDF4", wa:"#1FA855",
+    font:'"Noto Kufi Arabic"', glow:"rgba(231,150,45,.14)", badge:"corner" },
+  { name:"أخضر زمردي", bg:"linear-gradient(150deg,#0B2E24 0%,#0E3B2E 55%,#081F19 100%)",
+    ink:"#EAF7F0", muted:"#9FC9B8", amber:"#3ECF8E", card:"#FFFFFF", cardInk:"#0B2E24",
+    catBg:"#DFF6EC", catInk:"#0F7A4F", factBg:"#E3F5EC", wa:"#1FA855",
+    font:'"Noto Kufi Arabic"', glow:"rgba(62,207,142,.16)", badge:"float" },
+  { name:"بنفسجي نيون", bg:"linear-gradient(155deg,#1B0E33 0%,#241145 55%,#100722 100%)",
+    ink:"#F2EBFF", muted:"#B9A6E0", amber:"#B084F5", card:"#FFFFFF", cardInk:"#1B0E33",
+    catBg:"#EFE4FC", catInk:"#6B3FA0", factBg:"#F1E9FB", wa:"#1FA855",
+    font:'"Noto Kufi Arabic"', glow:"rgba(176,132,245,.18)", badge:"ribbon" },
+  { name:"ورقي فاتح", bg:"linear-gradient(165deg,#F4EEE3 0%,#EFE6D6 55%,#E7DBC4 100%)",
+    ink:"#3A2E1D", muted:"#6B5D46", amber:"#B4712E", card:"#FFFFFF", cardInk:"#3A2E1D",
+    catBg:"#FBEFDD", catInk:"#8A5A12", factBg:"#F3EBDD", wa:"#1FA855",
+    font:'"Amiri", "Noto Kufi Arabic"', glow:"rgba(180,113,46,.14)", badge:"corner", light:true },
+  { name:"أحمر ناري", bg:"linear-gradient(150deg,#330D0D 0%,#4A1212 55%,#1E0707 100%)",
+    ink:"#FCEBE8", muted:"#E0A79E", amber:"#F0623D", card:"#FFFFFF", cardInk:"#330D0D",
+    catBg:"#FCE3DC", catInk:"#B7361A", factBg:"#F9E5E0", wa:"#1FA855",
+    font:'"Noto Kufi Arabic"', glow:"rgba(240,98,61,.18)", badge:"stack" },
+  { name:"تركواز غامق", bg:"linear-gradient(155deg,#052E33 0%,#073C42 55%,#031E22 100%)",
+    ink:"#E5FAFB", muted:"#8FC9CF", amber:"#2FD9C8", card:"#FFFFFF", cardInk:"#052E33",
+    catBg:"#DDF7F4", catInk:"#0A7F76", factBg:"#E1F6F3", wa:"#1FA855",
+    font:'"Noto Kufi Arabic"', glow:"rgba(47,217,200,.16)", badge:"float" },
+  { name:"ذهبي ملكي", bg:"linear-gradient(150deg,#1A1305 0%,#2B2109 55%,#100C02 100%)",
+    ink:"#FBF3DD", muted:"#CDBB8C", amber:"#E9C158", card:"#FFFFFF", cardInk:"#1A1305",
+    catBg:"#FBF0D4", catInk:"#8A6A1C", factBg:"#F7EFD9", wa:"#1FA855",
+    font:'"Amiri", "Noto Kufi Arabic"', glow:"rgba(233,193,88,.18)", badge:"ribbon" },
+];
+
+function dayOfYear(){
+  const d = new Date();
+  const start = new Date(d.getFullYear(), 0, 0);
+  return Math.floor((d - start) / 864e5);
+}
+function todaysTheme(){
+  const forced = new URLSearchParams(location.search).get("t");
+  const sel = document.getElementById("styleSel")?.value;
+  if(sel && sel !== "auto") return THEMES[+sel % THEMES.length];
+  if(forced) return THEMES[+forced % THEMES.length];
+  return THEMES[dayOfYear() % THEMES.length];
+}
+
+let JOBS = [], picks = [], timers = [], THEME = THEMES[0];
 const $ = s => document.querySelector(s);
 const ar = n => Number(n).toLocaleString("ar-EG");
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const days = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : 99;
 
-const PHONE_RE = /(?:\+|00)?\d[\d\s-]{6,15}\d/;
-const MAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]+/;
-function contactOf(j){
-  const t = `${j.summary || ""} ${j.title || ""}`;
-  const m = t.match(PHONE_RE);
-  if(m){
-    let d = m[0].replace(/[^\d]/g, "").replace(/^00/, "");
-    if(d.length === 8) d = (j.country === "KW" ? "965" : j.country === "EG" ? "20" : "965") + d;
-    if(d.length >= 10) return {kind:"wa", value:d};
-  }
-  const e = t.match(MAIL_RE);
-  return e ? {kind:"mail", value:e[0]} : null;
+function drawLogo(){
+  const svg = document.getElementById("logoMark");
+  svg.innerHTML = `<path d="M12 6h40a6 6 0 0 1 6 6v25c0 10.5-11.6 17.9-26 21C17.6 54.9 6 47.5 6 37V12a6 6 0 0 1 6-6z" fill="${THEME.amber}"/>
+    <rect x="16.5" y="30" width="7.5" height="12" rx="1.6" fill="${THEME.cardInk}"/>
+    <rect x="27.5" y="23" width="7.5" height="19" rx="1.6" fill="${THEME.cardInk}"/>
+    <rect x="39.7" y="14.2" width="7.5" height="27.5" rx="1.6" fill="none" stroke="${THEME.cardInk}" stroke-width="2.6" stroke-dasharray="4.2 3.4"/>`;
 }
-function cleanBody(txt, limit){
-  if(!txt) return "";
-  const seen = new Set();
-  const lines = String(txt).split(/\n+/).map(l => l.trim()).filter(l => {
-    if(l.length < 4) return false;
-    const k = l.replace(/[^\w\u0600-\u06FF]/g, "").slice(0, 20);
-    if(seen.has(k)) return false;
-    seen.add(k); return true;
-  });
-  const out = lines.join("\n");
-  return out.length <= limit ? out : out.slice(0, limit).replace(/\s\S*$/, "") + "…";
+
+function applyTheme(){
+  const stage = document.getElementById("stage");
+  stage.style.background = THEME.bg;
+  stage.style.color = THEME.ink;
+  document.getElementById("brandName").style.color = THEME.amber;
+  document.getElementById("brandName").style.fontFamily = THEME.font;
+  document.getElementById("dpill").style.cssText += `;border:1px solid ${THEME.muted}55;color:${THEME.muted}`;
+  document.getElementById("daytag").textContent = "تصميم اليوم: " + THEME.name;
+  document.getElementById("daytag").style.color = THEME.muted;
+  document.getElementById("prog").style.background = THEME.amber;
+  drawLogo();
+  let glow = document.getElementById("glowLayer");
+  if(!glow){
+    glow = document.createElement("div"); glow.id = "glowLayer";
+    glow.style.cssText = "position:absolute;inset:0;pointer-events:none;z-index:1";
+    stage.insertBefore(glow, stage.firstChild.nextSibling);
+  }
+  glow.style.background = `radial-gradient(320px 260px at 85% -4%, ${THEME.glow}, transparent 65%)`;
 }
 
 function choose(){
@@ -148,7 +201,6 @@ function choose(){
   let pool = JOBS.filter(j => j.title && (!c || j.country === c) && (!k || j.category === k));
   pool = pool.filter(j => days(j.posted_at) <= 7);
   if(pool.length < n) pool = JOBS.filter(j => (!c || j.country === c) && (!k || j.category === k));
-  // تنويع: مش أكتر من وظيفتين لنفس الجهة
   const seen = {}, out = [];
   pool.sort(() => Math.random() - .5);
   for(const j of pool){
@@ -160,12 +212,26 @@ function choose(){
   return out;
 }
 
+function badgeHtml(){
+  const cls = THEME.badge;
+  const bg = THEME.light ? THEME.cardInk : "#fff";
+  const fg = THEME.light ? "#fff" : THEME.cardInk;
+  return `<div class="newbadge ${cls}" style="background:${bg};color:${fg}">
+    <span class="dot" style="background:${THEME.amber}"></span> جديد اليوم</div>`;
+}
+function dotLi(text){
+  return `<li><span style="width:7px;height:7px;border-radius:50%;background:${THEME.amber};flex:none;margin-top:.6rem"></span>${text}</li>`;
+}
+
 function build(){
+  THEME = todaysTheme();
+  applyTheme();
   picks = choose();
   const c = $("#country").value, k = $("#cat").value;
   const where = c ? COUNTRIES[c] : "الخليج ومصر";
   const what = k ? CATEGORIES[k] : "";
   const el = $("#scenes"); el.textContent = "";
+  const light = THEME.light;
 
   const add = (html, ms) => {
     const d = document.createElement("div");
@@ -173,8 +239,9 @@ function build(){
     el.appendChild(d);
   };
 
-  add(`<h1>أهم <em>${ar(picks.length)}</em> وظائف<br>في ${where} النهاردة</h1>
-       <p class="lead">${what ? what + " — " : ""}كلها مفتوحة دلوقتي، والتقديم مباشر مع صاحب العمل.
+  add(`${badgeHtml()}
+       <h1 style="color:${THEME.ink}">أهم <em style="color:${THEME.amber}">${ar(picks.length)}</em> وظائف<br>في ${where} النهاردة</h1>
+       <p class="lead" style="color:${THEME.muted}">${what ? what + " — " : ""}كلها مفتوحة دلوقتي، والتقديم مباشر مع صاحب العمل.
        اتفرّج للآخر واللينك في البايو.</p>`, 3200);
 
   picks.forEach((j, i) => {
@@ -184,38 +251,49 @@ function build(){
       EMP[j.employment_type],
       j.is_remote ? "عن بُعد" : "",
     ].filter(Boolean);
-    const c = contactOf(j);
     const body = cleanBody(j.summary, 420);
     const long = body && body.length > 210;
-    add(`<span class="num">${ar(i + 1)}</span>
-      <div class="jobcard${long ? " tight" : ""}">
-        <span class="cat ${j.source_kind === "discover" ? "hot" : ""}">${CATEGORIES[j.category] || "وظائف عامة"}</span>
-        <h2>${esc(j.title.slice(0, 64))}</h2>
+    add(`<span class="num" style="color:${THEME.amber}">${ar(i + 1)}</span>
+      <div class="jobcard" style="background:${THEME.card};color:${THEME.cardInk};
+        border:${light ? "1px solid #E7DBC4" : "none"}">
+        <span class="cat hot" style="background:${THEME.catBg};color:${THEME.catInk}">${CATEGORIES[j.category] || "وظائف عامة"}</span>
+        <h2 style="font-family:${THEME.font}">${esc(j.title.slice(0, 64))}</h2>
         <p class="co"><b>${esc(j.company_name.slice(0, 44))}</b></p>
-        <div class="facts">${facts.map(f => `<span>${esc(f)}</span>`).join("")}</div>
-        ${body ? `<div class="detail">${esc(body)}</div>` : ""}
-        <div class="applybar">${c
-          ? (c.kind === "wa" ? "واتساب: " + c.value : "إيميل: " + c.value)
-          : "التقديم من الموقع"}</div>
+        <div class="facts">${facts.map(f => `<span style="background:${THEME.factBg};color:${THEME.cardInk}">${esc(f)}</span>`).join("")}</div>
+        ${body ? `<div class="detail" style="border-top:1px solid ${THEME.factBg}">${esc(body)}</div>` : ""}
+        <div class="applybar" style="background:${THEME.wa};color:#fff">التقديم من الموقع في ثانيتين</div>
       </div>`, long ? 5200 : 4200);
   });
 
-  add(`<ul class="tick">
-        <li>أكتر من ٦٠٠ شاغر بتتحدّث كل يوم</li>
-        <li>مصر · الكويت · السعودية · الإمارات · وعن بُعد</li>
-        <li>تقديم مباشر بالواتساب من غير وسيط</li>
-        <li>مجاني تماماً — مفيش رسوم على الباحث عن عمل</li>
+  add(`<ul class="tick" style="color:${THEME.ink}">
+        ${dotLi("أكتر من ٦٠٠ شاغر بتتحدّث كل يوم")}
+        ${dotLi("مصر · الكويت · السعودية · الإمارات · وعن بُعد")}
+        ${dotLi("تقديم مباشر بالواتساب من غير وسيط")}
+        ${dotLi("مجاني تماماً — مفيش رسوم على الباحث عن عمل")}
       </ul>`, 4200);
 
-  add(`<div class="cta">
-        <h1 style="font-size:1.5rem">دوّر على شغلك<br><em>من مكان واحد</em></h1>
-        <div class="url">shawagherna.com</div>
-        <p class="swipe">اللينك في البايو ↑</p>
-        <p class="lead" style="font-size:.82rem;margin-top:1rem">
+  add(`<div class="cta" style="color:${THEME.ink}">
+        <h1 style="font-size:1.5rem;font-family:${THEME.font}">دوّر على شغلك<br><em style="color:${THEME.amber}">من مكان واحد</em></h1>
+        <div class="url" style="color:${THEME.amber}">shawagherna.com</div>
+        <p class="swipe" style="color:${THEME.muted}">اللينك في البايو ↑</p>
+        <p class="lead" style="font-size:.82rem;margin-top:1rem;color:${THEME.muted}">
           المحترف للاستشارات المالية — أحمد أبو كامل</p>
       </div>`, 3800);
 
   caption(where, what);
+}
+
+function cleanBody(txt, limit){
+  if(!txt) return "";
+  const seen = new Set();
+  const lines = String(txt).split(/\n+/).map(l => l.trim()).filter(l => {
+    if(l.length < 4) return false;
+    const k = l.replace(/[^\w\u0600-\u06FF]/g, "").slice(0, 20);
+    if(seen.has(k)) return false;
+    seen.add(k); return true;
+  });
+  const out = lines.join("\n");
+  return out.length <= limit ? out : out.slice(0, limit).replace(/\s\S*$/, "") + "…";
 }
 
 function caption(where, what){
@@ -250,7 +328,7 @@ function play(){
 }
 
 async function boot(){
-  $("#dpill").textContent = new Date().toLocaleDateString("ar-EG",{day:"numeric",month:"long"});
+  document.getElementById("dpill").textContent = new Date().toLocaleDateString("ar-EG",{day:"numeric",month:"long"});
   try{
     const r = await fetch("data/jobs.json", {cache:"no-store"});
     JOBS = (await r.json()).jobs || [];
@@ -264,13 +342,12 @@ async function boot(){
   Object.entries(CATEGORIES).forEach(([v,l]) => $("#cat").insertAdjacentHTML("beforeend",
     `<option value="${v}">${l}</option>`));
 
-  ["country","cat","count"].forEach(id => $("#" + id).onchange = () => { build(); play(); });
+  ["country","cat","count","styleSel"].forEach(id => $("#" + id).onchange = () => { build(); play(); });
   $("#shuffle").onclick = () => { build(); play(); };
   $("#play").onclick = play;
   build(); play();
 }
 boot();
 </script>
-
 </body>
 </html>
