@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-05T08:42:35.039985+00:00",
+ "started_at": "2026-09-05T18:39:58.203849+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -388,13 +388,13 @@
   {
    "kind": "arbeitnow",
    "slug": "arbeitnow",
-   "count": 175,
+   "count": 250,
    "status": "ok"
   },
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 18,
+   "count": 15,
    "status": "ok"
   },
   {
@@ -424,37 +424,37 @@
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 30,
+   "count": 28,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 30,
+   "count": 28,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 30,
+   "count": 28,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 30,
+   "count": 28,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 30,
+   "count": 28,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 30,
+   "count": 28,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1771,
- "after_geo": 884,
- "after_dedupe": 408,
- "finished_at": "2026-09-05T08:44:09.120516+00:00"
+ "raw": 1825,
+ "after_geo": 876,
+ "after_dedupe": 417,
+ "finished_at": "2026-09-05T18:41:37.215470+00:00"
 }
