@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شواغر — اعمل سيرتك الذاتية احترافية</title>
+<meta name="description" content="ارفع سيرتك الذاتية الحالية بأي شكل، وشواغر يحوّلها لسيرة احترافية بتصاميم متعددة جاهزة للتنزيل.">
+<link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
+<meta name="theme-color" content="#0D1F2E">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#193C58; --board2:#1E4668; --amber:#E7962D; --ink:#12293C; --muted:#5A6E7F;
+  --line:#D5DEE4; --wa:#1FA855; --ok:#1B7A5A; --soft:#E4EDF4; --card:#fff; --paper:#0C1C2A;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:#EAF0F5;font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
+ font-size:15px;line-height:1.6}
+h1,h2,h3,.kufi{font-family:"Noto Kufi Arabic";font-weight:700;margin:0}
+a{color:inherit}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+input,select,textarea{font:inherit;width:100%;border:1px solid #28455E;border-radius:3px;
+ padding:.55rem .65rem;background:#16293A;color:#EAF0F5}
+textarea{resize:vertical;min-height:70px}
+::placeholder{color:#5F7A8F}
+
+header{background:#091722;padding:1rem 1.4rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+ border-bottom:1px solid #1D3549;position:sticky;top:0;z-index:20}
+header .logo{display:flex;align-items:center;gap:.5rem}
+header b{color:var(--amber);font-family:"Noto Kufi Arabic";font-size:1.1rem}
+header a.back{margin-inline-start:auto;font-size:.85rem;color:#A9BECD;text-decoration:none}
+
+main{max-width:1180px;margin:0 auto;padding:1.4rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media (max-width:920px){.grid2{grid-template-columns:1fr}}
+
+.steps{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap}
+.step{padding:.4rem .9rem;border-radius:20px;font-size:.82rem;border:1px solid #28455E;color:#8FA3B4}
+.step.on{background:var(--amber);color:#12293C;border-color:var(--amber);font-weight:700}
+.step.done{border-color:#1F5B48;color:#7FD3B4}
+
+.panel{background:#16293A;border:1px solid #28455E;border-radius:6px;padding:1.1rem;margin-bottom:1rem}
+.panel h2{font-size:1.05rem;margin-bottom:.35rem}
+.panel p.note{margin:.25rem 0 0;font-size:.85rem;color:#8FA3B4}
+
+.dropzone{border:2px dashed #33556F;border-radius:8px;padding:2.2rem 1.2rem;text-align:center;
+ cursor:pointer;transition:.15s}
+.dropzone:hover,.dropzone.drag{border-color:var(--amber);background:rgba(231,150,45,.05)}
+.dropzone .big{font-size:2.2rem;margin-bottom:.4rem}
+.dropzone .fname{margin-top:.6rem;color:var(--amber);font-size:.9rem;font-weight:600}
+.orline{display:flex;align-items:center;gap:.7rem;margin:1rem 0;color:#5F7A8F;font-size:.82rem}
+.orline::before,.orline::after{content:"";flex:1;height:1px;background:#28455E}
+
+.btn{display:inline-block;text-align:center;padding:.55rem 1.1rem;border-radius:4px;font-size:.9rem;
+ font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.amber{background:var(--amber);color:#12293C}
+.btn.amber:hover{background:#F0AA4E}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.ghost{border-color:#28455E;color:#C6D5E0;font-weight:400}
+.btn.ghost:hover{border-color:var(--amber)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btnrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;align-items:center}
+
+.form .g{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.form .g .wide{grid-column:1/-1}
+.form label{display:block;font-size:.78rem;color:#8FA3B4;margin-bottom:.22rem}
+.field{margin-bottom:.7rem}
+
+.entry{background:#12212F;border:1px solid #28455E;border-radius:5px;padding:.8rem;margin-bottom:.6rem;position:relative}
+.entry .rm{position:absolute;inset-inline-end:.5rem;top:.5rem;font-size:.75rem;color:#E0A79E;
+ border:1px solid #4A2A26;border-radius:3px;padding:.15rem .5rem}
+.addbtn{border:1px dashed #33556F;border-radius:4px;padding:.5rem;text-align:center;width:100%;
+ color:#8FA3B4;font-size:.85rem}
+.addbtn:hover{border-color:var(--amber);color:var(--amber)}
+
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.chip{background:#12212F;border:1px solid #28455E;border-radius:20px;padding:.28rem .5rem .28rem .8rem;
+ font-size:.82rem;display:flex;align-items:center;gap:.4rem}
+.chip button{color:#E0A79E;font-size:.9rem;line-height:1}
+.skillInput{display:flex;gap:.4rem}
+
+/* ثيمات السيرة الذاتية */
+.themebar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem}
+.themeSwatch{border:2px solid #28455E;border-radius:6px;padding:.4rem .3rem;width:82px;cursor:pointer;
+ text-align:center;font-size:.68rem;color:#8FA3B4}
+.themeSwatch[aria-pressed="true"]{border-color:var(--amber);color:var(--amber)}
+.themeSwatch .bar{height:26px;border-radius:3px;margin-bottom:.3rem}
+
+/* معاينة السيرة — منطقة A4 حقيقية للطباعة */
+#previewWrap{background:#0C1620;border-radius:6px;padding:1.4rem;overflow:auto;max-height:82vh}
+.page{width:210mm;min-height:297mm;background:#fff;color:#1a1a1a;margin:0 auto;
+ box-shadow:0 20px 50px -20px rgba(0,0,0,.7);font-family:"IBM Plex Sans Arabic",sans-serif}
+@media print{
+  body *{visibility:hidden}
+  #previewWrap, #previewWrap *{visibility:visible}
+  #previewWrap{position:absolute;inset:0;background:#fff;padding:0;max-height:none;overflow:visible}
+  .page{box-shadow:none;margin:0}
+}
+
+/* ثيم ١: عصري بشريط جانبي */
+.cv-modern{display:grid;grid-template-columns:34mm 1fr;min-height:297mm}
+.cv-modern .side{background:#193C58;color:#fff;padding:10mm 6mm}
+.cv-modern .side h1{font-size:15pt;color:#fff;line-height:1.3}
+.cv-modern .side .role{color:#E7962D;font-size:9pt;margin-top:2mm}
+.cv-modern .side .sec{margin-top:7mm}
+.cv-modern .side .sec h4{font-size:8pt;letter-spacing:.08em;color:#8FA3B4;margin-bottom:2mm}
+.cv-modern .side .line{font-size:8.5pt;margin:1.5mm 0;color:#DCE6ED;word-break:break-word}
+.cv-modern .side .skill{display:inline-block;background:rgba(255,255,255,.12);border-radius:10px;
+ padding:.5mm 2mm;font-size:7.5pt;margin:.5mm}
+.cv-modern .main{padding:10mm 8mm}
+.cv-modern .main h4{font-size:9.5pt;color:#193C58;border-bottom:1.5pt solid #E7962D;padding-bottom:1mm;
+ margin-bottom:3mm;letter-spacing:.03em}
+.cv-modern .main .sec{margin-bottom:6mm}
+.cv-modern .item{margin-bottom:4mm}
+.cv-modern .item .h{display:flex;justify-content:space-between;font-size:9.5pt;font-weight:700;color:#12293C}
+.cv-modern .item .sub{font-size:8.5pt;color:#5A6E7F;margin:.5mm 0 1.5mm}
+.cv-modern .item ul{margin:0;padding-inline-start:4mm;font-size:8.5pt;color:#333;line-height:1.6}
+
+/* ثيم ٢: كلاسيك عمود واحد */
+.cv-classic{padding:14mm 16mm;font-family:"IBM Plex Sans Arabic"}
+.cv-classic .head{text-align:center;border-bottom:2pt solid #12293C;padding-bottom:4mm;margin-bottom:5mm}
+.cv-classic .head h1{font-size:17pt;color:#12293C}
+.cv-classic .head .role{font-size:10pt;color:#5A6E7F;margin-top:1mm}
+.cv-classic .head .contacts{font-size:8.5pt;color:#5A6E7F;margin-top:2mm;direction:ltr;display:inline-block}
+.cv-classic h4{font-size:10pt;color:#12293C;text-transform:uppercase;letter-spacing:.08em;
+ margin:5mm 0 2.5mm;border-bottom:.75pt solid #D5DEE4;padding-bottom:1mm}
+.cv-classic .item{margin-bottom:3.5mm}
+.cv-classic .item .h{display:flex;justify-content:space-between;font-size:9.5pt;font-weight:700}
+.cv-classic .item .sub{font-size:8.5pt;color:#5A6E7F;font-style:italic;margin:.5mm 0 1.5mm}
+.cv-classic .item ul{margin:0;padding-inline-start:4mm;font-size:8.5pt;line-height:1.6}
+.cv-classic .skillrow{font-size:8.5pt;line-height:1.9}
+
+/* ثيم ٣: بسيط مينيمال */
+.cv-minimal{padding:16mm 18mm}
+.cv-minimal .head h1{font-size:19pt;font-weight:900;color:#12293C;letter-spacing:-.02em}
+.cv-minimal .head .role{font-size:10pt;color:#E7962D;font-weight:600;margin-top:1mm}
+.cv-minimal .head .contacts{font-size:8.5pt;color:#8FA3B4;margin-top:2.5mm;direction:ltr}
+.cv-minimal h4{font-size:8pt;letter-spacing:.16em;color:#8FA3B4;margin:6mm 0 2.5mm}
+.cv-minimal .item{margin-bottom:4mm}
+.cv-minimal .item .h{font-size:10pt;font-weight:700;color:#12293C}
+.cv-minimal .item .sub{font-size:8.5pt;color:#5A6E7F;margin:.5mm 0 1.5mm}
+.cv-minimal .item ul{margin:0;padding-inline-start:4mm;font-size:8.5pt;line-height:1.7;color:#333}
+.cv-minimal .skillrow span{display:inline-block;margin-inline-end:3mm;font-size:8.5pt}
+
+/* ثيم ٤: بولد برأس ملوّن */
+.cv-bold .head{background:#0F5C4B;color:#fff;padding:12mm 14mm 8mm}
+.cv-bold .head h1{font-size:18pt;color:#fff}
+.cv-bold .head .role{font-size:10pt;color:#B9E6D8;margin-top:1.5mm}
+.cv-bold .head .contacts{font-size:8.5pt;color:#DCF3EC;margin-top:3mm;direction:ltr}
+.cv-bold .body{padding:8mm 14mm}
+.cv-bold h4{font-size:9.5pt;color:#0F5C4B;border-inline-start:3pt solid #0F5C4B;padding-inline-start:2mm;
+ margin:5mm 0 3mm}
+.cv-bold .item{margin-bottom:4mm}
+.cv-bold .item .h{display:flex;justify-content:space-between;font-size:9.5pt;font-weight:700;color:#12293C}
+.cv-bold .item .sub{font-size:8.5pt;color:#5A6E7F;margin:.5mm 0 1.5mm}
+.cv-bold .item ul{margin:0;padding-inline-start:4mm;font-size:8.5pt;line-height:1.6;color:#333}
+.cv-bold .skill{display:inline-block;background:#E3F5EC;color:#0F5C4B;border-radius:10px;
+ padding:.5mm 2.5mm;font-size:7.8pt;margin:.5mm}
+
+.err{background:#3A1E1B;border:1px solid #6E332C;color:#EFA79C;padding:.7rem .9rem;border-radius:3px;font-size:.88rem;margin-top:.6rem}
+.ok{background:#12332A;border:1px solid #1F5B48;color:#7FD3B4;padding:.7rem .9rem;border-radius:3px;font-size:.88rem;margin-top:.6rem}
+.hint{font-size:.78rem;color:#5F7A8F;line-height:1.8}
+.consult{background:var(--board);border-radius:6px;padding:1rem 1.1rem;margin-top:1rem;display:flex;
+ gap:1rem;align-items:center;flex-wrap:wrap;border-inline-start:3px solid var(--amber)}
+.consult img{border-radius:4px;flex:none}
+.consult h3{color:var(--amber);font-size:1rem}
+.consult p{margin:.2rem 0 0;font-size:.84rem;color:#AFC1CE}
+.consult .cta{display:flex;gap:.4rem;margin-inline-start:auto;flex-wrap:wrap}
+footer{max-width:1180px;margin:1rem auto 2rem;padding:0 1.4rem;font-size:.78rem;color:#5F7A8F}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg width="28" height="28" viewBox="0 0 64 64"><path d="M12 6h40a6 6 0 0 1 6 6v25c0 10.5-11.6 17.9-26 21C17.6 54.9 6 47.5 6 37V12a6 6 0 0 1 6-6z" fill="#E7962D"/><rect x="16.5" y="30" width="7.5" height="12" rx="1.6" fill="#193C58"/><rect x="27.5" y="23" width="7.5" height="19" rx="1.6" fill="#193C58"/><rect x="39.7" y="14.2" width="7.5" height="27.5" rx="1.6" fill="none" stroke="#193C58" stroke-width="2.6" stroke-dasharray="4.2 3.4"/></svg>
+    <div><b>شواغر</b> <span style="color:#8FA3B4;font-size:.82rem">— اعمل سيرتك الذاتية</span></div>
+  </div>
+  <a class="back" href="index.html">← رجوع للشواغر</a>
+</header>
+
+<main>
+  <div class="steps">
+    <span class="step" id="stStep1">١. ارفع سيرتك الحالية</span>
+    <span class="step" id="stStep2">٢. راجع البيانات</span>
+    <span class="step" id="stStep3">٣. اختار التصميم ونزّل</span>
+  </div>
+
+  <!-- ============ الخطوة ١: الرفع ============ -->
+  <section id="viewUpload">
+    <div class="panel">
+      <h2>ابدأ من سيرتك الحالية</h2>
+      <p class="note">ارفع ملف Word أو PDF أو نص، وهنحاول نستخرج بياناتك تلقائياً — وبعدين تراجعها وتكمّلها بنفسك.</p>
+
+      <div class="dropzone" id="dropzone">
+        <div class="big">📄</div>
+        <div>اسحب الملف هنا أو اضغط للاختيار</div>
+        <div class="hint" style="margin-top:.4rem">PDF · Word (.docx) · نص (.txt) — لو التحليل مطلعش كويس، الصق النص يدوي بدل ما ترفع</div>
+        <div class="fname" id="fname" hidden></div>
+        <input type="file" id="fileInput" accept=".pdf,.docx,.txt" hidden>
+      </div>
+
+      <div class="orline">أو الصق نص سيرتك مباشرة</div>
+      <textarea id="pasteArea" placeholder="الصق نص سيرتك الذاتية هنا بالكامل..." style="min-height:140px"></textarea>
+
+      <div class="btnrow">
+        <button class="btn amber" id="analyzeBtn">حلّل وابدأ</button>
+        <button class="btn ghost" id="skipBtn">أبدأ من الصفر بدون رفع</button>
+        <span class="note" id="upStatus"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ الخطوة ٢: المراجعة ============ -->
+  <section id="viewReview" hidden>
+    <div class="panel">
+      <h2>راجع وعدّل بياناتك</h2>
+      <p class="note">اتقرا آلياً من الملف — راجعها كويس، الدقة مش مضمونة ١٠٠٪.</p>
+
+      <div class="form">
+        <div class="field g" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+          <div><label>الاسم بالكامل</label><input id="cName"></div>
+          <div><label>المسمى الوظيفي</label><input id="cTitle" placeholder="محاسب أول"></div>
+          <div><label>رقم الموبايل</label><input id="cPhone"></div>
+          <div><label>البريد الإلكتروني</label><input id="cEmail"></div>
+          <div class="wide"><label>المكان (المدينة، الدولة)</label><input id="cLocation"></div>
+        </div>
+        <div class="field wide" style="margin-top:.6rem">
+          <label>نبذة مختصرة عنك (٢-٣ أسطر)</label>
+          <textarea id="cSummary"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>الخبرات العملية</h2>
+      <div id="expList"></div>
+      <button class="addbtn" id="addExp">+ أضف خبرة عملية</button>
+    </div>
+
+    <div class="panel">
+      <h2>المؤهل الدراسي</h2>
+      <div id="eduList"></div>
+      <button class="addbtn" id="addEdu">+ أضف مؤهل</button>
+    </div>
+
+    <div class="panel">
+      <h2>المهارات</h2>
+      <div class="skillInput">
+        <input id="skillIn" placeholder="اكتب مهارة واضغط إضافة">
+        <button class="btn ghost" id="skillAdd" style="flex:none">إضافة</button>
+      </div>
+      <div class="chips" id="skillChips"></div>
+    </div>
+
+    <div class="panel">
+      <h2>اللغات</h2>
+      <div class="skillInput">
+        <input id="langIn" placeholder="مثال: العربية (اللغة الأم)">
+        <button class="btn ghost" id="langAdd" style="flex:none">إضافة</button>
+      </div>
+      <div class="chips" id="langChips"></div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn ghost" id="backToUpload">← رجوع</button>
+      <button class="btn amber" id="toThemeBtn">التالي: اختار التصميم ←</button>
+    </div>
+  </section>
+
+  <!-- ============ الخطوة ٣: التصميم والتصدير ============ -->
+  <section id="viewTheme" hidden>
+    <div class="grid2">
+      <div>
+        <div class="panel">
+          <h2>اختار التصميم</h2>
+          <div class="themebar" id="themebar"></div>
+          <p class="note" id="cvMsg"></p>
+          <div class="btnrow">
+            <button class="btn amber" id="downloadBtn">تنزيل PDF</button>
+            <button class="btn wa" id="saveBtn">حفظ في حسابي</button>
+            <button class="btn ghost" id="backToReview">← تعديل البيانات</button>
+          </div>
+          <p class="hint" style="margin-top:.6rem">زر "حفظ في حسابي" محتاج تسجّل دخول بجوجل من
+            <a href="index.html" style="color:#E7962D">الصفحة الرئيسية</a> الأول عشان ترجع لسيرتك أي وقت.</p>
+        </div>
+        <div class="consult" id="consultBox"></div>
+      </div>
+      <div id="previewWrap"><div class="page" id="cvPage"></div></div>
+    </div>
+  </section>
+
+  <div id="mineBox" hidden class="panel">
+    <h2>سيرك الذاتية المحفوظة</h2>
+    <div id="mineList"></div>
+  </div>
+</main>
+
+<footer>
+  السيرة الذاتية بتتخزّن في حسابك أنت فقط ولا يشوفها أي حد تاني. شواغر — المحترف للاستشارات المالية.
+</footer>
+
+<script>
+/* ══════════ إعدادات ══════════ */
+const CONFIG = {
+  supabaseUrl: "",       // انسخها من index.html
+  supabaseAnonKey: "",   // انسخها من index.html
+  consultName: "المحترف للاستشارات المالية",
+  consultPhone: "",
+  consultNote: "محاسبة وإعداد قوائم مالية وأنظمة أودو للمشروعات الصغيرة",
+};
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let sb = null, user = null;
+
+let CV = { full_name:"", job_title:"", phone:"", email:"", location:"", summary:"",
+  experience: [], education: [], skills: [], languages: [], theme: "modern" };
+
+/* ══════════ التحليل الآلي لنص السيرة ══════════ */
+const SECTION_MAP = [
+  ["experience", /^(experience|work experience|employment history|career|الخبرات?( العملية)?|الخبرة العملية|السجل الوظيفي)\s*:?$/i],
+  ["education",  /^(education|academic|qualifications|المؤهلات?( الدراسية)?|التعليم|الدراسة)\s*:?$/i],
+  ["skills",     /^(skills|competencies|المهارات|القدرات)\s*:?$/i],
+  ["languages",  /^(languages|اللغات)\s*:?$/i],
+  ["summary",    /^(summary|profile|objective|about( me)?|نبذة|الملخص|نبذة عني|من أنا)\s*:?$/i],
+];
+function detectPhone(t){
+  const m = t.match(/(?:\+|00)?(?:965|966|971|974|973|968|20)[\s-]?\d{7,10}|\b01\d{9}\b|\b\d{8}\b/);
+  return m ? m[0].trim() : "";
+}
+function detectEmail(t){
+  const m = t.match(/[\w.+-]+@[\w-]+\.[\w.]+/);
+  return m ? m[0] : "";
+}
+function detectName(lines){
+  // الاسم غالباً أول سطر مليان مش فيه أرقام ولا @ ومش طويل جداً
+  for(const l of lines.slice(0, 5)){
+    const c = l.trim();
+    if(c.length > 3 && c.length < 45 && !/\d|@/.test(c) && !/^(cv|resume|السيرة)/i.test(c)) return c;
+  }
+  return "";
+}
+function splitSections(text){
+  const lines = text.split(/\r?\n/).map(l => l.trim());
+  const sections = { experience: [], education: [], skills: [], languages: [], summary: [] };
+  let current = null;
+  for(const line of lines){
+    if(!line){ if(current) sections[current].push(""); continue; }   // نسيب السطر الفاضي كفاصل بين العناصر
+    let matched = false;
+    for(const [key, re] of SECTION_MAP){
+      if(re.test(line)){ current = key; matched = true; break; }
+    }
+    if(matched) continue;
+    if(current) sections[current].push(line);
+  }
+  return { lines, sections };
+}
+function parseExperienceBlock(rawLines){
+  // تقسيم بالفراغات: كل مجموعة أسطر متتالية بينها سطر فاضي = وظيفة واحدة
+  const items = [];
+  let cur = [];
+  const flush = () => { if(cur.length) items.push(cur); cur = []; };
+  for(const l of rawLines){ if(!l) flush(); else cur.push(l); }
+  flush();
+  return items.map(block => {
+    const head = block[0] || "";
+    const parts = head.split(/\s+[-–—|]\s+/);
+    return {
+      title: parts[0] || head, company: parts[1] || "",
+      period: (block.find(l => /\d{4}/.test(l)) || "").match(/[\d\/\-–—\s]*\d{4}[\d\/\-–—\s]*(present|حتى الآن|الآن)?/i)?.[0]?.trim() || "",
+      bullets: block.slice(1).filter(l => l.length > 3 && !/\d{4}/.test(l) || l.length > 30).slice(0, 5),
+    };
+  }).filter(x => x.title);
+}
+function parseEducationBlock(rawLines){
+  const items = [];
+  let cur = [];
+  const flush = () => { if(cur.length) items.push(cur); cur = []; };
+  for(const l of rawLines){ if(!l) flush(); else cur.push(l); }
+  flush();
+  return items.map(block => ({
+    degree: block[0] || "",
+    school: block[1] || "",
+    period: (block.join(" ").match(/\d{4}/g) || []).join(" – "),
+  })).filter(x => x.degree);
+}
+function analyzeCV(text){
+  const { lines, sections } = splitSections(text);
+  const name = detectName(lines);
+  const phone = detectPhone(text);
+  const email = detectEmail(text);
+  const skillsRaw = sections.skills.join(" · ").split(/[،,·\|\/•]+/).map(s => s.trim()).filter(s => s.length > 1 && s.length < 30);
+  const langsRaw = sections.languages.join(" · ").split(/[،,·\|\/•]+/).map(s => s.trim()).filter(Boolean);
+  CV.full_name = name || CV.full_name;
+  CV.phone = phone || CV.phone;
+  CV.email = email || CV.email;
+  CV.summary = sections.summary.join(" ").slice(0, 400) || CV.summary;
+  CV.experience = parseExperienceBlock(sections.experience);
+  CV.education = parseEducationBlock(sections.education);
+  CV.skills = [...new Set(skillsRaw)].slice(0, 20);
+  CV.languages = [...new Set(langsRaw)].slice(0, 6);
+  const jobLine = lines.find(l => l !== name && l.length > 3 && l.length < 60 && !/\d|@/.test(l));
+  CV.job_title = jobLine || "";
+}
+
+/* ══════════ قراءة الملفات ══════════ */
+async function readFile(file){
+  const name = file.name.toLowerCase();
+  if(name.endsWith(".txt")) return await file.text();
+  if(name.endsWith(".docx")){
+    if(!window.mammoth) await loadScript("https://cdn.jsdelivr.net/npm/mammoth@1.7.0/mammoth.browser.min.js");
+    const buf = await file.arrayBuffer();
+    const res = await window.mammoth.extractRawText({ arrayBuffer: buf });
+    return res.value;
+  }
+  if(name.endsWith(".pdf")) return await readPdf(file);
+  throw new Error("النوع ده مش مدعوم — استخدم PDF أو Word أو نص، أو الصق النص مباشرة");
+}
+async function readPdf(file){
+  if(!window.pdfjsLib){
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js");
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+  const buf = await file.arrayBuffer();
+  const pdf = await window.pdfjsLib.getDocument({ data: buf }).promise;
+  let fullText = "";
+  for(let i = 1; i <= pdf.numPages; i++){
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    fullText += pdfPageToLines(content.items) + "\n\n";
+  }
+  if(!fullText.trim())
+    throw new Error("الملف ده PDF من صورة ممسوحة (سكانر) ومفيهوش نص قابل للقراءة — الصق النص يدوي بدل كده");
+  return fullText;
+}
+// إعادة بناء أسطر منطقية من عناصر نص PDF (اللي أصلاً بلا مفهوم "سطر") بتجميع العناصر متقاربة الارتفاع مع بعض
+function pdfPageToLines(items){
+  const rows = [];
+  let cur = null, lastY = null;
+  for(const it of items){
+    const y = it.transform[5];
+    if(lastY === null || Math.abs(y - lastY) > 2.5){
+      if(cur) rows.push(cur.trim());
+      cur = it.str;
+    } else {
+      cur += (cur.endsWith(" ") || it.str.startsWith(" ") ? "" : " ") + it.str;
+    }
+    lastY = y;
+  }
+  if(cur) rows.push(cur.trim());
+  return rows.filter(Boolean).join("\n");
+}
+function loadScript(src){
+  return new Promise((res, rej) => {
+    const s = document.createElement("script");
+    s.src = src; s.onload = res; s.onerror = () => rej(new Error("تعذّر تحميل مكتبة القراءة"));
+    document.head.appendChild(s);
+  });
+}
+
+/* ══════════ واجهة الرفع ══════════ */
+function setStep(n){
+  ["viewUpload","viewReview","viewTheme"].forEach((id, i) => $("#" + id).hidden = (i !== n - 1));
+  ["stStep1","stStep2","stStep3"].forEach((id, i) => {
+    const el = $("#" + id);
+    el.className = "step" + (i + 1 === n ? " on" : i + 1 < n ? " done" : "");
+  });
+  if(n === 3){ renderThemes(); renderPreview(); $("#consultBox").innerHTML = consultHTML(); }
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function consultHTML(){
+  const tel = CONFIG.consultPhone;
+  return `<img src="assets/almohtaref.png" alt="" width="52" height="52">
+    <div><h3>${esc(CONFIG.consultName)}</h3><p>${esc(CONFIG.consultNote)}</p></div>
+    <div class="cta">${tel ? `<a class="btn amber" href="tel:${esc(tel)}">اتصل الآن</a>
+      <a class="btn wa" href="https://wa.me/${esc(tel.replace(/[^\d]/g,""))}" target="_blank" rel="noopener">واتساب</a>` : ""}</div>`;
+}
+
+/* ══════════ خطوة المراجعة: عرض النماذج ══════════ */
+function fillReviewForm(){
+  $("#cName").value = CV.full_name; $("#cTitle").value = CV.job_title;
+  $("#cPhone").value = CV.phone; $("#cEmail").value = CV.email;
+  $("#cLocation").value = CV.location; $("#cSummary").value = CV.summary;
+  renderExpList(); renderEduList(); renderChips("skillChips", CV.skills, i => CV.skills.splice(i,1));
+  renderChips("langChips", CV.languages, i => CV.languages.splice(i,1));
+}
+function syncFormToCV(){
+  CV.full_name = $("#cName").value.trim(); CV.job_title = $("#cTitle").value.trim();
+  CV.phone = $("#cPhone").value.trim(); CV.email = $("#cEmail").value.trim();
+  CV.location = $("#cLocation").value.trim(); CV.summary = $("#cSummary").value.trim();
+}
+function renderExpList(){
+  const el = $("#expList"); el.innerHTML = "";
+  CV.experience.forEach((x, i) => {
+    const d = document.createElement("div"); d.className = "entry";
+    d.innerHTML = `<button class="rm" data-i="${i}">حذف</button>
+      <div class="field"><label>المسمى الوظيفي</label><input data-f="title" data-i="${i}" value="${esc(x.title)}"></div>
+      <div class="field"><label>الشركة</label><input data-f="company" data-i="${i}" value="${esc(x.company)}"></div>
+      <div class="field"><label>الفترة</label><input data-f="period" data-i="${i}" value="${esc(x.period)}" placeholder="٢٠٢٢ – الآن"></div>
+      <div class="field"><label>المهام (سطر لكل مهمة)</label>
+        <textarea data-f="bullets" data-i="${i}">${esc((x.bullets||[]).join("\n"))}</textarea></div>`;
+    el.appendChild(d);
+  });
+  el.querySelectorAll("[data-f]").forEach(inp => inp.addEventListener("input", () => {
+    const i = +inp.dataset.i, f = inp.dataset.f;
+    CV.experience[i][f] = f === "bullets" ? inp.value.split("\n").map(s=>s.trim()).filter(Boolean) : inp.value;
+  }));
+  el.querySelectorAll(".rm").forEach(b => b.onclick = () => { CV.experience.splice(+b.dataset.i,1); renderExpList(); });
+}
+function renderEduList(){
+  const el = $("#eduList"); el.innerHTML = "";
+  CV.education.forEach((x, i) => {
+    const d = document.createElement("div"); d.className = "entry";
+    d.innerHTML = `<button class="rm" data-i="${i}">حذف</button>
+      <div class="field"><label>المؤهل</label><input data-f="degree" data-i="${i}" value="${esc(x.degree)}"></div>
+      <div class="field"><label>الجهة / الجامعة</label><input data-f="school" data-i="${i}" value="${esc(x.school)}"></div>
+      <div class="field"><label>السنة</label><input data-f="period" data-i="${i}" value="${esc(x.period)}"></div>`;
+    el.appendChild(d);
+  });
+  el.querySelectorAll("[data-f]").forEach(inp => inp.addEventListener("input", () => {
+    CV.education[+inp.dataset.i][inp.dataset.f] = inp.value;
+  }));
+  el.querySelectorAll(".rm").forEach(b => b.onclick = () => { CV.education.splice(+b.dataset.i,1); renderEduList(); });
+}
+function renderChips(hostId, arr, onRemove){
+  const el = $("#" + hostId); el.innerHTML = "";
+  arr.forEach((s, i) => {
+    const c = document.createElement("span"); c.className = "chip";
+    c.innerHTML = `${esc(s)} <button data-i="${i}">✕</button>`;
+    c.querySelector("button").onclick = () => { onRemove(i); renderChips(hostId, arr, onRemove); };
+    el.appendChild(c);
+  });
+}
+
+/* ══════════ التصاميم ومعاينة الطباعة ══════════ */
+const THEMES = [
+  {id:"modern",  name:"عصري"},
+  {id:"classic", name:"كلاسيك"},
+  {id:"minimal", name:"مينيمال"},
+  {id:"bold",    name:"بولد"},
+];
+function renderThemes(){
+  const el = $("#themebar"); el.innerHTML = "";
+  THEMES.forEach(t => {
+    const b = document.createElement("button"); b.className = "themeSwatch";
+    b.type = "button"; b.setAttribute("aria-pressed", String(CV.theme === t.id));
+    b.innerHTML = `<div class="bar" style="background:${
+      t.id==="modern"?"#193C58":t.id==="classic"?"#12293C":t.id==="minimal"?"#E7962D":"#0F5C4B"}"></div>${t.name}`;
+    b.onclick = () => { CV.theme = t.id; renderThemes(); renderPreview(); };
+    el.appendChild(b);
+  });
+}
+function bulletsHtml(b){ return b && b.length ? `<ul>${b.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : ""; }
+function renderPreview(){
+  const page = $("#cvPage");
+  const contacts = [CV.phone, CV.email, CV.location].filter(Boolean).join("  ·  ");
+  if(CV.theme === "modern"){
+    page.className = "page cv-modern";
+    page.innerHTML = `
+      <div class="side">
+        <h1>${esc(CV.full_name || "اسمك هنا")}</h1>
+        <div class="role">${esc(CV.job_title)}</div>
+        <div class="sec"><h4>التواصل</h4>
+          ${CV.phone?`<div class="line">${esc(CV.phone)}</div>`:""}
+          ${CV.email?`<div class="line">${esc(CV.email)}</div>`:""}
+          ${CV.location?`<div class="line">${esc(CV.location)}</div>`:""}</div>
+        ${CV.skills.length?`<div class="sec"><h4>المهارات</h4>${CV.skills.map(s=>`<span class="skill">${esc(s)}</span>`).join(" ")}</div>`:""}
+        ${CV.languages.length?`<div class="sec"><h4>اللغات</h4>${CV.languages.map(s=>`<div class="line">${esc(s)}</div>`).join("")}</div>`:""}
+      </div>
+      <div class="main">
+        ${CV.summary?`<div class="sec"><h4>نبذة</h4><p style="font-size:8.5pt;line-height:1.7;color:#333">${esc(CV.summary)}</p></div>`:""}
+        ${CV.experience.length?`<div class="sec"><h4>الخبرات العملية</h4>${CV.experience.map(x=>`
+          <div class="item"><div class="h"><span>${esc(x.title)}${x.company?" — "+esc(x.company):""}</span><span>${esc(x.period)}</span></div>
+          ${bulletsHtml(x.bullets)}</div>`).join("")}</div>`:""}
+        ${CV.education.length?`<div class="sec"><h4>المؤهل الدراسي</h4>${CV.education.map(x=>`
+          <div class="item"><div class="h"><span>${esc(x.degree)}</span><span>${esc(x.period)}</span></div>
+          <div class="sub">${esc(x.school)}</div></div>`).join("")}</div>`:""}
+      </div>`;
+  } else if(CV.theme === "classic"){
+    page.className = "page cv-classic";
+    page.innerHTML = `
+      <div class="head"><h1>${esc(CV.full_name || "اسمك هنا")}</h1>
+        <div class="role">${esc(CV.job_title)}</div>
+        <div class="contacts">${esc(contacts)}</div></div>
+      ${CV.summary?`<h4>نبذة</h4><p style="font-size:8.5pt;line-height:1.7">${esc(CV.summary)}</p>`:""}
+      ${CV.experience.length?`<h4>الخبرات العملية</h4>${CV.experience.map(x=>`
+        <div class="item"><div class="h"><span>${esc(x.title)}</span><span>${esc(x.period)}</span></div>
+        <div class="sub">${esc(x.company)}</div>${bulletsHtml(x.bullets)}</div>`).join("")}`:""}
+      ${CV.education.length?`<h4>المؤهل الدراسي</h4>${CV.education.map(x=>`
+        <div class="item"><div class="h"><span>${esc(x.degree)}</span><span>${esc(x.period)}</span></div>
+        <div class="sub">${esc(x.school)}</div></div>`).join("")}`:""}
+      ${CV.skills.length?`<h4>المهارات</h4><div class="skillrow">${esc(CV.skills.join("  •  "))}</div>`:""}
+      ${CV.languages.length?`<h4>اللغات</h4><div class="skillrow">${esc(CV.languages.join("  •  "))}</div>`:""}`;
+  } else if(CV.theme === "minimal"){
+    page.className = "page cv-minimal";
+    page.innerHTML = `
+      <div class="head"><h1>${esc(CV.full_name || "اسمك هنا")}</h1>
+        <div class="role">${esc(CV.job_title)}</div>
+        <div class="contacts">${esc(contacts)}</div></div>
+      ${CV.summary?`<h4>نبذة</h4><p style="font-size:8.5pt;line-height:1.75;color:#333">${esc(CV.summary)}</p>`:""}
+      ${CV.experience.length?`<h4>الخبرة العملية</h4>${CV.experience.map(x=>`
+        <div class="item"><div class="h">${esc(x.title)}${x.company?" · "+esc(x.company):""}</div>
+        <div class="sub">${esc(x.period)}</div>${bulletsHtml(x.bullets)}</div>`).join("")}`:""}
+      ${CV.education.length?`<h4>المؤهل الدراسي</h4>${CV.education.map(x=>`
+        <div class="item"><div class="h">${esc(x.degree)}</div><div class="sub">${esc(x.school)} — ${esc(x.period)}</div></div>`).join("")}`:""}
+      ${CV.skills.length?`<h4>المهارات</h4><div class="skillrow">${CV.skills.map(s=>`<span>${esc(s)}</span>`).join("")}</div>`:""}
+      ${CV.languages.length?`<h4>اللغات</h4><div class="skillrow">${CV.languages.map(s=>`<span>${esc(s)}</span>`).join("")}</div>`:""}`;
+  } else {
+    page.className = "page cv-bold";
+    page.innerHTML = `
+      <div class="head"><h1>${esc(CV.full_name || "اسمك هنا")}</h1>
+        <div class="role">${esc(CV.job_title)}</div>
+        <div class="contacts">${esc(contacts)}</div></div>
+      <div class="body">
+        ${CV.summary?`<h4>نبذة</h4><p style="font-size:8.5pt;line-height:1.7;color:#333">${esc(CV.summary)}</p>`:""}
+        ${CV.experience.length?`<h4>الخبرات العملية</h4>${CV.experience.map(x=>`
+          <div class="item"><div class="h"><span>${esc(x.title)}${x.company?" — "+esc(x.company):""}</span><span>${esc(x.period)}</span></div>
+          ${bulletsHtml(x.bullets)}</div>`).join("")}`:""}
+        ${CV.education.length?`<h4>المؤهل الدراسي</h4>${CV.education.map(x=>`
+          <div class="item"><div class="h"><span>${esc(x.degree)}</span><span>${esc(x.period)}</span></div>
+          <div class="sub">${esc(x.school)}</div></div>`).join("")}`:""}
+        ${CV.skills.length?`<h4>المهارات</h4>${CV.skills.map(s=>`<span class="skill">${esc(s)}</span>`).join(" ")}`:""}
+        ${CV.languages.length?`<h4>اللغات</h4><div class="skillrow">${esc(CV.languages.join("  •  "))}</div>`:""}
+      </div>`;
+  }
+}
+
+/* ══════════ الدخول والحفظ ══════════ */
+async function initAuth(){
+  if(!(CONFIG.supabaseUrl && CONFIG.supabaseAnonKey)) return;
+  try{
+    await new Promise(res => {
+      const s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+      s.onload = res; s.onerror = res; document.head.appendChild(s);
+    });
+    if(!window.supabase) return;
+    sb = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseAnonKey);
+    const { data } = await sb.auth.getSession();
+    user = data?.session?.user || null;
+    sb.auth.onAuthStateChange((_e, s) => { user = s?.user || null; loadMine(); });
+    loadMine();
+  }catch(e){ console.error("initAuth:", e); }
+}
+async function saveCv(){
+  const btn = $("#saveBtn"); const msg = $("#cvMsg");
+  if(!sb){ msg.innerHTML = `<span style="color:#EFA79C">محتاج تفعيل الحفظ من الإعدادات — استخدم التنزيل لحد ما يتفعّل.</span>`; return; }
+  if(!user){ msg.innerHTML = `<span style="color:#EFA79C">سجّل دخول بجوجل من الصفحة الرئيسية الأول عشان تقدر تحفظ.</span>`; return; }
+  btn.disabled = true; btn.textContent = "جاري الحفظ...";
+  try{
+    const row = { owner_id: user.id, full_name: CV.full_name, job_title: CV.job_title, phone: CV.phone,
+      email: CV.email, location: CV.location, summary: CV.summary, experience: CV.experience,
+      education: CV.education, skills: CV.skills, languages: CV.languages, theme: CV.theme };
+    const { error } = await sb.from("cvs").insert(row);
+    if(error) throw error;
+    msg.innerHTML = `<span style="color:#7FD3B4">تم الحفظ ✓ — تقدر ترجع لسيرتك من هنا في أي وقت.</span>`;
+    loadMine();
+  }catch(e){
+    msg.innerHTML = `<span style="color:#EFA79C">فشل الحفظ: ${esc(e.message || "")}</span>`;
+  }
+  btn.disabled = false; btn.textContent = "حفظ في حسابي";
+}
+async function loadMine(){
+  const box = $("#mineBox");
+  if(!(sb && user)){ box.hidden = true; return; }
+  const { data } = await sb.from("cvs").select("id,full_name,job_title,theme,updated_at")
+    .order("updated_at", {ascending:false}).limit(10);
+  if(!data || !data.length){ box.hidden = true; return; }
+  box.hidden = false;
+  $("#mineList").innerHTML = data.map(c => `
+    <div class="entry" style="display:flex;justify-content:space-between;align-items:center">
+      <div><b>${esc(c.full_name || "بدون اسم")}</b> — ${esc(c.job_title || "")}
+        <div class="hint">${new Date(c.updated_at).toLocaleDateString("ar-EG")}</div></div>
+      <button class="btn ghost" data-load="${c.id}">فتح</button>
+    </div>`).join("");
+  $("#mineList").querySelectorAll("[data-load]").forEach(b => b.onclick = () => loadCvById(b.dataset.load));
+}
+async function loadCvById(id){
+  const { data, error } = await sb.from("cvs").select("*").eq("id", id).single();
+  if(error || !data) return;
+  CV = { full_name:data.full_name||"", job_title:data.job_title||"", phone:data.phone||"",
+    email:data.email||"", location:data.location||"", summary:data.summary||"",
+    experience:data.experience||[], education:data.education||[], skills:data.skills||[],
+    languages:data.languages||[], theme:data.theme||"modern" };
+  fillReviewForm();
+  setStep(3);
+}
+
+/* ══════════ التنزيل PDF (طباعة المتصفح) ══════════ */
+function downloadPdf(){
+  window.print();
+}
+
+/* ══════════ الإقلاع ══════════ */
+function boot(){
+  $("#dropzone").onclick = () => $("#fileInput").click();
+  $("#fileInput").onchange = async e => {
+    const f = e.target.files[0]; if(!f) return;
+    $("#fname").hidden = false; $("#fname").textContent = f.name;
+    try{
+      $("#upStatus").textContent = "جاري قراءة الملف...";
+      $("#pasteArea").value = await readFile(f);
+      $("#upStatus").textContent = "تم — اضغط حلّل وابدأ";
+    }catch(err){ $("#upStatus").innerHTML = `<span style="color:#EFA79C">${esc(err.message)}</span>`; }
+  };
+  ["dragover","dragleave","drop"].forEach(ev => $("#dropzone").addEventListener(ev, e => {
+    e.preventDefault();
+    $("#dropzone").classList.toggle("drag", ev === "dragover");
+    if(ev === "drop" && e.dataTransfer.files[0]){
+      $("#fileInput").files = e.dataTransfer.files;
+      $("#fileInput").dispatchEvent(new Event("change"));
+    }
+  }));
+  $("#analyzeBtn").onclick = () => {
+    const text = $("#pasteArea").value.trim();
+    if(text.length > 30) analyzeCV(text);
+    fillReviewForm(); setStep(2);
+  };
+  $("#skipBtn").onclick = () => { fillReviewForm(); setStep(2); };
+  $("#backToUpload").onclick = () => setStep(1);
+  $("#backToReview").onclick = () => setStep(2);
+  $("#toThemeBtn").onclick = () => { syncFormToCV(); setStep(3); };
+  ["cName","cTitle","cPhone","cEmail","cLocation","cSummary"].forEach(id =>
+    $("#" + id).addEventListener("input", syncFormToCV));
+  $("#addExp").onclick = () => { CV.experience.push({title:"",company:"",period:"",bullets:[]}); renderExpList(); };
+  $("#addEdu").onclick = () => { CV.education.push({degree:"",school:"",period:""}); renderEduList(); };
+  $("#skillAdd").onclick = () => { const v = $("#skillIn").value.trim(); if(v){ CV.skills.push(v); $("#skillIn").value=""; renderChips("skillChips", CV.skills, i=>CV.skills.splice(i,1)); } };
+  $("#langAdd").onclick = () => { const v = $("#langIn").value.trim(); if(v){ CV.languages.push(v); $("#langIn").value=""; renderChips("langChips", CV.languages, i=>CV.languages.splice(i,1)); } };
+  $("#downloadBtn").onclick = downloadPdf;
+  $("#saveBtn").onclick = saveCv;
+  setStep(1);
+  initAuth();
+}
+boot();
+</script>
+</body>
+</html>
