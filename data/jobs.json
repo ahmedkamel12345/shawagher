@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T19:17:01.166256+00:00",
+ "generated_at": "2026-09-06T19:32:33.228666+00:00",
  "count": 770,
  "jobs": [
   {
@@ -8216,7 +8216,7 @@
    "seniority": "mid",
    "employment_type": "full_time",
    "is_remote": true,
-   "summary": "Camp Boss PFC Group Full-time Dubai, United Arab Emirates 2w ago Please mention the word **LOVE** and tag RNC4yMjcuMTczLjExNA== when applying to show you read the job post completely (#RNC4yMjcuMTczLjExNA==). This is a beta feature to avoid spam applicants. Companies can search…",
+   "summary": "Camp Boss PFC Group Full-time Dubai, United Arab Emirates 2w ago Please mention the word **LOVE** and tag RNjQuMjM2LjIwMC4yMjY= when applying to show you read the job post completely (#RNjQuMjM2LjIwMC4yMjY=). This is a beta feature to avoid spam applicants. Companies can search…",
    "apply_url": "https://remoteOK.com/remote-jobs/remote-job-summary-workajobs-1137290",
    "source_kind": "remoteok",
    "source_slug": "remoteok",
@@ -8257,6 +8257,23 @@
    "posted_at": "2026-09-02T19:37:54.160000+00:00"
   },
   {
+   "fingerprint": "11f2a3de8ac745d9f53c5e53b476e2b9b46dfe22",
+   "title": "Virtual Physician",
+   "company_name": "QuickMD",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "health",
+   "seniority": "mid",
+   "employment_type": "full_time",
+   "is_remote": false,
+   "summary": "About QuickMD QuickMD is a leading telemedicine provider, delivering high-quality virtual care across 44 states. Since our founding in 2019, we've helped more than 100,000 patients access essential medical treatment, with a primary focus on addiction care, and growing...",
+   "apply_url": "https://jooble.org/jdp/5060281039664470586",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-09-02T19:35:35.643000+00:00"
+  },
+  {
    "fingerprint": "81c1d100be157018b6266bbdc01356e0737e1f4c",
    "title": "Telehealth Physician",
    "company_name": "QuickMD",
@@ -8272,23 +8289,6 @@
    "source_kind": "jooble",
    "source_slug": "jb-eg-all",
    "posted_at": "2026-09-02T19:34:42.283000+00:00"
-  },
-  {
-   "fingerprint": "11f2a3de8ac745d9f53c5e53b476e2b9b46dfe22",
-   "title": "Virtual Physician",
-   "company_name": "QuickMD",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "health",
-   "seniority": "mid",
-   "employment_type": "full_time",
-   "is_remote": false,
-   "summary": "About QuickMD QuickMD is a leading telemedicine provider, delivering high-quality virtual care across 44 states. Since our founding in 2019, we've helped more than 100,000 patients access essential medical treatment, with a primary focus on addiction care, and growing...",
-   "apply_url": "https://jooble.org/jdp/2038529023729559476",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-09-02T19:30:20.717000+00:00"
   },
   {
    "fingerprint": "49910423b124212aefb12fd4cfc0167e48003c08",
@@ -11402,23 +11402,6 @@
    "posted_at": "2026-08-05T07:54:34.640000+00:00"
   },
   {
-   "fingerprint": "d0cabd56c6a52cf8d3723bb3dd570ad34b2b22ac",
-   "title": "WMS Specialist",
-   "company_name": "Scale Army",
-   "city": "Egypt",
-   "country": "EG",
-   "location_raw": "Egypt",
-   "category": "other",
-   "seniority": "mid",
-   "employment_type": "full-time",
-   "is_remote": false,
-   "summary": "Our client is a leading provider of third-party logistics (3PL) solutions, delivering warehouse and supply chain services to a diverse range of customers. As they continue to optimize warehouse operations, they are seeking a WMS Specialist to serve as the functional expert...",
-   "apply_url": "https://jooble.org/jdp/2157507268329479990",
-   "source_kind": "jooble",
-   "source_slug": "jb-eg-all",
-   "posted_at": "2026-08-05T07:54:34.360000+00:00"
-  },
-  {
    "fingerprint": "773bd987e5a77987315e6d811919c10b684d0bad",
    "title": "Production Planner",
    "company_name": "Scale Army",
@@ -11451,6 +11434,23 @@
    "source_kind": "jooble",
    "source_slug": "jb-sa-all",
    "posted_at": "2026-08-05T07:54:34.193000+00:00"
+  },
+  {
+   "fingerprint": "ef32fafea837ce77722f5e7b1ce87b1e8a0e5739",
+   "title": "QA Engineer",
+   "company_name": "Whitecollars",
+   "city": "Egypt",
+   "country": "EG",
+   "location_raw": "Egypt",
+   "category": "it",
+   "seniority": "mid",
+   "employment_type": "temporary",
+   "is_remote": false,
+   "summary": "Quality isn't the final step in development; it's what defines the user experience. As the QA Engineer on this project, you'll play a critical role in ensuring that every feature released meets the highest standards of functionality, reliability, and usability. You'll work...",
+   "apply_url": "https://jooble.org/jdp/7947339390091161455",
+   "source_kind": "jooble",
+   "source_slug": "jb-eg-all",
+   "posted_at": "2026-08-05T07:54:33.453000+00:00"
   },
   {
    "fingerprint": "8b0fed40e1cb3f6aae12c357b814f86591920bb3",
