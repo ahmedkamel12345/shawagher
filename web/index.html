@@ -165,12 +165,12 @@ textarea{resize:vertical;min-height:80px}
 .tab i{font-style:normal;font-family:"IBM Plex Mono";font-size:.72rem;opacity:.75;margin-inline-start:.3rem}
 
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.45rem;margin-bottom:.9rem}
-.tiles button{background:#fff;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem .5rem;
- display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center}
-.tiles button i{font-style:normal;font-size:1.15rem;color:var(--deep);line-height:1}
-.tiles button b{font-family:"Noto Kufi Arabic";font-size:.82rem;font-weight:500}
-.tiles button .n{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint)}
-.tiles button:hover{border-color:var(--deep);transform:translateY(-1px)}
+.tiles button,.tiles a{background:#fff;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem .5rem;
+ display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:.15s;text-align:center;text-decoration:none}
+.tiles button i,.tiles a i{font-style:normal;font-size:1.15rem;color:var(--deep);line-height:1}
+.tiles button b,.tiles a b{font-family:"Noto Kufi Arabic";font-size:.82rem;font-weight:500;color:var(--ink)}
+.tiles button .n,.tiles a .n{font-family:"IBM Plex Mono";font-size:.68rem;color:var(--faint)}
+.tiles button:hover,.tiles a:hover{border-color:var(--deep);transform:translateY(-1px)}
 .tiles button[aria-current="true"]{background:var(--board);border-color:var(--board);color:#fff}
 .tiles button[aria-current="true"] i{color:var(--amber)}
 .tiles button[aria-current="true"] .n{color:#8FA3B4}
@@ -446,6 +446,7 @@ footer p{margin:.25rem 0}
     <button data-tab="saved"><i>♡</i><b data-i18n="navSaved">المحفوظة</b><span class="n" id="navSaved">0</span></button>
     <button data-tab="stats"><i>◫</i><b data-i18n="navStats">التحليلات والنصائح</b><span class="n" data-i18n="navStats2">نصائح</span></button>
     <button data-tab="post"><i>+</i><b data-i18n="navPost">انشر وظيفة</b><span class="n" data-i18n="navFree">مجاناً</span></button>
+    <a href="cv-builder.html"><i>📄</i><b data-i18n="navCv">سيرة ذاتية احترافية</b><span class="n" data-i18n="navFree">مجاناً</span></a>
     <button data-tab="admin" id="navAdmin" hidden><i>★</i><b data-i18n="navAdmin">لوحة الإدارة</b><span class="n" data-i18n="navAdmin2">أدمن</span></button>
   </nav>
 
@@ -818,6 +819,7 @@ const I18N = {
   factLocation: {ar:"المكان", en:"Location"}, factLevel: {ar:"المستوى", en:"Level"},
   countryAll_remote: {ar:"عن بُعد", en:"Remote"},
   noApply: {ar:"وسيلة التقديم غير متاحة", en:"No apply method available"},
+  navCv: {ar:"سيرة ذاتية احترافية", en:"Professional CV"},
   adText: {ar:"نص الإعلان", en:"Ad Text"}, noDetails: {ar:"مفيش تفاصيل إضافية — افتح المصدر للتفاصيل الكاملة.", en:"No extra details — open the source for full information."},
   translateBtn: {ar:"ترجم الإعلان", en:"Translate ad"}, showOriginal: {ar:"عرض النص الأصلي", en:"Show original"},
   translating: {ar:"جاري الترجمة...", en:"Translating..."},
