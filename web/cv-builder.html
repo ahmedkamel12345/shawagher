@@ -6,86 +6,140 @@
 <title>شواغر — اعمل سيرتك الذاتية احترافية</title>
 <meta name="description" content="ارفع سيرتك الذاتية الحالية بأي شكل، وشواغر يحوّلها لسيرة احترافية بتصاميم متعددة جاهزة للتنزيل.">
 <link rel="icon" type="image/svg+xml" href="assets/shawagher-mark.svg">
-<meta name="theme-color" content="#0D1F2E">
+<meta name="theme-color" content="#F4F7FB">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --board:#193C58; --board2:#1E4668; --amber:#E7962D; --ink:#12293C; --muted:#5A6E7F;
-  --line:#D5DEE4; --wa:#1FA855; --ok:#1B7A5A; --soft:#E4EDF4; --card:#fff; --paper:#0C1C2A;
+  --board:#193C58; --board2:#1E4668; --amber:#E7962D; --amber-dim:#C97A1F;
+  --ink:#16233A; --muted:#5B6B7F; --faint:#93A3B4;
+  --line:#E4E9EF; --wa:#1FA855; --ok:#0F7A4F; --err:#C0392B;
+  --soft:#EEF3FA; --card:#FFFFFF; --paper:#F4F7FB;
+  --violet:#6D5BD0; --violet-soft:#EFECFB;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{background:var(--paper);color:#EAF0F5;font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
- font-size:15px;line-height:1.6}
+body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;
+ font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(900px 480px at 88% -10%, rgba(231,150,45,.10), transparent 60%),
+            radial-gradient(700px 420px at -6% 8%, rgba(109,91,208,.08), transparent 60%)}
 h1,h2,h3,.kufi{font-family:"Noto Kufi Arabic";font-weight:700;margin:0}
 a{color:inherit}
 button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
-input,select,textarea{font:inherit;width:100%;border:1px solid #28455E;border-radius:3px;
- padding:.55rem .65rem;background:#16293A;color:#EAF0F5}
+input,select,textarea{font:inherit;width:100%;border:1.5px solid var(--line);border-radius:8px;
+ padding:.62rem .75rem;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--amber);
+ box-shadow:0 0 0 3px rgba(231,150,45,.14)}
 textarea{resize:vertical;min-height:70px}
-::placeholder{color:#5F7A8F}
+::placeholder{color:var(--faint)}
 
-header{background:#091722;padding:1rem 1.4rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
- border-bottom:1px solid #1D3549;position:sticky;top:0;z-index:20}
-header .logo{display:flex;align-items:center;gap:.5rem}
-header b{color:var(--amber);font-family:"Noto Kufi Arabic";font-size:1.1rem}
-header a.back{margin-inline-start:auto;font-size:.85rem;color:#A9BECD;text-decoration:none}
+/* ══════════ الهيدر ══════════ */
+header{background:linear-gradient(120deg,#193C58 0%,#1E4668 55%,#2A5378 100%);
+ padding:1.2rem 1.6rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;
+ box-shadow:0 6px 24px -12px rgba(18,41,60,.5);position:sticky;top:0;z-index:20}
+header .logo{display:flex;align-items:center;gap:.65rem}
+header b{color:#fff;font-family:"Noto Kufi Arabic";font-size:1.15rem}
+header .sub{color:#B7CBDD;font-size:.85rem;font-weight:400}
+header a.back{margin-inline-start:auto;font-size:.85rem;color:#fff;text-decoration:none;
+ background:rgba(255,255,255,.14);padding:.5rem 1rem;border-radius:20px;transition:.15s}
+header a.back:hover{background:rgba(255,255,255,.24)}
 
-main{max-width:1180px;margin:0 auto;padding:1.4rem}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+main{max-width:1180px;margin:0 auto;padding:1.8rem 1.4rem 2.5rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
 @media (max-width:920px){.grid2{grid-template-columns:1fr}}
 
-.steps{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap}
-.step{padding:.4rem .9rem;border-radius:20px;font-size:.82rem;border:1px solid #28455E;color:#8FA3B4}
-.step.on{background:var(--amber);color:#12293C;border-color:var(--amber);font-weight:700}
-.step.done{border-color:#1F5B48;color:#7FD3B4}
+/* ══════════ مؤشر الخطوات ══════════ */
+.steps{display:flex;align-items:center;gap:0;margin-bottom:1.6rem;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:.55rem;padding:.4rem 1rem .4rem .5rem;border-radius:24px;
+ font-size:.85rem;font-weight:600;color:var(--faint);background:transparent;transition:.2s}
+.step .num{width:26px;height:26px;border-radius:50%;background:var(--card);border:2px solid var(--line);
+ display:grid;place-content:center;font-family:"IBM Plex Mono";font-size:.75rem;color:var(--faint);flex:none}
+.step.on{background:var(--card);color:var(--ink);box-shadow:0 4px 16px -8px rgba(18,41,60,.25)}
+.step.on .num{background:var(--amber);border-color:var(--amber);color:#fff}
+.step.done{color:var(--ok)}
+.step.done .num{background:var(--ok);border-color:var(--ok);color:#fff}
+.stepline{flex:1;min-width:20px;height:2px;background:var(--line);margin:0 -2px}
 
-.panel{background:#16293A;border:1px solid #28455E;border-radius:6px;padding:1.1rem;margin-bottom:1rem}
-.panel h2{font-size:1.05rem;margin-bottom:.35rem}
-.panel p.note{margin:.25rem 0 0;font-size:.85rem;color:#8FA3B4}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.5rem;
+ margin-bottom:1.1rem;box-shadow:0 2px 10px -6px rgba(18,41,60,.08)}
+.panel h2{font-size:1.15rem;margin-bottom:.3rem;color:var(--ink)}
+.panel p.note{margin:.3rem 0 0;font-size:.86rem;color:var(--muted);line-height:1.7}
 
-.dropzone{border:2px dashed #33556F;border-radius:8px;padding:2.2rem 1.2rem;text-align:center;
- cursor:pointer;transition:.15s}
-.dropzone:hover,.dropzone.drag{border-color:var(--amber);background:rgba(231,150,45,.05)}
-.dropzone .big{font-size:2.2rem;margin-bottom:.4rem}
-.dropzone .fname{margin-top:.6rem;color:var(--amber);font-size:.9rem;font-weight:600}
-.orline{display:flex;align-items:center;gap:.7rem;margin:1rem 0;color:#5F7A8F;font-size:.82rem}
-.orline::before,.orline::after{content:"";flex:1;height:1px;background:#28455E}
+/* ══════════ منطقة الرفع ══════════ */
+.dropzone{border:2px dashed var(--line);border-radius:14px;padding:2.6rem 1.4rem;text-align:center;
+ cursor:pointer;transition:.2s;background:linear-gradient(180deg,#fff,var(--soft))}
+.dropzone:hover,.dropzone.drag{border-color:var(--amber);background:linear-gradient(180deg,#fff,#FCF3E3);
+ transform:translateY(-2px)}
+.dropzone .big{width:64px;height:64px;border-radius:16px;background:var(--soft);display:grid;
+ place-content:center;font-size:1.8rem;margin:0 auto .8rem}
+.dropzone .title{font-family:"Noto Kufi Arabic";font-weight:700;font-size:1.02rem;color:var(--ink)}
+.dropzone .fname{margin-top:.7rem;color:var(--ok);font-size:.9rem;font-weight:600;
+ background:#E7F4EC;display:inline-block;padding:.35rem .9rem;border-radius:20px}
+.orline{display:flex;align-items:center;gap:.8rem;margin:1.3rem 0;color:var(--faint);font-size:.82rem}
+.orline::before,.orline::after{content:"";flex:1;height:1px;background:var(--line)}
 
-.btn{display:inline-block;text-align:center;padding:.55rem 1.1rem;border-radius:4px;font-size:.9rem;
- font-weight:600;text-decoration:none;border:1px solid transparent}
-.btn.amber{background:var(--amber);color:#12293C}
-.btn.amber:hover{background:#F0AA4E}
-.btn.wa{background:var(--wa);color:#fff}
-.btn.ghost{border-color:#28455E;color:#C6D5E0;font-weight:400}
-.btn.ghost:hover{border-color:var(--amber)}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.btnrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;align-items:center}
+/* ══════════ الأزرار ══════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;text-align:center;
+ padding:.65rem 1.3rem;border-radius:9px;font-size:.9rem;font-weight:700;text-decoration:none;
+ border:1.5px solid transparent;transition:transform .15s,box-shadow .15s,background .15s}
+.btn.amber{background:linear-gradient(135deg,#F0AA4E,var(--amber));color:#fff;
+ box-shadow:0 6px 16px -6px rgba(231,150,45,.55)}
+.btn.amber:hover{transform:translateY(-1px);box-shadow:0 10px 22px -6px rgba(231,150,45,.6)}
+.btn.wa{background:var(--wa);color:#fff;box-shadow:0 6px 16px -6px rgba(31,168,85,.45)}
+.btn.wa:hover{transform:translateY(-1px)}
+.btn.ghost{border-color:var(--line);color:var(--muted);font-weight:600;background:#fff}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber-dim)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.btnrow{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;align-items:center}
 
-.form .g{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.form .g{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 .form .g .wide{grid-column:1/-1}
-.form label{display:block;font-size:.78rem;color:#8FA3B4;margin-bottom:.22rem}
-.field{margin-bottom:.7rem}
+.form label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.28rem;font-weight:600}
+.field{margin-bottom:.85rem}
 
-.entry{background:#12212F;border:1px solid #28455E;border-radius:5px;padding:.8rem;margin-bottom:.6rem;position:relative}
-.entry .rm{position:absolute;inset-inline-end:.5rem;top:.5rem;font-size:.75rem;color:#E0A79E;
- border:1px solid #4A2A26;border-radius:3px;padding:.15rem .5rem}
-.addbtn{border:1px dashed #33556F;border-radius:4px;padding:.5rem;text-align:center;width:100%;
- color:#8FA3B4;font-size:.85rem}
-.addbtn:hover{border-color:var(--amber);color:var(--amber)}
+.entry{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:1rem;
+ margin-bottom:.7rem;position:relative}
+.entry .rm{position:absolute;inset-inline-end:.6rem;top:.6rem;font-size:.75rem;color:var(--err);
+ border:1px solid #F0D3CE;background:#fff;border-radius:6px;padding:.2rem .6rem;font-weight:600}
+.entry .rm:hover{background:#FBE7E4}
+.addbtn{border:2px dashed var(--line);border-radius:10px;padding:.7rem;text-align:center;width:100%;
+ color:var(--muted);font-size:.88rem;font-weight:600;transition:.15s}
+.addbtn:hover{border-color:var(--amber);color:var(--amber-dim);background:#FCF3E3}
 
-.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
-.chip{background:#12212F;border:1px solid #28455E;border-radius:20px;padding:.28rem .5rem .28rem .8rem;
- font-size:.82rem;display:flex;align-items:center;gap:.4rem}
-.chip button{color:#E0A79E;font-size:.9rem;line-height:1}
-.skillInput{display:flex;gap:.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.chip{background:var(--soft);border:1px solid var(--line);border-radius:20px;padding:.32rem .55rem .32rem .9rem;
+ font-size:.85rem;display:flex;align-items:center;gap:.5rem;font-weight:500}
+.chip button{color:var(--err);font-size:.95rem;line-height:1}
+.skillInput{display:flex;gap:.5rem}
 
-/* ثيمات السيرة الذاتية */
-.themebar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem}
-.themeSwatch{border:2px solid #28455E;border-radius:6px;padding:.4rem .3rem;width:82px;cursor:pointer;
- text-align:center;font-size:.68rem;color:#8FA3B4}
-.themeSwatch[aria-pressed="true"]{border-color:var(--amber);color:var(--amber)}
-.themeSwatch .bar{height:26px;border-radius:3px;margin-bottom:.3rem}
+/* ══════════ اختيار التصميم — معاينة مصغّرة حقيقية ══════════ */
+.themebar{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1rem}
+.themeSwatch{border:2px solid var(--line);border-radius:10px;padding:.5rem;width:96px;cursor:pointer;
+ text-align:center;font-size:.72rem;color:var(--muted);font-weight:600;background:#fff;transition:.15s}
+.themeSwatch:hover{border-color:var(--amber-dim);transform:translateY(-2px)}
+.themeSwatch[aria-pressed="true"]{border-color:var(--amber);color:var(--amber-dim);
+ box-shadow:0 6px 16px -8px rgba(231,150,45,.4)}
+.themeSwatch .mini{height:60px;border-radius:6px;margin-bottom:.4rem;overflow:hidden;position:relative;
+ background:#fff;border:1px solid var(--line)}
+.themeSwatch .mini .bar{position:absolute;inset-inline-start:0;top:0;bottom:0;width:34%}
+.themeSwatch .mini .ln{position:absolute;height:3px;background:#D5DEE4;border-radius:2px}
+
+.err{background:#FBECEA;border:1px solid #F0C7C0;color:var(--err);padding:.75rem 1rem;border-radius:8px;
+ font-size:.88rem;margin-top:.7rem;font-weight:500}
+.ok{background:#E7F4EC;border:1px solid #B8DCC8;color:var(--ok);padding:.75rem 1rem;border-radius:8px;
+ font-size:.88rem;margin-top:.7rem;font-weight:500}
+.hint{font-size:.8rem;color:var(--muted);line-height:1.8}
+.consult{background:linear-gradient(120deg,var(--board),var(--board2));border-radius:14px;
+ padding:1.2rem 1.3rem;margin-top:1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;
+ box-shadow:0 10px 26px -14px rgba(18,41,60,.5)}
+.consult img{border-radius:8px;flex:none}
+.consult h3{color:var(--amber);font-size:1.02rem}
+.consult p{margin:.25rem 0 0;font-size:.85rem;color:#C6D5E0}
+.consult .cta{display:flex;gap:.5rem;margin-inline-start:auto;flex-wrap:wrap}
+footer{max-width:1180px;margin:1rem auto 2rem;padding:0 1.4rem;font-size:.8rem;color:var(--muted);
+ text-align:center}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* معاينة السيرة — منطقة A4 حقيقية للطباعة */
 #previewWrap{background:#0C1620;border-radius:6px;padding:1.4rem;overflow:auto;max-height:82vh}
@@ -183,9 +237,11 @@ footer{max-width:1180px;margin:1rem auto 2rem;padding:0 1.4rem;font-size:.78rem;
 
 <main>
   <div class="steps">
-    <span class="step" id="stStep1">١. ارفع سيرتك الحالية</span>
-    <span class="step" id="stStep2">٢. راجع البيانات</span>
-    <span class="step" id="stStep3">٣. اختار التصميم ونزّل</span>
+    <span class="step" id="stStep1"><span class="num">١</span> ارفع سيرتك الحالية</span>
+    <span class="stepline"></span>
+    <span class="step" id="stStep2"><span class="num">٢</span> راجع البيانات</span>
+    <span class="stepline"></span>
+    <span class="step" id="stStep3"><span class="num">٣</span> اختار التصميم ونزّل</span>
   </div>
 
   <!-- ============ الخطوة ١: الرفع ============ -->
@@ -196,8 +252,8 @@ footer{max-width:1180px;margin:1rem auto 2rem;padding:0 1.4rem;font-size:.78rem;
 
       <div class="dropzone" id="dropzone">
         <div class="big">📄</div>
-        <div>اسحب الملف هنا أو اضغط للاختيار</div>
-        <div class="hint" style="margin-top:.4rem">PDF · Word (.docx) · نص (.txt) — لو التحليل مطلعش كويس، الصق النص يدوي بدل ما ترفع</div>
+        <div class="title">اسحب الملف هنا أو اضغط للاختيار</div>
+        <div class="hint" style="margin-top:.5rem">PDF · Word (.docx) · نص (.txt) — لو التحليل مطلعش كويس، الصق النص يدوي بدل ما ترفع</div>
         <div class="fname" id="fname" hidden></div>
         <input type="file" id="fileInput" accept=".pdf,.docx,.txt" hidden>
       </div>
@@ -538,18 +594,40 @@ function renderChips(hostId, arr, onRemove){
 
 /* ══════════ التصاميم ومعاينة الطباعة ══════════ */
 const THEMES = [
-  {id:"modern",  name:"عصري"},
-  {id:"classic", name:"كلاسيك"},
-  {id:"minimal", name:"مينيمال"},
-  {id:"bold",    name:"بولد"},
+  {id:"modern",  name:"عصري",    accent:"#193C58"},
+  {id:"classic", name:"كلاسيك",  accent:"#12293C"},
+  {id:"minimal", name:"مينيمال", accent:"#E7962D"},
+  {id:"bold",    name:"بولد",    accent:"#0F5C4B"},
 ];
+function miniPreview(t){
+  // معاينة مصغّرة توضّح شكل كل تصميم فعلياً (شريط جانبي، رأس، إلخ) بدل مجرد لون
+  if(t.id === "modern") return `<div class="mini"><div class="bar" style="background:${t.accent}"></div>
+    <div class="ln" style="top:8px;inset-inline-start:42%;width:44%"></div>
+    <div class="ln" style="top:18px;inset-inline-start:42%;width:36%"></div>
+    <div class="ln" style="top:30px;inset-inline-start:42%;width:40%;background:${t.accent}22"></div>
+    <div class="ln" style="top:38px;inset-inline-start:42%;width:30%;background:${t.accent}22"></div></div>`;
+  if(t.id === "classic") return `<div class="mini">
+    <div class="ln" style="top:8px;inset-inline-start:20%;width:60%;height:4px;background:${t.accent}"></div>
+    <div class="ln" style="top:16px;inset-inline-start:30%;width:40%"></div>
+    <div class="ln" style="top:28px;inset-inline-start:10%;width:80%;background:${t.accent}22"></div>
+    <div class="ln" style="top:36px;inset-inline-start:10%;width:70%;background:${t.accent}22"></div>
+    <div class="ln" style="top:46px;inset-inline-start:10%;width:75%;background:${t.accent}22"></div></div>`;
+  if(t.id === "minimal") return `<div class="mini">
+    <div class="ln" style="top:9px;inset-inline-start:10%;width:50%;height:5px;background:${t.accent}"></div>
+    <div class="ln" style="top:20px;inset-inline-start:10%;width:30%;background:${t.accent}88"></div>
+    <div class="ln" style="top:34px;inset-inline-start:10%;width:80%"></div>
+    <div class="ln" style="top:42px;inset-inline-start:10%;width:65%"></div></div>`;
+  return `<div class="mini"><div class="bar" style="background:${t.accent};width:100%;height:18px;inset-inline-start:0"></div>
+    <div class="ln" style="top:26px;inset-inline-start:10%;width:80%;background:${t.accent}22"></div>
+    <div class="ln" style="top:34px;inset-inline-start:10%;width:70%;background:${t.accent}22"></div>
+    <div class="ln" style="top:46px;inset-inline-start:10%;width:60%;background:${t.accent}22"></div></div>`;
+}
 function renderThemes(){
   const el = $("#themebar"); el.innerHTML = "";
   THEMES.forEach(t => {
     const b = document.createElement("button"); b.className = "themeSwatch";
     b.type = "button"; b.setAttribute("aria-pressed", String(CV.theme === t.id));
-    b.innerHTML = `<div class="bar" style="background:${
-      t.id==="modern"?"#193C58":t.id==="classic"?"#12293C":t.id==="minimal"?"#E7962D":"#0F5C4B"}"></div>${t.name}`;
+    b.innerHTML = miniPreview(t) + t.name;
     b.onclick = () => { CV.theme = t.id; renderThemes(); renderPreview(); };
     el.appendChild(b);
   });
