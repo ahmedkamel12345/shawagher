@@ -1,10 +1,10 @@
 {
- "started_at": "2026-09-06T19:30:19.807328+00:00",
+ "started_at": "2026-09-07T09:49:43.107085+00:00",
  "sources": [
   {
    "kind": "greenhouse",
    "slug": "careem",
-   "count": 19,
+   "count": 20,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1834,
- "after_geo": 902,
- "after_dedupe": 438,
- "finished_at": "2026-09-06T19:31:55.573449+00:00"
+ "raw": 1835,
+ "after_geo": 888,
+ "after_dedupe": 424,
+ "finished_at": "2026-09-07T09:51:20.289709+00:00"
 }
