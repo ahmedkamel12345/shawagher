@@ -140,7 +140,26 @@ textarea{resize:vertical;min-height:80px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
 .main{min-width:0;padding:1.1rem clamp(.9rem,2.4vw,1.9rem) 3rem}
-.topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem}
+.topbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem;
+ position:sticky;top:0;z-index:15;padding:.7rem 0;background:var(--paper);
+ background:color-mix(in srgb, var(--paper) 88%, transparent);
+ -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.topbar::after{content:"";position:absolute;inset-inline:0;bottom:0;height:1px;
+ background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
+
+.ticker{display:flex;align-items:center;gap:.6rem;background:var(--board);border-radius:6px;
+ padding:.5rem .3rem .5rem .9rem;margin-bottom:.8rem;overflow:hidden}
+.ticker-lbl{flex:none;font-family:"IBM Plex Mono";font-size:.7rem;font-weight:700;color:var(--amber);
+ background:rgba(231,150,45,.14);border-radius:20px;padding:.25rem .7rem;white-space:nowrap}
+.ticker-track{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+ mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.ticker-inner{display:flex;gap:2.2rem;white-space:nowrap;animation:ticker-scroll 32s linear infinite;width:max-content}
+.ticker-inner:hover{animation-play-state:paused}
+.ticker-inner span{color:#DCE6ED;font-size:.85rem;display:inline-flex;align-items:center;gap:.4rem}
+.ticker-inner span b{color:#fff;font-weight:600}
+.ticker-inner span i{width:5px;height:5px;border-radius:50%;background:var(--amber);flex:none;font-style:normal}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-inner{animation:none}}
 .searchbox{flex:1;min-width:220px;display:flex;background:#fff;background:var(--card);border:1px solid var(--line);border-radius:3px}
 .searchbox input{border:0;background:transparent}
 .searchbox span{display:grid;place-content:center;padding-inline:.7rem;color:var(--faint)}
@@ -503,6 +522,11 @@ footer p{margin:.25rem 0}
     <div class="who" id="who">
       <button id="login">دخول بجوجل</button>
     </div>
+  </div>
+
+  <div class="ticker" id="ticker" hidden>
+    <span class="ticker-lbl">🔥 مباشر</span>
+    <div class="ticker-track"><div class="ticker-inner" id="tickerInner"></div></div>
   </div>
 
   <div class="tabs" id="tabs"></div>
@@ -1005,6 +1029,26 @@ function filtered(){
 const countBy = (rows, key) => rows.reduce((m,j)=>(m[j[key]]=(m[j[key]]||0)+1, m), {});
 
 /* ══════════ الواجهة ══════════ */
+let tickerBuilt = false;
+function drawTicker(){
+  const box = document.getElementById("ticker");
+  const inner = document.getElementById("tickerInner");
+  if(!box || !inner) return;
+  // أحدث ١٢ وظيفة حقيقية (بعنوان وجهة فعليين) — من غير تكرار نفس الجهة كتير
+  const seen = {};
+  const items = JOBS.filter(j => j.title && j.company_name)
+    .sort((a,b) => (b.posted_at||"").localeCompare(a.posted_at||""))
+    .filter(j => { seen[j.company_name] = (seen[j.company_name]||0)+1; return seen[j.company_name] <= 2; })
+    .slice(0, 12);
+  if(items.length < 4){ box.hidden = true; return; }
+  box.hidden = false;
+  if(tickerBuilt) return;   // نبنيه مرة واحدة بس عشان الحركة متتقطعش مع كل paint()
+  tickerBuilt = true;
+  const chip = j => `<span><i></i><b>${esc(j.title.slice(0,42))}</b> — ${esc((j.company_name||"").slice(0,26))}
+    ${j.city ? " · " + esc(j.city) : (COUNTRIES[j.country] ? " · " + esc(COUNTRIES[j.country]) : "")}</span>`;
+  // تكرار القائمة مرتين عشان تتحرك بشكل متصل من غير فجوة عند الالتفاف
+  inner.innerHTML = items.map(chip).join("") + items.map(chip).join("");
+}
 function drawTabs(){
  try{
   const rows = JOBS.filter(matchQ);
@@ -2051,6 +2095,7 @@ function paint(){
   catch(e){ console.error("خطأ في paint():", e); }
 }
 function paintInner(){
+  drawTicker();
   const rows = filtered();
   $("#kTotal").textContent = ar(JOBS.length);
   $("#kWeek").textContent  = ar(JOBS.filter(j => (dayDiff(j.posted_at) ?? 99) <= 7).length);
