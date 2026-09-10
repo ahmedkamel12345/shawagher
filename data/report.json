@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-09T19:33:21.312321+00:00",
+ "started_at": "2026-09-10T09:16:15.401905+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -412,7 +412,7 @@
   {
    "kind": "remoteok",
    "slug": "remoteok",
-   "count": 100,
+   "count": 99,
    "status": "ok"
   },
   {
@@ -424,37 +424,37 @@
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 5,
+   "count": 4,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 5,
+   "count": 4,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 5,
+   "count": 4,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 5,
+   "count": 4,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 5,
+   "count": 4,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 5,
+   "count": 4,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 24,
+   "count": 22,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 24,
+   "count": 22,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 24,
+   "count": 22,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 24,
+   "count": 22,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 24,
+   "count": 22,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 24,
+   "count": 22,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1813,
- "after_geo": 856,
- "after_dedupe": 407,
- "finished_at": "2026-09-09T19:34:57.350376+00:00"
+ "raw": 1794,
+ "after_geo": 880,
+ "after_dedupe": 441,
+ "finished_at": "2026-09-10T09:17:57.147779+00:00"
 }
