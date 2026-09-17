@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-16T20:16:13.119580+00:00",
+ "started_at": "2026-09-17T07:07:46.178479+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -418,7 +418,7 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 86,
+   "count": 85,
    "status": "ok"
   },
   {
@@ -532,37 +532,37 @@
   {
    "kind": "jooble",
    "slug": "jb-ae-all",
-   "count": 22,
+   "count": 23,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-محاسب",
-   "count": 22,
+   "count": 23,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مبيعات",
-   "count": 22,
+   "count": 23,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-خدمة عملاء",
-   "count": 22,
+   "count": 23,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-سائق",
-   "count": 22,
+   "count": 23,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مهندس",
-   "count": 22,
+   "count": 23,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1672,
- "after_geo": 754,
- "after_dedupe": 413,
- "finished_at": "2026-09-16T20:17:58.589298+00:00"
+ "raw": 1677,
+ "after_geo": 783,
+ "after_dedupe": 435,
+ "finished_at": "2026-09-17T07:09:24.650234+00:00"
 }
