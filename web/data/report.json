@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-21T20:41:18.364157+00:00",
+ "started_at": "2026-09-22T09:32:59.302005+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 32,
+   "count": 31,
    "status": "ok"
   },
   {
@@ -418,7 +418,7 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 83,
+   "count": 82,
    "status": "ok"
   },
   {
@@ -496,73 +496,73 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 15,
+   "count": 6,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 15,
+   "count": 6,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 15,
+   "count": 6,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 15,
+   "count": 6,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 15,
+   "count": 6,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 15,
+   "count": 6,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-all",
-   "count": 30,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-محاسب",
-   "count": 30,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مبيعات",
-   "count": 30,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-خدمة عملاء",
-   "count": 30,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-سائق",
-   "count": 30,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مهندس",
-   "count": 30,
+   "count": 16,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1720,
- "after_geo": 787,
- "after_dedupe": 405,
- "finished_at": "2026-09-21T20:42:58.276220+00:00"
+ "raw": 1580,
+ "after_geo": 634,
+ "after_dedupe": 368,
+ "finished_at": "2026-09-22T09:34:35.602246+00:00"
 }
