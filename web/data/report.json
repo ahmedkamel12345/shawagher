@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-22T19:57:15.450258+00:00",
+ "started_at": "2026-09-23T09:37:56.494800+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -418,43 +418,43 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 82,
+   "count": 83,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 1,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 1,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 1,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 1,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 1,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 1,
+   "count": 2,
    "status": "ok"
   },
   {
@@ -496,73 +496,73 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 15,
+   "count": 5,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 15,
+   "count": 5,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 15,
+   "count": 5,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 15,
+   "count": 5,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 15,
+   "count": 5,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 15,
+   "count": 5,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-all",
-   "count": 30,
+   "count": 18,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-محاسب",
-   "count": 30,
+   "count": 18,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مبيعات",
-   "count": 30,
+   "count": 18,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-خدمة عملاء",
-   "count": 30,
+   "count": 18,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-سائق",
-   "count": 30,
+   "count": 18,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مهندس",
-   "count": 30,
+   "count": 18,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1719,
- "after_geo": 789,
- "after_dedupe": 408,
- "finished_at": "2026-09-22T19:58:57.842556+00:00"
+ "raw": 1594,
+ "after_geo": 700,
+ "after_dedupe": 422,
+ "finished_at": "2026-09-23T09:39:34.149541+00:00"
 }
