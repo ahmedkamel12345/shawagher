@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-25T20:10:36.624149+00:00",
+ "started_at": "2026-09-26T09:37:06.501857+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -143,7 +143,7 @@
    "kind": "greenhouse",
    "slug": "trukker",
    "count": 0,
-   "status": "ReadTimeout: HTTPSConnectionPool(host='boards-api.greenhouse.io', port=443): Read timed out. (read timeout=25)"
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/trukker/jobs?content=true"
   },
   {
    "kind": "greenhouse",
@@ -418,7 +418,7 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 81,
+   "count": 80,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1532,
- "after_geo": 606,
+ "raw": 1531,
+ "after_geo": 611,
  "after_dedupe": 380,
- "finished_at": "2026-09-25T20:12:41.727464+00:00"
+ "finished_at": "2026-09-26T09:38:40.362628+00:00"
 }
