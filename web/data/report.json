@@ -1,5 +1,5 @@
 {
- "started_at": "2026-09-29T10:58:17.518268+00:00",
+ "started_at": "2026-09-29T21:08:40.429655+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -418,7 +418,7 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 85,
+   "count": 89,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1809,
- "after_geo": 811,
- "after_dedupe": 432,
- "finished_at": "2026-09-29T10:59:54.462804+00:00"
+ "raw": 1813,
+ "after_geo": 815,
+ "after_dedupe": 429,
+ "finished_at": "2026-09-29T21:10:24.992989+00:00"
 }
