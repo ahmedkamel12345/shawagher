@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-05T22:58:50.375680+00:00",
+ "started_at": "2026-10-06T11:35:21.531863+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -340,7 +340,7 @@
   {
    "kind": "workable",
    "slug": "robusta",
-   "count": 104,
+   "count": 103,
    "status": "ok"
   },
   {
@@ -394,7 +394,7 @@
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 17,
+   "count": 18,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 12,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 12,
-   "status": "ok"
+   "count": 0,
+   "status": "ReadTimeout: HTTPSConnectionPool(host='jooble.org', port=443): Read timed out. (read timeout=25)"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 12,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 12,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 12,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 12,
+   "count": 11,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1791,
- "after_geo": 779,
- "after_dedupe": 406,
- "finished_at": "2026-10-05T23:00:29.925823+00:00"
+ "raw": 1774,
+ "after_geo": 764,
+ "after_dedupe": 409,
+ "finished_at": "2026-10-06T11:37:24.702578+00:00"
 }
