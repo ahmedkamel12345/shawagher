@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-06T11:35:21.531863+00:00",
+ "started_at": "2026-10-06T21:21:54.005159+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 33,
+   "count": 31,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 11,
+   "count": 12,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 0,
-   "status": "ReadTimeout: HTTPSConnectionPool(host='jooble.org', port=443): Read timed out. (read timeout=25)"
+   "count": 12,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 11,
+   "count": 12,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 11,
+   "count": 12,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 11,
+   "count": 12,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 11,
+   "count": 12,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1774,
- "after_geo": 764,
- "after_dedupe": 409,
- "finished_at": "2026-10-06T11:37:24.702578+00:00"
+ "raw": 1789,
+ "after_geo": 769,
+ "after_dedupe": 399,
+ "finished_at": "2026-10-06T21:23:35.941211+00:00"
 }
