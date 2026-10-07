@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-06T21:21:54.005159+00:00",
+ "started_at": "2026-10-07T11:25:08.106433+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -383,7 +383,7 @@
    "kind": "personio",
    "slug": "sylndr",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://personio.com"
+   "status": "HTTPError: 404 Client Error: Not Found for url: https://sylndr.jobs.personio.com/xml"
   },
   {
    "kind": "arbeitnow",
@@ -394,7 +394,7 @@
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 18,
+   "count": 17,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1789,
- "after_geo": 769,
- "after_dedupe": 399,
- "finished_at": "2026-10-06T21:23:35.941211+00:00"
+ "raw": 1788,
+ "after_geo": 777,
+ "after_dedupe": 406,
+ "finished_at": "2026-10-07T11:26:58.156197+00:00"
 }
