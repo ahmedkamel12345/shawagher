@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-07T21:41:41.959860+00:00",
+ "started_at": "2026-10-08T11:40:46.196655+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -394,7 +394,7 @@
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 17,
+   "count": 19,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1800,
- "after_geo": 794,
- "after_dedupe": 414,
- "finished_at": "2026-10-07T21:43:18.780361+00:00"
+ "raw": 1802,
+ "after_geo": 805,
+ "after_dedupe": 427,
+ "finished_at": "2026-10-08T11:42:25.779195+00:00"
 }
