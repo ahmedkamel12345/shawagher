@@ -1,10 +1,10 @@
 {
- "started_at": "2026-10-08T21:37:18.058583+00:00",
+ "started_at": "2026-10-09T11:34:02.360503+00:00",
  "sources": [
   {
    "kind": "greenhouse",
    "slug": "careem",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 32,
+   "count": 33,
    "status": "ok"
   },
   {
@@ -394,7 +394,7 @@
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 19,
+   "count": 17,
    "status": "ok"
   },
   {
@@ -603,7 +603,7 @@
   }
  ],
  "raw": 1809,
- "after_geo": 798,
- "after_dedupe": 416,
- "finished_at": "2026-10-08T21:39:52.418903+00:00"
+ "after_geo": 831,
+ "after_dedupe": 444,
+ "finished_at": "2026-10-09T11:35:39.246509+00:00"
 }
