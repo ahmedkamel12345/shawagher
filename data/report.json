@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-11T11:04:44.893473+00:00",
+ "started_at": "2026-10-11T20:41:29.821352+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 37,
+   "count": 36,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1815,
- "after_geo": 838,
- "after_dedupe": 447,
- "finished_at": "2026-10-11T11:06:23.625781+00:00"
+ "raw": 1814,
+ "after_geo": 825,
+ "after_dedupe": 435,
+ "finished_at": "2026-10-11T20:43:09.316028+00:00"
 }
