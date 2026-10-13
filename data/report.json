@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-12T23:20:15.378774+00:00",
+ "started_at": "2026-10-13T12:18:10.136603+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -388,13 +388,13 @@
   {
    "kind": "arbeitnow",
    "slug": "arbeitnow",
-   "count": 325,
+   "count": 300,
    "status": "ok"
   },
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1812,
- "after_geo": 825,
- "after_dedupe": 433,
- "finished_at": "2026-10-12T23:21:52.023373+00:00"
+ "raw": 1788,
+ "after_geo": 818,
+ "after_dedupe": 435,
+ "finished_at": "2026-10-13T12:21:12.476934+00:00"
 }
