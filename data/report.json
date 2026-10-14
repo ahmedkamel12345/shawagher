@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-14T09:49:57.610083+00:00",
+ "started_at": "2026-10-14T20:22:19.740641+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -394,14 +394,14 @@
   {
    "kind": "remotive",
    "slug": "remotive",
-   "count": 16,
+   "count": 15,
    "status": "ok"
   },
   {
    "kind": "jobicy",
    "slug": "jobicy",
-   "count": 50,
-   "status": "ok"
+   "count": 0,
+   "status": "HTTPError: 403 Client Error: Forbidden for url: https://jobicy.com/api/v2/remote-jobs?count=50"
   },
   {
    "kind": "himalayas",
@@ -424,37 +424,37 @@
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 4,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 4,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 4,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 4,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 4,
+   "count": 2,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 4,
+   "count": 2,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 15,
+   "count": 16,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1808,
- "after_geo": 852,
- "after_dedupe": 452,
- "finished_at": "2026-10-14T09:51:35.812940+00:00"
+ "raw": 1751,
+ "after_geo": 825,
+ "after_dedupe": 430,
+ "finished_at": "2026-10-14T20:23:58.529236+00:00"
 }
