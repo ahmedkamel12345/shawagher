@@ -1,10 +1,10 @@
 {
- "started_at": "2026-10-14T20:22:19.740641+00:00",
+ "started_at": "2026-10-15T09:30:29.304394+00:00",
  "sources": [
   {
    "kind": "greenhouse",
    "slug": "careem",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
@@ -400,8 +400,8 @@
   {
    "kind": "jobicy",
    "slug": "jobicy",
-   "count": 0,
-   "status": "HTTPError: 403 Client Error: Forbidden for url: https://jobicy.com/api/v2/remote-jobs?count=50"
+   "count": 50,
+   "status": "ok"
   },
   {
    "kind": "himalayas",
@@ -418,7 +418,7 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 88,
+   "count": 87,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1751,
- "after_geo": 825,
- "after_dedupe": 430,
- "finished_at": "2026-10-14T20:23:58.529236+00:00"
+ "raw": 1801,
+ "after_geo": 820,
+ "after_dedupe": 426,
+ "finished_at": "2026-10-15T09:32:06.795848+00:00"
 }
