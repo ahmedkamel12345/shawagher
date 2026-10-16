@@ -1,10 +1,10 @@
 {
- "started_at": "2026-10-15T20:07:11.383020+00:00",
+ "started_at": "2026-10-16T09:23:35.688224+00:00",
  "sources": [
   {
    "kind": "greenhouse",
    "slug": "careem",
-   "count": 17,
+   "count": 15,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 16,
+   "count": 17,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1813,
- "after_geo": 833,
- "after_dedupe": 429,
- "finished_at": "2026-10-15T20:09:19.399363+00:00"
+ "raw": 1817,
+ "after_geo": 844,
+ "after_dedupe": 436,
+ "finished_at": "2026-10-16T09:25:11.895193+00:00"
 }
