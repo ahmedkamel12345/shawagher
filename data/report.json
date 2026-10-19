@@ -1,10 +1,10 @@
 {
- "started_at": "2026-10-19T10:23:16.309427+00:00",
+ "started_at": "2026-10-19T21:17:46.728763+00:00",
  "sources": [
   {
    "kind": "greenhouse",
    "slug": "careem",
-   "count": 13,
+   "count": 12,
    "status": "ok"
   },
   {
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 42,
+   "count": 43,
    "status": "ok"
   },
   {
@@ -340,7 +340,7 @@
   {
    "kind": "workable",
    "slug": "robusta",
-   "count": 107,
+   "count": 108,
    "status": "ok"
   },
   {
@@ -496,37 +496,37 @@
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 15,
+   "count": 14,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 15,
+   "count": 14,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 15,
+   "count": 14,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 15,
+   "count": 14,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 15,
+   "count": 14,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 15,
+   "count": 14,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1808,
- "after_geo": 842,
- "after_dedupe": 442,
- "finished_at": "2026-10-19T10:25:08.466573+00:00"
+ "raw": 1803,
+ "after_geo": 843,
+ "after_dedupe": 448,
+ "finished_at": "2026-10-19T21:20:16.555178+00:00"
 }
