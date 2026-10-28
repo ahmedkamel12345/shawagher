@@ -1,5 +1,5 @@
 {
- "started_at": "2026-10-28T10:53:27.476432+00:00",
+ "started_at": "2026-10-28T21:24:50.903757+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 45,
+   "count": 44,
    "status": "ok"
   },
   {
@@ -340,7 +340,7 @@
   {
    "kind": "workable",
    "slug": "robusta",
-   "count": 113,
+   "count": 110,
    "status": "ok"
   },
   {
@@ -418,7 +418,7 @@
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 95,
+   "count": 96,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1812,
- "after_geo": 865,
- "after_dedupe": 469,
- "finished_at": "2026-10-28T10:55:07.292924+00:00"
+ "raw": 1809,
+ "after_geo": 859,
+ "after_dedupe": 464,
+ "finished_at": "2026-10-28T21:26:31.133555+00:00"
 }
