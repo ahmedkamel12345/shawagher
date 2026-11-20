@@ -1,5 +1,5 @@
 {
- "started_at": "2026-11-19T23:20:09.886644+00:00",
+ "started_at": "2026-11-20T13:42:29.480377+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -412,49 +412,49 @@
   {
    "kind": "remoteok",
    "slug": "remoteok",
-   "count": 97,
+   "count": 98,
    "status": "ok"
   },
   {
    "kind": "weworkremotely",
    "slug": "wwr",
-   "count": 93,
+   "count": 97,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 4,
+   "count": 3,
    "status": "ok"
   },
   {
@@ -532,37 +532,37 @@
   {
    "kind": "jooble",
    "slug": "jb-ae-all",
-   "count": 9,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-محاسب",
-   "count": 9,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مبيعات",
-   "count": 9,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-خدمة عملاء",
-   "count": 9,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-سائق",
-   "count": 9,
+   "count": 11,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مهندس",
-   "count": 9,
+   "count": 11,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1580,
- "after_geo": 636,
- "after_dedupe": 403,
- "finished_at": "2026-11-19T23:21:46.681263+00:00"
+ "raw": 1591,
+ "after_geo": 651,
+ "after_dedupe": 412,
+ "finished_at": "2026-11-20T13:44:05.969977+00:00"
 }
