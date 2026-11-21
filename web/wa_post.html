@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>منشور واتساب اليومي — شواغر</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#14213d;--mut:#5b6785;--ac:#16a34a;--bd:#dde3f0}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1424;--card:#171f36;--ink:#eef2ff;--mut:#9aa7c7;--bd:#2a3556}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,"Segoe UI",Tahoma,sans-serif;padding:16px}
+.w{max-width:680px;margin:0 auto}
+h1{font-size:20px;margin:6px 0 4px}
+.s{color:var(--mut);font-size:13px;margin-bottom:16px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:16px}
+.c h2{font-size:16px;margin:0 0 10px}
+pre{white-space:pre-wrap;word-break:break-word;font:inherit;font-size:14px;line-height:1.7;background:var(--bg);border-radius:12px;padding:12px;margin:0 0 10px;border:1px solid var(--bd)}
+.r{display:flex;gap:8px;flex-wrap:wrap}
+button,a.b{flex:1;min-width:140px;text-align:center;padding:12px;border-radius:12px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+button{background:var(--ac);color:#fff}
+a.b{background:var(--card);color:var(--ink);border:1px solid var(--bd)}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>📲 منشور واتساب اليومي</h1>
+<div class="s" id="when">جارٍ التحميل…</div>
+<div id="list"></div>
+</div>
+<script>
+(function(){
+  var list=document.getElementById("list"),when=document.getElementById("when");
+  function copy(text,btn){
+    function done(){var o=btn.textContent;btn.textContent="✅ تم النسخ";setTimeout(function(){btn.textContent=o},1800)}
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback);return}
+    }catch(e){}
+    fallback();
+    function fallback(){
+      var t=document.createElement("textarea");t.value=text;t.style.position="fixed";t.style.opacity="0";
+      document.body.appendChild(t);t.select();try{document.execCommand("copy");done()}catch(e){}document.body.removeChild(t);
+    }
+  }
+  fetch("data/whatsapp_post.json?"+Date.now()).then(function(r){return r.json()}).then(function(d){
+    try{when.textContent="آخر تحديث: "+new Date(d.generated_at).toLocaleString("ar-EG")+" — انسخ والصق في الجروب"}catch(e){when.textContent=""}
+    if(!d.posts||!d.posts.length){list.textContent="مفيش وظايف جديدة دلوقتي.";return}
+    d.posts.forEach(function(p){
+      var c=document.createElement("div");c.className="c";
+      var h=document.createElement("h2");h.textContent=p.flag+" "+p.name+" ("+p.count+" وظائف)";
+      var pre=document.createElement("pre");pre.textContent=p.text;
+      var row=document.createElement("div");row.className="r";
+      var b=document.createElement("button");b.textContent="📋 انسخ المنشور";b.onclick=function(){copy(p.text,b)};
+      row.appendChild(b);
+      if(p.group_url){var a=document.createElement("a");a.className="b";a.href=p.group_url;a.target="_blank";a.rel="noopener";a.textContent="↗️ افتح الجروب";row.appendChild(a)}
+      c.appendChild(h);c.appendChild(pre);c.appendChild(row);list.appendChild(c);
+    });
+  }).catch(function(){when.textContent="تعذّر تحميل المنشور — شغّل تجميع الشواغر من Actions أولاً."});
+})();
+</script>
+</body>
+</html>
