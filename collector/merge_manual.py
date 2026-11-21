@@ -63,3 +63,12 @@ data["generated_at"] = datetime.now(timezone.utc).isoformat()
 data.pop("demo", None)
 jobs_path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 print(f"تم: {len(added)} إعلان واتساب + {len(jobs)-len(added)} من المصادر = {len(jobs)} في {a.jobs}")
+
+# توليد منشورات واتساب الجاهزة للنسخ (اختياري — بيتخطى لو الملف مش موجود)
+try:
+    import subprocess, sys
+    _mk = Path(__file__).with_name("make_wa_post.py")
+    if _mk.exists():
+        subprocess.run([sys.executable, str(_mk), "--jobs", str(jobs_path)], check=False)
+except Exception as _e:  # noqa: BLE001
+    print("تخطّي منشور واتساب:", _e)
