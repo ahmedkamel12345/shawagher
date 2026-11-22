@@ -1039,8 +1039,14 @@ function ago(iso){
 const matchQ = j => { const q = state.q.trim().toLowerCase();
   return !q || [j.title,j.company_name,j.city,j.summary].join(" ").toLowerCase().includes(q); };
 const inCountry = j => !state.country || j.country === state.country;
+const MAX_AGE_DAYS = 30;   // الإعلان بيختفي تلقائياً بعد ٣٠ يوم
+function liveJobs(){
+  const cut = Date.now() - MAX_AGE_DAYS*864e5;
+  const ok = JOBS.filter(j => { const t = Date.parse(j.posted_at || ""); return isNaN(t) || t >= cut; });
+  return ok.length ? ok : JOBS;   // حماية: لو كله قديم منعرضش صفحة فاضية
+}
 function filtered(){
-  let out = JOBS.filter(j => matchQ(j) && inCountry(j)
+  let out = liveJobs().filter(j => matchQ(j) && inCountry(j)
     && (!state.category || j.category === state.category)
     && (!state.level || j.seniority === state.level)
     && (!state.verified || j.source_kind !== "discover"));
@@ -1061,7 +1067,7 @@ function drawTicker(){
   if(!box || !inner) return;
   // أحدث ١٢ وظيفة حقيقية (بعنوان وجهة فعليين) — من غير تكرار نفس الجهة كتير
   const seen = {};
-  const items = JOBS.filter(j => j.title && j.company_name)
+  const items = liveJobs().filter(j => j.title && j.company_name)
     .sort((a,b) => (b.posted_at||"").localeCompare(a.posted_at||""))
     .filter(j => { seen[j.company_name] = (seen[j.company_name]||0)+1; return seen[j.company_name] <= 2; })
     .slice(0, 12);
@@ -1297,7 +1303,7 @@ async function loadLiveJobs(){
   try{
     const { data, error } = await sb.from("job_submissions")
       .select("title,company_name,country,city,category,seniority,is_remote,summary,apply_url,created_at")
-      .eq("status", "approved").order("created_at", { ascending: false }).limit(300);
+      .eq("status", "approved").gte("created_at", new Date(Date.now() - 30*864e5).toISOString()).order("created_at", { ascending: false }).limit(300);
     if(error || !data) return;
     const base = JOBS.filter(j => j.source_kind !== "user");   // نحتفظ بالأصلية قبل أي تعديل
     const extra = data.map(j => ({...j, posted_at: j.created_at, source_kind: "user", is_direct: true,
