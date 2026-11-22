@@ -1,5 +1,5 @@
 {
- "started_at": "2026-11-22T12:55:58.266626+00:00",
+ "started_at": "2026-11-22T18:08:22.091198+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -340,7 +340,7 @@
   {
    "kind": "workable",
    "slug": "robusta",
-   "count": 88,
+   "count": 87,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1572,
- "after_geo": 594,
- "after_dedupe": 372,
- "finished_at": "2026-11-22T12:57:33.158673+00:00"
+ "raw": 1571,
+ "after_geo": 569,
+ "after_dedupe": 349,
+ "finished_at": "2026-11-22T18:09:55.669179+00:00"
 }
