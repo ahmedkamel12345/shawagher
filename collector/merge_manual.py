@@ -12,13 +12,26 @@ import argparse
 import hashlib
 import json
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 
 def fingerprint(company, title, city):
     norm = lambda s: re.sub(r"[^a-z0-9\u0600-\u06FF]+", "", (s or "").lower())  # noqa: E731
     return hashlib.sha1("|".join([norm(company), norm(title), norm(city)]).encode()).hexdigest()
+
+
+MAX_AGE_DAYS = 30   # الإعلانات الأقدم من كده بتتحذف تلقائياً
+
+
+def fresh(j, cutoff):
+    try:
+        d = datetime.fromisoformat((j.get("posted_at") or "").replace("Z", "+00:00"))
+        if d.tzinfo is None:
+            d = d.replace(tzinfo=timezone.utc)
+        return d >= cutoff
+    except ValueError:
+        return True          # من غير تاريخ = نسيبه
 
 
 ap = argparse.ArgumentParser()
@@ -30,11 +43,16 @@ a = ap.parse_args()
 store_path = Path(a.store)
 store = json.loads(store_path.read_text(encoding="utf-8")) if store_path.exists() else []
 before = len(store)
+_cut = datetime.now(timezone.utc) - timedelta(days=MAX_AGE_DAYS)
+store = [j for j in store if fresh(j, _cut)]
 
 manual_path = Path(a.manual)
+if not manual_path.exists():
+    store_path.write_text(json.dumps(store, ensure_ascii=False, indent=1), encoding="utf-8")
 if manual_path.exists():
     incoming = json.loads(manual_path.read_text(encoding="utf-8")).get("jobs", [])
     seen = {j["fingerprint"] for j in store}
+    incoming = [j for j in incoming if fresh(j, _cut)]
     for j in incoming:
         j["fingerprint"] = fingerprint(j.get("company_name"), j.get("title"), j.get("city"))
         j.setdefault("source_kind", "whatsapp")
@@ -52,7 +70,7 @@ if not jobs_path.exists():
     raise SystemExit(f"مش لاقي {a.jobs} — شغّل fetch_jobs.py الأول")
 
 data = json.loads(jobs_path.read_text(encoding="utf-8"))
-jobs = [j for j in data.get("jobs", []) if j.get("source_kind") != "whatsapp"]
+jobs = [j for j in data.get("jobs", []) if j.get("source_kind") != "whatsapp" and fresh(j, _cut)]
 have = {j["fingerprint"] for j in jobs}
 added = [j for j in store if j["fingerprint"] not in have]
 
