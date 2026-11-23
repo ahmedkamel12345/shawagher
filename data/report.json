@@ -1,10 +1,10 @@
 {
- "started_at": "2026-11-22T22:13:38.279060+00:00",
+ "started_at": "2026-11-23T15:30:16.013414+00:00",
  "sources": [
   {
    "kind": "greenhouse",
    "slug": "careem",
-   "count": 11,
+   "count": 12,
    "status": "ok"
   },
   {
@@ -88,7 +88,7 @@
   {
    "kind": "greenhouse",
    "slug": "tamara",
-   "count": 35,
+   "count": 36,
    "status": "ok"
   },
   {
@@ -484,126 +484,126 @@
   {
    "kind": "jooble",
    "slug": "jb-eg-سائق",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-eg-مهندس",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-all",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 1,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-محاسب",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 1,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مبيعات",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 1,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-خدمة عملاء",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 1,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-سائق",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 1,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-sa-مهندس",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 1,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-all",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-محاسب",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مبيعات",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-خدمة عملاء",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-سائق",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-ae-مهندس",
-   "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "count": 30,
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-all",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-محاسب",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-مبيعات",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-خدمة عملاء",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-سائق",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-qa-مهندس",
    "count": 0,
-   "status": "HTTPError: 429 Client Error: Too Many Requests for url: https://jooble.org/api/33c0c152-e5f7-4fd5-837c-4f0af4fc5583"
+   "status": "ok"
   }
  ],
- "raw": 1457,
- "after_geo": 458,
- "after_dedupe": 341,
- "finished_at": "2026-11-22T22:15:13.383267+00:00"
+ "raw": 1705,
+ "after_geo": 708,
+ "after_dedupe": 371,
+ "finished_at": "2026-11-23T15:31:51.056500+00:00"
 }
