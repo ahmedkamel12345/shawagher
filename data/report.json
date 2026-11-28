@@ -1,5 +1,5 @@
 {
- "started_at": "2026-11-27T14:29:42.925874+00:00",
+ "started_at": "2026-11-28T00:18:17.490614+00:00",
  "sources": [
   {
    "kind": "greenhouse",
@@ -424,37 +424,37 @@
   {
    "kind": "jooble",
    "slug": "jb-kw-all",
-   "count": 2,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-محاسب",
-   "count": 2,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مبيعات",
-   "count": 2,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-خدمة عملاء",
-   "count": 2,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-سائق",
-   "count": 2,
+   "count": 3,
    "status": "ok"
   },
   {
    "kind": "jooble",
    "slug": "jb-kw-مهندس",
-   "count": 2,
+   "count": 3,
    "status": "ok"
   },
   {
@@ -602,8 +602,8 @@
    "status": "ok"
   }
  ],
- "raw": 1696,
- "after_geo": 692,
- "after_dedupe": 366,
- "finished_at": "2026-11-27T14:31:41.925831+00:00"
+ "raw": 1702,
+ "after_geo": 686,
+ "after_dedupe": 353,
+ "finished_at": "2026-11-28T00:19:57.532875+00:00"
 }
